@@ -21,10 +21,6 @@
 }
 
 
--(NSUInteger)supportedInterfaceOrientations {
-	return UIInterfaceOrientationMaskLandscape;
-}
-
 -(BOOL)shouldAutorotate {
 	return YES;
 }
