@@ -8,6 +8,7 @@
 
 #import "MECOViewController.h"
 #import "MECOGroundView.h"
+#import "MECOObjectView.h"
 
 @interface MECOViewController ()
 
@@ -27,6 +28,15 @@
 	};
 	groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 	[self.view addSubview:groundView];
+	
+	MECOObjectView *mecoView = [MECOObjectView new];
+	mecoView.image = [UIImage imageNamed:@"Meco.png"];
+	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+	mecoView.center = (CGPoint){
+		self.view.frame.size.width / 2.,
+		self.view.frame.size.height - 40
+	};
+	[self.view addSubview:mecoView];
 }
 
 

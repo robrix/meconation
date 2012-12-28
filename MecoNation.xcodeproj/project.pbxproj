@@ -21,6 +21,7 @@
 		D497CB5B168E408A0025EC0B /* MECOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB5A168E408A0025EC0B /* MECOViewController.m */; };
 		D497CB63168E497B0025EC0B /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB62168E497B0025EC0B /* MECOGroundView.m */; };
 		D497CB66168E4A830025EC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB65168E4A830025EC0B /* QuartzCore.framework */; };
+		D497CB6D168E56BD0025EC0B /* MECOObjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB6C168E56BD0025EC0B /* MECOObjectView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		D497CB61168E497B0025EC0B /* MECOGroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOGroundView.h; sourceTree = "<group>"; };
 		D497CB62168E497B0025EC0B /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
 		D497CB65168E4A830025EC0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D497CB6B168E56BD0025EC0B /* MECOObjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOObjectView.h; sourceTree = "<group>"; };
+		D497CB6C168E56BD0025EC0B /* MECOObjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOObjectView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				75D8B491168E562E00298737 /* Meco.png */,
 				D497CB61168E497B0025EC0B /* MECOGroundView.h */,
 				D497CB62168E497B0025EC0B /* MECOGroundView.m */,
+				D497CB6B168E56BD0025EC0B /* MECOObjectView.h */,
+				D497CB6C168E56BD0025EC0B /* MECOObjectView.m */,
 			);
 			name = "Visible objects";
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				D497CB4F168E408A0025EC0B /* MECOAppDelegate.m in Sources */,
 				D497CB5B168E408A0025EC0B /* MECOViewController.m in Sources */,
 				D497CB63168E497B0025EC0B /* MECOGroundView.m in Sources */,
+				D497CB6D168E56BD0025EC0B /* MECOObjectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
