@@ -62,7 +62,6 @@
 		D497CB2F168E408A0025EC0B = {
 			isa = PBXGroup;
 			children = (
-				D497CB65168E4A830025EC0B /* QuartzCore.framework */,
 				D497CB44168E408A0025EC0B /* MecoNation */,
 				D497CB3D168E408A0025EC0B /* Frameworks */,
 				D497CB3B168E408A0025EC0B /* Products */,
@@ -83,6 +82,7 @@
 				D497CB3E168E408A0025EC0B /* UIKit.framework */,
 				D497CB40168E408A0025EC0B /* Foundation.framework */,
 				D497CB42168E408A0025EC0B /* CoreGraphics.framework */,
+				D497CB65168E4A830025EC0B /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

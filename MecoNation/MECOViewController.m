@@ -30,10 +30,6 @@
 }
 
 
--(BOOL)shouldAutorotate {
-	return YES;
-}
-
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
 }
