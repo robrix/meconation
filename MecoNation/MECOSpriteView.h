@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MECOSpriteViewDelegate;
+
 @interface MECOSpriteView : UIView
 
+@property (nonatomic, weak) id<MECOSpriteViewDelegate> delegate;
+
 @property (nonatomic, strong) UIImage *image;
+
+@end
+
+
+@protocol MECOSpriteViewDelegate <NSObject>
+
+-(bool)spriteView:(MECOSpriteView *)spriteView shouldMoveToDestination:(CGPoint)destination;
 
 @end
