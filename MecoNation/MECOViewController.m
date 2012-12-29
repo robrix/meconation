@@ -29,18 +29,8 @@
 	groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 	[self.view addSubview:groundView];
 	
-	for (NSUInteger i = 0; i < 4; i++) {
-		MECOSpriteView *mecoView = [MECOSpriteView new];
-		mecoView.delegate = self;
-		mecoView.image = [UIImage imageNamed:@"Meco.png"];
-		mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
-		
-		mecoView.center = (CGPoint){
-			self.view.frame.size.width / 2.,
-			self.view.frame.size.height - mecoView.frame.size.height
-		};
-		
-		[self.view addSubview:mecoView];
+	for (NSUInteger i = 0; i < 1; i++) {
+		[self addMeco];
 	}
 }
 
@@ -54,6 +44,26 @@
 	return
 		(destination.x > CGRectGetMinX(self.view.bounds))
 	&&	(destination.x < CGRectGetMaxX(self.view.bounds));
+}
+
+
+-(IBAction)addMeco:(id)sender {
+	[self addMeco];
+}
+
+
+-(void)addMeco {
+	MECOSpriteView *mecoView = [MECOSpriteView new];
+	mecoView.delegate = self;
+	mecoView.image = [UIImage imageNamed:@"Meco.png"];
+	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+	
+	mecoView.center = (CGPoint){
+		self.view.bounds.size.width / 2.,
+		self.view.bounds.size.height - mecoView.bounds.size.height
+	};
+	
+	[self.view addSubview:mecoView];
 }
 
 @end
