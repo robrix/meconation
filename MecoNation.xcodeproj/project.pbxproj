@@ -102,7 +102,7 @@
 				D497CB56168E408A0025EC0B /* MainStoryboard.storyboard */,
 				D497CB59168E408A0025EC0B /* MECOViewController.h */,
 				D497CB5A168E408A0025EC0B /* MECOViewController.m */,
-				D497CB64168E4A480025EC0B /* Visible objects */,
+				D497CB64168E4A480025EC0B /* Sprites */,
 				D497CB45168E408A0025EC0B /* Supporting Files */,
 			);
 			path = MecoNation;
@@ -123,7 +123,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D497CB64168E4A480025EC0B /* Visible objects */ = {
+		D497CB64168E4A480025EC0B /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
 				75D8B491168E562E00298737 /* Meco.png */,
@@ -132,7 +132,7 @@
 				D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */,
 				D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */,
 			);
-			name = "Visible objects";
+			name = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

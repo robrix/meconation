@@ -32,10 +32,22 @@
 	MECOSpriteView *mecoView = [MECOSpriteView new];
 	mecoView.image = [UIImage imageNamed:@"Meco.png"];
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+	
 	mecoView.center = (CGPoint){
 		self.view.frame.size.width / 2.,
-		self.view.frame.size.height - 40
+		self.view.frame.size.height - mecoView.frame.size.height
 	};
+	
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+		[UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+			CGPoint start = mecoView.center;
+			mecoView.center = (CGPoint){
+				start.x + 60,
+				start.y
+			};
+		} completion:nil];
+	});
+	
 	[self.view addSubview:mecoView];
 }
 
