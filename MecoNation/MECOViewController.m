@@ -21,6 +21,10 @@
 
 @property (strong) NSMutableSet *sprites;
 
+@property (strong) IBOutlet UIToolbar *toolbar;
+
+@property (strong) IBOutlet UIBarButtonItem *IQCounter;
+
 -(void)addMeco;
 
 @end
@@ -33,6 +37,8 @@
 @synthesize displayLink = _displayLink;
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
+@synthesize toolbar = _toolbar;
+@synthesize IQCounter = _IQCounter;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
@@ -47,12 +53,16 @@
 
 
 -(void)viewDidAppear:(BOOL)animated {
+	
 	self.groundView = [MECOGroundView new];
 	self.groundView.frame = self.view.bounds;
 	self.groundView.island = [MECOIsland firstIsland];
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view insertSubview:self.groundView atIndex:0];
 	
+	self.toolbar.frame = (CGRect){
+		.size = { self.view.bounds.size.width, 30 }
+	};
 	[self addMeco];
 }
 
@@ -100,16 +110,16 @@
 	
 	CGPoint tile = (CGPoint){
 		random() % (NSUInteger)(self.view.bounds.size.width / 20.0),
-		random() % ((NSUInteger)((self.view.bounds.size.height / 40.0) - 1))
+		random() % ((NSUInteger)((self.view.bounds.size.height / 20.0) - 3))+2
 	};
 	
 	mecoView.center = (CGPoint){
 		(tile.x * 20) + 10,
-		(tile.y * 40) + 20
+		(tile.y * 20) + 20
 	};
 	
 	[self.sprites addObject:mecoView];
-	[self.view addSubview:mecoView];
+	[self.view insertSubview:mecoView belowSubview:self.toolbar];
 }
 
 
