@@ -8,6 +8,7 @@
 
 #import "MECOViewController.h"
 #import "MECOGroundView.h"
+#import "MECOIsland.h"
 #import "MECOSpriteView.h"
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
@@ -48,22 +49,21 @@
 	self.sprites = [NSMutableSet new];
 	
 	self.view.backgroundColor = [UIColor colorWithRed:153./255. green:255./255. blue:255./255. alpha:1.0];
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
 	
 	self.groundView = [MECOGroundView new];
-	self.groundView.frame = (CGRect){
-		{0, self.view.frame.size.height - 20},
-		{self.view.frame.size.width, 20}
-	};
-	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-	[self.view addSubview:self.groundView];
-	
-	for (NSUInteger i = 0; i < 1; i++) {
-		[self addMeco];
-	}
+	self.groundView.frame = self.view.bounds;
+	self.groundView.island = [MECOIsland firstIsland];
+	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	[self.view insertSubview:self.groundView atIndex:0];
 	
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
+	[self addMeco];
 }
 
 
@@ -88,7 +88,7 @@
 -(CGPoint)constrainSpritePositionToGround:(CGPoint)position {
 	return (CGPoint){
 		position.x,
-		MECOConstrainValueToRange(position.y, 0, CGRectGetMinY(self.groundView.frame) - 20)
+		MECOConstrainValueToRange(position.y, 0, (CGRectGetHeight(self.groundView.bounds) - [self.groundView.island groundHeightAtX:position.x]) - 20)
 	};
 }
 

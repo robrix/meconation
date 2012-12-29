@@ -98,23 +98,20 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 
 -(void)timerDidFire:(NSTimer *)timer {
 	CGFloat direction = (random() % 2)? 1.0 : -1.0;
-	CGFloat distance = ((CGFloat)((random() % 4) + 2)) * 20.0;
-	CGFloat delta = direction * distance;
-	NSTimeInterval duration = distance / 40.0;
-	
-	CGPoint start = self.center;
-	CGPoint destination = [self.delegate spriteView:self constrainPosition:(CGPoint){
-		start.x + delta,
-		start.y
-	}];
+	NSTimeInterval duration = ((CGFloat)((random() % 3) + 1)) / 2.0;
 	
 	self.layer.transform = CATransform3DMakeScale(direction, 1.0, 1.0);
 	
-	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-		self.center = destination;
-	} completion:^(BOOL finished) {
+	self.velocity = MECOPointAdd(self.velocity, (CGPoint){
+		.x = direction
+	});
+	
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+		self.velocity = MECOPointAdd(self.velocity, (CGPoint){
+			.x = -direction
+		});
 		[self resetTimer];
-	}];
+	});
 }
 
 @end

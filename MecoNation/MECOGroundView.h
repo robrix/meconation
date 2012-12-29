@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MECOIsland;
+
 @interface MECOGroundView : UIView
+
+@property (nonatomic, strong) MECOIsland *island;
 
 @end
