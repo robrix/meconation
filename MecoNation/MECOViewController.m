@@ -20,6 +20,8 @@
 
 @property (strong) NSMutableSet *sprites;
 
+-(void)addMeco;
+
 @end
 
 #define MECOConstrainValueToRange(value, minimum, maximum) \
@@ -28,6 +30,7 @@
 @implementation MECOViewController
 
 @synthesize displayLink = _displayLink;
+@synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 
 -(void)viewDidLoad {
