@@ -52,8 +52,8 @@
 
 -(bool)spriteView:(MECOSpriteView *)spriteView shouldMoveToDestination:(CGPoint)destination {
 	return
-		(destination.x > CGRectGetMinX(self.view.frame))
-	&&	(destination.x < CGRectGetMaxX(self.view.frame));
+		(destination.x > CGRectGetMinX(self.view.bounds))
+	&&	(destination.x < CGRectGetMaxX(self.view.bounds));
 }
 
 @end
