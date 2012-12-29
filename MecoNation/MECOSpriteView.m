@@ -12,7 +12,9 @@
 
 @interface MECOSpriteView ()
 
-@property NSTimer *timer;
+@property (strong) NSTimer *timer;
+
+-(void)resetTimer;
 
 @end
 
