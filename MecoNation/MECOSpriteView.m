@@ -80,7 +80,19 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 -(void)updateWithInterval:(NSTimeInterval)interval {
 	self.velocity = MECOPointAdd(self.velocity, MECOPointScale(self.inertia, interval));
 	
-	self.center = [self.delegate spriteView:self constrainPosition:MECOPointAdd(self.center, self.velocity)];
+	CGPoint proposedCenter = MECOPointAdd(self.center, self.velocity);
+	CGPoint constrainedCenter = [self.delegate spriteView:self constrainPosition:proposedCenter];
+	
+	CGPoint inertia = self.inertia;
+	
+	if ((constrainedCenter.x == self.center.x) && (inertia.x != 0))
+		inertia.x = 0;
+	if ((constrainedCenter.y == self.center.y) && (inertia.y != 0))
+		inertia.y = 0;
+	
+	self.inertia = inertia;
+	
+	self.center = constrainedCenter;
 }
 
 
