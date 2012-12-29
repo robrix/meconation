@@ -32,6 +32,9 @@
 		D497CB66168E4A830025EC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB65168E4A830025EC0B /* QuartzCore.framework */; };
 		D497CB6D168E56BD0025EC0B /* MECOSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */; };
 		D497CB85168F52B10025EC0B /* mecoiOSicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D497CB84168F52B10025EC0B /* mecoiOSicon.png */; };
+		D497CB92168F92640025EC0B /* MECOIsland.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB91168F92640025EC0B /* MECOIsland.m */; };
+		D497CBD6168F9CD40025EC0B /* NSValue+MECOPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */; };
+		D497CBD8168F9F600025EC0B /* Island 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D497CBD7168F9F600025EC0B /* Island 1.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +70,11 @@
 		D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOSpriteView.h; sourceTree = "<group>"; };
 		D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSpriteView.m; sourceTree = "<group>"; };
 		D497CB84168F52B10025EC0B /* mecoiOSicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mecoiOSicon.png; sourceTree = SOURCE_ROOT; };
+		D497CB90168F92640025EC0B /* MECOIsland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOIsland.h; sourceTree = "<group>"; };
+		D497CB91168F92640025EC0B /* MECOIsland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOIsland.m; sourceTree = "<group>"; };
+		D497CBD4168F9CD40025EC0B /* NSValue+MECOPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+MECOPoints.h"; sourceTree = "<group>"; };
+		D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+MECOPoints.m"; sourceTree = "<group>"; };
+		D497CBD7168F9F600025EC0B /* Island 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 1.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +144,7 @@
 				D497CB56168E408A0025EC0B /* MainStoryboard.storyboard */,
 				D497CB59168E408A0025EC0B /* MECOViewController.h */,
 				D497CB5A168E408A0025EC0B /* MECOViewController.m */,
+				D497CB8B168F92020025EC0B /* Ground */,
 				D497CB64168E4A480025EC0B /* Sprites */,
 				D497CB45168E408A0025EC0B /* Supporting Files */,
 			);
@@ -153,6 +162,8 @@
 				D497CB50168E408A0025EC0B /* Default.png */,
 				D497CB52168E408A0025EC0B /* Default@2x.png */,
 				D497CB54168E408A0025EC0B /* Default-568h@2x.png */,
+				D497CBD4168F9CD40025EC0B /* NSValue+MECOPoints.h */,
+				D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -162,12 +173,22 @@
 			children = (
 				75B03C35168F865800515C47 /* Speech Bubbles */,
 				75D8B491168E562E00298737 /* Meco.png */,
-				D497CB61168E497B0025EC0B /* MECOGroundView.h */,
-				D497CB62168E497B0025EC0B /* MECOGroundView.m */,
 				D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */,
 				D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		D497CB8B168F92020025EC0B /* Ground */ = {
+			isa = PBXGroup;
+			children = (
+				D497CB61168E497B0025EC0B /* MECOGroundView.h */,
+				D497CB62168E497B0025EC0B /* MECOGroundView.m */,
+				D497CB90168F92640025EC0B /* MECOIsland.h */,
+				D497CB91168F92640025EC0B /* MECOIsland.m */,
+				D497CBD7168F9F600025EC0B /* Island 1.plist */,
+			);
+			name = Ground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +259,7 @@
 				75B03C46168F888300515C47 /* Talking.png in Resources */,
 				75B03C47168F888300515C47 /* Trees.png in Resources */,
 				75B03C48168F888300515C47 /* Weather.png in Resources */,
+				D497CBD8168F9F600025EC0B /* Island 1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +275,8 @@
 				D497CB5B168E408A0025EC0B /* MECOViewController.m in Sources */,
 				D497CB63168E497B0025EC0B /* MECOGroundView.m in Sources */,
 				D497CB6D168E56BD0025EC0B /* MECOSpriteView.m in Sources */,
+				D497CB92168F92640025EC0B /* MECOIsland.m in Sources */,
+				D497CBD6168F9CD40025EC0B /* NSValue+MECOPoints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
