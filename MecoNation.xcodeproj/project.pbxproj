@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75B03C40168F888300515C47 /* Boats.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C37168F888300515C47 /* Boats.png */; };
+		75B03C41168F888300515C47 /* GetAttention.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C38168F888300515C47 /* GetAttention.png */; };
+		75B03C42168F888300515C47 /* Moofin.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C39168F888300515C47 /* Moofin.png */; };
+		75B03C43168F888300515C47 /* Sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3A168F888300515C47 /* Sheep.png */; };
+		75B03C44168F888300515C47 /* Snakes(Rare).png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3B168F888300515C47 /* Snakes(Rare).png */; };
+		75B03C45168F888300515C47 /* Surprise.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3C168F888300515C47 /* Surprise.png */; };
+		75B03C46168F888300515C47 /* Talking.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3D168F888300515C47 /* Talking.png */; };
+		75B03C47168F888300515C47 /* Trees.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3E168F888300515C47 /* Trees.png */; };
+		75B03C48168F888300515C47 /* Weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3F168F888300515C47 /* Weather.png */; };
 		75D8B492168E562E00298737 /* Meco.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D8B491168E562E00298737 /* Meco.png */; };
 		D497CB3F168E408A0025EC0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB3E168E408A0025EC0B /* UIKit.framework */; };
 		D497CB41168E408A0025EC0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB40168E408A0025EC0B /* Foundation.framework */; };
@@ -26,6 +35,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75B03C37168F888300515C47 /* Boats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Boats.png; path = MecoArt/Boats.png; sourceTree = "<group>"; };
+		75B03C38168F888300515C47 /* GetAttention.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GetAttention.png; path = MecoArt/GetAttention.png; sourceTree = "<group>"; };
+		75B03C39168F888300515C47 /* Moofin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Moofin.png; path = MecoArt/Moofin.png; sourceTree = "<group>"; };
+		75B03C3A168F888300515C47 /* Sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sheep.png; path = MecoArt/Sheep.png; sourceTree = "<group>"; };
+		75B03C3B168F888300515C47 /* Snakes(Rare).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Snakes(Rare).png"; path = "MecoArt/Snakes(Rare).png"; sourceTree = "<group>"; };
+		75B03C3C168F888300515C47 /* Surprise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Surprise.png; path = MecoArt/Surprise.png; sourceTree = "<group>"; };
+		75B03C3D168F888300515C47 /* Talking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Talking.png; path = MecoArt/Talking.png; sourceTree = "<group>"; };
+		75B03C3E168F888300515C47 /* Trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trees.png; path = MecoArt/Trees.png; sourceTree = "<group>"; };
+		75B03C3F168F888300515C47 /* Weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Weather.png; path = MecoArt/Weather.png; sourceTree = "<group>"; };
 		75D8B491168E562E00298737 /* Meco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Meco.png; path = MecoArt/Meco.png; sourceTree = "<group>"; };
 		D497CB3A168E408A0025EC0B /* MecoNation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MecoNation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D497CB3E168E408A0025EC0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -66,6 +84,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75B03C35168F865800515C47 /* Speech Bubbles */ = {
+			isa = PBXGroup;
+			children = (
+				75B03C37168F888300515C47 /* Boats.png */,
+				75B03C38168F888300515C47 /* GetAttention.png */,
+				75B03C39168F888300515C47 /* Moofin.png */,
+				75B03C3A168F888300515C47 /* Sheep.png */,
+				75B03C3B168F888300515C47 /* Snakes(Rare).png */,
+				75B03C3C168F888300515C47 /* Surprise.png */,
+				75B03C3D168F888300515C47 /* Talking.png */,
+				75B03C3E168F888300515C47 /* Trees.png */,
+				75B03C3F168F888300515C47 /* Weather.png */,
+			);
+			name = "Speech Bubbles";
+			sourceTree = "<group>";
+		};
 		D497CB2F168E408A0025EC0B = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +160,7 @@
 		D497CB64168E4A480025EC0B /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				75B03C35168F865800515C47 /* Speech Bubbles */,
 				75D8B491168E562E00298737 /* Meco.png */,
 				D497CB61168E497B0025EC0B /* MECOGroundView.h */,
 				D497CB62168E497B0025EC0B /* MECOGroundView.m */,
@@ -194,6 +229,15 @@
 				D497CB58168E408A0025EC0B /* MainStoryboard.storyboard in Resources */,
 				75D8B492168E562E00298737 /* Meco.png in Resources */,
 				D497CB85168F52B10025EC0B /* mecoiOSicon.png in Resources */,
+				75B03C40168F888300515C47 /* Boats.png in Resources */,
+				75B03C41168F888300515C47 /* GetAttention.png in Resources */,
+				75B03C42168F888300515C47 /* Moofin.png in Resources */,
+				75B03C43168F888300515C47 /* Sheep.png in Resources */,
+				75B03C44168F888300515C47 /* Snakes(Rare).png in Resources */,
+				75B03C45168F888300515C47 /* Surprise.png in Resources */,
+				75B03C46168F888300515C47 /* Talking.png in Resources */,
+				75B03C47168F888300515C47 /* Trees.png in Resources */,
+				75B03C48168F888300515C47 /* Weather.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
