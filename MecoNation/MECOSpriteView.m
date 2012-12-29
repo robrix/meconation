@@ -27,13 +27,18 @@
 
 -(id)init {
 	if ((self = [super init])) {
-		_timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
+		[self resetTimer];
 	}
 	return self;
 }
 
 -(void)dealloc {
-	[_timer invalidate];
+	[self.timer invalidate];
+}
+
+
+-(void)resetTimer {
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:NO];
 }
 
 
@@ -57,7 +62,7 @@
 	CGFloat direction = (random() % 2)? 1.0 : -1.0;
 	CGFloat distance = ((CGFloat)((random() % 4) + 2)) * 20.0;
 	CGFloat delta = direction * distance;
-	NSTimeInterval duration = distance / 60.0;
+	NSTimeInterval duration = distance / 40.0;
 	
 	CGPoint start = self.center;
 	CGPoint destination = (CGPoint){
@@ -70,9 +75,12 @@
 		
 		[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
 			self.center = destination;
-		} completion:nil];
+		} completion:^(BOOL finished) {
+			[self resetTimer];
+		}];
+	} else {
+		[self resetTimer];
 	}
-	
 }
 
 @end
