@@ -20,8 +20,10 @@
 	
 	self.bounds = (CGRect){
 		.size = {
-			image.size.width * 2,
-			image.size.height * 2
+			//didn't know what to change here
+			//so I just made it size times one :D
+			image.size.width * 1,
+			image.size.height * 1
 		}
 	};
 }
