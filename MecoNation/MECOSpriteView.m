@@ -55,7 +55,9 @@
 
 -(void)timerDidFire:(NSTimer *)timer {
 	CGFloat direction = (random() % 2)? 1.0 : -1.0;
-	CGFloat delta = direction * 60.0;
+	CGFloat distance = ((CGFloat)((random() % 4) + 2)) * 20.0;
+	CGFloat delta = direction * distance;
+	NSTimeInterval duration = distance / 60.0;
 	
 	CGPoint start = self.center;
 	CGPoint destination = (CGPoint){
@@ -66,7 +68,7 @@
 	if ([self.delegate spriteView:self shouldMoveToDestination:destination]) {
 		self.layer.transform = CATransform3DMakeScale(direction, 1.0, 1.0);
 		
-		[UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+		[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
 			self.center = destination;
 		} completion:nil];
 	}
