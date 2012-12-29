@@ -9,38 +9,47 @@
 #import "MECOViewController.h"
 #import "MECOGroundView.h"
 #import "MECOSpriteView.h"
+#import <stdlib.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface MECOViewController () <MECOSpriteViewDelegate>
 
+@property (strong) CADisplayLink *displayLink;
+
+@property (strong) MECOGroundView *groundView;
+
+@property (strong) NSMutableSet *sprites;
+
 @end
 
+#define MECOConstrainValueToRange(value, minimum, maximum) \
+	MAX(MIN((value), (maximum)), (minimum))
+
 @implementation MECOViewController
+
+@synthesize displayLink = _displayLink;
+@synthesize sprites = _sprites;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
 	
+	self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
+	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+	
+	self.sprites = [NSMutableSet new];
+	
 	self.view.backgroundColor = [UIColor colorWithRed:153./255. green:255./255. blue:255./255. alpha:1.0];
 	
-	MECOGroundView *groundView = [MECOGroundView new];
-	groundView.frame = (CGRect){
+	self.groundView = [MECOGroundView new];
+	self.groundView.frame = (CGRect){
 		{0, self.view.frame.size.height - 20},
 		{self.view.frame.size.width, 20}
 	};
-	groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-	[self.view addSubview:groundView];
+	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+	[self.view addSubview:self.groundView];
 	
-	for (NSUInteger i = 0; i < 4; i++) {
-		MECOSpriteView *mecoView = [MECOSpriteView new];
-		mecoView.delegate = self;
-		mecoView.image = [UIImage imageNamed:@"Meco.png"];
-		mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
-		
-		mecoView.center = (CGPoint){
-			self.view.frame.size.width / 2.,
-			self.view.frame.size.height - mecoView.frame.size.height
-		};
-		
-		[self.view addSubview:mecoView];
+	for (NSUInteger i = 0; i < 1; i++) {
+		[self addMeco];
 	}
 }
 
@@ -54,6 +63,63 @@
 	return
 		(destination.x > CGRectGetMinX(self.view.bounds))
 	&&	(destination.x < CGRectGetMaxX(self.view.bounds));
+}
+
+-(CGPoint)constrainSpritePosition:(CGPoint)position toRect:(CGRect)bounds {
+	return (CGPoint){
+		MECOConstrainValueToRange(position.x, CGRectGetMinX(bounds), CGRectGetMaxX(bounds)),
+		MECOConstrainValueToRange(position.y, CGRectGetMinY(bounds), CGRectGetMaxY(bounds))
+	};
+}
+
+-(CGPoint)constrainSpritePositionToGround:(CGPoint)position {
+	return (CGPoint){
+		position.x,
+		MECOConstrainValueToRange(position.y, 0, CGRectGetMinY(self.groundView.frame) - 20)
+	};
+}
+
+-(CGPoint)spriteView:(MECOSpriteView *)spriteView constrainPosition:(CGPoint)position {
+	return [self constrainSpritePosition:[self constrainSpritePositionToGround:position] toRect:self.view.bounds];
+}
+
+
+-(IBAction)addMeco:(id)sender {
+	[self addMeco];
+}
+
+
+-(void)addMeco {
+	MECOSpriteView *mecoView = [MECOSpriteView new];
+	mecoView.delegate = self;
+	mecoView.image = [UIImage imageNamed:@"Meco.png"];
+	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+	
+	CGPoint tile = (CGPoint){
+		random() % (NSUInteger)(self.view.bounds.size.width / 20.0),
+		random() % ((NSUInteger)((self.view.bounds.size.height / 40.0) - 1))
+	};
+	
+	mecoView.center = (CGPoint){
+		(tile.x * 20) + 10,
+		(tile.y * 40) + 20
+	};
+	
+	[self.sprites addObject:mecoView];
+	[self.view addSubview:mecoView];
+}
+
+
+
+-(void)tick:(CADisplayLink *)displayLink {
+	for (MECOSpriteView *sprite in self.sprites) {
+		[sprite applyAcceleration:(CGPoint){
+			0,
+			9.8 * displayLink.duration
+		}];
+		
+		[sprite updateWithInterval:displayLink.duration];
+	}
 }
 
 @end

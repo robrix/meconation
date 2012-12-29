@@ -10,6 +10,16 @@
 #import <QuartzCore/QuartzCore.h>
 #import <stdlib.h>
 
+
+static inline CGPoint MECOPointAdd(CGPoint a, CGPoint b) {
+	return (CGPoint){ a.x + b.x, a.y + b.y };
+}
+
+static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
+	return (CGPoint){ a.x * t, a.y * t };
+}
+
+
 @interface MECOSpriteView ()
 
 @property (strong) NSTimer *timer;
@@ -26,6 +36,8 @@
 
 @synthesize timer = _timer;
 @synthesize delegate = _delegate;
+@synthesize velocity = _velocity;
+@synthesize inertia = _inertia;
 
 
 -(id)init {
@@ -61,6 +73,29 @@
 }
 
 
+-(void)applyAcceleration:(CGPoint)acceleration {
+	self.inertia = MECOPointAdd(self.inertia, acceleration);
+}
+
+-(void)updateWithInterval:(NSTimeInterval)interval {
+	self.velocity = MECOPointAdd(self.velocity, MECOPointScale(self.inertia, interval));
+	
+	CGPoint proposedCenter = MECOPointAdd(self.center, self.velocity);
+	CGPoint constrainedCenter = [self.delegate spriteView:self constrainPosition:proposedCenter];
+	
+	CGPoint inertia = self.inertia;
+	
+	if ((constrainedCenter.x == self.center.x) && (inertia.x != 0))
+		inertia.x = 0;
+	if ((constrainedCenter.y == self.center.y) && (inertia.y != 0))
+		inertia.y = 0;
+	
+	self.inertia = inertia;
+	
+	self.center = constrainedCenter;
+}
+
+
 -(void)timerDidFire:(NSTimer *)timer {
 	CGFloat direction = (random() % 2)? 1.0 : -1.0;
 	CGFloat distance = ((CGFloat)((random() % 4) + 2)) * 20.0;
@@ -68,22 +103,18 @@
 	NSTimeInterval duration = distance / 40.0;
 	
 	CGPoint start = self.center;
-	CGPoint destination = (CGPoint){
+	CGPoint destination = [self.delegate spriteView:self constrainPosition:(CGPoint){
 		start.x + delta,
 		start.y
-	};
+	}];
 	
-	if ([self.delegate spriteView:self shouldMoveToDestination:destination]) {
-		self.layer.transform = CATransform3DMakeScale(direction, 1.0, 1.0);
-		
-		[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-			self.center = destination;
-		} completion:^(BOOL finished) {
-			[self resetTimer];
-		}];
-	} else {
+	self.layer.transform = CATransform3DMakeScale(direction, 1.0, 1.0);
+	
+	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+		self.center = destination;
+	} completion:^(BOOL finished) {
 		[self resetTimer];
-	}
+	}];
 }
 
 @end
