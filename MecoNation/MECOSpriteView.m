@@ -25,6 +25,7 @@
 }
 
 @synthesize timer = _timer;
+@synthesize delegate = _delegate;
 
 
 -(id)init {
