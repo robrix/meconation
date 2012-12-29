@@ -1,15 +1,15 @@
 //
-//  MECOObjectView.m
+//  MECOSpriteView.m
 //  MecoNation
 //
 //  Created by Rob Rix on 2012-12-28.
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
-#import "MECOObjectView.h"
+#import "MECOSpriteView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation MECOObjectView
+@implementation MECOSpriteView
 
 -(UIImage *)image {
 	return self.layer.contents;
@@ -20,10 +20,8 @@
 	
 	self.bounds = (CGRect){
 		.size = {
-			//didn't know what to change here
-			//so I just made it size times one :D
-			image.size.width * 1,
-			image.size.height * 1
+			image.size.width,
+			image.size.height
 		}
 	};
 }

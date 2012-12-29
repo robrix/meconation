@@ -1,5 +1,5 @@
 //
-//  MECOObjectView.h
+//  MECOSpriteView.h
 //  MecoNation
 //
 //  Created by Rob Rix on 2012-12-28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MECOObjectView : UIView
+@interface MECOSpriteView : UIView
 
 @property (nonatomic, strong) UIImage *image;
 
