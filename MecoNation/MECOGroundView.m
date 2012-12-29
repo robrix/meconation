@@ -7,6 +7,7 @@
 //
 
 #import "MECOGroundView.h"
+#import "MECOIsland.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
 
@@ -19,6 +20,8 @@
 @implementation MECOGroundView
 
 @dynamic layer;
+
+@synthesize island = _island;
 
 
 +(Class)layerClass {
@@ -34,8 +37,13 @@
 }
 
 
--(void)layoutSubviews {
-	self.layer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+-(void)setIsland:(MECOIsland *)island {
+	_island = island;
+	
+	UIBezierPath *path = island.bezierPath;
+	[path applyTransform:CGAffineTransformMakeTranslation(0, self.bounds.size.height)];
+	
+	self.layer.path = path.CGPath;
 }
 
 @end
