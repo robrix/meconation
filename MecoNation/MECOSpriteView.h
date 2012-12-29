@@ -16,11 +16,18 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic) CGPoint velocity;
+@property (nonatomic) CGPoint inertia;
+
+-(void)applyAcceleration:(CGPoint)acceleration;
+
+-(void)updateWithInterval:(NSTimeInterval)interval;
+
 @end
 
 
 @protocol MECOSpriteViewDelegate <NSObject>
 
--(bool)spriteView:(MECOSpriteView *)spriteView shouldMoveToDestination:(CGPoint)destination;
+-(CGPoint)spriteView:(MECOSpriteView *)spriteView constrainPosition:(CGPoint)position;
 
 @end
