@@ -18,6 +18,10 @@
 
 @implementation MECOPerson
 
++(void)initialize {
+	srandomdev();
+}
+
 @synthesize name = _name;
 @synthesize job = _job;
 @synthesize sprite = _sprite;
