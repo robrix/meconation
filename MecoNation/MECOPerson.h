@@ -16,7 +16,9 @@
 +(MECOPerson *)personWithName:(NSString *)name job:(MECOJob *)job;
 
 @property (copy, readonly) NSString *name;
-@property (strong, readonly) MECOJob *job;
+@property (strong) MECOJob *job;
+
+@property (readonly) NSString *label;
 
 @property (weak) id sprite;
 

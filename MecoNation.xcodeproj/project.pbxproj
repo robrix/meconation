@@ -34,6 +34,7 @@
 		D48E0C801690DBD5008DB678 /* Jobs.plist in Resources */ = {isa = PBXBuildFile; fileRef = D48E0C7F1690DBD5008DB678 /* Jobs.plist */; };
 		D48E0C821690DC48008DB678 /* FirstNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = D48E0C811690DC48008DB678 /* FirstNames.plist */; };
 		D48E0C841690DCCA008DB678 /* LastNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = D48E0C831690DCCA008DB678 /* LastNames.plist */; };
+		D48E0C901690F672008DB678 /* RXOptionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C8F1690F672008DB678 /* RXOptionSheet.m */; };
 		D497CB3F168E408A0025EC0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB3E168E408A0025EC0B /* UIKit.framework */; };
 		D497CB41168E408A0025EC0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB40168E408A0025EC0B /* Foundation.framework */; };
 		D497CB43168E408A0025EC0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB42168E408A0025EC0B /* CoreGraphics.framework */; };
@@ -90,6 +91,8 @@
 		D48E0C7F1690DBD5008DB678 /* Jobs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Jobs.plist; sourceTree = "<group>"; };
 		D48E0C811690DC48008DB678 /* FirstNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FirstNames.plist; sourceTree = "<group>"; };
 		D48E0C831690DCCA008DB678 /* LastNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LastNames.plist; sourceTree = "<group>"; };
+		D48E0C8E1690F672008DB678 /* RXOptionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXOptionSheet.h; sourceTree = "<group>"; };
+		D48E0C8F1690F672008DB678 /* RXOptionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXOptionSheet.m; sourceTree = "<group>"; };
 		D497CB3A168E408A0025EC0B /* MecoNation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MecoNation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D497CB3E168E408A0025EC0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D497CB40168E408A0025EC0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -253,6 +256,8 @@
 				D497CB54168E408A0025EC0B /* Default-568h@2x.png */,
 				D497CBD4168F9CD40025EC0B /* NSValue+MECOPoints.h */,
 				D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */,
+				D48E0C8E1690F672008DB678 /* RXOptionSheet.h */,
+				D48E0C8F1690F672008DB678 /* RXOptionSheet.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				D497CBED168FB1620025EC0B /* MECOIsland.m in Sources */,
 				D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */,
 				D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */,
+				D48E0C901690F672008DB678 /* RXOptionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

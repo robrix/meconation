@@ -12,6 +12,7 @@
 #import "MECOSpriteView.h"
 #import "MECOPerson.h"
 #import "MECOJob.h"
+#import "RXOptionSheet.h"
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -105,22 +106,24 @@
 	[self addMeco];
 }
 
--(IBAction)showJobsMenu:(id)sender {
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Jobs", @"The title for the Jobs menu") delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+-(void)showMecosMenuForJob:(MECOJob *)job {
+	NSArray *mecos = [self.mecos sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
+		MECOSpriteView *mecoView = meco.sprite;
+		meco.job = job;
+		mecoView.image = job.costumeImage;
+	}];
 	
-	for (MECOJob *job in [MECOJob allJobs]) {
-		[actionSheet addButtonWithTitle:job.title];
-	}
-	
-	[actionSheet addButtonWithTitle:@"Cancel"];
-	actionSheet.cancelButtonIndex = actionSheet.numberOfButtons - 1;
-	
-	[actionSheet showFromToolbar:self.toolbar];
+	[optionSheet showFromRect:self.toolbar.bounds inView:self.toolbar animated:YES];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-	// make a costume and tell the user to pick a meco to assign it to (when the costume is done)
+-(IBAction)showJobsMenu:(id)sender {
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:[MECOJob allJobs] optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
+		[self showMecosMenuForJob:selectedJob];
+	}];
+	
+	[optionSheet showFromRect:self.toolbar.bounds inView:self.toolbar animated:YES];
 }
 
 

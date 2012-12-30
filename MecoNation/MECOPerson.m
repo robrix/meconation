@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
+#import "MECOJob.h"
 #import "MECOPerson.h"
 #import <stdlib.h>
 
 @interface MECOPerson ()
 
 @property (copy, readwrite) NSString *name;
-@property (strong, readwrite) MECOJob *job;
 
 @end
 
@@ -45,6 +45,11 @@
 	person.name = name;
 	person.job = job;
 	return person;
+}
+
+
+-(NSString *)label {
+	return [NSString stringWithFormat:@"%@ (%@)", self.name, self.job.title ?: @"Unemployed"];
 }
 
 @end
