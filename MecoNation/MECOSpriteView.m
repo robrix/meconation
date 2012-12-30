@@ -38,7 +38,7 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 @synthesize delegate = _delegate;
 @synthesize velocity = _velocity;
 @synthesize inertia = _inertia;
-
+@synthesize actor = _actor;
 
 -(id)init {
 	if ((self = [super init])) {

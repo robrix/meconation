@@ -2,10 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>Freiburger</string>
 	<string>Smith</string>
-	<string>McGee</string>
+	<string>Johnson</string>
+	<string>Williams</string>
 	<string>Jones</string>
 	<string>Brown</string>
+	<string>Davis</string>
+	<string>Miller</string>
+	<string>Wilson</string>
+	<string>Moore</string>
+	<string>Taylor</string>
+	<string>Anderson</string>
+	<string>Thomas</string>
+	<string>Jackson</string>
+	<string>White</string>
+	<string>Harris</string>
+	<string>Martin</string>
+	<string>Thompson</string>
+	<string>Garcia</string>
+	<string>Martinez</string>
+	<string>Robinson</string>
+	<string>Clark</string>
+	<string>Rodriguez</string>
+	<string>Lewis</string>
+	<string>Lee</string>
+	<string>Walker</string>
+	<string>Hall</string>
+	<string>Allen</string>
+	<string>Young</string>
+	<string>Hernandez</string>
+	<string>King</string>
 </array>
 </plist>

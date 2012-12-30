@@ -20,6 +20,7 @@
 
 @synthesize name = _name;
 @synthesize job = _job;
+@synthesize sprite = _sprite;
 
 +(NSArray *)firstNames {
 	return [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FirstNames" ofType:@"plist"]];
