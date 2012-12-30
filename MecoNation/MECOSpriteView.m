@@ -47,11 +47,12 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 	if ((self = [super init])) {
 		[self resetTimer];
 		
-		self.imageLayer = [CALayer layer];
-		self.imageLayer.actions = [NSDictionary dictionaryWithObjectsAndKeys:
+		CALayer *imageLayer = [CALayer layer];
+		imageLayer.actions = [NSDictionary dictionaryWithObjectsAndKeys:
 								   [NSNull null], @"transform",
 								   nil];
-		[self.layer addSublayer:self.imageLayer];
+		[self.layer addSublayer:imageLayer];
+		self.imageLayer = imageLayer;
 	}
 	return self;
 }
