@@ -106,11 +106,15 @@
 }
 
 -(IBAction)showJobsMenu:(id)sender {
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Jobs", @"The title for the Jobs menu") delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Jobs", @"The title for the Jobs menu") delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+	
 	
 	for (MECOJob *job in [MECOJob allJobs]) {
 		[actionSheet addButtonWithTitle:job.title];
 	}
+	
+	[actionSheet addButtonWithTitle:@"Cancel"];
+	actionSheet.cancelButtonIndex = actionSheet.numberOfButtons - 1;
 	
 	[actionSheet showFromToolbar:self.toolbar];
 }
