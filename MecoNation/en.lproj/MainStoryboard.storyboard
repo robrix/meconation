@@ -18,16 +18,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem title="IQ:" style="plain" id="r3B-nW-blx"/>
-                                    <barButtonItem title="Wool:" style="plain" id="FWV-ZV-XsU"/>
-                                    <barButtonItem title="Fur:" style="plain" id="kXE-6d-sMj"/>
-                                    <barButtonItem title="Wood:" style="plain" id="xeD-wo-N36"/>
-                                    <barButtonItem title="Stone:" style="plain" id="nz8-an-BYM"/>
-                                    <barButtonItem title="Meco" id="BLP-sj-Vmi">
+                                    <barButtonItem title="Buy" id="BLP-sj-Vmi">
                                         <connections>
                                             <action selector="addMeco:" destination="2" id="C5n-oK-KV0"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="House" id="G0K-kv-lAC"/>
+                                    <barButtonItem title="Jobs" id="G0K-kv-lAC"/>
                                 </items>
                                 <color key="tintColor" white="0.3333333432674408" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>

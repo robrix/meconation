@@ -13,6 +13,8 @@
 
 @property (copy) NSArray *yValues;
 
++(id)islandWithYValues:(NSArray *)yValues;
+
 @end
 
 @implementation MECOIsland
