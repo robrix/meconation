@@ -183,7 +183,6 @@
 		D48E0C6F1690D700008DB678 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
-				75F28E8C1690EDED00481F4B /* Costumes */,
 				D48E0C781690D732008DB678 /* MECOPerson.h */,
 				D48E0C791690D732008DB678 /* MECOPerson.m */,
 				D48E0C811690DC48008DB678 /* FirstNames.plist */,
@@ -191,6 +190,7 @@
 				D48E0C7C1690D7F0008DB678 /* MECOJob.h */,
 				D48E0C7D1690D7F0008DB678 /* MECOJob.m */,
 				D48E0C7F1690DBD5008DB678 /* Jobs.plist */,
+				75F28E8C1690EDED00481F4B /* Costumes */,
 			);
 			name = Actors;
 			sourceTree = "<group>";

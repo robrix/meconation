@@ -6,25 +6,25 @@
 		<key>title</key>
 		<string>Scientist</string>
 		<key>costumeImage</key>
-		<string></string>
+		<string>Scientist.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Tailor</string>
 		<key>costumeImage</key>
-		<string></string>
+		<string>Tailor.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Farmer</string>
 		<key>costumeImage</key>
-		<string></string>
+		<string>Farmer.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Worker</string>
 		<key>costumeImage</key>
-		<string></string>
+		<string>Worker.png</string>
 	</dict>
 </array>
 </plist>
