@@ -10,16 +10,20 @@
 #import "MECOGroundView.h"
 #import "MECOIsland.h"
 #import "MECOSpriteView.h"
+#import "MECOPerson.h"
+#import "MECOJob.h"
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface MECOViewController () <MECOSpriteViewDelegate>
+@interface MECOViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate>
 
 @property (strong) CADisplayLink *displayLink;
 
 @property (strong) MECOGroundView *groundView;
 
 @property (strong) NSMutableSet *sprites;
+
+@property (strong) NSMutableSet *mecos;
 
 @property (strong) IBOutlet UIToolbar *toolbar;
 
@@ -37,6 +41,7 @@
 @synthesize displayLink = _displayLink;
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
+@synthesize mecos = _mecos;
 @synthesize toolbar = _toolbar;
 @synthesize IQCounter = _IQCounter;
 
@@ -47,13 +52,12 @@
 	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 	
 	self.sprites = [NSMutableSet new];
-	
+	self.mecos = [NSMutableSet new];
+		
 	self.view.backgroundColor = [UIColor colorWithRed:153./255. green:255./255. blue:255./255. alpha:1.0];
 }
 
-
 -(void)viewDidAppear:(BOOL)animated {
-	
 	self.groundView = [MECOGroundView new];
 	self.groundView.frame = self.view.bounds;
 	self.groundView.island = [MECOIsland firstIsland];
@@ -101,8 +105,25 @@
 	[self addMeco];
 }
 
+-(IBAction)showJobsMenu:(id)sender {
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Jobs", @"The title for the Jobs menu") delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+	
+	for (MECOJob *job in [MECOJob allJobs]) {
+		[actionSheet addButtonWithTitle:job.title];
+	}
+	
+	[actionSheet showFromToolbar:self.toolbar];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	// make a costume and tell the user to pick a meco to assign it to (when the costume is done)
+}
+
 
 -(void)addMeco {
+	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:nil];
+	[self.mecos addObject:meco];
+	
 	MECOSpriteView *mecoView = [MECOSpriteView new];
 	mecoView.delegate = self;
 	mecoView.image = [UIImage imageNamed:@"Meco.png"];
@@ -119,7 +140,32 @@
 	};
 	
 	[self.sprites addObject:mecoView];
+	
+	meco.sprite = mecoView;
+	mecoView.actor = meco;
+	
+	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
+	
 	[self.view insertSubview:mecoView belowSubview:self.toolbar];
+}
+
+-(void)didTapMeco:(UITapGestureRecognizer *)tap {
+	[[self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	
+	MECOSpriteView *view = (MECOSpriteView *)tap.view;
+	MECOPerson *meco = view.actor;
+	
+	UILabel *info = [UILabel new];
+	info.text = [NSString stringWithFormat:@"%@ (%@)", meco.name, meco.job.title ?: @"Unemployed"];
+	info.backgroundColor = [UIColor clearColor];
+	info.textColor = [UIColor blackColor];
+	info.textAlignment = UITextAlignmentCenter;
+	[info sizeToFit];
+	info.center = (CGPoint){
+		CGRectGetMidX(view.bounds),
+		-(CGRectGetHeight(info.bounds) + 2)
+	};
+	[view addSubview:info];
 }
 
 

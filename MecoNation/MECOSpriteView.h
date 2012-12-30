@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic, weak) id actor;
+
 @property (nonatomic) CGPoint velocity;
 @property (nonatomic) CGPoint inertia;
 
