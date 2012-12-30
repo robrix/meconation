@@ -18,18 +18,16 @@
 		75B03C48168F888300515C47 /* Weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3F168F888300515C47 /* Weather.png */; };
 		75D8B492168E562E00298737 /* Meco.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D8B491168E562E00298737 /* Meco.png */; };
 		75FB4A7B168FB04600B84A04 /* MecoBoat.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A62168FB04600B84A04 /* MecoBoat.m */; };
-		75FB4A7C168FB04600B84A04 /* MecoExplorerJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A64168FB04600B84A04 /* MecoExplorerJob.m */; };
-		75FB4A7D168FB04600B84A04 /* MecoFarmerJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A66168FB04600B84A04 /* MecoFarmerJob.m */; };
 		75FB4A7E168FB04600B84A04 /* MecoHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A68168FB04600B84A04 /* MecoHouse.m */; };
 		75FB4A7F168FB04600B84A04 /* MecoIsland.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6A168FB04600B84A04 /* MecoIsland.m */; };
 		75FB4A80168FB04600B84A04 /* MecoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6C168FB04600B84A04 /* MecoItem.m */; };
-		75FB4A81168FB04600B84A04 /* MecoJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6E168FB04600B84A04 /* MecoJob.m */; };
-		75FB4A82168FB04600B84A04 /* MecoPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A70168FB04600B84A04 /* MecoPerson.m */; };
-		75FB4A83168FB04600B84A04 /* MecoScientistJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A72168FB04600B84A04 /* MecoScientistJob.m */; };
 		75FB4A84168FB04600B84A04 /* MecoSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A74168FB04600B84A04 /* MecoSheep.m */; };
-		75FB4A85168FB04600B84A04 /* MecoTailorJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A76168FB04600B84A04 /* MecoTailorJob.m */; };
-		75FB4A86168FB04600B84A04 /* MecoWorkerJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A78168FB04600B84A04 /* MecoWorkerJob.m */; };
 		75FB4A87168FB04600B84A04 /* MecoWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A7A168FB04600B84A04 /* MecoWorld.m */; };
+		D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C791690D732008DB678 /* MECOPerson.m */; };
+		D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C7D1690D7F0008DB678 /* MECOJob.m */; };
+		D48E0C801690DBD5008DB678 /* Jobs.plist in Resources */ = {isa = PBXBuildFile; fileRef = D48E0C7F1690DBD5008DB678 /* Jobs.plist */; };
+		D48E0C821690DC48008DB678 /* FirstNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = D48E0C811690DC48008DB678 /* FirstNames.plist */; };
+		D48E0C841690DCCA008DB678 /* LastNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = D48E0C831690DCCA008DB678 /* LastNames.plist */; };
 		D497CB3F168E408A0025EC0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB3E168E408A0025EC0B /* UIKit.framework */; };
 		D497CB41168E408A0025EC0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB40168E408A0025EC0B /* Foundation.framework */; };
 		D497CB43168E408A0025EC0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB42168E408A0025EC0B /* CoreGraphics.framework */; };
@@ -63,30 +61,23 @@
 		75D8B491168E562E00298737 /* Meco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Meco.png; path = MecoArt/Meco.png; sourceTree = "<group>"; };
 		75FB4A61168FB04600B84A04 /* MecoBoat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoBoat.h; sourceTree = "<group>"; };
 		75FB4A62168FB04600B84A04 /* MecoBoat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoBoat.m; sourceTree = "<group>"; };
-		75FB4A63168FB04600B84A04 /* MecoExplorerJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoExplorerJob.h; sourceTree = "<group>"; };
-		75FB4A64168FB04600B84A04 /* MecoExplorerJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoExplorerJob.m; sourceTree = "<group>"; };
-		75FB4A65168FB04600B84A04 /* MecoFarmerJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoFarmerJob.h; sourceTree = "<group>"; };
-		75FB4A66168FB04600B84A04 /* MecoFarmerJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoFarmerJob.m; sourceTree = "<group>"; };
 		75FB4A67168FB04600B84A04 /* MecoHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoHouse.h; sourceTree = "<group>"; };
 		75FB4A68168FB04600B84A04 /* MecoHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoHouse.m; sourceTree = "<group>"; };
 		75FB4A69168FB04600B84A04 /* MecoIsland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoIsland.h; sourceTree = "<group>"; };
 		75FB4A6A168FB04600B84A04 /* MecoIsland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoIsland.m; sourceTree = "<group>"; };
 		75FB4A6B168FB04600B84A04 /* MecoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoItem.h; sourceTree = "<group>"; };
 		75FB4A6C168FB04600B84A04 /* MecoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoItem.m; sourceTree = "<group>"; };
-		75FB4A6D168FB04600B84A04 /* MecoJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoJob.h; sourceTree = "<group>"; };
-		75FB4A6E168FB04600B84A04 /* MecoJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoJob.m; sourceTree = "<group>"; };
-		75FB4A6F168FB04600B84A04 /* MecoPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoPerson.h; sourceTree = "<group>"; };
-		75FB4A70168FB04600B84A04 /* MecoPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoPerson.m; sourceTree = "<group>"; };
-		75FB4A71168FB04600B84A04 /* MecoScientistJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoScientistJob.h; sourceTree = "<group>"; };
-		75FB4A72168FB04600B84A04 /* MecoScientistJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoScientistJob.m; sourceTree = "<group>"; };
 		75FB4A73168FB04600B84A04 /* MecoSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoSheep.h; sourceTree = "<group>"; };
 		75FB4A74168FB04600B84A04 /* MecoSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoSheep.m; sourceTree = "<group>"; };
-		75FB4A75168FB04600B84A04 /* MecoTailorJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoTailorJob.h; sourceTree = "<group>"; };
-		75FB4A76168FB04600B84A04 /* MecoTailorJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoTailorJob.m; sourceTree = "<group>"; };
-		75FB4A77168FB04600B84A04 /* MecoWorkerJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoWorkerJob.h; sourceTree = "<group>"; };
-		75FB4A78168FB04600B84A04 /* MecoWorkerJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoWorkerJob.m; sourceTree = "<group>"; };
 		75FB4A79168FB04600B84A04 /* MecoWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoWorld.h; sourceTree = "<group>"; };
 		75FB4A7A168FB04600B84A04 /* MecoWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoWorld.m; sourceTree = "<group>"; };
+		D48E0C781690D732008DB678 /* MECOPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPerson.h; sourceTree = "<group>"; };
+		D48E0C791690D732008DB678 /* MECOPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPerson.m; sourceTree = "<group>"; };
+		D48E0C7C1690D7F0008DB678 /* MECOJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOJob.h; sourceTree = "<group>"; };
+		D48E0C7D1690D7F0008DB678 /* MECOJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOJob.m; sourceTree = "<group>"; };
+		D48E0C7F1690DBD5008DB678 /* Jobs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Jobs.plist; sourceTree = "<group>"; };
+		D48E0C811690DC48008DB678 /* FirstNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FirstNames.plist; sourceTree = "<group>"; };
+		D48E0C831690DCCA008DB678 /* LastNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LastNames.plist; sourceTree = "<group>"; };
 		D497CB3A168E408A0025EC0B /* MecoNation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MecoNation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D497CB3E168E408A0025EC0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D497CB40168E408A0025EC0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,32 +143,32 @@
 			children = (
 				75FB4A61168FB04600B84A04 /* MecoBoat.h */,
 				75FB4A62168FB04600B84A04 /* MecoBoat.m */,
-				75FB4A63168FB04600B84A04 /* MecoExplorerJob.h */,
-				75FB4A64168FB04600B84A04 /* MecoExplorerJob.m */,
-				75FB4A65168FB04600B84A04 /* MecoFarmerJob.h */,
-				75FB4A66168FB04600B84A04 /* MecoFarmerJob.m */,
 				75FB4A67168FB04600B84A04 /* MecoHouse.h */,
 				75FB4A68168FB04600B84A04 /* MecoHouse.m */,
 				75FB4A69168FB04600B84A04 /* MecoIsland.h */,
 				75FB4A6A168FB04600B84A04 /* MecoIsland.m */,
 				75FB4A6B168FB04600B84A04 /* MecoItem.h */,
 				75FB4A6C168FB04600B84A04 /* MecoItem.m */,
-				75FB4A6D168FB04600B84A04 /* MecoJob.h */,
-				75FB4A6E168FB04600B84A04 /* MecoJob.m */,
-				75FB4A6F168FB04600B84A04 /* MecoPerson.h */,
-				75FB4A70168FB04600B84A04 /* MecoPerson.m */,
-				75FB4A71168FB04600B84A04 /* MecoScientistJob.h */,
-				75FB4A72168FB04600B84A04 /* MecoScientistJob.m */,
 				75FB4A73168FB04600B84A04 /* MecoSheep.h */,
 				75FB4A74168FB04600B84A04 /* MecoSheep.m */,
-				75FB4A75168FB04600B84A04 /* MecoTailorJob.h */,
-				75FB4A76168FB04600B84A04 /* MecoTailorJob.m */,
-				75FB4A77168FB04600B84A04 /* MecoWorkerJob.h */,
-				75FB4A78168FB04600B84A04 /* MecoWorkerJob.m */,
 				75FB4A79168FB04600B84A04 /* MecoWorld.h */,
 				75FB4A7A168FB04600B84A04 /* MecoWorld.m */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		D48E0C6F1690D700008DB678 /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				D48E0C781690D732008DB678 /* MECOPerson.h */,
+				D48E0C791690D732008DB678 /* MECOPerson.m */,
+				D48E0C811690DC48008DB678 /* FirstNames.plist */,
+				D48E0C831690DCCA008DB678 /* LastNames.plist */,
+				D48E0C7C1690D7F0008DB678 /* MECOJob.h */,
+				D48E0C7D1690D7F0008DB678 /* MECOJob.m */,
+				D48E0C7F1690DBD5008DB678 /* Jobs.plist */,
+			);
+			name = Actors;
 			sourceTree = "<group>";
 		};
 		D497CB2F168E408A0025EC0B = {
@@ -216,6 +207,7 @@
 				D497CB56168E408A0025EC0B /* MainStoryboard.storyboard */,
 				D497CB59168E408A0025EC0B /* MECOViewController.h */,
 				D497CB5A168E408A0025EC0B /* MECOViewController.m */,
+				D48E0C6F1690D700008DB678 /* Actors */,
 				D497CB8B168F92020025EC0B /* Ground */,
 				D497CB64168E4A480025EC0B /* Sprites */,
 				75FB4A60168FB04600B84A04 /* Logic */,
@@ -335,6 +327,9 @@
 				75B03C47168F888300515C47 /* Trees.png in Resources */,
 				75B03C48168F888300515C47 /* Weather.png in Resources */,
 				D497CBD8168F9F600025EC0B /* Island 1.plist in Resources */,
+				D48E0C801690DBD5008DB678 /* Jobs.plist in Resources */,
+				D48E0C821690DC48008DB678 /* FirstNames.plist in Resources */,
+				D48E0C841690DCCA008DB678 /* LastNames.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,20 +346,15 @@
 				D497CB63168E497B0025EC0B /* MECOGroundView.m in Sources */,
 				D497CB6D168E56BD0025EC0B /* MECOSpriteView.m in Sources */,
 				75FB4A7B168FB04600B84A04 /* MecoBoat.m in Sources */,
-				75FB4A7C168FB04600B84A04 /* MecoExplorerJob.m in Sources */,
-				75FB4A7D168FB04600B84A04 /* MecoFarmerJob.m in Sources */,
 				75FB4A7E168FB04600B84A04 /* MecoHouse.m in Sources */,
 				75FB4A7F168FB04600B84A04 /* MecoIsland.m in Sources */,
 				75FB4A80168FB04600B84A04 /* MecoItem.m in Sources */,
-				75FB4A81168FB04600B84A04 /* MecoJob.m in Sources */,
-				75FB4A82168FB04600B84A04 /* MecoPerson.m in Sources */,
-				75FB4A83168FB04600B84A04 /* MecoScientistJob.m in Sources */,
 				75FB4A84168FB04600B84A04 /* MecoSheep.m in Sources */,
-				75FB4A85168FB04600B84A04 /* MecoTailorJob.m in Sources */,
-				75FB4A86168FB04600B84A04 /* MecoWorkerJob.m in Sources */,
 				D497CBD6168F9CD40025EC0B /* NSValue+MECOPoints.m in Sources */,
 				75FB4A87168FB04600B84A04 /* MecoWorld.m in Sources */,
 				D497CBED168FB1620025EC0B /* MECOIsland.m in Sources */,
+				D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */,
+				D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
