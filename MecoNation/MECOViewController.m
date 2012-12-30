@@ -13,7 +13,7 @@
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface MECOViewController () <MECOSpriteViewDelegate>
+@interface MECOViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate>
 
 @property (strong) CADisplayLink *displayLink;
 
@@ -99,6 +99,15 @@
 
 -(IBAction)addMeco:(id)sender {
 	[self addMeco];
+}
+
+-(IBAction)showJobsMenu:(id)sender {
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Jobs", @"The title for the Jobs menu") delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Scientist", @"Farmer", @"Tailor", @"Worker", nil];
+	[actionSheet showFromToolbar:self.toolbar];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	// make a costume and tell the user to pick a meco to assign it to (when the costume is done)
 }
 
 
