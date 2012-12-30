@@ -17,6 +17,12 @@
 		75B03C47168F888300515C47 /* Trees.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3E168F888300515C47 /* Trees.png */; };
 		75B03C48168F888300515C47 /* Weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3F168F888300515C47 /* Weather.png */; };
 		75D8B492168E562E00298737 /* Meco.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D8B491168E562E00298737 /* Meco.png */; };
+		75F28E921690EE9900481F4B /* Farmer.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E8E1690EE9900481F4B /* Farmer.png */; };
+		75F28E931690EE9900481F4B /* Scientist.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E8F1690EE9900481F4B /* Scientist.png */; };
+		75F28E941690EE9900481F4B /* Tailor.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E901690EE9900481F4B /* Tailor.png */; };
+		75F28E951690EE9900481F4B /* Worker.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E911690EE9900481F4B /* Worker.png */; };
+		75F28E981690EEC200481F4B /* Island 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E961690EEC200481F4B /* Island 2.plist */; };
+		75F28E991690EEC200481F4B /* Island 3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E971690EEC200481F4B /* Island 3.plist */; };
 		75FB4A7B168FB04600B84A04 /* MecoBoat.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A62168FB04600B84A04 /* MecoBoat.m */; };
 		75FB4A7E168FB04600B84A04 /* MecoHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A68168FB04600B84A04 /* MecoHouse.m */; };
 		75FB4A7F168FB04600B84A04 /* MecoIsland.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6A168FB04600B84A04 /* MecoIsland.m */; };
@@ -59,6 +65,12 @@
 		75B03C3E168F888300515C47 /* Trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trees.png; path = MecoArt/Trees.png; sourceTree = "<group>"; };
 		75B03C3F168F888300515C47 /* Weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Weather.png; path = MecoArt/Weather.png; sourceTree = "<group>"; };
 		75D8B491168E562E00298737 /* Meco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Meco.png; path = MecoArt/Meco.png; sourceTree = "<group>"; };
+		75F28E8E1690EE9900481F4B /* Farmer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Farmer.png; path = MecoArt/Farmer.png; sourceTree = "<group>"; };
+		75F28E8F1690EE9900481F4B /* Scientist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Scientist.png; path = MecoArt/Scientist.png; sourceTree = "<group>"; };
+		75F28E901690EE9900481F4B /* Tailor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tailor.png; path = MecoArt/Tailor.png; sourceTree = "<group>"; };
+		75F28E911690EE9900481F4B /* Worker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Worker.png; path = MecoArt/Worker.png; sourceTree = "<group>"; };
+		75F28E961690EEC200481F4B /* Island 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 2.plist"; sourceTree = "<group>"; };
+		75F28E971690EEC200481F4B /* Island 3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 3.plist"; sourceTree = "<group>"; };
 		75FB4A61168FB04600B84A04 /* MecoBoat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoBoat.h; sourceTree = "<group>"; };
 		75FB4A62168FB04600B84A04 /* MecoBoat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoBoat.m; sourceTree = "<group>"; };
 		75FB4A67168FB04600B84A04 /* MecoHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoHouse.h; sourceTree = "<group>"; };
@@ -138,6 +150,17 @@
 			name = "Speech Bubbles";
 			sourceTree = "<group>";
 		};
+		75F28E8C1690EDED00481F4B /* Costumes */ = {
+			isa = PBXGroup;
+			children = (
+				75F28E8E1690EE9900481F4B /* Farmer.png */,
+				75F28E8F1690EE9900481F4B /* Scientist.png */,
+				75F28E901690EE9900481F4B /* Tailor.png */,
+				75F28E911690EE9900481F4B /* Worker.png */,
+			);
+			name = Costumes;
+			sourceTree = "<group>";
+		};
 		75FB4A60168FB04600B84A04 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +183,7 @@
 		D48E0C6F1690D700008DB678 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
+				75F28E8C1690EDED00481F4B /* Costumes */,
 				D48E0C781690D732008DB678 /* MECOPerson.h */,
 				D48E0C791690D732008DB678 /* MECOPerson.m */,
 				D48E0C811690DC48008DB678 /* FirstNames.plist */,
@@ -254,6 +278,8 @@
 				D497CB90168F92640025EC0B /* MECOIsland.h */,
 				D497CB91168F92640025EC0B /* MECOIsland.m */,
 				D497CBD7168F9F600025EC0B /* Island 1.plist */,
+				75F28E961690EEC200481F4B /* Island 2.plist */,
+				75F28E971690EEC200481F4B /* Island 3.plist */,
 			);
 			name = Ground;
 			sourceTree = "<group>";
@@ -330,6 +356,12 @@
 				D48E0C801690DBD5008DB678 /* Jobs.plist in Resources */,
 				D48E0C821690DC48008DB678 /* FirstNames.plist in Resources */,
 				D48E0C841690DCCA008DB678 /* LastNames.plist in Resources */,
+				75F28E921690EE9900481F4B /* Farmer.png in Resources */,
+				75F28E931690EE9900481F4B /* Scientist.png in Resources */,
+				75F28E941690EE9900481F4B /* Tailor.png in Resources */,
+				75F28E951690EE9900481F4B /* Worker.png in Resources */,
+				75F28E981690EEC200481F4B /* Island 2.plist in Resources */,
+				75F28E991690EEC200481F4B /* Island 3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
