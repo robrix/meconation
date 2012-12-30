@@ -26,6 +26,8 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 
 -(void)resetTimer;
 
+@property (weak) CALayer *imageLayer;
+
 @end
 
 @implementation MECOSpriteView
@@ -39,10 +41,17 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 @synthesize velocity = _velocity;
 @synthesize inertia = _inertia;
 @synthesize actor = _actor;
+@synthesize imageLayer = _imageLayer;
 
 -(id)init {
 	if ((self = [super init])) {
 		[self resetTimer];
+		
+		self.imageLayer = [CALayer layer];
+		self.imageLayer.actions = [NSDictionary dictionaryWithObjectsAndKeys:
+								   [NSNull null], @"transform",
+								   nil];
+		[self.layer addSublayer:self.imageLayer];
 	}
 	return self;
 }
@@ -58,18 +67,21 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 
 
 -(UIImage *)image {
-	return self.layer.contents;
+	return self.imageLayer.contents;
 }
 
 -(void)setImage:(UIImage *)image {
-	self.layer.contents = (__bridge id)image.CGImage;
-	
-	self.bounds = (CGRect){
+	self.imageLayer.bounds = self.bounds = (CGRect){
 		.size = {
 			image.size.width,
 			image.size.height
 		}
 	};
+	self.imageLayer.position = (CGPoint){
+		CGRectGetMidX(self.layer.bounds),
+		CGRectGetMidY(self.layer.bounds)
+	};
+	self.imageLayer.contents = (__bridge id)image.CGImage;
 }
 
 
@@ -97,18 +109,19 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 
 
 -(void)timerDidFire:(NSTimer *)timer {
-	CGFloat direction = (random() % 2)? 1.0 : -1.0;
+	bool direction = random() % 2;
+	CGFloat delta = direction? 1.0 : -1.0;
 	NSTimeInterval duration = ((CGFloat)((random() % 3) + 1)) / 2.0;
 	
-	self.layer.transform = CATransform3DMakeScale(direction, 1.0, 1.0);
+	self.imageLayer.transform = CATransform3DMakeScale(delta, 1.0, 1.0);
 	
 	self.velocity = MECOPointAdd(self.velocity, (CGPoint){
-		.x = direction
+		.x = delta
 	});
 	
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 		self.velocity = MECOPointAdd(self.velocity, (CGPoint){
-			.x = -direction
+			.x = -delta
 		});
 		[self resetTimer];
 	});
