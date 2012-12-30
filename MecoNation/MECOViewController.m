@@ -150,9 +150,22 @@
 }
 
 -(void)didTapMeco:(UITapGestureRecognizer *)tap {
+	[[self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	
 	MECOSpriteView *view = (MECOSpriteView *)tap.view;
 	MECOPerson *meco = view.actor;
-	NSLog(@"tapped meco named %@ (%@)", meco.name, meco.job.title ?: @"Unemployed");
+	
+	UILabel *info = [UILabel new];
+	info.text = [NSString stringWithFormat:@"%@ (%@)", meco.name, meco.job.title ?: @"Unemployed"];
+	info.backgroundColor = [UIColor clearColor];
+	info.textColor = [UIColor blackColor];
+	info.textAlignment = UITextAlignmentCenter;
+	[info sizeToFit];
+	info.center = (CGPoint){
+		CGRectGetMidX(view.bounds),
+		-(CGRectGetHeight(info.bounds) + 2)
+	};
+	[view addSubview:info];
 }
 
 
