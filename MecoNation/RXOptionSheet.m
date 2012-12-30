@@ -23,6 +23,13 @@
 
 @implementation RXOptionSheet
 
+@synthesize title = _title;
+@synthesize options = _options;
+@synthesize cancellable = _cancellable;
+@synthesize completionHandler = _completionHandler;
+@synthesize actionSheet = _actionSheet;
+@synthesize lifetimeHack = _lifetimeHack;
+
 +(RXOptionSheet *)sheetWithTitle:(NSString *)title options:(NSArray *)options optionTitleKeyPath:(NSString *)keyPath cancellable:(bool)cancellable completionHandler:(RXOptionSheetCompletionHandler)completionHandler {
 	RXOptionSheet *sheet = [self new];
 	sheet.title = title;
