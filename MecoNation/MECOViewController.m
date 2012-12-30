@@ -149,23 +149,55 @@
 	[self.view insertSubview:mecoView belowSubview:self.toolbar];
 }
 
+-(void)fadeView:(UIView *)view intoSuperview:(UIView *)superview {
+	view.alpha = 0;
+	[superview addSubview:view];
+	[UIView animateWithDuration:0.25 animations:^{
+		view.alpha = 1;
+	}];
+}
+
+-(void)fadeOutView:(UIView *)view {
+	[UIView animateWithDuration:0.25 animations:^{
+		view.alpha = 0;
+	} completion:^(BOOL finished) {
+		[view removeFromSuperview];
+	}];
+}
+
+-(void)fadeOutViews:(NSArray *)views {
+	for (UIView *view in views) {
+		[self fadeOutView:view];
+	}
+}
+
 -(void)didTapMeco:(UITapGestureRecognizer *)tap {
-	[[self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-	
 	MECOSpriteView *view = (MECOSpriteView *)tap.view;
-	MECOPerson *meco = view.actor;
-	
-	UILabel *info = [UILabel new];
-	info.text = [NSString stringWithFormat:@"%@ (%@)", meco.name, meco.job.title ?: @"Unemployed"];
-	info.backgroundColor = [UIColor clearColor];
-	info.textColor = [UIColor blackColor];
-	info.textAlignment = UITextAlignmentCenter;
-	[info sizeToFit];
-	info.center = (CGPoint){
-		CGRectGetMidX(view.bounds),
-		-(CGRectGetHeight(info.bounds) + 2)
-	};
-	[view addSubview:info];
+	if (view.subviews.count) {
+		[self fadeOutView:view.subviews.lastObject];
+	} else {
+		[self fadeOutViews:[self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"]];
+		
+		MECOPerson *meco = view.actor;
+		
+		[self.view bringSubviewToFront:view];
+		
+		UILabel *info = [UILabel new];
+		info.text = [NSString stringWithFormat:@"%@ (%@)", meco.name, meco.job.title ?: @"Unemployed"];
+		info.backgroundColor = [UIColor clearColor];
+		info.textColor = [UIColor blackColor];
+		info.textAlignment = UITextAlignmentCenter;
+		[info sizeToFit];
+		info.center = (CGPoint){
+			CGRectGetMidX(view.bounds),
+			-(CGRectGetHeight(info.bounds) + 2)
+		};
+		[self fadeView:info intoSuperview:view];
+		
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+			[self fadeOutView:info];
+		});
+	}
 }
 
 
