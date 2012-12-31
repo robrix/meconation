@@ -49,6 +49,7 @@
 @synthesize mecos = _mecos;
 @synthesize toolbar = _toolbar;
 @synthesize IQCounter = _IQCounter;
+@synthesize scrollView = _scrollView;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
