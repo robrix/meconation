@@ -34,6 +34,8 @@
 
 -(void)addMeco;
 
+@property (readonly) CGRect validBoundsForMecos;
+
 @end
 
 #define MECOConstrainValueToRange(value, minimum, maximum) \
@@ -62,7 +64,10 @@
 
 -(void)viewDidAppear:(BOOL)animated {
 	MECOIsland *island = [MECOIsland firstIsland];
-	self.scrollView.contentSize = island.bezierPath.bounds.size;
+	self.scrollView.contentSize = (CGSize){
+		MAX(island.bezierPath.bounds.size.width, self.scrollView.bounds.size.width),
+		MAX(island.bezierPath.bounds.size.height, self.scrollView.bounds.size.height),
+	};
 	self.groundView = [MECOGroundView new];
 	self.groundView.frame = self.scrollView.bounds;
 	self.groundView.island = island;
@@ -81,10 +86,18 @@
 }
 
 
+-(CGRect)validBoundsForMecos {
+	return (CGRect){
+		{},
+		self.scrollView.contentSize
+	};
+}
+
+
 -(bool)spriteView:(MECOSpriteView *)spriteView shouldMoveToDestination:(CGPoint)destination {
 	return
-		(destination.x > CGRectGetMinX(self.view.bounds))
-	&&	(destination.x < CGRectGetMaxX(self.view.bounds));
+		(destination.x > CGRectGetMinX(self.validBoundsForMecos))
+	&&	(destination.x < CGRectGetMaxX(self.validBoundsForMecos));
 }
 
 -(CGPoint)constrainSpritePosition:(CGPoint)position toRect:(CGRect)bounds {
@@ -102,7 +115,7 @@
 }
 
 -(CGPoint)spriteView:(MECOSpriteView *)spriteView constrainPosition:(CGPoint)position {
-	return [self constrainSpritePosition:[self constrainSpritePositionToGround:position] toRect:self.view.bounds];
+	return [self constrainSpritePosition:[self constrainSpritePositionToGround:position] toRect:self.validBoundsForMecos];
 }
 
 
@@ -141,8 +154,8 @@
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
 	CGPoint tile = (CGPoint){
-		random() % (NSUInteger)(self.view.bounds.size.width / 20.0),
-		random() % ((NSUInteger)((self.view.bounds.size.height / 20.0) - 3))+2
+		random() % (NSUInteger)(self.scrollView.contentSize.width / 20.0),
+		random() % ((NSUInteger)((self.scrollView.contentSize.height / 20.0) - 3) + 2)
 	};
 	
 	mecoView.center = (CGPoint){
