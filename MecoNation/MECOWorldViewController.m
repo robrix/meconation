@@ -53,6 +53,8 @@
 -(void)setPageViewController:(UIPageViewController *)pageViewController {
 	_pageViewController = pageViewController;
 	
+	pageViewController.dataSource = self;
+	
 	[self addChildViewController:pageViewController];
 	
 	const CGFloat kToolbarHeight = CGRectGetHeight(self.toolbar.bounds);
