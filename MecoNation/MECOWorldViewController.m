@@ -17,6 +17,8 @@
 @property (strong) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 
+@property (copy) NSArray *islandViewControllers;
+
 @end
 
 @implementation MECOWorldViewController
@@ -28,21 +30,31 @@
 -(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
 	MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
 	controller.view.frame = self.pageViewController.view.bounds;
-	controller.island = [self.islands objectAtIndex:index];
+	controller.island = [[MECOIsland allIslands] objectAtIndex:index];
 	controller.islandIndex = index;
 	return controller;
 }
 
 -(void)viewDidLoad {
-	self.islands = [NSArray arrayWithObjects:[MECOIsland firstIsland], [MECOIsland firstIsland], nil];
-	
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
 	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
-	[self.pageViewController setViewControllers:[NSArray arrayWithObject:[self createViewControllerForIslandAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+	NSMutableArray *islandViewControllers = [NSMutableArray new];
+	NSUInteger islandIndex = 0;
+	for (MECOIsland *island in [MECOIsland allIslands]) {
+		MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
+		controller.view.frame = self.pageViewController.view.bounds;
+		controller.island = island;
+		controller.islandIndex = islandIndex++;
+		[islandViewControllers addObject:controller];
+	}
+	self.islandViewControllers = islandViewControllers;
+	
+	[self.pageViewController setViewControllers:[NSArray arrayWithObject:[self.islandViewControllers objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+	
 //	NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:12] forKey:UITextAttributeFont];
 //	for (UIBarItem *item in self.toolbar.items) {
 //		[item setTitleTextAttributes:attributes forState:UIControlStateNormal];
@@ -68,17 +80,15 @@
 }
 
 
-
-
 -(MECOIslandViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(MECOIslandViewController *)viewController {
-	return viewController.islandIndex < (self.islands.count - 1)?
-		[self createViewControllerForIslandAtIndex:viewController.islandIndex + 1]
+	return viewController.islandIndex < (self.islandViewControllers.count - 1)?
+		[self.islandViewControllers objectAtIndex:viewController.islandIndex + 1]
 	:	nil;
 }
 
 -(MECOIslandViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex > 0?
-		[self createViewControllerForIslandAtIndex:viewController.islandIndex - 1]
+		[self.islandViewControllers objectAtIndex:viewController.islandIndex - 1]
 	:	nil;
 }
 

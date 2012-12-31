@@ -10,7 +10,7 @@
 
 @interface MECOIsland : NSObject
 
-+(id)firstIsland;
++(NSArray *)allIslands;
 
 @property (strong) UIBezierPath *bezierPath;
 
