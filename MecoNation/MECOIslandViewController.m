@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
-#import "MECOViewController.h"
+#import "MECOIslandViewController.h"
 #import "MECOGroundView.h"
 #import "MECOIsland.h"
 #import "MECOSpriteView.h"
@@ -16,7 +16,7 @@
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface MECOViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate>
+@interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate>
 
 @property (strong) CADisplayLink *displayLink;
 
@@ -37,7 +37,7 @@
 #define MECOConstrainValueToRange(value, minimum, maximum) \
 	MAX(MIN((value), (maximum)), (minimum))
 
-@implementation MECOViewController
+@implementation MECOIslandViewController
 
 @synthesize island = _island;
 @synthesize islandIndex = _islandIndex;
@@ -55,8 +55,6 @@
 	
 	self.sprites = [NSMutableSet new];
 	self.mecos = [NSMutableSet new];
-		
-	self.view.backgroundColor = [UIColor colorWithRed:153./255. green:255./255. blue:255./255. alpha:1.0];
 }
 
 

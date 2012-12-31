@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
-#import "MECOViewController.h"
+#import "MECOIslandViewController.h"
 #import "MECOWorldViewController.h"
 #import "MECOIsland.h"
 
@@ -25,8 +25,8 @@
 @synthesize pageViewController = _pageViewController;
 
 
--(MECOViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
-	MECOViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
+-(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
+	MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
 	controller.view.frame = self.pageViewController.view.bounds;
 	controller.island = [self.islands objectAtIndex:index];
 	controller.islandIndex = index;
@@ -70,13 +70,13 @@
 
 
 
--(MECOViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(MECOViewController *)viewController {
+-(MECOIslandViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex < (self.islands.count - 1)?
 		[self createViewControllerForIslandAtIndex:viewController.islandIndex + 1]
 	:	nil;
 }
 
--(MECOViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(MECOViewController *)viewController {
+-(MECOIslandViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex > 0?
 		[self createViewControllerForIslandAtIndex:viewController.islandIndex - 1]
 	:	nil;
