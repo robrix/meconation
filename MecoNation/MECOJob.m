@@ -11,6 +11,7 @@
 NSString * const MECOScientistJobTitle = @"Scientist";
 NSString * const MECOTailorJobTitle = @"Tailor";
 NSString * const MECOWorkerJobTitle = @"Worker";
+NSString * const MECOFarmerJobTitle = @"Farmer";
 
 @interface MECOJob ()
 
