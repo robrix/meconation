@@ -45,14 +45,16 @@
 		D497CB53168E408A0025EC0B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D497CB52168E408A0025EC0B /* Default@2x.png */; };
 		D497CB55168E408A0025EC0B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D497CB54168E408A0025EC0B /* Default-568h@2x.png */; };
 		D497CB58168E408A0025EC0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D497CB56168E408A0025EC0B /* MainStoryboard.storyboard */; };
-		D497CB5B168E408A0025EC0B /* MECOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB5A168E408A0025EC0B /* MECOViewController.m */; };
-		D497CB63168E497B0025EC0B /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB62168E497B0025EC0B /* MECOGroundView.m */; };
+		D497CB5B168E408A0025EC0B /* MECOIslandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB5A168E408A0025EC0B /* MECOIslandViewController.m */; };
 		D497CB66168E4A830025EC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D497CB65168E4A830025EC0B /* QuartzCore.framework */; };
 		D497CB6D168E56BD0025EC0B /* MECOSpriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */; };
 		D497CB85168F52B10025EC0B /* mecoiOSicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D497CB84168F52B10025EC0B /* mecoiOSicon.png */; };
 		D497CBD6168F9CD40025EC0B /* NSValue+MECOPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */; };
 		D497CBD8168F9F600025EC0B /* Island 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D497CBD7168F9F600025EC0B /* Island 1.plist */; };
 		D497CBED168FB1620025EC0B /* MECOIsland.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB91168F92640025EC0B /* MECOIsland.m */; };
+		D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */; };
+		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
+		D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,10 +109,8 @@
 		D497CB52168E408A0025EC0B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D497CB54168E408A0025EC0B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D497CB57168E408A0025EC0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D497CB59168E408A0025EC0B /* MECOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MECOViewController.h; sourceTree = "<group>"; };
-		D497CB5A168E408A0025EC0B /* MECOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MECOViewController.m; sourceTree = "<group>"; };
-		D497CB61168E497B0025EC0B /* MECOGroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOGroundView.h; sourceTree = "<group>"; };
-		D497CB62168E497B0025EC0B /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
+		D497CB59168E408A0025EC0B /* MECOIslandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MECOIslandViewController.h; sourceTree = "<group>"; };
+		D497CB5A168E408A0025EC0B /* MECOIslandViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MECOIslandViewController.m; sourceTree = "<group>"; };
 		D497CB65168E4A830025EC0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOSpriteView.h; sourceTree = "<group>"; };
 		D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSpriteView.m; sourceTree = "<group>"; };
@@ -120,6 +120,12 @@
 		D497CBD4168F9CD40025EC0B /* NSValue+MECOPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+MECOPoints.h"; sourceTree = "<group>"; };
 		D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+MECOPoints.m"; sourceTree = "<group>"; };
 		D497CBD7168F9F600025EC0B /* Island 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 1.plist"; sourceTree = "<group>"; };
+		D4B6E6BB1691FE3F006E64C9 /* MECOWorldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOWorldViewController.h; sourceTree = "<group>"; };
+		D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOWorldViewController.m; sourceTree = "<group>"; };
+		D4B6E6C7169236F4006E64C9 /* MECOAssignSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOAssignSegue.h; sourceTree = "<group>"; };
+		D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOAssignSegue.m; sourceTree = "<group>"; };
+		D4B6E6D316923FC4006E64C9 /* MECOGroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOGroundView.h; sourceTree = "<group>"; };
+		D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,10 +238,8 @@
 				D497CB4D168E408A0025EC0B /* MECOAppDelegate.h */,
 				D497CB4E168E408A0025EC0B /* MECOAppDelegate.m */,
 				D497CB56168E408A0025EC0B /* MainStoryboard.storyboard */,
-				D497CB59168E408A0025EC0B /* MECOViewController.h */,
-				D497CB5A168E408A0025EC0B /* MECOViewController.m */,
+				D4B6E6B81691FE2B006E64C9 /* World */,
 				D48E0C6F1690D700008DB678 /* Actors */,
-				D497CB8B168F92020025EC0B /* Ground */,
 				D497CB64168E4A480025EC0B /* Sprites */,
 				75FB4A60168FB04600B84A04 /* Logic */,
 				D497CB45168E408A0025EC0B /* Supporting Files */,
@@ -267,26 +271,38 @@
 			children = (
 				75B03C35168F865800515C47 /* Speech Bubbles */,
 				75D8B491168E562E00298737 /* Meco.png */,
-				D497CB61168E497B0025EC0B /* MECOGroundView.h */,
-				D497CB62168E497B0025EC0B /* MECOGroundView.m */,
 				D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */,
 				D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
 		};
-		D497CB8B168F92020025EC0B /* Ground */ = {
+		D4B6E6B81691FE2B006E64C9 /* World */ = {
 			isa = PBXGroup;
 			children = (
-				D497CB61168E497B0025EC0B /* MECOGroundView.h */,
-				D497CB62168E497B0025EC0B /* MECOGroundView.m */,
+				D4B6E6BB1691FE3F006E64C9 /* MECOWorldViewController.h */,
+				D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */,
+				D4B6E6C7169236F4006E64C9 /* MECOAssignSegue.h */,
+				D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */,
+				D4B6E6BA1691FE30006E64C9 /* Island */,
+			);
+			name = World;
+			sourceTree = "<group>";
+		};
+		D4B6E6BA1691FE30006E64C9 /* Island */ = {
+			isa = PBXGroup;
+			children = (
+				D497CB59168E408A0025EC0B /* MECOIslandViewController.h */,
+				D497CB5A168E408A0025EC0B /* MECOIslandViewController.m */,
 				D497CB90168F92640025EC0B /* MECOIsland.h */,
 				D497CB91168F92640025EC0B /* MECOIsland.m */,
 				D497CBD7168F9F600025EC0B /* Island 1.plist */,
 				75F28E961690EEC200481F4B /* Island 2.plist */,
 				75F28E971690EEC200481F4B /* Island 3.plist */,
+				D4B6E6D316923FC4006E64C9 /* MECOGroundView.h */,
+				D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */,
 			);
-			name = Ground;
+			name = Island;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,8 +395,7 @@
 			files = (
 				D497CB4B168E408A0025EC0B /* main.m in Sources */,
 				D497CB4F168E408A0025EC0B /* MECOAppDelegate.m in Sources */,
-				D497CB5B168E408A0025EC0B /* MECOViewController.m in Sources */,
-				D497CB63168E497B0025EC0B /* MECOGroundView.m in Sources */,
+				D497CB5B168E408A0025EC0B /* MECOIslandViewController.m in Sources */,
 				D497CB6D168E56BD0025EC0B /* MECOSpriteView.m in Sources */,
 				75FB4A7B168FB04600B84A04 /* MecoBoat.m in Sources */,
 				75FB4A7E168FB04600B84A04 /* MecoHouse.m in Sources */,
@@ -393,6 +408,9 @@
 				D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */,
 				D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */,
 				D48E0C901690F672008DB678 /* RXOptionSheet.m in Sources */,
+				D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */,
+				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
+				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,63 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2844" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2844" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pha-is-tni">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
         <development version="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Island View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="MECOViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="islandViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="MECOIslandViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="480" height="300"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Xz6-WH-L4i">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <barButtonItem title="IQ:" style="plain" id="r3B-nW-blx"/>
-                                    <barButtonItem title="Meco" id="BLP-sj-Vmi">
-                                        <connections>
-                                            <action selector="addMeco:" destination="2" id="C5n-oK-KV0"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Jobs" id="G0K-kv-lAC">
-                                        <connections>
-                                            <action selector="showJobsMenu:" destination="2" id="qvM-bt-QCQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZuN-i6-OQ0">
-                                <rect key="frame" x="0.0" y="44" width="480" height="256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="scrollView" destination="ZuN-i6-OQ0" id="eWa-k1-t5H"/>
-                        <outlet property="toolbar" destination="Xz6-WH-L4i" id="aBQ-P7-Yju"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-5" y="613"/>
+        </scene>
+        <!--World View Controller-->
+        <scene sceneID="5l5-dE-TP4">
+            <objects>
+                <viewController storyboardIdentifier="worldViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pha-is-tni" customClass="MECOWorldViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SAn-Ek-3oL" userLabel="Sky">
+                        <rect key="frame" x="0.0" y="20" width="480" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="duH-kj-ip3" userLabel="Ocean">
+                                <rect key="frame" x="0.0" y="260" width="480" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="J30-nk-LSQ">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <barButtonItem title="IQ:" style="plain" id="AUI-jX-nKX"/>
+                                    <barButtonItem title="Meco" id="51F-kI-98J">
+                                        <connections>
+                                            <action selector="addMeco:" destination="jpd-0y-pPg" id="BB6-8i-fzN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Jobs" id="JLn-H8-NY9">
+                                        <connections>
+                                            <action selector="showJobsMenu:" destination="jpd-0y-pPg" id="5ub-f1-Xzk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59999999999999998" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <connections>
+                        <outlet property="toolbar" destination="J30-nk-LSQ" id="CkF-17-7jm"/>
+                        <segue destination="MBR-pO-0ZR" kind="custom" identifier="pageViewController" customClass="MECOAssignSegue" id="AVZ-c2-kt4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpd-0y-pPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="209"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="tH2-t0-L2n">
+            <objects>
+                <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="MBR-pO-0ZR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6h-Bi-Lg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="347" y="135"/>
         </scene>
     </scenes>
     <classes>
-        <class className="MECOViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOViewController.h"/>
+        <class className="MECOWorldViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addMeco:"/>
-                <relationship kind="action" name="showJobsMenu:"/>
-                <relationship kind="outlet" name="IQCounter" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>

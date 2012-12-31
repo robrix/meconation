@@ -23,8 +23,19 @@
 @synthesize yValues = _yValues;
 
 
-+(id)firstIsland {
-	return [self islandWithYValues:[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Island 1" ofType:@"plist"]]];
++(NSArray *)allIslands {
+	static NSMutableArray *allIslands = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		NSString *path = nil;
+		allIslands = [NSMutableArray new];
+		NSUInteger islandIndex = 1;
+		while ((path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"Island %u", islandIndex] ofType:@"plist"]) != nil) {
+			[allIslands addObject:[self islandWithYValues:[NSArray arrayWithContentsOfFile:path]]];
+			islandIndex++;
+		}
+	});
+	return allIslands;
 }
 
 +(UIBezierPath *)bezierPathWithYValues:(NSArray *)yValues {
