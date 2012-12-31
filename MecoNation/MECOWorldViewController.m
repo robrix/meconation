@@ -27,7 +27,7 @@
 
 -(MECOViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
 	MECOViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
-	[controller.view self]; // this is a hack to ensure the view controller has loaded its view
+	controller.view.frame = self.pageViewController.view.bounds;
 	controller.island = [self.islands objectAtIndex:index];
 	controller.islandIndex = index;
 	return controller;
