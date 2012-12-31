@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2844" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2844" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="MBR-pO-0ZR">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
         <development version="4200" identifier="xcode"/>
@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="MECOViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="island" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="MECOViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="480" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -34,7 +34,7 @@
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZuN-i6-OQ0">
                                 <rect key="frame" x="0.0" y="44" width="480" height="256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -48,6 +48,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="306" y="368"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="tH2-t0-L2n">
+            <objects>
+                <pageViewController storyboardIdentifier="world" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="40" navigationOrientation="horizontal" spineLocation="none" id="MBR-pO-0ZR" sceneMemberID="viewController">
+                    <connections>
+                        <outlet property="dataSource" destination="3v0-GI-Wn4" id="n7J-QL-c99"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6h-Bi-Lg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="3v0-GI-Wn4" userLabel="World controller" customClass="MECOWorldController">
+                    <connections>
+                        <outlet property="pageViewController" destination="MBR-pO-0ZR" id="0xs-MW-fJ1"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="78" y="653"/>
         </scene>
     </scenes>
     <classes>
@@ -59,6 +77,13 @@
                 <relationship kind="outlet" name="IQCounter" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="MECOWorldController" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="islandController" candidateClass="UIViewController"/>
+                <relationship kind="outlet" name="pageViewController" candidateClass="UIPageViewController"/>
             </relationships>
         </class>
     </classes>

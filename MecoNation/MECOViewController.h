@@ -8,5 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class MECOIsland;
+
 @interface MECOViewController : UIViewController
+
+@property (strong) MECOIsland *island;
+@property (nonatomic) NSUInteger islandIndex;
+
 @end

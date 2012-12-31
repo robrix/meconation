@@ -43,6 +43,8 @@
 
 @implementation MECOViewController
 
+@synthesize island = _island;
+@synthesize islandIndex = _islandIndex;
 @synthesize displayLink = _displayLink;
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
