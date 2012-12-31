@@ -26,5 +26,11 @@
 		<key>costumeImage</key>
 		<string>Worker.png</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Unemployed</string>
+		<key>costumeImage</key>
+		<string>Meco.png</string>
+	</dict>
 </array>
 </plist>
