@@ -26,6 +26,8 @@
 
 @property (strong) NSMutableSet *mecos;
 
+@property (weak) IBOutlet UIScrollView *scrollView;
+
 @property (strong) IBOutlet UIToolbar *toolbar;
 
 @property (strong) IBOutlet UIBarButtonItem *IQCounter;
@@ -59,11 +61,13 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
+	MECOIsland *island = [MECOIsland firstIsland];
+	self.scrollView.contentSize = island.bezierPath.bounds.size;
 	self.groundView = [MECOGroundView new];
-	self.groundView.frame = self.view.bounds;
-	self.groundView.island = [MECOIsland firstIsland];
+	self.groundView.frame = self.scrollView.bounds;
+	self.groundView.island = island;
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	[self.view insertSubview:self.groundView atIndex:0];
+	[self.scrollView insertSubview:self.groundView atIndex:0];
 	
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
@@ -153,7 +157,7 @@
 	
 	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
 	
-	[self.view insertSubview:mecoView belowSubview:self.toolbar];
+	[self.scrollView insertSubview:mecoView belowSubview:self.toolbar];
 }
 
 -(void)fadeView:(UIView *)view intoSuperview:(UIView *)superview {
