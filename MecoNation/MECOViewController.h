@@ -12,7 +12,7 @@
 
 @interface MECOViewController : UIViewController
 
-@property (strong) MECOIsland *island;
+@property (nonatomic, strong) MECOIsland *island;
 @property (nonatomic) NSUInteger islandIndex;
 
 @end

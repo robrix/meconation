@@ -53,7 +53,8 @@
 		D497CBD6168F9CD40025EC0B /* NSValue+MECOPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */; };
 		D497CBD8168F9F600025EC0B /* Island 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = D497CBD7168F9F600025EC0B /* Island 1.plist */; };
 		D497CBED168FB1620025EC0B /* MECOIsland.m in Sources */ = {isa = PBXBuildFile; fileRef = D497CB91168F92640025EC0B /* MECOIsland.m */; };
-		D4B6E6BD1691FE3F006E64C9 /* MECOWorldController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6BC1691FE3F006E64C9 /* MECOWorldController.m */; };
+		D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */; };
+		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,8 +122,10 @@
 		D497CBD4168F9CD40025EC0B /* NSValue+MECOPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+MECOPoints.h"; sourceTree = "<group>"; };
 		D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+MECOPoints.m"; sourceTree = "<group>"; };
 		D497CBD7168F9F600025EC0B /* Island 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 1.plist"; sourceTree = "<group>"; };
-		D4B6E6BB1691FE3F006E64C9 /* MECOWorldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOWorldController.h; sourceTree = "<group>"; };
-		D4B6E6BC1691FE3F006E64C9 /* MECOWorldController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOWorldController.m; sourceTree = "<group>"; };
+		D4B6E6BB1691FE3F006E64C9 /* MECOWorldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOWorldViewController.h; sourceTree = "<group>"; };
+		D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOWorldViewController.m; sourceTree = "<group>"; };
+		D4B6E6C7169236F4006E64C9 /* MECOAssignSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOAssignSegue.h; sourceTree = "<group>"; };
+		D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOAssignSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,8 +299,10 @@
 		D4B6E6B81691FE2B006E64C9 /* World */ = {
 			isa = PBXGroup;
 			children = (
-				D4B6E6BB1691FE3F006E64C9 /* MECOWorldController.h */,
-				D4B6E6BC1691FE3F006E64C9 /* MECOWorldController.m */,
+				D4B6E6BB1691FE3F006E64C9 /* MECOWorldViewController.h */,
+				D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */,
+				D4B6E6C7169236F4006E64C9 /* MECOAssignSegue.h */,
+				D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */,
 				D4B6E6BA1691FE30006E64C9 /* Island */,
 			);
 			name = World;
@@ -414,7 +419,8 @@
 				D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */,
 				D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */,
 				D48E0C901690F672008DB678 /* RXOptionSheet.m in Sources */,
-				D4B6E6BD1691FE3F006E64C9 /* MECOWorldController.m in Sources */,
+				D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */,
+				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

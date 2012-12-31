@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MECOWorldController : NSObject
+@interface MECOWorldViewController : UIViewController
 @end

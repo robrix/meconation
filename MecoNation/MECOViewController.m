@@ -28,10 +28,6 @@
 
 @property (weak) IBOutlet UIScrollView *scrollView;
 
-@property (strong) IBOutlet UIToolbar *toolbar;
-
-@property (strong) IBOutlet UIBarButtonItem *IQCounter;
-
 -(void)addMeco;
 
 @property (readonly) CGRect validBoundsForMecos;
@@ -49,8 +45,6 @@
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 @synthesize mecos = _mecos;
-@synthesize toolbar = _toolbar;
-@synthesize IQCounter = _IQCounter;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
@@ -64,21 +58,20 @@
 	self.view.backgroundColor = [UIColor colorWithRed:153./255. green:255./255. blue:255./255. alpha:1.0];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-	MECOIsland *island = [MECOIsland firstIsland];
+
+-(void)setIsland:(MECOIsland *)island {
+	_island = island;
+	
 	self.scrollView.contentSize = (CGSize){
-		MAX(island.bezierPath.bounds.size.width, self.scrollView.bounds.size.width),
-		MAX(island.bezierPath.bounds.size.height, self.scrollView.bounds.size.height),
+		MAX(self.island.bezierPath.bounds.size.width, self.scrollView.bounds.size.width),
+		MAX(self.island.bezierPath.bounds.size.height, self.scrollView.bounds.size.height),
 	};
 	self.groundView = [MECOGroundView new];
 	self.groundView.frame = self.scrollView.bounds;
-	self.groundView.island = island;
+	self.groundView.island = self.island;
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.scrollView insertSubview:self.groundView atIndex:0];
-	
-	self.toolbar.frame = (CGRect){
-		.size = { self.view.bounds.size.width, 30 }
-	};
+		
 	[self addMeco];
 }
 
@@ -134,7 +127,7 @@
 		mecoView.image = job.costumeImage;
 	}];
 	
-	[optionSheet showFromRect:self.toolbar.bounds inView:self.toolbar animated:YES];
+	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
@@ -142,7 +135,7 @@
 		[self showMecosMenuForJob:selectedJob];
 	}];
 	
-	[optionSheet showFromRect:self.toolbar.bounds inView:self.toolbar animated:YES];
+	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 
@@ -172,7 +165,7 @@
 	
 	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
 	
-	[self.scrollView insertSubview:mecoView belowSubview:self.toolbar];
+	[self.scrollView addSubview:mecoView];
 }
 
 -(void)fadeView:(UIView *)view intoSuperview:(UIView *)superview {
