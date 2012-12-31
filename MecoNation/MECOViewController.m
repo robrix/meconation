@@ -28,7 +28,7 @@
 
 @property (weak) IBOutlet UIScrollView *scrollView;
 
--(void)addMeco;
+-(void)addMecoWithJob:(MECOJob *)job;
 
 @property (readonly) CGRect validBoundsForMecos;
 
@@ -45,6 +45,7 @@
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 @synthesize mecos = _mecos;
+@synthesize scrollView = _scrollView;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
@@ -71,8 +72,10 @@
 	self.groundView.island = self.island;
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.scrollView insertSubview:self.groundView atIndex:0];
-		
-	[self addMeco];
+	
+	[self addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
+	[self addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
+	[self addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
 }
 
 
@@ -115,7 +118,7 @@
 
 
 -(IBAction)addMeco:(id)sender {
-	[self addMeco];
+	[self addMecoWithJob:nil];
 }
 
 -(void)showMecosMenuForJob:(MECOJob *)job {
@@ -139,13 +142,14 @@
 }
 
 
--(void)addMeco {
-	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:nil];
+-(void)addMecoWithJob:(MECOJob *)job {
+	job = job ?: [MECOJob jobTitled:MECOUnemployedJobTitle];
+	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.mecos addObject:meco];
 	
 	MECOSpriteView *mecoView = [MECOSpriteView new];
 	mecoView.delegate = self;
-	mecoView.image = [UIImage imageNamed:@"Meco.png"];
+	mecoView.image = job.costumeImage;
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
 	CGPoint tile = (CGPoint){

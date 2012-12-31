@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const MECOScientistJobTitle;
+extern NSString * const MECOTailorJobTitle;
+extern NSString * const MECOWorkerJobTitle;
+extern NSString * const MECOFarmerJobTitle;
+extern NSString * const MECOUnemployedJobTitle;
+
 @interface MECOJob : NSObject
 
 +(NSArray *)allJobs;
++(MECOJob *)jobTitled:(NSString *)title;
 
 +(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage;
 

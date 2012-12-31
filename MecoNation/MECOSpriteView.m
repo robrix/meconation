@@ -42,10 +42,32 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 @synthesize inertia = _inertia;
 @synthesize actor = _actor;
 @synthesize imageLayer = _imageLayer;
-
+-(void)fadeOutView:(UIImageView *)view{
+	[UIImageView animateWithDuration:0.25 animations:^{
+		view.alpha = 0;
+	} completion:^(BOOL finished) {
+		[view removeFromSuperview];
+	}];
+};
 -(id)init {
 	if ((self = [super init])) {
 		[self resetTimer];
+		
+		UIImage *speechBubbleImage = [UIImage imageNamed:@"Surprise.png"];
+		
+		UIImageView *speechBubbleView = [[UIImageView alloc] initWithImage:speechBubbleImage];
+		
+		speechBubbleView.frame = (CGRect){
+			{20, -20},
+			speechBubbleView.bounds.size
+		};
+		
+		[self addSubview: speechBubbleView];
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+			[self fadeOutView:speechBubbleView];
+		});
+
+		
 		
 		CALayer *imageLayer = [CALayer layer];
 		imageLayer.actions = [NSDictionary dictionaryWithObjectsAndKeys:
