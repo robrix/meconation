@@ -12,6 +12,7 @@ extern NSString * const MECOScientistJobTitle;
 extern NSString * const MECOTailorJobTitle;
 extern NSString * const MECOWorkerJobTitle;
 extern NSString * const MECOFarmerJobTitle;
+extern NSString * const MECOUnemployedJobTitle;
 
 @interface MECOJob : NSObject
 
