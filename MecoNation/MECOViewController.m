@@ -78,9 +78,9 @@
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
-	[self addMecoWithJob:nil];
-	[self addMecoWithJob:nil];
-	[self addMecoWithJob:nil];
+	[self addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
+	[self addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
+	[self addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
 }
 
 
@@ -148,12 +148,13 @@
 
 
 -(void)addMecoWithJob:(MECOJob *)job {
+	job = job ?: [MECOJob jobTitled:MECOUnemployedJobTitle];
 	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.mecos addObject:meco];
 	
 	MECOSpriteView *mecoView = [MECOSpriteView new];
 	mecoView.delegate = self;
-	mecoView.image = [UIImage imageNamed:@"Meco.png"];
+	mecoView.image = job.costumeImage;
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
 	CGPoint tile = (CGPoint){
