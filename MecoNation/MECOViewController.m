@@ -32,7 +32,7 @@
 
 @property (strong) IBOutlet UIBarButtonItem *IQCounter;
 
--(void)addMeco;
+-(void)addMecoWithJob:(MECOJob *)job;
 
 @property (readonly) CGRect validBoundsForMecos;
 
@@ -78,7 +78,9 @@
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
-	[self addMeco];
+	[self addMecoWithJob:nil];
+	[self addMecoWithJob:nil];
+	[self addMecoWithJob:nil];
 }
 
 
@@ -121,7 +123,7 @@
 
 
 -(IBAction)addMeco:(id)sender {
-	[self addMeco];
+	[self addMecoWithJob:nil];
 }
 
 -(void)showMecosMenuForJob:(MECOJob *)job {
@@ -145,8 +147,8 @@
 }
 
 
--(void)addMeco {
-	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:nil];
+-(void)addMecoWithJob:(MECOJob *)job {
+	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.mecos addObject:meco];
 	
 	MECOSpriteView *mecoView = [MECOSpriteView new];
