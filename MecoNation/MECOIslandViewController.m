@@ -29,6 +29,7 @@
 @property (weak) IBOutlet UIScrollView *scrollView;
 
 -(void)addMecoWithJob:(MECOJob *)job;
+@property (nonatomic, readonly) UIView *viewForMenu;
 
 @property (readonly) CGRect validBoundsForMecos;
 
@@ -120,6 +121,10 @@
 	[self addMecoWithJob:nil];
 }
 
+-(UIView *)viewForMenu {
+	return self.view.window.rootViewController.view;
+}
+
 -(void)showMecosMenuForJob:(MECOJob *)job {
 	NSArray *mecos = [self.mecos sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
@@ -129,7 +134,7 @@
 		mecoView.image = job.costumeImage;
 	}];
 	
-	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
@@ -137,7 +142,7 @@
 		[self showMecosMenuForJob:selectedJob];
 	}];
 	
-	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
 
 
