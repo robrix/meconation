@@ -115,6 +115,7 @@
 }
 
 
+// move these responsibilities to the world view controller
 -(IBAction)addMeco:(id)sender {
 	[self addMecoWithJob:nil];
 }

@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpd-0y-pPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="209"/>
+            <point key="canvasLocation" x="-207" y="55"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="tH2-t0-L2n">
@@ -82,10 +82,18 @@
                 <pageViewController storyboardIdentifier="pageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="MBR-pO-0ZR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6h-Bi-Lg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347" y="135"/>
+            <point key="canvasLocation" x="449" y="185"/>
         </scene>
     </scenes>
     <classes>
+        <class className="MECOIslandViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOIslandViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addMeco:"/>
+                <relationship kind="action" name="showJobsMenu:"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
         <class className="MECOWorldViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldViewController.h"/>
             <relationships>

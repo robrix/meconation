@@ -62,6 +62,15 @@
 }
 
 
+-(IBAction)addMeco:(id)sender {
+	[self.pageViewController.viewControllers.lastObject addMeco:sender];
+}
+
+-(IBAction)showJobsMenu:(id)sender {
+	[self.pageViewController.viewControllers.lastObject showJobsMenu:sender];
+}
+
+
 -(void)setPageViewController:(UIPageViewController *)pageViewController {
 	_pageViewController = pageViewController;
 	
