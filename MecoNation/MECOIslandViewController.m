@@ -26,7 +26,7 @@
 
 @property (strong) NSMutableSet *mecos;
 
-@property (weak) IBOutlet UIScrollView *scrollView;
+//@property (weak) IBOutlet UIScrollView *scrollView;
 
 -(void)addMecoWithJob:(MECOJob *)job;
 @property (nonatomic, readonly) UIView *viewForMenu;
@@ -46,7 +46,7 @@
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 @synthesize mecos = _mecos;
-@synthesize scrollView = _scrollView;
+//@synthesize scrollView = _scrollView;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
@@ -62,15 +62,14 @@
 -(void)setIsland:(MECOIsland *)island {
 	_island = island;
 	
-	self.scrollView.contentSize = (CGSize){
-		MAX(self.island.bezierPath.bounds.size.width, self.scrollView.bounds.size.width),
-		MAX(self.island.bezierPath.bounds.size.height, self.scrollView.bounds.size.height),
-	};
 	self.groundView = [MECOGroundView new];
-	self.groundView.frame = self.scrollView.bounds;
+	self.view.frame = self.groundView.frame = (CGRect){
+		{},
+		{MAX(CGRectGetWidth(self.island.bezierPath.bounds), CGRectGetWidth(self.view.bounds)), (CGRectGetHeight(self.island.bezierPath.bounds), CGRectGetHeight(self.view.bounds))}
+	};
 	self.groundView.island = self.island;
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	[self.scrollView insertSubview:self.groundView atIndex:0];
+	[self.view addSubview:self.groundView];
 	
 	[self addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
 	[self addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
@@ -86,7 +85,7 @@
 -(CGRect)validBoundsForMecos {
 	return (CGRect){
 		{},
-		self.scrollView.contentSize
+		self.groundView.bounds.size
 	};
 }
 
@@ -157,8 +156,8 @@
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
 	CGPoint tile = (CGPoint){
-		random() % (NSUInteger)(self.scrollView.contentSize.width / 20.0),
-		random() % ((NSUInteger)((self.scrollView.contentSize.height / 20.0) - 3) + 2)
+		random() % (NSUInteger)(CGRectGetWidth(self.view.bounds) / 20.0),
+		random() % ((NSUInteger)((CGRectGetHeight(self.view.bounds) / 20.0) - 3) + 2)
 	};
 	
 	mecoView.center = (CGPoint){
@@ -173,7 +172,7 @@
 	
 	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
 	
-	[self.scrollView addSubview:mecoView];
+	[self.view addSubview:mecoView];
 }
 
 -(void)fadeView:(UIView *)view intoSuperview:(UIView *)superview {

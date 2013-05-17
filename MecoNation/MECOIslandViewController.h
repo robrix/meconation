@@ -15,4 +15,7 @@
 @property (nonatomic, strong) MECOIsland *island;
 @property (nonatomic) NSUInteger islandIndex;
 
+-(IBAction)addMeco:(id)sender;
+-(IBAction)showJobsMenu:(id)sender;
+
 @end

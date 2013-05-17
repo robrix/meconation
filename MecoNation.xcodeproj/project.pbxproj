@@ -55,6 +55,7 @@
 		D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */; };
 		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
 		D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */; };
+		D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8769516A3019900208BE9 /* MECOPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,8 @@
 		D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOAssignSegue.m; sourceTree = "<group>"; };
 		D4B6E6D316923FC4006E64C9 /* MECOGroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOGroundView.h; sourceTree = "<group>"; };
 		D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
+		D4C8769416A3019900208BE9 /* MECOPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPageViewController.h; sourceTree = "<group>"; };
+		D4C8769516A3019900208BE9 /* MECOPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +285,8 @@
 			children = (
 				D4B6E6BB1691FE3F006E64C9 /* MECOWorldViewController.h */,
 				D4B6E6BC1691FE3F006E64C9 /* MECOWorldViewController.m */,
+				D4C8769416A3019900208BE9 /* MECOPageViewController.h */,
+				D4C8769516A3019900208BE9 /* MECOPageViewController.m */,
 				D4B6E6C7169236F4006E64C9 /* MECOAssignSegue.h */,
 				D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */,
 				D4B6E6BA1691FE30006E64C9 /* Island */,
@@ -411,6 +416,7 @@
 				D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */,
 				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
+				D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

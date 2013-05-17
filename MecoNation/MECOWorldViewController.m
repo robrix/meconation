@@ -8,14 +8,15 @@
 
 #import "MECOIslandViewController.h"
 #import "MECOWorldViewController.h"
+#import "MECOPageViewController.h"
 #import "MECOIsland.h"
 
-@interface MECOWorldViewController () <UIPageViewControllerDataSource>
+@interface MECOWorldViewController () <MECOPageViewControllerDataSource>
 
 @property (copy) NSArray *islands;
 
 @property (strong) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, strong) UIPageViewController *pageViewController;
+@property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
 
@@ -53,7 +54,7 @@
 	}
 	self.islandViewControllers = islandViewControllers;
 	
-	[self.pageViewController setViewControllers:[NSArray arrayWithObject:[self.islandViewControllers objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+	self.pageViewController.currentViewController = [self.islandViewControllers objectAtIndex:0];
 	
 //	NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:12] forKey:UITextAttributeFont];
 //	for (UIBarItem *item in self.toolbar.items) {
@@ -62,16 +63,21 @@
 }
 
 
+-(MECOIslandViewController *)currentIslandViewController {
+	return (MECOIslandViewController *)self.pageViewController.currentViewController;
+}
+
+
 -(IBAction)addMeco:(id)sender {
-	[self.pageViewController.viewControllers.lastObject addMeco:sender];
+	[self.currentIslandViewController addMeco:sender];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
-	[self.pageViewController.viewControllers.lastObject showJobsMenu:sender];
+	[self.currentIslandViewController showJobsMenu:sender];
 }
 
 
--(void)setPageViewController:(UIPageViewController *)pageViewController {
+-(void)setPageViewController:(MECOPageViewController *)pageViewController {
 	_pageViewController = pageViewController;
 	
 	pageViewController.dataSource = self;
@@ -89,13 +95,13 @@
 }
 
 
--(MECOIslandViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(MECOIslandViewController *)viewController {
+-(MECOIslandViewController *)pageViewController:(MECOPageViewController *)pageViewController viewControllerAfterViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex < (self.islandViewControllers.count - 1)?
 		[self.islandViewControllers objectAtIndex:viewController.islandIndex + 1]
 	:	nil;
 }
 
--(MECOIslandViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(MECOIslandViewController *)viewController {
+-(MECOIslandViewController *)pageViewController:(MECOPageViewController *)pageViewController viewControllerBeforeViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex > 0?
 		[self.islandViewControllers objectAtIndex:viewController.islandIndex - 1]
 	:	nil;
