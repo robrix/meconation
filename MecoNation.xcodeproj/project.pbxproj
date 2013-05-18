@@ -25,7 +25,6 @@
 		75F28E991690EEC200481F4B /* Island 3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E971690EEC200481F4B /* Island 3.plist */; };
 		75FB4A7B168FB04600B84A04 /* MecoBoat.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A62168FB04600B84A04 /* MecoBoat.m */; };
 		75FB4A7E168FB04600B84A04 /* MecoHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A68168FB04600B84A04 /* MecoHouse.m */; };
-		75FB4A7F168FB04600B84A04 /* MecoIsland.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6A168FB04600B84A04 /* MecoIsland.m */; };
 		75FB4A80168FB04600B84A04 /* MecoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6C168FB04600B84A04 /* MecoItem.m */; };
 		75FB4A84168FB04600B84A04 /* MecoSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A74168FB04600B84A04 /* MecoSheep.m */; };
 		75FB4A87168FB04600B84A04 /* MecoWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A7A168FB04600B84A04 /* MecoWorld.m */; };
@@ -79,8 +78,6 @@
 		75FB4A62168FB04600B84A04 /* MecoBoat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoBoat.m; sourceTree = "<group>"; };
 		75FB4A67168FB04600B84A04 /* MecoHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoHouse.h; sourceTree = "<group>"; };
 		75FB4A68168FB04600B84A04 /* MecoHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoHouse.m; sourceTree = "<group>"; };
-		75FB4A69168FB04600B84A04 /* MecoIsland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoIsland.h; sourceTree = "<group>"; };
-		75FB4A6A168FB04600B84A04 /* MecoIsland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoIsland.m; sourceTree = "<group>"; };
 		75FB4A6B168FB04600B84A04 /* MecoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoItem.h; sourceTree = "<group>"; };
 		75FB4A6C168FB04600B84A04 /* MecoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoItem.m; sourceTree = "<group>"; };
 		75FB4A73168FB04600B84A04 /* MecoSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoSheep.h; sourceTree = "<group>"; };
@@ -180,8 +177,6 @@
 				75FB4A62168FB04600B84A04 /* MecoBoat.m */,
 				75FB4A67168FB04600B84A04 /* MecoHouse.h */,
 				75FB4A68168FB04600B84A04 /* MecoHouse.m */,
-				75FB4A69168FB04600B84A04 /* MecoIsland.h */,
-				75FB4A6A168FB04600B84A04 /* MecoIsland.m */,
 				75FB4A6B168FB04600B84A04 /* MecoItem.h */,
 				75FB4A6C168FB04600B84A04 /* MecoItem.m */,
 				75FB4A73168FB04600B84A04 /* MecoSheep.h */,
@@ -404,7 +399,6 @@
 				D497CB6D168E56BD0025EC0B /* MECOSpriteView.m in Sources */,
 				75FB4A7B168FB04600B84A04 /* MecoBoat.m in Sources */,
 				75FB4A7E168FB04600B84A04 /* MecoHouse.m in Sources */,
-				75FB4A7F168FB04600B84A04 /* MecoIsland.m in Sources */,
 				75FB4A80168FB04600B84A04 /* MecoItem.m in Sources */,
 				75FB4A84168FB04600B84A04 /* MecoSheep.m in Sources */,
 				D497CBD6168F9CD40025EC0B /* NSValue+MECOPoints.m in Sources */,

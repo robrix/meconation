@@ -80,9 +80,10 @@
 
 
 -(CGRect)validBoundsForMecos {
+	CGRect islandBounds = self.groundView.island.bounds;
 	return (CGRect){
-		{},
-		self.groundView.bounds.size
+		{islandBounds.origin.x, 0},
+		{islandBounds.size.width, self.groundView.bounds.size.height}
 	};
 }
 
