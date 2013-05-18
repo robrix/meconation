@@ -13,6 +13,7 @@
 +(NSArray *)allIslands;
 
 @property (strong) UIBezierPath *bezierPath;
+@property CGRect bounds;
 
 -(CGFloat)groundHeightAtX:(CGFloat)x;
 

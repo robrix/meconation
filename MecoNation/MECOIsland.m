@@ -22,6 +22,7 @@
 @synthesize bezierPath = _bezierPath;
 @synthesize yValues = _yValues;
 
+const CGSize gridSize = {20, 20};
 
 +(NSArray *)allIslands {
 	static NSMutableArray *allIslands = nil;
@@ -49,9 +50,32 @@
 	
 	[bezierPath addLineToPoint:(CGPoint){ bezierPath.currentPoint.x, 0 }];
 	[bezierPath closePath];
-	[bezierPath applyTransform:CGAffineTransformMakeScale(20, -20)];
+	
+	[bezierPath applyTransform:CGAffineTransformMakeScale(gridSize.width, -gridSize.height)];
 	
 	return bezierPath;
+}
+
++(CGRect)boundsWithYValues:(NSArray *)yValues {
+	CGRect bounds = {.size.width = yValues.count};
+	for (NSNumber *yValue in yValues) {
+		if (yValue.unsignedIntegerValue > 0)
+			break;
+		bounds.origin.x++;
+		bounds.size.width--;
+	}
+	
+	for (NSNumber *yValue in yValues) {
+		bounds.size.height = MAX(bounds.size.height, yValue.unsignedIntegerValue);
+	}
+	
+	for (NSNumber *yValue in yValues.reverseObjectEnumerator) {
+		bounds.size.width--;
+		if (yValue.unsignedIntegerValue > 0)
+			break;
+	}
+	
+	return CGRectApplyAffineTransform(bounds, CGAffineTransformMakeScale(gridSize.width, -gridSize.height));
 }
 
 +(id)islandWithYValues:(NSArray *)yValues {
@@ -60,6 +84,7 @@
 	island.yValues = yValues;
 	
 	island.bezierPath = [self bezierPathWithYValues:yValues];
+	island.bounds = [self boundsWithYValues:yValues];
 	
 	return island;
 }
