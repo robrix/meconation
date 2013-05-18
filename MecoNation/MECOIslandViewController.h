@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class MECOIsland;
+@class MECOIsland, MECOJob;
 
 @interface MECOIslandViewController : UIViewController
 
 @property (nonatomic, strong) MECOIsland *island;
 @property (nonatomic) NSUInteger islandIndex;
+
+-(void)addMecoWithJob:(MECOJob *)job;
 
 -(IBAction)addMeco:(id)sender;
 -(IBAction)showJobsMenu:(id)sender;

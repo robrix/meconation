@@ -26,7 +26,6 @@
 
 @property (strong) NSMutableSet *mecos;
 
--(void)addMecoWithJob:(MECOJob *)job;
 @property (nonatomic, readonly) UIView *viewForMenu;
 
 @property (readonly) CGRect validBoundsForMecos;
@@ -67,10 +66,6 @@
 	self.groundView.island = self.island;
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:self.groundView];
-	
-	[self addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
-	[self addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
-	[self addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
 }
 
 
@@ -80,7 +75,7 @@
 
 
 -(CGRect)validBoundsForMecos {
-	CGRect islandBounds = self.groundView.island.bounds;
+	CGRect islandBounds = self.island.bounds;
 	return (CGRect){
 		{islandBounds.origin.x, 0},
 		{islandBounds.size.width, self.groundView.bounds.size.height}

@@ -10,6 +10,7 @@
 #import "MECOWorldViewController.h"
 #import "MECOPageViewController.h"
 #import "MECOIsland.h"
+#import "MECOJob.h"
 
 @interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
 
@@ -60,6 +61,11 @@
 		MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
 		controller.view.frame = self.pageViewController.view.bounds;
 		controller.island = island;
+		if (islandIndex == 0) {
+			[controller addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
+			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
+			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
+		}
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
