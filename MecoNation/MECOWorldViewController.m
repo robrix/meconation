@@ -32,9 +32,11 @@
 -(NSUInteger) currentIslandNumber{
     return self.currentIslandViewController.islandIndex + 1;
 }
-
 -(NSString*) currentIslandLabel{
     return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
+}
+-(void) updateIslandLabel{
+    self.islandIdentifier.title = self.currentIslandLabel;
 }
 
 -(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
