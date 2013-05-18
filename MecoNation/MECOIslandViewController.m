@@ -26,8 +26,6 @@
 
 @property (strong) NSMutableSet *mecos;
 
-//@property (weak) IBOutlet UIScrollView *scrollView;
-
 -(void)addMecoWithJob:(MECOJob *)job;
 @property (nonatomic, readonly) UIView *viewForMenu;
 
@@ -46,7 +44,6 @@
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 @synthesize mecos = _mecos;
-//@synthesize scrollView = _scrollView;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
