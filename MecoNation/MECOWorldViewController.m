@@ -11,7 +11,7 @@
 #import "MECOPageViewController.h"
 #import "MECOIsland.h"
 
-@interface MECOWorldViewController () <MECOPageViewControllerDataSource>
+@interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
 
 @property (copy) NSArray *islands;
 
@@ -66,11 +66,6 @@
 	self.islandViewControllers = islandViewControllers;
 	
 	self.pageViewController.currentViewController = [self.islandViewControllers objectAtIndex:0];
-	
-//	NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:12] forKey:UITextAttributeFont];
-//	for (UIBarItem *item in self.toolbar.items) {
-//		[item setTitleTextAttributes:attributes forState:UIControlStateNormal];
-//	}
 }
 
 
@@ -116,6 +111,11 @@
 	return viewController.islandIndex > 0?
 		[self.islandViewControllers objectAtIndex:viewController.islandIndex - 1]
 	:	nil;
+}
+
+
+-(void)pageViewController:(MECOPageViewController *)pageViewController didShowViewController:(UIViewController *)controller {
+	// update the island number bar button item here
 }
 
 @end

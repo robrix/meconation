@@ -86,10 +86,14 @@
 	
 	self.nextViewController = [self.dataSource pageViewController:self viewControllerAfterViewController:self.currentViewController];
 	self.previousViewController = [self.dataSource pageViewController:self viewControllerBeforeViewController:self.currentViewController];
+	
+	if ([self.delegate respondsToSelector:@selector(pageViewController:didShowViewController:)])
+		[self.delegate pageViewController:self didShowViewController:self.currentViewController];
 }
 
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+	bool shouldNotify = NO;
 	if (self.isAdvancingToNextPage) {
 		self.advancingToNextPage = NO;
 		self.previousViewController = self.currentViewController;
@@ -98,6 +102,8 @@
 		_currentViewController = self.nextViewController;
 		[self.currentViewController didMoveToParentViewController:self];
 		self.nextViewController = [self.dataSource pageViewController:self viewControllerAfterViewController:self.currentViewController];
+		
+		shouldNotify = YES;
 	} else if (self.isReturningToPreviousPage) {
 		self.returningToPreviousPage = NO;
 		self.nextViewController = self.currentViewController;
@@ -106,7 +112,12 @@
 		_currentViewController = self.previousViewController;
 		[self.currentViewController didMoveToParentViewController:self];
 		self.previousViewController = [self.dataSource pageViewController:self viewControllerBeforeViewController:self.currentViewController];
+		
+		shouldNotify = YES;
 	}
+	
+	if (shouldNotify && [self.delegate respondsToSelector:@selector(pageViewController:didShowViewController:)])
+		[self.delegate pageViewController:self didShowViewController:self.currentViewController];
 }
 
 
