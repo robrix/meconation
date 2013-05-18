@@ -90,12 +90,6 @@
 }
 
 
--(bool)spriteView:(MECOSpriteView *)spriteView shouldMoveToDestination:(CGPoint)destination {
-	return
-		(destination.x > CGRectGetMinX(self.validBoundsForMecos))
-	&&	(destination.x < CGRectGetMaxX(self.validBoundsForMecos));
-}
-
 -(CGPoint)constrainSpritePosition:(CGPoint)position toRect:(CGRect)bounds {
 	return (CGPoint){
 		MECOConstrainValueToRange(position.x, CGRectGetMinX(bounds), CGRectGetMaxX(bounds)),
