@@ -4,7 +4,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MECOPageViewControllerDataSource;
+@protocol MECOPageViewControllerDataSource, MECOPageViewControllerDelegate;
 
 @interface MECOPageViewController : UIViewController
 
@@ -12,7 +12,16 @@
 
 @property (nonatomic, strong) UIScrollView *view;
 
+@property (nonatomic, weak) id<MECOPageViewControllerDelegate> delegate;
 @property (nonatomic, weak) id<MECOPageViewControllerDataSource> dataSource;
+
+@end
+
+@protocol MECOPageViewControllerDelegate <NSObject>
+
+@optional
+
+-(void)pageViewController:(MECOPageViewController *)pageViewController didShowViewController:(UIViewController *)controller;
 
 @end
 
