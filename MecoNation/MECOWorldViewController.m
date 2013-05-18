@@ -17,7 +17,7 @@
 @property (copy) NSArray *islands;
 
 @property (strong) IBOutlet UIToolbar *toolbar;
-@property (strong) IBOutlet UIBarButtonItem *islandIdentifier;
+@property (strong) IBOutlet UILabel *islandIdentifier;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
@@ -37,7 +37,8 @@
     return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
 }
 -(void) updateIslandLabel{
-    self.islandIdentifier.title = self.currentIslandLabel;
+    self.islandIdentifier.text = self.currentIslandLabel;
+    [self.islandIdentifier sizeToFit];
 }
 
 -(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
@@ -102,7 +103,7 @@
 		{0, kToolbarHeight},
 		{CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - kToolbarHeight}
 	};
-	[self.view addSubview:pageViewController.view];
+	[self.view insertSubview:pageViewController.view atIndex:1];
 	
 	[pageViewController didMoveToParentViewController:self];
 }
