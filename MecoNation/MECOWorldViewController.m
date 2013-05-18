@@ -16,6 +16,7 @@
 @property (copy) NSArray *islands;
 
 @property (strong) IBOutlet UIToolbar *toolbar;
+@property (strong) IBOutlet UIBarButtonItem *islandIdentifier;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
@@ -27,6 +28,14 @@
 @synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
 
+
+-(NSUInteger) currentIslandNumber{
+    return self.currentIslandViewController.islandIndex + 1;
+}
+
+-(NSString*) currentIslandLabel{
+    return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
+}
 
 -(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
 	MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];

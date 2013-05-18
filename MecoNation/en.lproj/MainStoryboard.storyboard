@@ -60,6 +60,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
+                        <outlet property="islandIdentifier" destination="Zuj-7Z-t30" id="iYY-c9-HC8"/>
                         <outlet property="toolbar" destination="J30-nk-LSQ" id="CkF-17-7jm"/>
                         <segue destination="xSw-ts-IPK" kind="custom" identifier="pageViewController" customClass="MECOAssignSegue" id="obZ-fL-oPH"/>
                     </connections>
@@ -86,26 +87,6 @@
             <point key="canvasLocation" x="426" y="163"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="MECOIslandViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOIslandViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addMeco:"/>
-                <relationship kind="action" name="showJobsMenu:"/>
-            </relationships>
-        </class>
-        <class className="MECOPageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOPageViewController.h"/>
-        </class>
-        <class className="MECOWorldViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addMeco:"/>
-                <relationship kind="action" name="showJobsMenu:"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
