@@ -86,6 +86,7 @@
 -(void)setPageViewController:(MECOPageViewController *)pageViewController {
 	_pageViewController = pageViewController;
 	
+    pageViewController.delegate = self;
 	pageViewController.dataSource = self;
 	
 	[self addChildViewController:pageViewController];
@@ -115,7 +116,7 @@
 
 
 -(void)pageViewController:(MECOPageViewController *)pageViewController didShowViewController:(UIViewController *)controller {
-	// update the island number bar button item here
+    [self updateIslandLabel];
 }
 
 @end
