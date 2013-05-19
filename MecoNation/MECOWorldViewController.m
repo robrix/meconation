@@ -79,8 +79,8 @@
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
+            [self updatePopulationLAbel];
 		}
-        [self updatePopulationLAbel];
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
