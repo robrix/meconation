@@ -15,6 +15,8 @@
 
 +(id)islandWithYValues:(NSArray *)yValues;
 
+@property (strong) NSMutableSet *mutableMecos;
+
 @end
 
 @implementation MECOIsland
@@ -78,7 +80,7 @@ const CGSize gridSize = {20, 20};
 	return CGRectApplyAffineTransform(bounds, CGAffineTransformMakeScale(gridSize.width, -gridSize.height));
 }
 
-+(id)islandWithYValues:(NSArray *)yValues {
++(instancetype)islandWithYValues:(NSArray *)yValues {
 	MECOIsland *island = [self new];
 	
 	island.yValues = yValues;
@@ -87,6 +89,25 @@ const CGSize gridSize = {20, 20};
 	island.bounds = [self boundsWithYValues:yValues];
 	
 	return island;
+}
+
+-(instancetype)init {
+	if ((self = [super init])) {
+		_mutableMecos = [NSMutableSet new];
+	}
+	return self;
+}
+
+-(NSSet *)mecos {
+	return self.mutableMecos;
+}
+
+-(void)addPerson:(MECOPerson *)person {
+	[self.mutableMecos addObject:person];
+}
+
+-(void)removePerson:(MECOPerson *)person {
+	[self.mutableMecos removeObject:person];
 }
 
 
