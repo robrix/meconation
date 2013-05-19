@@ -145,6 +145,16 @@
 	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
 
+-(NSArray *)spawnables{
+	return @[@"Sheep", @"Meco"];
+}
+-(IBAction)showSpawnMenu:(id)sender {
+	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawnables" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+		
+	}];
+	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
+}
+
 -(IBAction)showJobsMenu:(id)sender {
 	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:[MECOJob allJobs] optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
 		[self showMecosMenuForJob:selectedJob];
