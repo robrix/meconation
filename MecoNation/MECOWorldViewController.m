@@ -114,6 +114,7 @@
             [self updatePopulationLabel];
 			[self updateIQLabel];
 		}
+		controller.mecoWorld = self;
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
