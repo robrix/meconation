@@ -11,6 +11,7 @@
 #import "MECOPageViewController.h"
 #import "MECOIsland.h"
 #import "MECOJob.h"
+#import "MECOPerson.h"
 
 @interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
 
@@ -18,12 +19,14 @@
 
 @property (strong) IBOutlet UIToolbar *toolbar;
 @property (strong) IBOutlet UILabel *islandIdentifier;
+@property (strong) IBOutlet UILabel *IQCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
 
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
 @property (readonly) NSUInteger mecoPopulation;
+
 
 @end
 
@@ -36,15 +39,14 @@
 -(NSUInteger)currentIslandNumber {
 	return self.currentIslandViewController.islandIndex + 1;
 }
-
 -(NSString *)currentIslandLabel {
 	return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
 }
-
 -(void)updateIslandLabel {
 	self.islandIdentifier.text = self.currentIslandLabel;
 	[self.islandIdentifier sizeToFit];
 }
+
 
 -(NSSet *)allMecos {
 	NSMutableSet *mecos = [NSMutableSet new];
@@ -58,6 +60,7 @@
 	return self.allMecos.count;
 }
 
+
 //Population Label stuff
 -(NSString *)populationLabel {
 	return [NSString stringWithFormat: @"Population %u / %u / ∞", self.currentIslandPopulation, self.mecoPopulation];
@@ -68,6 +71,27 @@
 }
 -(NSUInteger) currentIslandPopulation {
 	return self.currentIsland.mecos.count;
+}
+
+
+//IQ
+-(NSUInteger) IQRate {
+	int mecoScientistCount = 0;
+	for (MECOPerson *person in self.allMecos)
+	{
+		if ([person.job.title isEqual:MECOScientistJobTitle])
+			mecoScientistCount += 1;
+	}
+	return mecoScientistCount * 10;
+}
+-(NSString *)IQLabel{
+	return [NSString stringWithFormat:@"IQ %u", self.IQRate ];
+}
+-(void) updateIQLabel{
+	//Right now this posts the rate of IQ per minute
+	//Instead it should show the amount of IQ the user has...
+	self.IQCount.text = self.IQLabel;
+	[self.IQCount sizeToFit];
 }
 
 
@@ -90,7 +114,9 @@
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
             [self updatePopulationLabel];
+			[self updateIQLabel];
 		}
+		controller.mecoWorld = self;
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}

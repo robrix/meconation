@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class MECOIsland, MECOJob;
+@class MECOWorldViewController;
 
 @interface MECOIslandViewController : UIViewController
 
 @property (nonatomic, strong) MECOIsland *island;
 @property (nonatomic) NSUInteger islandIndex;
+@property (strong) MECOWorldViewController *mecoWorld;
+
 
 -(void)addMecoWithJob:(MECOJob *)job;
 

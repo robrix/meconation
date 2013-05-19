@@ -15,6 +15,7 @@
 #import "RXOptionSheet.h"
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
+#import "MECOWorldViewController.h"
 
 @interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate>
 
@@ -99,6 +100,7 @@
 
 
 // move these responsibilities to the world view controller
+//I think this is done already..?
 -(IBAction)addMeco:(id)sender {
 	[self addMecoWithJob:nil];
 }
@@ -114,8 +116,9 @@
 		MECOSpriteView *mecoView = meco.sprite;
 		meco.job = job;
 		mecoView.image = job.costumeImage;
+		[self.mecoWorld updateIQLabel];
+
 	}];
-	
 	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
 

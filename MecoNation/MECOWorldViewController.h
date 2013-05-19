@@ -9,4 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MECOWorldViewController : UIViewController
+
+-(void) updateIQLabel;
+
 @end
