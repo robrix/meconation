@@ -46,7 +46,7 @@
 }
 
 -(NSString*) worldPopulationLabel{
-    return [NSString stringWithFormat: @"World Population %u / ?", self.mecoPopulation];
+    return [NSString stringWithFormat: @"World Population %u / ∞", self.mecoPopulation];
 }
 -(void) updateWorldPopulationLAbel{
     self.mecoPopulationLabel.text = self.worldPopulationLabel;
