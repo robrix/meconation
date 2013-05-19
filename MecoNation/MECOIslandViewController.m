@@ -126,7 +126,7 @@
 	return @[@"Sheep", @"Meco"];
 }
 -(IBAction)showSpawnMenu:(id)sender {
-	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawnables" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawn:" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
 		
 	}];
 	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
