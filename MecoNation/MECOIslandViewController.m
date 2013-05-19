@@ -24,8 +24,6 @@
 
 @property (strong) NSMutableSet *sprites;
 
-@property (strong, readwrite) NSMutableSet *mecos;
-
 @property (nonatomic, readonly) UIView *viewForMenu;
 
 @property (readonly) CGRect validBoundsForMecos;
@@ -42,7 +40,6 @@
 @synthesize displayLink = _displayLink;
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
-@synthesize mecos = _mecos;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
@@ -51,7 +48,6 @@
 	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 	
 	self.sprites = [NSMutableSet new];
-	self.mecos = [NSMutableSet new];
 }
 
 
@@ -112,7 +108,7 @@
 }
 
 -(void)showMecosMenuForJob:(MECOJob *)job {
-	NSArray *mecos = [self.mecos sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	NSArray *mecos = [self.island.mecos sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
 	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
 		MECOSpriteView *mecoView = meco.sprite;
@@ -135,7 +131,7 @@
 -(void)addMecoWithJob:(MECOJob *)job {
 	job = job ?: [MECOJob jobTitled:MECOUnemployedJobTitle];
 	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
-	[self.mecos addObject:meco];
+	[self.island addPerson:meco];
 	
 	MECOSpriteView *mecoView = [MECOSpriteView new];
 	mecoView.delegate = self;
