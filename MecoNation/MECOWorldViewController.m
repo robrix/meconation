@@ -71,6 +71,15 @@
 }
 
 
+//IQ
+-(NSUInteger) IQAmount {
+	for (MECOPerson *person)
+	{
+		
+	}
+}
+
+
 -(void)viewDidLoad {
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
