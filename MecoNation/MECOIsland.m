@@ -84,21 +84,24 @@ const CGSize gridSize = {20, 20};
 +(NSArray *)houseLocationsForYValues:(NSArray *)yValues {
 	NSMutableArray *houseLocations = [NSMutableArray new];
 	NSUInteger run = 0;
-	NSUInteger previous = 0;
-	NSUInteger index = 0;
+	NSUInteger previousY = 0;
+	NSInteger index = 0;
+	NSInteger previousHouseBoundary = -1;
+	const NSInteger houseWidth = 5;
 	for (NSNumber *yValue in yValues) {
-		NSUInteger current = yValue.unsignedIntegerValue;
-		if (current == previous)
+		NSUInteger currentY = yValue.unsignedIntegerValue;
+		if (currentY == previousY)
 			run++;
 		else
 			run = 0;
 		
-		if ((run == 5) && (current >= 2)) {
-			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ (index - 5) * gridSize.width, current * gridSize.height }]];
+		if ((run >= houseWidth) && (currentY >= 2) && (previousHouseBoundary < (index - houseWidth))) {
+			previousHouseBoundary = index;
+			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ (index - houseWidth) * gridSize.width, currentY * gridSize.height }]];
 			run = 0;
 		}
 		
-		previous = current;
+		previousY = currentY;
 		index++;
 	}
 	return houseLocations;
