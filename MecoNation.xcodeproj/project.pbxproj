@@ -52,6 +52,7 @@
 		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
 		D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */; };
 		D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8769516A3019900208BE9 /* MECOPageViewController.m */; };
+		D4E7918A17491C4300499234 /* MECOHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E7918917491C4300499234 /* MECOHouse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,8 @@
 		D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
 		D4C8769416A3019900208BE9 /* MECOPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPageViewController.h; sourceTree = "<group>"; };
 		D4C8769516A3019900208BE9 /* MECOPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPageViewController.m; sourceTree = "<group>"; };
+		D4E7918817491C4300499234 /* MECOHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOHouse.h; sourceTree = "<group>"; };
+		D4E7918917491C4300499234 /* MECOHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOHouse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 		D48E0C6F1690D700008DB678 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7918817491C4300499234 /* MECOHouse.h */,
+				D4E7918917491C4300499234 /* MECOHouse.m */,
 				D48E0C781690D732008DB678 /* MECOPerson.h */,
 				D48E0C791690D732008DB678 /* MECOPerson.m */,
 				D48E0C811690DC48008DB678 /* FirstNames.plist */,
@@ -381,6 +386,7 @@
 				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
 				D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */,
+				D4E7918A17491C4300499234 /* MECOHouse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
