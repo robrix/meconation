@@ -19,6 +19,7 @@
 
 
 -(void)addMecoWithJob:(MECOJob *)job;
+-(IBAction)showSpawnMenu:(id)sender;
 
 -(IBAction)addMeco:(id)sender;
 -(IBAction)showJobsMenu:(id)sender;

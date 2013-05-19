@@ -135,9 +135,8 @@
 }
 
 
--(IBAction)addMeco:(id)sender {
-	[self.currentIslandViewController addMeco:sender];
-	[self updatePopulationLabel];
+-(IBAction)showSpawnMenu:(id)sender {
+	[self.currentIslandViewController showSpawnMenu:sender];
 }
 
 -(IBAction)showJobsMenu:(id)sender {

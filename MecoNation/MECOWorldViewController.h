@@ -11,5 +11,6 @@
 @interface MECOWorldViewController : UIViewController
 
 -(void) updateIQLabel;
+-(void)updatePopulationLabel;
 
 @end
