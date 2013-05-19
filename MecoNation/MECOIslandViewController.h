@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) MECOIsland *island;
 @property (nonatomic) NSUInteger islandIndex;
+@property (strong, readonly) NSMutableSet *mecos;
 
 -(void)addMecoWithJob:(MECOJob *)job;
 

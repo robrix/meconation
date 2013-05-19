@@ -24,7 +24,7 @@
 
 @property (strong) NSMutableSet *sprites;
 
-@property (strong) NSMutableSet *mecos;
+@property (strong, readwrite) NSMutableSet *mecos;
 
 @property (nonatomic, readonly) UIView *viewForMenu;
 
