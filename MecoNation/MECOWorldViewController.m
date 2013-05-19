@@ -22,14 +22,18 @@
 
 @property (copy) NSArray *islandViewControllers;
 
+@property (strong) IBOutlet UILabel *mecoPopulationLabel;
+@property (readwrite) NSInteger *mecoPopulation;
+
 @end
 
 @implementation MECOWorldViewController
 
 @synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
+@synthesize mecoPopulation = _mecoPopulation;
 
-
+//Labels the current Island
 -(NSUInteger) currentIslandNumber{
     return self.currentIslandViewController.islandIndex + 1;
 }
@@ -39,6 +43,14 @@
 -(void) updateIslandLabel{
     self.islandIdentifier.text = self.currentIslandLabel;
     [self.islandIdentifier sizeToFit];
+}
+
+-(NSString*) worldPopulationLabel{
+    return [NSString stringWithFormat: @"World Population %u / ?", self.mecoPopulation];
+}
+-(void) updateWorldPopulationLAbel{
+    self.mecoPopulationLabel.text = self.worldPopulationLabel;
+    [self.mecoPopulationLabel sizeToFit];
 }
 
 -(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
@@ -83,6 +95,7 @@
 
 -(IBAction)addMeco:(id)sender {
 	[self.currentIslandViewController addMeco:sender];
+    self.mecoPopulation +=  1;
 }
 
 -(IBAction)showJobsMenu:(id)sender {
