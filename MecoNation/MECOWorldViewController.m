@@ -54,13 +54,16 @@
 	return population;
 }
 
+//Population Label stuff
 -(NSString *)populationLabel {
-	return [NSString stringWithFormat: @"Population ? / %u / ∞", self.mecoPopulation];
+	return [NSString stringWithFormat: @"Population %u / %u / ∞", self.currentIslandPopulation, self.mecoPopulation];
 }
-
 -(void)updatePopulationLabel {
 	self.mecoPopulationLabel.text = self.populationLabel;
 	[self.mecoPopulationLabel sizeToFit];
+}
+-(NSUInteger) currentIslandPopulation {
+	return self.currentIsland.mecos.count;
 }
 
 
@@ -146,6 +149,7 @@
 
 -(void)pageViewController:(MECOPageViewController *)pageViewController didShowViewController:(UIViewController *)controller {
 	[self updateIslandLabel];
+	[self updatePopulationLabel];
 }
 
 @end
