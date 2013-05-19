@@ -21,6 +21,8 @@
 @property (nonatomic) CGPoint velocity;
 @property (nonatomic) CGPoint inertia;
 
+@property (nonatomic, getter = isFixed) bool fixed;
+
 -(void)applyAcceleration:(CGPoint)acceleration;
 
 -(void)updateWithInterval:(NSTimeInterval)interval;

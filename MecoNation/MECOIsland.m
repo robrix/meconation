@@ -94,7 +94,7 @@ const CGSize gridSize = {20, 20};
 			run = 0;
 		
 		if ((run == 5) && (current >= 2)) {
-			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ index * gridSize.width, current * gridSize.height }]];
+			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ (index - 5) * gridSize.width, current * gridSize.height }]];
 			run = 0;
 		}
 		
