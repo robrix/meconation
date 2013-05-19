@@ -28,6 +28,7 @@
 		75FB4A80168FB04600B84A04 /* MecoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A6C168FB04600B84A04 /* MecoItem.m */; };
 		75FB4A84168FB04600B84A04 /* MecoSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A74168FB04600B84A04 /* MecoSheep.m */; };
 		75FB4A87168FB04600B84A04 /* MecoWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A7A168FB04600B84A04 /* MecoWorld.m */; };
+		CB644CB9174909680052C4EB /* MecoHouse.png in Resources */ = {isa = PBXBuildFile; fileRef = CB644CB8174909680052C4EB /* MecoHouse.png */; };
 		CBE99D87174836E000C7B4BB /* MecoBoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */; };
 		D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C791690D732008DB678 /* MECOPerson.m */; };
 		D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C7D1690D7F0008DB678 /* MECOJob.m */; };
@@ -85,6 +86,7 @@
 		75FB4A74168FB04600B84A04 /* MecoSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoSheep.m; sourceTree = "<group>"; };
 		75FB4A79168FB04600B84A04 /* MecoWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoWorld.h; sourceTree = "<group>"; };
 		75FB4A7A168FB04600B84A04 /* MecoWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoWorld.m; sourceTree = "<group>"; };
+		CB644CB8174909680052C4EB /* MecoHouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoHouse.png; sourceTree = "<group>"; };
 		CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoBoatIcon.png; sourceTree = "<group>"; };
 		D48E0C781690D732008DB678 /* MECOPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPerson.h; sourceTree = "<group>"; };
 		D48E0C791690D732008DB678 /* MECOPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPerson.m; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				75B03C35168F865800515C47 /* Speech Bubbles */,
 				75D8B491168E562E00298737 /* Meco.png */,
 				CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */,
+				CB644CB8174909680052C4EB /* MecoHouse.png */,
 				D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */,
 				D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */,
 			);
@@ -387,6 +390,7 @@
 				75F28E981690EEC200481F4B /* Island 2.plist in Resources */,
 				75F28E991690EEC200481F4B /* Island 3.plist in Resources */,
 				CBE99D87174836E000C7B4BB /* MecoBoatIcon.png in Resources */,
+				CB644CB9174909680052C4EB /* MecoHouse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
