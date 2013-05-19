@@ -23,7 +23,7 @@
 @property (copy) NSArray *islandViewControllers;
 
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
-@property (readwrite) NSUInteger mecoPopulation;
+@property (readonly) NSUInteger mecoPopulation;
 
 @end
 
@@ -31,7 +31,6 @@
 
 @synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
-@synthesize mecoPopulation = _mecoPopulation;
 
 //Labels the current Island
 -(NSUInteger) currentIslandNumber{
@@ -45,6 +44,14 @@
     [self.islandIdentifier sizeToFit];
 }
 
+-(NSUInteger)mecoPopulation {
+	NSUInteger population = 0;
+	for (MECOIsland *island in self.islands) {
+		population += island.mecos.count;
+	}
+	return population;
+}
+
 -(NSString*) populationLabel{
     return [NSString stringWithFormat: @"Population ? / %u / ∞", self.mecoPopulation];
 }
@@ -53,13 +60,6 @@
     [self.mecoPopulationLabel sizeToFit];
 }
 
--(MECOIslandViewController *)createViewControllerForIslandAtIndex:(NSUInteger)index {
-	MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
-	controller.view.frame = self.pageViewController.view.bounds;
-	controller.island = [[MECOIsland allIslands] objectAtIndex:index];
-	controller.islandIndex = index;
-	return controller;
-}
 
 -(void)viewDidLoad {
 	self.toolbar.frame = (CGRect){
@@ -70,7 +70,8 @@
 	
 	NSMutableArray *islandViewControllers = [NSMutableArray new];
 	NSUInteger islandIndex = 0;
-	for (MECOIsland *island in [MECOIsland allIslands]) {
+	self.islands = [MECOIsland allIslands];
+	for (MECOIsland *island in self.islands) {
 		MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
 		controller.view.frame = self.pageViewController.view.bounds;
 		controller.island = island;
@@ -78,7 +79,6 @@
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
-            self.mecoPopulation += 3;
 		}
         [self updatePopulationLAbel];
 		controller.islandIndex = islandIndex++;
@@ -97,8 +97,7 @@
 
 -(IBAction)addMeco:(id)sender {
 	[self.currentIslandViewController addMeco:sender];
-    self.mecoPopulation +=  1;
-    [self updatePopulationLAbel]; 
+    [self updatePopulationLAbel];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
