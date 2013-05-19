@@ -127,7 +127,14 @@
 }
 -(IBAction)showSpawnMenu:(id)sender {
 	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawn:" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
-		
+		if ([selectedOption isEqual:@"Meco"]){
+			[self addMeco:nil];
+			[self.mecoWorld updatePopulationLabel];
+		}
+		if ([selectedOption isEqual:@"Sheep"]){
+			//[self addSheep:nil];
+			
+		}
 	}];
 	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
