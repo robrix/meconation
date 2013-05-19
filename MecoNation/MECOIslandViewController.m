@@ -11,6 +11,7 @@
 #import "MECOIsland.h"
 #import "MECOSpriteView.h"
 #import "MECOPerson.h"
+#import "MECOHouse.h"
 #import "MECOJob.h"
 #import "RXOptionSheet.h"
 #import <stdlib.h>
@@ -63,6 +64,28 @@
 	self.groundView.island = self.island;
 	self.groundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:self.groundView];
+	
+	for (NSValue *value in self.island.houseLocations) {
+		[self addHouseAtLocation:value.CGPointValue];
+	}
+}
+
+-(void)addHouseAtLocation:(CGPoint)location {
+	MECOHouse *house = [MECOHouse new];
+	MECOSpriteView *houseView = [MECOSpriteView new];
+	houseView.fixed = YES;
+	UIImage *houseImage = [UIImage imageNamed:@"MecoHouse.png"];
+	houseView.image = houseImage;
+	houseView.center = (CGPoint){ location.x + houseImage.size.width / 2, self.view.bounds.size.height - (location.y + houseImage.size.height / 2) };
+	
+	house.sprite = houseView;
+	houseView.actor = house;
+	
+	[self.sprites addObject:houseView];
+	
+	[self.view addSubview:houseView];
+	
+	[self.island addHouse:house];
 }
 
 
@@ -99,8 +122,7 @@
 }
 
 
-// move these responsibilities to the world view controller
-//I think this is done already..?
+// to-do: move these responsibilities to the world view controller
 -(IBAction)addMeco:(id)sender {
 	[self addMecoWithJob:nil];
 }

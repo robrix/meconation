@@ -109,10 +109,14 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 
 
 -(void)applyAcceleration:(CGPoint)acceleration {
+	if (self.isFixed) return;
+	
 	self.inertia = MECOPointAdd(self.inertia, acceleration);
 }
 
 -(void)updateWithInterval:(NSTimeInterval)interval {
+	if (self.isFixed) return;
+	
 	self.velocity = MECOPointAdd(self.velocity, MECOPointScale(self.inertia, interval));
 	
 	CGPoint proposedCenter = MECOPointAdd(self.center, self.velocity);

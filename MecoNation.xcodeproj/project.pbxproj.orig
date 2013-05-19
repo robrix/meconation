@@ -395,8 +395,11 @@
 				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
 				D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */,
-				CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */,
+<<<<<<< HEAD
 				D4E7918A17491C4300499234 /* MECOHouse.m in Sources */,
+=======
+				CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */,
+>>>>>>> origin/develop
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MECOPerson;
+@class MECOHouse, MECOPerson;
 
 @interface MECOIsland : NSObject
 
@@ -17,10 +17,16 @@
 @property (strong) UIBezierPath *bezierPath;
 @property CGRect bounds;
 
+@property (strong) NSArray *houseLocations;
+
 -(CGFloat)groundHeightAtX:(CGFloat)x;
 
 @property (strong, readonly) NSSet *mecos;
 -(void)addPerson:(MECOPerson *)person;
 -(void)removePerson:(MECOPerson *)person;
+
+@property (strong, readonly) NSSet *houses;
+-(void)addHouse:(MECOHouse *)house;
+-(void)removeHouse:(MECOHouse *)house;
 
 @end

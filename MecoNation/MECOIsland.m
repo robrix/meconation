@@ -16,6 +16,7 @@
 +(id)islandWithYValues:(NSArray *)yValues;
 
 @property (strong) NSMutableSet *mutableMecos;
+@property (strong) NSMutableSet *mutableHouses;
 
 @end
 
@@ -80,6 +81,32 @@ const CGSize gridSize = {20, 20};
 	return CGRectApplyAffineTransform(bounds, CGAffineTransformMakeScale(gridSize.width, -gridSize.height));
 }
 
++(NSArray *)houseLocationsForYValues:(NSArray *)yValues {
+	NSMutableArray *houseLocations = [NSMutableArray new];
+	NSUInteger run = 0;
+	NSUInteger previousY = 0;
+	NSInteger index = 0;
+	NSInteger previousHouseBoundary = -1;
+	const NSInteger houseWidth = 5;
+	for (NSNumber *yValue in yValues) {
+		NSUInteger currentY = yValue.unsignedIntegerValue;
+		if (currentY == previousY)
+			run++;
+		else
+			run = 0;
+		
+		if ((run >= houseWidth) && (currentY >= 2) && (previousHouseBoundary < (index - houseWidth))) {
+			previousHouseBoundary = index;
+			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ (index - houseWidth) * gridSize.width, currentY * gridSize.height }]];
+			run = 0;
+		}
+		
+		previousY = currentY;
+		index++;
+	}
+	return houseLocations;
+}
+
 +(instancetype)islandWithYValues:(NSArray *)yValues {
 	MECOIsland *island = [self new];
 	
@@ -88,12 +115,15 @@ const CGSize gridSize = {20, 20};
 	island.bezierPath = [self bezierPathWithYValues:yValues];
 	island.bounds = [self boundsWithYValues:yValues];
 	
+	island.houseLocations = [self houseLocationsForYValues:yValues];
+	
 	return island;
 }
 
 -(instancetype)init {
 	if ((self = [super init])) {
 		_mutableMecos = [NSMutableSet new];
+		_mutableHouses = [NSMutableSet new];
 	}
 	return self;
 }
@@ -111,9 +141,22 @@ const CGSize gridSize = {20, 20};
 }
 
 
+-(NSSet *)houses {
+	return self.mutableHouses;
+}
+
+-(void)addHouse:(MECOHouse *)house {
+	[self.mutableHouses addObject:house];
+}
+
+-(void)removeHouse:(MECOHouse *)house {
+	[self.mutableHouses removeObject:house];
+}
+
+
 // linear intepolation between the y values immediately on either side of x
 -(CGFloat)groundHeightAtX:(CGFloat)x {
-	x /= 20.;
+	x /= gridSize.width;
 	
 	// if x isn’t valid for this island, return 0
 	if (x < 0)
@@ -126,7 +169,7 @@ const CGSize gridSize = {20, 20};
 	CGFloat a = [[self.yValues objectAtIndex:(NSUInteger)integral] floatValue];
 	CGFloat b = [[self.yValues objectAtIndex:(NSUInteger)integral + 1] floatValue];
 	
-	return (t * (b - a) + a) * 20.;
+	return (t * (b - a) + a) * gridSize.height;
 }
 
 @end
