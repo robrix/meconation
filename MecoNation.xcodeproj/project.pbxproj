@@ -29,6 +29,8 @@
 		75FB4A84168FB04600B84A04 /* MecoSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A74168FB04600B84A04 /* MecoSheep.m */; };
 		75FB4A87168FB04600B84A04 /* MecoWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FB4A7A168FB04600B84A04 /* MecoWorld.m */; };
 		CB644CB9174909680052C4EB /* MecoHouse.png in Resources */ = {isa = PBXBuildFile; fileRef = CB644CB8174909680052C4EB /* MecoHouse.png */; };
+		CB84C87B1749807B00FF9E0A /* MecoSheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB84C87A1749807B00FF9E0A /* MecoSheep.png */; };
+		CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = CB84C87D174980B000FF9E0A /* MECOSheep.m */; };
 		CBE99D87174836E000C7B4BB /* MecoBoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */; };
 		D48E0C7A1690D733008DB678 /* MECOPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C791690D732008DB678 /* MECOPerson.m */; };
 		D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */ = {isa = PBXBuildFile; fileRef = D48E0C7D1690D7F0008DB678 /* MECOJob.m */; };
@@ -87,6 +89,9 @@
 		75FB4A79168FB04600B84A04 /* MecoWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MecoWorld.h; sourceTree = "<group>"; };
 		75FB4A7A168FB04600B84A04 /* MecoWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MecoWorld.m; sourceTree = "<group>"; };
 		CB644CB8174909680052C4EB /* MecoHouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoHouse.png; sourceTree = "<group>"; };
+		CB84C87A1749807B00FF9E0A /* MecoSheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoSheep.png; sourceTree = "<group>"; };
+		CB84C87C174980B000FF9E0A /* MECOSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOSheep.h; sourceTree = "<group>"; };
+		CB84C87D174980B000FF9E0A /* MECOSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSheep.m; sourceTree = "<group>"; };
 		CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoBoatIcon.png; sourceTree = "<group>"; };
 		D48E0C781690D732008DB678 /* MECOPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPerson.h; sourceTree = "<group>"; };
 		D48E0C791690D732008DB678 /* MECOPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPerson.m; sourceTree = "<group>"; };
@@ -201,6 +206,8 @@
 				D48E0C7C1690D7F0008DB678 /* MECOJob.h */,
 				D48E0C7D1690D7F0008DB678 /* MECOJob.m */,
 				D48E0C7F1690DBD5008DB678 /* Jobs.plist */,
+				CB84C87C174980B000FF9E0A /* MECOSheep.h */,
+				CB84C87D174980B000FF9E0A /* MECOSheep.m */,
 				75F28E8C1690EDED00481F4B /* Costumes */,
 			);
 			name = Actors;
@@ -275,6 +282,7 @@
 				75D8B491168E562E00298737 /* Meco.png */,
 				CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */,
 				CB644CB8174909680052C4EB /* MecoHouse.png */,
+				CB84C87A1749807B00FF9E0A /* MecoSheep.png */,
 				D497CB6B168E56BD0025EC0B /* MECOSpriteView.h */,
 				D497CB6C168E56BD0025EC0B /* MECOSpriteView.m */,
 			);
@@ -391,6 +399,7 @@
 				75F28E991690EEC200481F4B /* Island 3.plist in Resources */,
 				CBE99D87174836E000C7B4BB /* MecoBoatIcon.png in Resources */,
 				CB644CB9174909680052C4EB /* MecoHouse.png in Resources */,
+				CB84C87B1749807B00FF9E0A /* MecoSheep.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +428,7 @@
 				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
 				D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */,
+				CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
