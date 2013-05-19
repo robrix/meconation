@@ -46,12 +46,16 @@
 	[self.islandIdentifier sizeToFit];
 }
 
--(NSUInteger)mecoPopulation {
-	NSUInteger population = 0;
+-(NSSet *)allMecos {
+	NSMutableSet *mecos = [NSMutableSet new];
 	for (MECOIsland *island in self.islands) {
-		population += island.mecos.count;
+		[mecos unionSet:island.mecos];
 	}
-	return population;
+	return mecos;
+}
+
+-(NSUInteger)mecoPopulation {
+	return self.allMecos.count;
 }
 
 //Population Label stuff
