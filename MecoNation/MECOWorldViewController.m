@@ -45,11 +45,11 @@
     [self.islandIdentifier sizeToFit];
 }
 
--(NSString*) worldPopulationLabel{
-    return [NSString stringWithFormat: @"World Population %u / ∞", self.mecoPopulation];
+-(NSString*) populationLabel{
+    return [NSString stringWithFormat: @"Population ? / %u / ∞", self.mecoPopulation];
 }
--(void) updateWorldPopulationLAbel{
-    self.mecoPopulationLabel.text = self.worldPopulationLabel;
+-(void) updatePopulationLAbel{
+    self.mecoPopulationLabel.text = self.populationLabel;
     [self.mecoPopulationLabel sizeToFit];
 }
 
@@ -80,7 +80,7 @@
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
             self.mecoPopulation += 3;
 		}
-        [self updateWorldPopulationLAbel];
+        [self updatePopulationLAbel];
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
@@ -98,7 +98,7 @@
 -(IBAction)addMeco:(id)sender {
 	[self.currentIslandViewController addMeco:sender];
     self.mecoPopulation +=  1;
-    [self updateWorldPopulationLAbel]; 
+    [self updatePopulationLAbel]; 
 }
 
 -(IBAction)showJobsMenu:(id)sender {
