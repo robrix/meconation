@@ -93,6 +93,10 @@
 }
 
 
+-(MECOIsland *)currentIsland {
+	return self.currentIslandViewController.island;
+}
+
 -(MECOIslandViewController *)currentIslandViewController {
 	return (MECOIslandViewController *)self.pageViewController.currentViewController;
 }
