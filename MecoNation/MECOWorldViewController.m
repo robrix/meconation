@@ -23,7 +23,7 @@
 @property (copy) NSArray *islandViewControllers;
 
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
-@property (readwrite) NSInteger *mecoPopulation;
+@property (readwrite) NSUInteger mecoPopulation;
 
 @end
 
@@ -78,7 +78,9 @@
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
+            self.mecoPopulation += 3;
 		}
+        [self updateWorldPopulationLAbel];
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
@@ -96,6 +98,7 @@
 -(IBAction)addMeco:(id)sender {
 	[self.currentIslandViewController addMeco:sender];
     self.mecoPopulation +=  1;
+    [self updateWorldPopulationLAbel]; 
 }
 
 -(IBAction)showJobsMenu:(id)sender {
