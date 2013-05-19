@@ -32,16 +32,18 @@
 @synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
 
-//Labels the current Island
--(NSUInteger) currentIslandNumber{
-    return self.currentIslandViewController.islandIndex + 1;
+// Labels the current Island
+-(NSUInteger)currentIslandNumber {
+	return self.currentIslandViewController.islandIndex + 1;
 }
--(NSString*) currentIslandLabel{
-    return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
+
+-(NSString *)currentIslandLabel {
+	return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
 }
--(void) updateIslandLabel{
-    self.islandIdentifier.text = self.currentIslandLabel;
-    [self.islandIdentifier sizeToFit];
+
+-(void)updateIslandLabel {
+	self.islandIdentifier.text = self.currentIslandLabel;
+	[self.islandIdentifier sizeToFit];
 }
 
 -(NSUInteger)mecoPopulation {
@@ -52,12 +54,13 @@
 	return population;
 }
 
--(NSString*) populationLabel{
-    return [NSString stringWithFormat: @"Population ? / %u / ∞", self.mecoPopulation];
+-(NSString *)populationLabel {
+	return [NSString stringWithFormat: @"Population ? / %u / ∞", self.mecoPopulation];
 }
--(void) updatePopulationLAbel{
-    self.mecoPopulationLabel.text = self.populationLabel;
-    [self.mecoPopulationLabel sizeToFit];
+
+-(void)updatePopulationLabel {
+	self.mecoPopulationLabel.text = self.populationLabel;
+	[self.mecoPopulationLabel sizeToFit];
 }
 
 
@@ -80,7 +83,7 @@
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
 			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
 		}
-        [self updatePopulationLAbel];
+		[self updatePopulationLabel];
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
@@ -97,7 +100,7 @@
 
 -(IBAction)addMeco:(id)sender {
 	[self.currentIslandViewController addMeco:sender];
-    [self updatePopulationLAbel];
+	[self updatePopulationLabel];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
@@ -108,7 +111,7 @@
 -(void)setPageViewController:(MECOPageViewController *)pageViewController {
 	_pageViewController = pageViewController;
 	
-    pageViewController.delegate = self;
+	pageViewController.delegate = self;
 	pageViewController.dataSource = self;
 	
 	[self addChildViewController:pageViewController];
@@ -138,7 +141,7 @@
 
 
 -(void)pageViewController:(MECOPageViewController *)pageViewController didShowViewController:(UIViewController *)controller {
-    [self updateIslandLabel];
+	[self updateIslandLabel];
 }
 
 @end
