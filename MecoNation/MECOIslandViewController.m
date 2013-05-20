@@ -18,6 +18,7 @@
 #import <stdlib.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MECOWorldViewController.h"
+#import "MECOViewUtilities.h"
 
 @interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate>
 
@@ -209,34 +210,13 @@
 	[self.view addSubview:mecoView];
 }
 
--(void)fadeView:(UIView *)view intoSuperview:(UIView *)superview {
-	view.alpha = 0;
-	[superview addSubview:view];
-	[UIView animateWithDuration:0.25 animations:^{
-		view.alpha = 1;
-	}];
-}
-
--(void)fadeOutView:(UIView *)view {
-	[UIView animateWithDuration:0.25 animations:^{
-		view.alpha = 0;
-	} completion:^(BOOL finished) {
-		[view removeFromSuperview];
-	}];
-}
-
--(void)fadeOutViews:(NSArray *)views {
-	for (UIView *view in views) {
-		[self fadeOutView:view];
-	}
-}
 
 -(void)didTapMeco:(UITapGestureRecognizer *)tap {
 	MECOSpriteView *view = (MECOSpriteView *)tap.view;
 	if (view.subviews.count) {
-		[self fadeOutView:view.subviews.lastObject];
+		MECOFadeOutView(view.subviews.lastObject, 0);
 	} else {
-		[self fadeOutViews:[self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"]];
+		MECOFadeOutViews([self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"]);
 		
 		MECOPerson *meco = view.actor;
 		
@@ -252,11 +232,8 @@
 			CGRectGetMidX(view.bounds),
 			-(CGRectGetHeight(info.bounds) + 2)
 		};
-		[self fadeView:info intoSuperview:view];
-		
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-			[self fadeOutView:info];
-		});
+		MECOFadeInView(info, view);
+		MECOFadeOutView(info, 3);
 	}
 }
 

@@ -9,6 +9,7 @@
 #import "MECOSpriteBehaviour.h"
 #import "MECOSpriteView.h"
 #import "MECOGeometry.h"
+#import "MECOViewUtilities.h"
 #import <QuartzCore/QuartzCore.h>
 #import <stdlib.h>
 
@@ -34,22 +35,11 @@
 		};
 		
 		[self addSubview: speechBubbleView];
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-			[self fadeOutView:speechBubbleView];
-		});
+		MECOFadeOutView(speechBubbleView, 3);
 		
 		self.userInteractionEnabled = YES;
 	}
 	return self;
-}
-
-
--(void)fadeOutView:(UIImageView *)view{
-	[UIImageView animateWithDuration:0.25 animations:^{
-		view.alpha = 0;
-	} completion:^(BOOL finished) {
-		[view removeFromSuperview];
-	}];
 }
 
 
