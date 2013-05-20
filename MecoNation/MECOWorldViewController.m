@@ -81,6 +81,13 @@
 	}
 	return mecos;
 }
+-(NSSet *)allHouses {
+	NSMutableSet *houses = [NSMutableSet new];
+	for (MECOIsland *island in self.islands) {
+		[houses unionSet:island.houses];
+	}
+	return houses;
+}
 
 -(NSUInteger)mecoPopulation {
 	return self.allMecos.count;
@@ -88,8 +95,11 @@
 
 
 //Population Label stuff
+-(NSUInteger)maximumPopulation{
+	return self.allHouses.count * 4 - 1;
+}
 -(NSString *)populationLabel {
-	return [NSString stringWithFormat: @"Population %u / %u / ∞", self.currentIslandPopulation, self.mecoPopulation];
+	return [NSString stringWithFormat: @"Population %u / %u / %u", self.currentIslandPopulation, self.mecoPopulation, self.maximumPopulation];
 }
 -(void)updatePopulationLabel {
 	self.mecoPopulationLabel.text = self.populationLabel;
