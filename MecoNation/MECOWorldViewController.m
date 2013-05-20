@@ -67,6 +67,10 @@
 	[self.warningLabel sizeToFit];
 }
 
+-(IBAction)showBoatWarning:(id)sender{
+	[self updateWarningLabelForBoat];
+}
+
 
 -(NSSet *)allMecos {
 	NSMutableSet *mecos = [NSMutableSet new];
