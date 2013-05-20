@@ -12,6 +12,7 @@
 
 @property NSUInteger IQ;
 
+@property NSArray *jobs;
 @property NSDictionary *jobsByTitle;
 
 @end

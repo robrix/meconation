@@ -163,7 +163,7 @@
 }
 
 -(IBAction)showJobsMenu:(id)sender {
-	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.worldViewController.jobsByTitle.allValues optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.worldViewController.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
 		[self showMecosMenuForJob:selectedJob];
 	}];
 	

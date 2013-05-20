@@ -35,6 +35,7 @@
 @implementation MECOWorldViewController
 
 @synthesize IQ = _IQ;
+@synthesize jobs = _jobs;
 @synthesize jobsByTitle = _jobsByTitle;
 
 @synthesize islands = _islands;
@@ -130,8 +131,8 @@
 		.size = { self.view.bounds.size.width, 30 }
 	};
 	
-	NSArray *jobs = [MECOJob jobsWithWorld:self];
-	self.jobsByTitle = [NSDictionary dictionaryWithObjects:jobs forKeys:[jobs valueForKey:@"title"]];
+	self.jobs = [MECOJob jobsWithWorld:self];
+	self.jobsByTitle = [NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]];
 	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
