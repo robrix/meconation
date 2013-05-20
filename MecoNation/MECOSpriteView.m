@@ -67,7 +67,16 @@ static inline CGPoint MECOPointScale(CGPoint a, CGFloat t) {
 			[self fadeOutView:speechBubbleView];
 		});
 
-		
+		UIImage *cloudImage = [UIImage imageNamed:@"MecoCloud.png"];
+		UIImageView *cloudView = [[UIImageView alloc] initWithImage:cloudImage];
+		cloudView.frame = (CGRect){
+			{-20, -100},
+			cloudView.bounds.size
+		};
+		[self addSubview:cloudView];
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//			[self fadeOutView:cloudView];
+		});
 		
 		CALayer *imageLayer = [CALayer layer];
 		imageLayer.actions = [NSDictionary dictionaryWithObjectsAndKeys:
