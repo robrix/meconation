@@ -60,11 +60,9 @@
 //Warning Label updates
 -(void) updateWarningLabelForBoat {
 	self.warningLabel.text = self.boatWarningLabel;
-	[self.warningLabel sizeToFit];
 }
 -(void) updateWarningLabelForSheep {
 	self.warningLabel.text = self.sheepWarningLabel;
-	[self.warningLabel sizeToFit];
 }
 
 -(IBAction)showBoatWarning:(id)sender{
