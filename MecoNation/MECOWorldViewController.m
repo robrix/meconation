@@ -12,6 +12,7 @@
 #import "MECOIsland.h"
 #import "MECOJob.h"
 #import "MECOPerson.h"
+#import "MECOViewUtilities.h"
 
 @interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
 
@@ -54,25 +55,21 @@
 }
 
 
-//warning messages
--(NSString *) boatWarningLabel {
-	return [NSString stringWithFormat: @"Sorry the boat is unavailable right now..." ];
-}
--(NSString *) sheepWarningLabel {
-	return [NSString stringWithFormat: @"Sorry Sheep are unavailable right now..."];
-}
--(NSString *) mecoPopulationWarningLabel{
-	return [NSString stringWithFormat:@"You will need another house for that"];
-}
 //Warning Label updates
 -(void) updateWarningLabelForBoat {
-	self.warningLabel.text = self.boatWarningLabel;
+	[self updateWarningLabelWithText:@"Sorry the boat is unavailable right now..."];
 }
 -(void) updateWarningLabelForSheep {
-	self.warningLabel.text = self.sheepWarningLabel;
+	[self updateWarningLabelWithText:@"Sorry Sheep are unavailable right now..."];
 }
 -(void) updateWarningLabelForPopulation{
-	self.warningLabel.text = self.mecoPopulationWarningLabel;
+	[self updateWarningLabelWithText:@"You will need another house for that"];
+}
+
+-(void)updateWarningLabelWithText:(NSString *)text {
+	self.warningLabel.text = text;
+	MECOFadeInView(self.warningLabel, self.view);
+	MECOFadeOutView(self.warningLabel, 3);
 }
 
 -(IBAction)showBoatWarning:(id)sender{
