@@ -155,7 +155,7 @@
 		}
 		if ([selectedOption isEqual:@"Sheep"]){
 			//[self addSheep:nil];
-			
+			[self.mecoWorld updateWarningLabelForSheep];
 		}
 	}];
 	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];

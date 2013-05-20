@@ -17,6 +17,8 @@
 
 @property (copy) NSArray *islands;
 
+@property (strong) IBOutlet UIButton *boatButton;
+@property (strong) IBOutlet UILabel *warningLabel;
 @property (strong) IBOutlet UIToolbar *toolbar;
 @property (strong) IBOutlet UILabel *islandIdentifier;
 @property (strong) IBOutlet UILabel *IQCount;
@@ -45,6 +47,24 @@
 -(void)updateIslandLabel {
 	self.islandIdentifier.text = self.currentIslandLabel;
 	[self.islandIdentifier sizeToFit];
+}
+
+
+//warning messages
+-(NSString *) boatWarningLabel {
+	return [NSString stringWithFormat: @"Sorry the boat is unavailable right now..." ];
+}
+-(NSString *) sheepWarningLabel {
+	return [NSString stringWithFormat: @"Sorry Sheep are unavailable right now..."];
+}
+//Warning Label updates
+-(void) updateWarningLabelForBoat {
+	self.warningLabel.text = self.boatWarningLabel;
+	[self.warningLabel sizeToFit];
+}
+-(void) updateWarningLabelForSheep {
+	self.warningLabel.text = self.sheepWarningLabel;
+	[self.warningLabel sizeToFit];
 }
 
 

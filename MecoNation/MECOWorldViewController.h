@@ -11,6 +11,7 @@
 @interface MECOWorldViewController : UIViewController
 
 -(void) updateIQLabel;
--(void)updatePopulationLabel;
+-(void) updatePopulationLabel;
+-(void) updateWarningLabelForSheep;
 
 @end
