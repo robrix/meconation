@@ -160,9 +160,9 @@ const CGSize gridSize = {20, 20};
 	
 	// if x isn’t valid for this island, return 0
 	if (x < 0)
-		return 0;
+		return [self groundHeightAtX:0];
 	if (x >= (self.yValues.count - 1))
-		return 0;
+		return [self groundHeightAtX:self.yValues.count - 1];
 	
 	float integral;
 	float t = modff(x, &integral);

@@ -135,8 +135,6 @@
 	return [NSString stringWithFormat:@"IQ %u Rate %u/min", self.IQ, self.IQRate];
 }
 -(void) updateIQLabel{
-	//Right now this posts the rate of IQ per minute
-	//Instead it should show the amount of IQ the user has...
 	self.IQCount.text = self.IQLabel;
 	[self.IQCount sizeToFit];
 }

@@ -119,7 +119,7 @@
 }
 
 -(CGPoint)spriteView:(MECOSpriteView *)sprite constrainPosition:(CGPoint)position {
-	return [self constrainSprite:sprite position:[self constrainSpriteToGround:sprite withPosition:position] toRect:self.validBoundsForMecos];
+	return [self constrainSpriteToGround:sprite withPosition:[self constrainSprite:sprite position:position toRect:self.validBoundsForMecos]];
 }
 
 
