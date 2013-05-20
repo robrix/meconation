@@ -125,7 +125,14 @@
 
 // to-do: move these responsibilities to the world view controller
 -(IBAction)addMeco:(id)sender {
-	[self addMecoWithJob:nil];
+	if ([self.mecoWorld mecoPopulation] < [self.mecoWorld maximumPopulation])
+	{
+		[self addMecoWithJob:nil];
+	}
+	else
+	{
+		[self.mecoWorld updateWarningLabelForPopulation];
+	}
 }
 
 -(UIView *)viewForMenu {

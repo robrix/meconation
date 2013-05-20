@@ -14,5 +14,8 @@
 -(void) updateIQLabel;
 -(void) updatePopulationLabel;
 -(void) updateWarningLabelForSheep;
+-(void) updateWarningLabelForPopulation;
+-(NSUInteger) maximumPopulation;
+-(NSUInteger) mecoPopulation;
 
 @end

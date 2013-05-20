@@ -61,12 +61,18 @@
 -(NSString *) sheepWarningLabel {
 	return [NSString stringWithFormat: @"Sorry Sheep are unavailable right now..."];
 }
+-(NSString *) mecoPopulationWarningLabel{
+	return [NSString stringWithFormat:@"You will need another house for that"];
+}
 //Warning Label updates
 -(void) updateWarningLabelForBoat {
 	self.warningLabel.text = self.boatWarningLabel;
 }
 -(void) updateWarningLabelForSheep {
 	self.warningLabel.text = self.sheepWarningLabel;
+}
+-(void) updateWarningLabelForPopulation{
+	self.warningLabel.text = self.mecoPopulationWarningLabel;
 }
 
 -(IBAction)showBoatWarning:(id)sender{
