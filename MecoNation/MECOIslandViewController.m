@@ -139,7 +139,7 @@
 		MECOSpriteView *mecoView = meco.sprite;
 		meco.job = job;
 		mecoView.image = job.costumeImage;
-		[self.mecoWorld updateIQLabel];
+		[self.worldViewController updateIQLabel];
 
 	}];
 	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
@@ -152,18 +152,18 @@
 	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawn:" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
 		if ([selectedOption isEqual:@"Meco"]){
 			[self addMeco:nil];
-			[self.mecoWorld updatePopulationLabel];
+			[self.worldViewController updatePopulationLabel];
 		}
 		if ([selectedOption isEqual:@"Sheep"]){
 			//[self addSheep:nil];
-			[self.mecoWorld updateWarningLabelForSheep];
+			[self.worldViewController updateWarningLabelForSheep];
 		}
 	}];
 	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
-	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:[MECOJob allJobs] optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.worldViewController.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
 		[self showMecosMenuForJob:selectedJob];
 	}];
 	
@@ -172,7 +172,7 @@
 
 
 -(void)addMecoWithJob:(MECOJob *)job {
-	job = job ?: [MECOJob jobTitled:MECOUnemployedJobTitle];
+	job = job ?: self.worldViewController.jobsByTitle[MECOUnemployedJobTitle];
 	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.island addPerson:meco];
 	

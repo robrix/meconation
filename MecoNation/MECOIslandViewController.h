@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) MECOIsland *island;
 @property (nonatomic) NSUInteger islandIndex;
-@property (strong) MECOWorldViewController *mecoWorld;
+@property (weak) MECOWorldViewController *worldViewController;
 
 
 -(void)addMecoWithJob:(MECOJob *)job;

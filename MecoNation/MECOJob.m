@@ -18,6 +18,7 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 
 @property (strong, readwrite) NSString *title;
 @property (strong, readwrite) UIImage *costumeImage;
+@property (strong, readwrite) id<MECOJobResponsibility> responsibility;
 
 @end
 
@@ -26,40 +27,38 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 @synthesize title = _title;
 @synthesize costumeImage = _costumeImage;
 
-+(NSDictionary *)allJobsByTitle {
-	static NSDictionary *allJobsByTitle = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		allJobsByTitle = [NSDictionary dictionaryWithObjects:[self allJobs] forKeys:[[self allJobs] valueForKey:@"title"]];
-	});
-	return allJobsByTitle;
-}
-
-+(MECOJob *)jobTitled:(NSString *)title {
-	return [[self allJobsByTitle] objectForKey:title];
-}
-
-+(NSArray *)allJobs {
++(NSArray *)jobsWithWorld:(id<MECOWorld>)world {
 	static NSArray *allJobs = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		NSMutableArray *jobs = [NSMutableArray new];
 		for (NSDictionary *jobDictionary in [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Jobs" ofType:@"plist"]]) {
-			NSString *title = [jobDictionary objectForKey:@"title"];
-			NSString *costumeImageName = [jobDictionary objectForKey:@"costumeImage"];
+			NSString *title = jobDictionary[@"title"];
+			NSString *costumeImageName = jobDictionary[@"costumeImage"];
 			UIImage *costumeImage = costumeImageName? [UIImage imageNamed:costumeImageName] : nil;
-			[jobs addObject:[MECOJob jobWithTitle:title costumeImage:costumeImage]];
+			NSString *responsibilityClassName = jobDictionary[@"responsibilityClass"];
+			[jobs addObject:[MECOJob jobWithTitle:title costumeImage:costumeImage responsibility:[NSClassFromString(responsibilityClassName) responsibilityWithWorld:world]]];
 		}
 		allJobs = jobs;
 	});
 	return allJobs;
 }
 
-+(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage {
++(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibility:(id<MECOJobResponsibility>)responsibility {
 	MECOJob *job = [self new];
 	job.title = title;
 	job.costumeImage = costumeImage;
+	job.responsibility = responsibility;
 	return job;
+}
+
+
+-(void)personWillQuit:(MECOPerson *)person {
+	[self.responsibility personWillQuit:person];
+}
+
+-(void)personDidStart:(MECOPerson *)person {
+	[self.responsibility personDidStart:person];
 }
 
 @end

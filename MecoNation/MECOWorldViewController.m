@@ -34,6 +34,10 @@
 
 @implementation MECOWorldViewController
 
+@synthesize IQ = _IQ;
+@synthesize jobs = _jobs;
+@synthesize jobsByTitle = _jobsByTitle;
+
 @synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
 
@@ -97,17 +101,22 @@
 
 
 //IQ
+-(void)setIQ:(NSUInteger)IQ {
+	_IQ = IQ;
+	[self updateIQLabel];
+}
+
 -(NSUInteger) IQRate {
 	int mecoScientistCount = 0;
 	for (MECOPerson *person in self.allMecos)
 	{
-		if ([person.job.title isEqual:MECOScientistJobTitle])
+		if ([person.job isEqual:self.jobsByTitle[MECOScientistJobTitle]])
 			mecoScientistCount += 1;
 	}
 	return mecoScientistCount * 10;
 }
 -(NSString *)IQLabel{
-	return [NSString stringWithFormat:@"IQ %u", self.IQRate ];
+	return [NSString stringWithFormat:@"IQ %u Rate %u/min", self.IQ, self.IQRate];
 }
 -(void) updateIQLabel{
 	//Right now this posts the rate of IQ per minute
@@ -122,6 +131,9 @@
 		.size = { self.view.bounds.size.width, 30 }
 	};
 	
+	self.jobs = [MECOJob jobsWithWorld:self];
+	self.jobsByTitle = [NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]];
+	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
 	NSMutableArray *islandViewControllers = [NSMutableArray new];
@@ -132,13 +144,13 @@
 		controller.view.frame = self.pageViewController.view.bounds;
 		controller.island = island;
 		if (islandIndex == 0) {
-			[controller addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
-			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
-			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
+			[controller addMecoWithJob:self.jobsByTitle[MECOScientistJobTitle]];
+			[controller addMecoWithJob:self.jobsByTitle[MECOFarmerJobTitle]];
+			[controller addMecoWithJob:self.jobsByTitle[MECOTailorJobTitle]];
             [self updatePopulationLabel];
 			[self updateIQLabel];
 		}
-		controller.mecoWorld = self;
+		controller.worldViewController = self;
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
