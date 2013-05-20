@@ -34,6 +34,9 @@
 
 @implementation MECOWorldViewController
 
+@synthesize IQ = _IQ;
+@synthesize jobsByTitle = _jobsByTitle;
+
 @synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
 
@@ -122,6 +125,9 @@
 		.size = { self.view.bounds.size.width, 30 }
 	};
 	
+	NSArray *jobs = [MECOJob jobsWithWorld:self];
+	self.jobsByTitle = [NSDictionary dictionaryWithObjects:jobs forKeys:[jobs valueForKey:@"title"]];
+	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
 	NSMutableArray *islandViewControllers = [NSMutableArray new];
@@ -132,13 +138,13 @@
 		controller.view.frame = self.pageViewController.view.bounds;
 		controller.island = island;
 		if (islandIndex == 0) {
-			[controller addMecoWithJob:[MECOJob jobTitled:MECOScientistJobTitle]];
-			[controller addMecoWithJob:[MECOJob jobTitled:MECOFarmerJobTitle]];
-			[controller addMecoWithJob:[MECOJob jobTitled:MECOTailorJobTitle]];
+			[controller addMecoWithJob:self.jobsByTitle[MECOScientistJobTitle]];
+			[controller addMecoWithJob:self.jobsByTitle[MECOFarmerJobTitle]];
+			[controller addMecoWithJob:self.jobsByTitle[MECOTailorJobTitle]];
             [self updatePopulationLabel];
 			[self updateIQLabel];
 		}
-		controller.mecoWorld = self;
+		controller.worldViewController = self;
 		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}

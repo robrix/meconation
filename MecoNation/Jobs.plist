@@ -9,6 +9,8 @@
 		<string>Scientist</string>
 		<key>costumeImage</key>
 		<string>Scientist.png</string>
+		<key>responsibilityClass</key>
+		<string>MECOScientistJobResponsibility</string>
 	</dict>
 	<dict>
 		<key>cost</key>

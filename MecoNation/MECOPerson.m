@@ -52,4 +52,13 @@
 	return [NSString stringWithFormat:@"%@ (%@)", self.name, self.job.title ?: @"Unemployed"];
 }
 
+
+-(void)setJob:(MECOJob *)job {
+	if (![self.job isEqual:job]) {
+		[self.job personWillQuit:self];
+		_job = job;
+		[self.job personDidStart:self];
+	}
+}
+
 @end

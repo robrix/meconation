@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MECOWorld.h"
 
-@interface MECOWorldViewController : UIViewController
+@interface MECOWorldViewController : UIViewController <MECOWorld>
 
 -(void) updateIQLabel;
 -(void) updatePopulationLabel;
