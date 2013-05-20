@@ -28,6 +28,7 @@
 		CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = CB84C87D174980B000FF9E0A /* MECOSheep.m */; };
 		CB907FB9174A71640073CA7F /* Spawnables.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB907FB8174A71640073CA7F /* Spawnables.plist */; };
 		CB907FBB174A72590073CA7F /* Buildables.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB907FBA174A72590073CA7F /* Buildables.plist */; };
+		CB907FBD174A844B0073CA7F /* IQ.png in Resources */ = {isa = PBXBuildFile; fileRef = CB907FBC174A844B0073CA7F /* IQ.png */; };
 		CBE99D87174836E000C7B4BB /* MecoBoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */; };
 		D412FDA41749934C002EEB52 /* MecoCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D412FDA31749934C002EEB52 /* MecoCloud.png */; };
 		D412FDA7174A58F7002EEB52 /* MECOSpriteBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = D412FDA6174A58F7002EEB52 /* MECOSpriteBehaviour.m */; };
@@ -85,6 +86,7 @@
 		CB84C87D174980B000FF9E0A /* MECOSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSheep.m; sourceTree = "<group>"; };
 		CB907FB8174A71640073CA7F /* Spawnables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Spawnables.plist; sourceTree = "<group>"; };
 		CB907FBA174A72590073CA7F /* Buildables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildables.plist; sourceTree = "<group>"; };
+		CB907FBC174A844B0073CA7F /* IQ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IQ.png; sourceTree = "<group>"; };
 		CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoBoatIcon.png; sourceTree = "<group>"; };
 		D412FDA31749934C002EEB52 /* MecoCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoCloud.png; path = MecoArt/MecoCloud.png; sourceTree = "<group>"; };
 		D412FDA5174A58F7002EEB52 /* MECOSpriteBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOSpriteBehaviour.h; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				75B03C3D168F888300515C47 /* Talking.png */,
 				75B03C3E168F888300515C47 /* Trees.png */,
 				75B03C3F168F888300515C47 /* Weather.png */,
+				CB907FBC174A844B0073CA7F /* IQ.png */,
 			);
 			name = "Speech Bubbles";
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				D412FDA41749934C002EEB52 /* MecoCloud.png in Resources */,
 				CB907FB9174A71640073CA7F /* Spawnables.plist in Resources */,
 				CB907FBB174A72590073CA7F /* Buildables.plist in Resources */,
+				CB907FBD174A844B0073CA7F /* IQ.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
