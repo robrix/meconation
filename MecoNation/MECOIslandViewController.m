@@ -147,7 +147,6 @@
 		meco.job = job;
 		mecoView.image = job.costumeImage;
 		[self.worldViewController updateIQLabel];
-
 	}];
 	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }

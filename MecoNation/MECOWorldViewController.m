@@ -138,6 +138,10 @@
 	self.IQCount.text = self.IQLabel;
 	[self.IQCount sizeToFit];
 }
+-(NSUInteger) IQSubtract{
+	//IQ = IQ - costOfItem
+	return self.IQ;
+}
 
 
 -(void)viewDidLoad {
