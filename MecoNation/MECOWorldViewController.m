@@ -56,13 +56,13 @@
 
 //warning messages
 -(NSString *) boatWarningLabel {
-	return [NSString stringWithFormat: @"Sorry the boat is unavailable right now..." ];
+	return @"Sorry the Boat is not available right now...";
 }
 -(NSString *) sheepWarningLabel {
-	return [NSString stringWithFormat: @"Sorry Sheep are unavailable right now..."];
+	return @"Sorry Sheep are not available right now...";
 }
 -(NSString *) mecoPopulationWarningLabel{
-	return [NSString stringWithFormat:@"You will need another house for that"];
+	return @"You will need another house for that";
 }
 //Warning Label updates
 -(void) updateWarningLabelForBoat {

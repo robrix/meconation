@@ -35,7 +35,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Warning Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bFV-ah-bZQ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bFV-ah-bZQ">
                                 <rect key="frame" x="0.0" y="275" width="480" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -161,6 +161,33 @@
     <resources>
         <image name="MecoBoatIcon.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="MECOIslandViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOIslandViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addMeco:"/>
+                <relationship kind="action" name="showJobsMenu:"/>
+                <relationship kind="action" name="showSpawnMenu:"/>
+            </relationships>
+        </class>
+        <class className="MECOPageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOPageViewController.h"/>
+        </class>
+        <class className="MECOWorldViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showBoatWarning:"/>
+                <relationship kind="action" name="showJobsMenu:"/>
+                <relationship kind="action" name="showSpawnMenu:"/>
+                <relationship kind="outlet" name="IQCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="boatButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="islandIdentifier" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mecoPopulationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
