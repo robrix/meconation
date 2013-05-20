@@ -100,17 +100,22 @@
 
 
 //IQ
+-(void)setIQ:(NSUInteger)IQ {
+	_IQ = IQ;
+	[self updateIQLabel];
+}
+
 -(NSUInteger) IQRate {
 	int mecoScientistCount = 0;
 	for (MECOPerson *person in self.allMecos)
 	{
-		if ([person.job.title isEqual:MECOScientistJobTitle])
+		if ([person.job isEqual:self.jobsByTitle[MECOScientistJobTitle]])
 			mecoScientistCount += 1;
 	}
 	return mecoScientistCount * 10;
 }
 -(NSString *)IQLabel{
-	return [NSString stringWithFormat:@"IQ %u", self.IQRate ];
+	return [NSString stringWithFormat:@"IQ %u Rate %u/min", self.IQ, self.IQRate];
 }
 -(void) updateIQLabel{
 	//Right now this posts the rate of IQ per minute
