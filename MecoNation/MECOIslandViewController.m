@@ -10,6 +10,7 @@
 #import "MECOGroundView.h"
 #import "MECOIsland.h"
 #import "MECOSpriteView.h"
+#import "MECOSpriteBehaviour.h"
 #import "MECOPerson.h"
 #import "MECOHouse.h"
 #import "MECOJob.h"
@@ -72,11 +73,11 @@
 
 -(void)addHouseAtLocation:(CGPoint)location {
 	MECOHouse *house = [MECOHouse new];
-	MECOSpriteView *houseView = [MECOSpriteView new];
-	houseView.fixed = YES;
-	UIImage *houseImage = [UIImage imageNamed:@"MecoHouse.png"];
-	houseView.image = houseImage;
-	houseView.center = (CGPoint){ location.x + houseImage.size.width / 2, self.view.bounds.size.height - (location.y + houseImage.size.height / 2) };
+	MECOSpriteView *houseView = [MECOSpriteView spriteWithImage:[UIImage imageNamed:@"MecoHouse.png"]];
+	houseView.delegate = self;
+	houseView.behaviours = @[[MECOGravity new]];
+	CGSize size = houseView.bounds.size;
+	houseView.center = (CGPoint){ location.x + size.width / 2, size.height / 2 };
 	
 	house.sprite = houseView;
 	houseView.actor = house;
@@ -103,22 +104,22 @@
 }
 
 
--(CGPoint)constrainSpritePosition:(CGPoint)position toRect:(CGRect)bounds {
+-(CGPoint)constrainSprite:(MECOSpriteView *)sprite position:(CGPoint)position toRect:(CGRect)bounds {
 	return (CGPoint){
 		MECOConstrainValueToRange(position.x, CGRectGetMinX(bounds), CGRectGetMaxX(bounds)),
 		MECOConstrainValueToRange(position.y, CGRectGetMinY(bounds), CGRectGetMaxY(bounds))
 	};
 }
 
--(CGPoint)constrainSpritePositionToGround:(CGPoint)position {
+-(CGPoint)constrainSpriteToGround:(MECOSpriteView *)sprite withPosition:(CGPoint)position {
 	return (CGPoint){
 		position.x,
-		MECOConstrainValueToRange(position.y, 0, (CGRectGetHeight(self.groundView.bounds) - [self.groundView.island groundHeightAtX:position.x]) - 20)
+		MECOConstrainValueToRange(position.y, 0, (CGRectGetHeight(self.groundView.bounds) - [self.groundView.island groundHeightAtX:position.x]) - CGRectGetHeight(sprite.bounds) / 2.0)
 	};
 }
 
--(CGPoint)spriteView:(MECOSpriteView *)spriteView constrainPosition:(CGPoint)position {
-	return [self constrainSpritePosition:[self constrainSpritePositionToGround:position] toRect:self.validBoundsForMecos];
+-(CGPoint)spriteView:(MECOSpriteView *)sprite constrainPosition:(CGPoint)position {
+	return [self constrainSprite:sprite position:[self constrainSpriteToGround:sprite withPosition:position] toRect:self.validBoundsForMecos];
 }
 
 
@@ -175,9 +176,8 @@
 	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.island addPerson:meco];
 	
-	MECOSpriteView *mecoView = [MECOSpriteView new];
+	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:job.costumeImage];
 	mecoView.delegate = self;
-	mecoView.image = job.costumeImage;
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
 	CGPoint tile = (CGPoint){
@@ -189,6 +189,8 @@
 		(tile.x * 20) + 10,
 		(tile.y * 20) + 20
 	};
+	
+	mecoView.behaviours = @[[MECOGravity new], [MECOWanderingBehaviour new]];
 	
 	[self.sprites addObject:mecoView];
 	
@@ -255,11 +257,6 @@
 
 -(void)tick:(CADisplayLink *)displayLink {
 	for (MECOSpriteView *sprite in self.sprites) {
-		[sprite applyAcceleration:(CGPoint){
-			0,
-			9.8 * displayLink.duration
-		}];
-		
 		[sprite updateWithInterval:displayLink.duration];
 	}
 }

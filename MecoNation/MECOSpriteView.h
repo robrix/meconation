@@ -10,18 +10,18 @@
 
 @protocol MECOSpriteViewDelegate;
 
-@interface MECOSpriteView : UIView
+@interface MECOSpriteView : UIImageView
+
++(instancetype)spriteWithImage:(UIImage *)image;
 
 @property (nonatomic, weak) id<MECOSpriteViewDelegate> delegate;
 
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSArray *behaviours;
 
 @property (nonatomic, weak) id actor;
 
 @property (nonatomic) CGPoint velocity;
 @property (nonatomic) CGPoint inertia;
-
-@property (nonatomic, getter = isFixed) bool fixed;
 
 -(void)applyAcceleration:(CGPoint)acceleration;
 
