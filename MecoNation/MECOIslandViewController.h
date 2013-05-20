@@ -24,4 +24,6 @@
 -(IBAction)addMeco:(id)sender;
 -(IBAction)showJobsMenu:(id)sender;
 
+-(IBAction)showBuildMenu:(id)sender;
+
 @end

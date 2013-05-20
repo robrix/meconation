@@ -168,6 +168,20 @@
 	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
 }
 
+-(NSArray *)buildables{
+	return @[@"House"];
+}
+-(IBAction)showBuildMenu:(id)sender{
+	RXOptionSheet *buildableSheet = [RXOptionSheet sheetWithTitle:@"Build" options:[self buildables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+		if ([selectedOption isEqual:@"House"]){
+			//Build a house
+		}
+	}];
+	[buildableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
+
+}
+
+
 -(IBAction)showJobsMenu:(id)sender {
 	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.worldViewController.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
 		[self showMecosMenuForJob:selectedJob];

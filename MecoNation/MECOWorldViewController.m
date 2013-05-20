@@ -187,6 +187,10 @@
 }
 
 
+-(IBAction)showBuildMenu:(id)sender {
+	[self.currentIslandViewController showBuildMenu:sender];
+}
+
 -(IBAction)showSpawnMenu:(id)sender {
 	[self.currentIslandViewController showSpawnMenu:sender];
 }
