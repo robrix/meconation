@@ -135,6 +135,10 @@
 	self.IQCount.text = self.IQLabel;
 	[self.IQCount sizeToFit];
 }
+-(NSUInteger) IQSubtract{
+	//IQ = IQ - costOfItem
+	return self.IQ;
+}
 
 
 -(void)viewDidLoad {
@@ -179,6 +183,10 @@
 	return (MECOIslandViewController *)self.pageViewController.currentViewController;
 }
 
+
+-(IBAction)showBuildMenu:(id)sender {
+	[self.currentIslandViewController showBuildMenu:sender];
+}
 
 -(IBAction)showSpawnMenu:(id)sender {
 	[self.currentIslandViewController showSpawnMenu:sender];
