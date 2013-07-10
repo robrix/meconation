@@ -4,21 +4,21 @@
 <array>
 	<dict>
 		<key>cost</key>
-		<integer>200</integer>
+		<integer>0</integer>
+		<key>title</key>
+		<string>Unemployed</string>
+		<key>costumeImage</key>
+		<string>Meco.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
 		<key>title</key>
 		<string>Scientist</string>
 		<key>costumeImage</key>
 		<string>Scientist.png</string>
 		<key>responsibilityClass</key>
 		<string>MECOScientistJobResponsibility</string>
-	</dict>
-	<dict>
-		<key>cost</key>
-		<integer>100</integer>
-		<key>title</key>
-		<string>Tailor</string>
-		<key>costumeImage</key>
-		<string>Tailor.png</string>
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -32,17 +32,105 @@
 		<key>cost</key>
 		<integer>100</integer>
 		<key>title</key>
+		<string>Tailor</string>
+		<key>costumeImage</key>
+		<string>Tailor.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
 		<string>Worker</string>
 		<key>costumeImage</key>
 		<string>Worker.png</string>
 	</dict>
 	<dict>
 		<key>cost</key>
-		<integer>0</integer>
+		<integer>100</integer>
 		<key>title</key>
-		<string>Unemployed</string>
+		<string>Explorer</string>
 		<key>costumeImage</key>
-		<string>Meco.png</string>
+		<string>Explorer.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Lumberjack</string>
+		<key>costumeImage</key>
+		<string>Lumberjack.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Miner</string>
+		<key>costumeImage</key>
+		<string>Miner.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Fisherman</string>
+		<key>costumeImage</key>
+		<string>Fisherman.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Blacksmith</string>
+		<key>costumeImage</key>
+		<string>Blacksmith.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Weatherman</string>
+		<key>costumeImage</key>
+		<string>Weatherman.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Bodyguard</string>
+		<key>costumeImage</key>
+		<string>Bodyguard.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Soldier</string>
+		<key>costumeImage</key>
+		<string>Soldier.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Teacher</string>
+		<key>costumeImage</key>
+		<string>Teacher.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Doctor</string>
+		<key>costumeImage</key>
+		<string>Doctor.png</string>
+	</dict>
+	<dict>
+		<key>cost</key>
+		<integer>100</integer>
+		<key>title</key>
+		<string>Trader</string>
+		<key>costumeImage</key>
+		<string>Trader.png</string>
 	</dict>
 </array>
 </plist>

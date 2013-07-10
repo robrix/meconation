@@ -12,6 +12,17 @@ NSString * const MECOScientistJobTitle = @"Scientist";
 NSString * const MECOTailorJobTitle = @"Tailor";
 NSString * const MECOWorkerJobTitle = @"Worker";
 NSString * const MECOFarmerJobTitle = @"Farmer";
+NSString * const MECOExplorerJobTitle = @"Explorer";
+NSString * const MECOLumberjackJobTitle = @"Lumberjack";
+NSString * const MECOMinerTitle = @"Miner";
+NSString * const MECOBlacksmithJobTitle = @"Blacksmith";
+NSString * const MECOWeathermanJobTitle = @"Weatherman";
+NSString * const MECOBodyguardJobTitle = @"Bodyguard";
+NSString * const MECOFishermanJobTitle = @"Fisherman";
+NSString * const MECOSoldierJobTitle = @"Soldier";
+NSString * const MECODoctorJobTitle = @"Doctor";
+NSString * const MECOTeacherJobTitle = @"Teacher";
+NSString * const MECOTraderJobTitle = @"Trader";
 NSString * const MECOUnemployedJobTitle = @"Unemployed";
 
 @interface MECOJob ()

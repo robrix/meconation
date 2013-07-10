@@ -47,7 +47,7 @@
 	return self.currentIslandViewController.islandIndex + 1;
 }
 -(NSString *)currentIslandLabel {
-	return [NSString stringWithFormat: @"Island %u", self.currentIslandNumber];
+	return [NSString stringWithFormat: @"%u", self.currentIslandNumber];
 }
 -(void)updateIslandLabel {
 	self.islandIdentifier.text = self.currentIslandLabel;
@@ -63,7 +63,7 @@
 	[self updateWarningLabelWithText:@"Sorry Sheep are unavailable right now..."];
 }
 -(void) updateWarningLabelForPopulation{
-	[self updateWarningLabelWithText:@"You will need another house for that"];
+	[self updateWarningLabelWithText:@"You will need another house for that..."];
 }
 
 -(void)updateWarningLabelWithText:(NSString *)text {
@@ -102,7 +102,7 @@
 	return self.allHouses.count * 4 - 1;
 }
 -(NSString *)populationLabel {
-	return [NSString stringWithFormat: @"Population %u / %u / %u", self.currentIslandPopulation, self.mecoPopulation, self.maximumPopulation];
+	return [NSString stringWithFormat: @"%u / %u / %u", self.currentIslandPopulation, self.mecoPopulation, self.maximumPopulation];
 }
 -(void)updatePopulationLabel {
 	self.mecoPopulationLabel.text = self.populationLabel;
@@ -129,7 +129,7 @@
 	return mecoScientistCount * 10;
 }
 -(NSString *)IQLabel{
-	return [NSString stringWithFormat:@"IQ %u Rate %u/min", self.IQ, self.IQRate];
+	return [NSString stringWithFormat:@"%u - %u/min", self.IQ, self.IQRate];
 }
 -(void) updateIQLabel{
 	self.IQCount.text = self.IQLabel;

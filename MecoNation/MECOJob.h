@@ -13,6 +13,17 @@ extern NSString * const MECOScientistJobTitle;
 extern NSString * const MECOTailorJobTitle;
 extern NSString * const MECOWorkerJobTitle;
 extern NSString * const MECOFarmerJobTitle;
+extern NSString * const MECOExplorerJobTitle;
+extern NSString * const MECOLumberjackJobTitle;
+extern NSString * const MECOMinerJobTitle;
+extern NSString * const MECOBlacksmithJobTitle;
+extern NSString * const MECOWeathermanJobTitle;
+extern NSString * const MECOBodyguardJobTitle;
+extern NSString * const MECOFishermanJobTitle;
+extern NSString * const MECOSoldierJobTitle;
+extern NSString * const MECODoctorJobTitle;
+extern NSString * const MECOTeacherJobTitle;
+extern NSString * const MECOTraderJobTitle;
 extern NSString * const MECOUnemployedJobTitle;
 
 @class MECOPerson;
