@@ -43,9 +43,10 @@
 		CBB20D73178E03FC00AF2A60 /* BuildIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB20D70178E03FC00AF2A60 /* BuildIcon.png */; };
 		CBB20D74178E03FC00AF2A60 /* JobIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB20D71178E03FC00AF2A60 /* JobIcon.png */; };
 		CBB20D75178E03FC00AF2A60 /* PopulationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB20D72178E03FC00AF2A60 /* PopulationIcon.png */; };
+		CBC18CBA178EFA2900A40BF2 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC18CB9178EFA2900A40BF2 /* IslandIcon.png */; };
+		CBC18CBC178EFA4600A40BF2 /* IQIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC18CBB178EFA4600A40BF2 /* IQIcon.png */; };
 		CBE99D87174836E000C7B4BB /* MecoBoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */; };
 		CBF13430178E0A3E00CE7831 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF1342F178E0A3E00CE7831 /* IslandIcon.png */; };
-		CBF13432178E0B4700CE7831 /* IQIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF13431178E0B4700CE7831 /* IQIcon.png */; };
 		D412FDA41749934C002EEB52 /* MecoCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D412FDA31749934C002EEB52 /* MecoCloud.png */; };
 		D412FDA7174A58F7002EEB52 /* MECOSpriteBehaviour.m in Sources */ = {isa = PBXBuildFile; fileRef = D412FDA6174A58F7002EEB52 /* MECOSpriteBehaviour.m */; };
 		D412FDAE174A6E7B002EEB52 /* MECOJobResponsibility.m in Sources */ = {isa = PBXBuildFile; fileRef = D412FDAD174A6E7B002EEB52 /* MECOJobResponsibility.m */; };
@@ -118,9 +119,10 @@
 		CBB20D70178E03FC00AF2A60 /* BuildIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BuildIcon.png; path = MecoImages/BuildIcon.png; sourceTree = SOURCE_ROOT; };
 		CBB20D71178E03FC00AF2A60 /* JobIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JobIcon.png; path = MecoImages/JobIcon.png; sourceTree = SOURCE_ROOT; };
 		CBB20D72178E03FC00AF2A60 /* PopulationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PopulationIcon.png; path = MecoImages/PopulationIcon.png; sourceTree = SOURCE_ROOT; };
+		CBC18CB9178EFA2900A40BF2 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
+		CBC18CBB178EFA4600A40BF2 /* IQIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IQIcon.png; path = MecoImages/IQIcon.png; sourceTree = SOURCE_ROOT; };
 		CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoBoatIcon.png; sourceTree = "<group>"; };
 		CBF1342F178E0A3E00CE7831 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
-		CBF13431178E0B4700CE7831 /* IQIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IQIcon.png; path = MecoImages/IQIcon.png; sourceTree = SOURCE_ROOT; };
 		D412FDA31749934C002EEB52 /* MecoCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoCloud.png; path = MecoArt/MecoCloud.png; sourceTree = "<group>"; };
 		D412FDA5174A58F7002EEB52 /* MECOSpriteBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOSpriteBehaviour.h; sourceTree = "<group>"; };
 		D412FDA6174A58F7002EEB52 /* MECOSpriteBehaviour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSpriteBehaviour.m; sourceTree = "<group>"; };
@@ -322,8 +324,9 @@
 				CBF1342F178E0A3E00CE7831 /* IslandIcon.png */,
 				CBB20D70178E03FC00AF2A60 /* BuildIcon.png */,
 				CBB20D71178E03FC00AF2A60 /* JobIcon.png */,
-				CBF13431178E0B4700CE7831 /* IQIcon.png */,
 				CBB20D72178E03FC00AF2A60 /* PopulationIcon.png */,
+				CBC18CB9178EFA2900A40BF2 /* IslandIcon.png */,
+				CBC18CBB178EFA4600A40BF2 /* IQIcon.png */,
 				75B03C35168F865800515C47 /* Speech Bubbles */,
 				CBE99D86174836E000C7B4BB /* MecoBoatIcon.png */,
 				CB644CB8174909680052C4EB /* MecoHouse.png */,
@@ -470,7 +473,8 @@
 				CBB20D74178E03FC00AF2A60 /* JobIcon.png in Resources */,
 				CBB20D75178E03FC00AF2A60 /* PopulationIcon.png in Resources */,
 				CBF13430178E0A3E00CE7831 /* IslandIcon.png in Resources */,
-				CBF13432178E0B4700CE7831 /* IQIcon.png in Resources */,
+				CBC18CBA178EFA2900A40BF2 /* IslandIcon.png in Resources */,
+				CBC18CBC178EFA4600A40BF2 /* IQIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
