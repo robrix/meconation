@@ -23,6 +23,7 @@
 @property (strong) IBOutlet UIToolbar *toolbar;
 @property (strong) IBOutlet UILabel *islandIdentifier;
 @property (strong) IBOutlet UILabel *IQCount;
+@property (strong) IBOutlet UILabel *woodCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
