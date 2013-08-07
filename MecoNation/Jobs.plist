@@ -59,6 +59,8 @@
 		<string>Lumberjack</string>
 		<key>costumeImage</key>
 		<string>Lumberjack.png</string>
+		<key>responsibilityClass</key>
+		<string>MECOLumberjackJobResponsibility</string>
 	</dict>
 	<dict>
 		<key>cost</key>
