@@ -128,8 +128,9 @@
 	}
 	return mecoScientistCount * 10;
 }
+
 -(NSString *)IQLabel{
-	return [NSString stringWithFormat:@"%u - %u/min", self.IQ, self.IQRate];
+	return [NSString stringWithFormat:@"%u", self.IQ];
 }
 -(void) updateIQLabel{
 	self.IQCount.text = self.IQLabel;

@@ -24,3 +24,7 @@
 
 @interface MECOMadScientistJobResponsibility : MECOScientistJobResponsibility
 @end
+
+@interface MECOLumberjackJobResponsibility : NSObject <MECOJobResponsibility>
+@property (readonly) float rate;
+@end

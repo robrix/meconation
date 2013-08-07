@@ -74,7 +74,7 @@
 
 -(void)addHouseAtLocation:(CGPoint)location {
 	MECOHouse *house = [MECOHouse new];
-	MECOSpriteView *houseView = [MECOSpriteView spriteWithImage:[UIImage imageNamed:@"MecoHouse.png"]];
+	MECOSpriteView *houseView = [MECOSpriteView spriteWithImage:[UIImage imageNamed:@"MecoHut.png"]];
 	houseView.delegate = self;
 	houseView.behaviours = @[[MECOGravity new]];
 	CGSize size = houseView.bounds.size;

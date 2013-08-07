@@ -47,3 +47,39 @@
 }
 
 @end
+
+@interface MECOLumberjackJobResponsibility ()
+@property NSTimer *timer;
+@property (strong, readwrite) id<MECOWorld> world;
+@end
+
+@implementation MECOLumberjackJobResponsibility
+
+@synthesize world = _world;
+
++(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
+	MECOLumberjackJobResponsibility *responsibility = [self new];
+	responsibility.world = world;
+	return responsibility;
+}
+
+
+-(float)WoodRate {
+	return 10.0;
+}
+
+-(void)personWillQuit:(MECOPerson *)person {
+	[self.timer invalidate];
+	self.timer = nil;
+}
+
+-(void)personDidStart:(MECOPerson *)person {
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
+}
+
+
+-(void)timerDidFire:(NSTimer *)timer {
+	self.world.IQ += self.WoodRate;
+}
+
+@end
