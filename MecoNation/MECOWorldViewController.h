@@ -13,6 +13,8 @@
 
 -(void) updateIQLabel;
 -(void) updateWoodLabel;
+-(void) updateStoneLabel;
+-(void) updateFoodLabel;
 -(void) updatePopulationLabel;
 -(void) updateWarningLabelForSheep;
 -(void) updateWarningLabelForPopulation;

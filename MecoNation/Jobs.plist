@@ -69,6 +69,8 @@
 		<string>Miner</string>
 		<key>costumeImage</key>
 		<string>Miner.png</string>
+		<key>responsibilityClass</key>
+		<string>MECOMinerJobResponsibility</string>
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -77,6 +79,8 @@
 		<string>Fisherman</string>
 		<key>costumeImage</key>
 		<string>Fisherman.png</string>
+		<key>responsibilityClass</key>
+		<string>MECOFishermanJobResponsibility</string>
 	</dict>
 	<dict>
 		<key>cost</key>

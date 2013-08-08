@@ -24,6 +24,8 @@
 @property (strong) IBOutlet UILabel *islandIdentifier;
 @property (strong) IBOutlet UILabel *IQCount;
 @property (strong) IBOutlet UILabel *woodCount;
+@property (strong) IBOutlet UILabel *stoneCount;
+@property (strong) IBOutlet UILabel *foodCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
@@ -36,6 +38,10 @@
 
 @implementation MECOWorldViewController
 
+@synthesize wood = _wood;
+@synthesize food = _food;
+@synthesize IQ = _IQ;
+@synthesize stone = _stone;
 @synthesize jobs = _jobs;
 @synthesize jobsByTitle = _jobsByTitle;
 
@@ -115,7 +121,7 @@
 
 //IQ
 -(void)setIQ:(NSUInteger)IQ {
-	IQ = IQ;
+	_IQ = IQ;
 	[self updateIQLabel];
 }
 -(NSUInteger) IQRate {
@@ -142,7 +148,7 @@
 
 //Wood
 -(void) setWood:(NSUInteger)wood{
-	wood = wood;
+	_wood = wood;
 	[self updateWoodLabel];
 }
 -(NSUInteger) woodRate {
@@ -160,6 +166,53 @@
 -(void) updateWoodLabel{
 	self.woodCount.text = self.woodLabel;
 	[self.woodCount sizeToFit];
+}
+
+
+//Stone
+-(void) setStone:(NSUInteger)stone{
+	_stone = stone;
+	[self updateStoneLabel];
+}
+-(NSUInteger) stoneRate {
+	int mecoMinerCount = 0;
+	for (MECOPerson *person in self.allMecos)
+	{
+		if ([person.job isEqual:self.jobsByTitle [MECOMinerJobTitle]])
+			mecoMinerCount +=1;
+	}
+	return mecoMinerCount *10;
+}
+-(NSString *) stoneLabel{
+	return [NSString stringWithFormat:@"%u", self.stone];
+}
+-(void) updateStoneLabel{
+	self.stoneCount.text = self.stoneLabel;
+	[self.stoneCount sizeToFit];
+}
+
+
+//Food
+-(void) setFood:(NSUInteger)food{
+	_food = food;
+	[self updateFoodLabel];
+}
+-(NSUInteger) foodRate {
+	int mecoFishermanCount = 0;
+//	int mecoFarmerCount = 0;
+	for (MECOPerson *person in self.allMecos)
+	{
+		if ([person.job isEqual:self.jobsByTitle [MECOFishermanJobTitle]])
+			mecoFishermanCount +=1;
+	}
+	return mecoFishermanCount *10;
+}
+-(NSString *) foodLabel{
+	return [NSString stringWithFormat:@"%u", self.food];
+}
+-(void) updateFoodLabel{
+	self.foodCount.text = self.foodLabel;
+	[self.foodCount sizeToFit];
 }
 
 

@@ -12,6 +12,8 @@
 
 @property NSUInteger IQ;
 @property NSUInteger wood;
+@property NSUInteger stone;
+@property NSUInteger food;
 
 @property NSArray *jobs;
 @property NSDictionary *jobsByTitle;
