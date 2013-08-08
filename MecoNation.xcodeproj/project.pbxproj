@@ -18,6 +18,8 @@
 		75B03C48168F888300515C47 /* Weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3F168F888300515C47 /* Weather.png */; };
 		75F28E981690EEC200481F4B /* Island 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E961690EEC200481F4B /* Island 2.plist */; };
 		75F28E991690EEC200481F4B /* Island 3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E971690EEC200481F4B /* Island 3.plist */; };
+		CB360B9817B404F500182886 /* Stone Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9617B404F500182886 /* Stone Icon.png */; };
+		CB360B9917B404F500182886 /* WoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9717B404F500182886 /* WoodIcon.png */; };
 		CB644CB9174909680052C4EB /* MecoHut.png in Resources */ = {isa = PBXBuildFile; fileRef = CB644CB8174909680052C4EB /* MecoHut.png */; };
 		CB69EF74179307CA0016956F /* BoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB69EF73179307CA0016956F /* BoatIcon.png */; };
 		CB84C87B1749807B00FF9E0A /* MecoSheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB84C87A1749807B00FF9E0A /* MecoSheep.png */; };
@@ -104,6 +106,8 @@
 		75B03C3F168F888300515C47 /* Weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Weather.png; path = MecoArt/Weather.png; sourceTree = "<group>"; };
 		75F28E961690EEC200481F4B /* Island 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 2.plist"; sourceTree = "<group>"; };
 		75F28E971690EEC200481F4B /* Island 3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 3.plist"; sourceTree = "<group>"; };
+		CB360B9617B404F500182886 /* Stone Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Stone Icon.png"; path = "MecoImages/Stone Icon.png"; sourceTree = SOURCE_ROOT; };
+		CB360B9717B404F500182886 /* WoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoodIcon.png; path = MecoImages/WoodIcon.png; sourceTree = SOURCE_ROOT; };
 		CB644CB8174909680052C4EB /* MecoHut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoHut.png; sourceTree = "<group>"; };
 		CB69EF73179307CA0016956F /* BoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BoatIcon.png; path = MecoImages/BoatIcon.png; sourceTree = SOURCE_ROOT; };
 		CB84C87A1749807B00FF9E0A /* MecoSheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoSheep.png; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 		CBB3AE2317B289A3004D91E6 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				CB360B9617B404F500182886 /* Stone Icon.png */,
+				CB360B9717B404F500182886 /* WoodIcon.png */,
 				CB69EF73179307CA0016956F /* BoatIcon.png */,
 				CBF1342F178E0A3E00CE7831 /* IslandIcon.png */,
 				CBB20D70178E03FC00AF2A60 /* BuildIcon.png */,
@@ -551,6 +557,8 @@
 				CBB3AE3917B2D863004D91E6 /* Island 8.plist in Resources */,
 				CBF8FE4217B2DBC900A01568 /* Island 9.plist in Resources */,
 				CBF8FE4417B2DCF600A01568 /* Island 10.plist in Resources */,
+				CB360B9817B404F500182886 /* Stone Icon.png in Resources */,
+				CB360B9917B404F500182886 /* WoodIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

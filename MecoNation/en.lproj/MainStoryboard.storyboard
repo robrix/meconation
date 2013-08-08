@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lpM-Gt-zE1">
-                                <rect key="frame" x="111" y="3" width="17" height="21"/>
+                                <rect key="frame" x="139" y="3" width="17" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -143,6 +143,21 @@
                                 <rect key="frame" x="58" y="4" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WoodIcon.png" id="b1D-fK-a0H">
+                                <rect key="frame" x="111" y="4" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wr9-TT-g5i">
+                                <rect key="frame" x="192" y="4" width="17" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Stone Icon.png" id="3Iw-6c-pZD">
+                                <rect key="frame" x="164" y="5" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -186,6 +201,8 @@
         <image name="JobIcon.png" width="20" height="20"/>
         <image name="MecoSheep.png" width="20" height="20"/>
         <image name="PopulationIcon.png" width="20" height="20"/>
+        <image name="Stone Icon.png" width="20" height="20"/>
+        <image name="WoodIcon.png" width="20" height="20"/>
     </resources>
     <classes>
         <class className="MECOIslandViewController" superclassName="UIViewController">
@@ -203,6 +220,7 @@
         <class className="MECOWorldViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldViewController.h"/>
             <relationships>
+                <relationship kind="action" name="showBoatWarning:"/>
                 <relationship kind="action" name="showBuildMenu:"/>
                 <relationship kind="action" name="showJobsMenu:"/>
                 <relationship kind="action" name="showSpawnMenu:"/>

@@ -36,7 +36,6 @@
 
 @implementation MECOWorldViewController
 
-@synthesize IQ = _IQ;
 @synthesize jobs = _jobs;
 @synthesize jobsByTitle = _jobsByTitle;
 
@@ -116,10 +115,9 @@
 
 //IQ
 -(void)setIQ:(NSUInteger)IQ {
-	_IQ = IQ;
+	IQ = IQ;
 	[self updateIQLabel];
 }
-
 -(NSUInteger) IQRate {
 	int mecoScientistCount = 0;
 	for (MECOPerson *person in self.allMecos)
@@ -129,7 +127,6 @@
 	}
 	return mecoScientistCount * 10;
 }
-
 -(NSString *)IQLabel{
 	return [NSString stringWithFormat:@"%u", self.IQ];
 }
@@ -140,6 +137,29 @@
 -(NSUInteger) IQSubtract{
 	//IQ = IQ - costOfItem
 	return self.IQ;
+}
+
+
+//Wood
+-(void) setWood:(NSUInteger)wood{
+	wood = wood;
+	[self updateWoodLabel];
+}
+-(NSUInteger) woodRate {
+	int mecoLumberjackCount = 0;
+	for (MECOPerson *person in self.allMecos)
+	{
+		if ([person.job isEqual:self.jobsByTitle [MECOLumberjackJobTitle]])
+			mecoLumberjackCount +=1;
+	}
+	return mecoLumberjackCount *10;
+}
+-(NSString *) woodLabel{
+	return [NSString stringWithFormat:@"%u", self.wood];
+}
+-(void) updateWoodLabel{
+	self.woodCount.text = self.woodLabel;
+	[self.woodCount sizeToFit];
 }
 
 

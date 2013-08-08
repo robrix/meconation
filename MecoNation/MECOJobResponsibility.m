@@ -48,6 +48,7 @@
 
 @end
 
+//-----------------------------------------------------
 @interface MECOLumberjackJobResponsibility ()
 @property NSTimer *timer;
 @property (strong, readwrite) id<MECOWorld> world;
@@ -79,7 +80,7 @@
 
 
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.IQ += self.WoodRate;
+	self.world.wood += self.WoodRate;
 }
 
 @end

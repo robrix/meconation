@@ -11,6 +11,7 @@
 @protocol MECOWorld <NSObject>
 
 @property NSUInteger IQ;
+@property NSUInteger wood;
 
 @property NSArray *jobs;
 @property NSDictionary *jobsByTitle;
