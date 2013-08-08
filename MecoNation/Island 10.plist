@@ -13,8 +13,6 @@
 	<integer>0</integer>
 	<integer>0</integer>
 	<integer>0</integer>
-	<integer>0</integer>
-	<integer>0</integer>
 	<integer>1</integer>
 	<integer>2</integer>
 	<integer>3</integer>
@@ -79,8 +77,10 @@
 	<integer>8</integer>
 	<integer>9</integer>
 	<integer>10</integer>
+	<integer>10</integer>
 	<integer>7</integer>
 	<integer>7</integer>
+	<integer>10</integer>
 	<integer>10</integer>
 	<integer>9</integer>
 	<integer>9</integer>
