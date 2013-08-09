@@ -26,6 +26,7 @@
 @property (strong) IBOutlet UILabel *woodCount;
 @property (strong) IBOutlet UILabel *stoneCount;
 @property (strong) IBOutlet UILabel *foodCount;
+@property (strong) IBOutlet UILabel *woolCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
@@ -41,6 +42,7 @@
 @synthesize wood = _wood;
 @synthesize food = _food;
 @synthesize IQ = _IQ;
+@synthesize wool = _wool;
 @synthesize stone = _stone;
 @synthesize jobs = _jobs;
 @synthesize jobsByTitle = _jobsByTitle;
@@ -144,8 +146,6 @@
 	//IQ = IQ - costOfItem
 	return self.IQ;
 }
-
-
 //Wood
 -(void) setWood:(NSUInteger)wood{
 	_wood = wood;
@@ -167,8 +167,6 @@
 	self.woodCount.text = self.woodLabel;
 	[self.woodCount sizeToFit];
 }
-
-
 //Stone
 -(void) setStone:(NSUInteger)stone{
 	_stone = stone;
@@ -190,8 +188,6 @@
 	self.stoneCount.text = self.stoneLabel;
 	[self.stoneCount sizeToFit];
 }
-
-
 //Food
 -(void) setFood:(NSUInteger)food{
 	_food = food;
@@ -199,13 +195,18 @@
 }
 -(NSUInteger) foodRate {
 	int mecoFishermanCount = 0;
-//	int mecoFarmerCount = 0;
+	int mecoFarmerCount = 0;
 	for (MECOPerson *person in self.allMecos)
 	{
 		if ([person.job isEqual:self.jobsByTitle [MECOFishermanJobTitle]])
 			mecoFishermanCount +=1;
 	}
-	return mecoFishermanCount *10;
+	for (MECOPerson *person in self.allMecos)
+	{
+		if ([person.job isEqual:self.jobsByTitle [MECOFarmerJobTitle]])
+			mecoFarmerCount +=1;
+	}
+	return (mecoFishermanCount + mecoFarmerCount) * 10;
 }
 -(NSString *) foodLabel{
 	return [NSString stringWithFormat:@"%u", self.food];
@@ -213,6 +214,27 @@
 -(void) updateFoodLabel{
 	self.foodCount.text = self.foodLabel;
 	[self.foodCount sizeToFit];
+}
+//Wool
+-(void) setWool:(NSUInteger)wool{
+	_wool = wool;
+	[self updateWoolLabel];
+}
+-(NSUInteger) woolRate {
+	int mecoFarmerCount = 0;
+	for (MECOPerson *person in self.allMecos)
+	{
+		if ([person.job isEqual:self.jobsByTitle [MECOFarmerJobTitle]])
+			mecoFarmerCount +=1;
+	}
+	return mecoFarmerCount *10;
+}
+-(NSString *) woolLabel{
+	return [NSString stringWithFormat:@"%u", self.wool];
+}
+-(void) updateWoolLabel{
+	self.woolCount.text = self.woolLabel;
+	[self.woolCount sizeToFit];
 }
 
 

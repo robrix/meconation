@@ -4,6 +4,7 @@
 
 #import "MECOJobResponsibility.h"
 
+//----------------------------------------------
 @interface MECOScientistJobResponsibility ()
 @property NSTimer *timer;
 @property (strong, readwrite) id<MECOWorld> world;
@@ -33,7 +34,7 @@
 	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
 }
 
-
+//The following method crashes the game when removed!!
 -(void)timerDidFire:(NSTimer *)timer {
 	self.world.IQ += self.IQRate;
 }
@@ -158,4 +159,48 @@
 }
 
 @end
+//-----------------------------------------------------
+@interface MECOFarmerJobResponsibility ()
+@property NSTimer *timer;
+@property (strong, readwrite) id<MECOWorld> world;
+@end
 
+@implementation MECOFarmerJobResponsibility
+
+@synthesize world = _world;
+
++(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
+	MECOFarmerJobResponsibility *responsibility = [self new];
+	responsibility.world = world;
+	return responsibility;
+}
+
+
+-(float)foodRate {
+	return 10.0;
+}
+
+-(void)personWillQuit:(MECOPerson *)person {
+	[self.timer invalidate];
+	self.timer = nil;
+}
+
+-(void)personDidStart:(MECOPerson *)person {
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFireWool:) userInfo:person repeats:YES];
+}
+
+
+-(void)timerDidFire:(NSTimer *)timer {
+	self.world.food += self.foodRate;
+}
+//---
+-(float)woolRate {
+	return 10.0;
+}
+
+-(void)timerDidFireWool:(NSTimer *)timer {
+	self.world.wool += self.woolRate;
+}
+
+@end

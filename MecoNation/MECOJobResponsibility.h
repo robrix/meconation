@@ -37,3 +37,7 @@
 @interface MECOFishermanJobResponsibility : NSObject <MECOJobResponsibility>
 @property (readonly) float rate;
 @end
+
+@interface MECOFarmerJobResponsibility : NSObject <MECOJobResponsibility>
+@property (readonly) float rate;
+@end

@@ -27,6 +27,8 @@
 		<string>Farmer</string>
 		<key>costumeImage</key>
 		<string>Farmer.png</string>
+		<key>responsibilityClass</key>
+		<string>MECOFarmerJobResponsibility</string>
 	</dict>
 	<dict>
 		<key>cost</key>
