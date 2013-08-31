@@ -83,4 +83,17 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 	}
 }
 
+
+#pragma mark NSObject
+
+-(bool)isEqualToJob:(MECOJob *)other {
+	return [self.title isEqualToString:other.title];
+}
+
+-(BOOL)isEqual:(id)object {
+	return
+		[object isKindOfClass:[MECOJob class]]
+	&&	[self isEqualToJob:object];
+}
+
 @end
