@@ -61,6 +61,7 @@
 		CBB3AE3417B2A3C9004D91E6 /* Island 7.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3317B2A3C9004D91E6 /* Island 7.plist */; };
 		CBB3AE3617B2D61F004D91E6 /* MecoRuins.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */; };
 		CBB3AE3917B2D863004D91E6 /* Island 8.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3817B2D862004D91E6 /* Island 8.plist */; };
+		CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCBE30B17D26DD200AFFB4B /* FireIcon.png */; };
 		CBF8FE4217B2DBC900A01568 /* Island 9.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4117B2DBC900A01568 /* Island 9.plist */; };
 		CBF8FE4417B2DCF600A01568 /* Island 10.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4317B2DCF600A01568 /* Island 10.plist */; };
 		D412FDA41749934C002EEB52 /* MecoCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D412FDA31749934C002EEB52 /* MecoCloud.png */; };
@@ -155,6 +156,7 @@
 		CBB3AE3317B2A3C9004D91E6 /* Island 7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 7.plist"; sourceTree = "<group>"; };
 		CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoRuins.png; path = MecoImages/MecoRuins.png; sourceTree = SOURCE_ROOT; };
 		CBB3AE3817B2D862004D91E6 /* Island 8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 8.plist"; sourceTree = "<group>"; };
+		CBCBE30B17D26DD200AFFB4B /* FireIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FireIcon.png; path = MecoImages/FireIcon.png; sourceTree = SOURCE_ROOT; };
 		CBF8FE4117B2DBC900A01568 /* Island 9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 9.plist"; sourceTree = "<group>"; };
 		CBF8FE4317B2DCF600A01568 /* Island 10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 10.plist"; sourceTree = "<group>"; };
 		D412FDA31749934C002EEB52 /* MecoCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoCloud.png; path = MecoArt/MecoCloud.png; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				CB360B9717B404F500182886 /* WoodIcon.png */,
 				CB69EF73179307CA0016956F /* BoatIcon.png */,
 				CBB20D70178E03FC00AF2A60 /* BuildIcon.png */,
+				CBCBE30B17D26DD200AFFB4B /* FireIcon.png */,
 				CBB20D71178E03FC00AF2A60 /* JobIcon.png */,
 				CBB20D72178E03FC00AF2A60 /* PopulationIcon.png */,
 			);
@@ -579,6 +582,7 @@
 				CB360BA117B42C0000182886 /* WoolIcon.png in Resources */,
 				CB124F2B17D244F40058FA22 /* MECOTornado.png in Resources */,
 				CB124F2F17D249010058FA22 /* IQIcon.png in Resources */,
+				CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

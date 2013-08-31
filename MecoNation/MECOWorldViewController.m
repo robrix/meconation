@@ -174,7 +174,6 @@
 }
 
 -(void)addMecoWithJob:(MECOJob *)job {
-	job = job ?: self.world.jobsByTitle[MECOUnemployedJobTitle];
 	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.currentIsland addPerson:meco];
 }
@@ -223,8 +222,17 @@
 	}
 	if (foundATailor == NO) {
 		[self updateWarningLabelForJobs];
-	}
+	}	
+}
+
+
+-(IBAction)showFireMenu:(id)sender {
+	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to fire"] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
+		meco.job = nil;
+	}];
+	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 

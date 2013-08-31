@@ -109,7 +109,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LZq-yU-gDb">
-                                <rect key="frame" x="346" y="0.0" width="32" height="32"/>
+                                <rect key="frame" x="311" y="0.0" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -125,14 +125,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 / 0 / 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JKU-wP-gdc">
-                                <rect key="frame" x="370" y="34" width="57" height="21"/>
+                                <rect key="frame" x="335" y="34" width="57" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PopulationIcon.png" id="46E-z4-Bo7">
-                                <rect key="frame" x="346" y="35" width="20" height="20"/>
+                                <rect key="frame" x="311" y="35" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IslandIcon.png" id="qT7-5X-oFm">
@@ -191,6 +191,22 @@
                                 <rect key="frame" x="0.0" y="110" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="suY-8c-BuT">
+                                <rect key="frame" x="346" y="0.0" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="FireIcon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFireMenu:" destination="pha-is-tni" eventType="touchUpInside" id="hD4-dr-eWg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -232,6 +248,7 @@
     <resources>
         <image name="BoatIcon.png" width="20" height="20"/>
         <image name="BuildIcon.png" width="20" height="20"/>
+        <image name="FireIcon.png" width="20" height="20"/>
         <image name="FoodIcon.png" width="20" height="20"/>
         <image name="FurIcon.png" width="20" height="20"/>
         <image name="IQIcon.png" width="20" height="20"/>
@@ -256,6 +273,7 @@
                 <relationship kind="action" name="addMeco:"/>
                 <relationship kind="action" name="showBoatWarning:"/>
                 <relationship kind="action" name="showBuildMenu:"/>
+                <relationship kind="action" name="showFireMenu:"/>
                 <relationship kind="action" name="showJobsMenu:"/>
                 <relationship kind="action" name="showSpawnMenu:"/>
                 <relationship kind="outlet" name="IQCount" candidateClass="UILabel"/>
