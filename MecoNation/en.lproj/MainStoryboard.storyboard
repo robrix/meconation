@@ -203,6 +203,7 @@
                         <outlet property="stoneCount" destination="wr9-TT-g5i" id="YEH-WI-eGa"/>
                         <outlet property="warningLabel" destination="bFV-ah-bZQ" id="8Zo-bq-VR1"/>
                         <outlet property="woodCount" destination="lpM-Gt-zE1" id="yK0-rq-MuW"/>
+                        <outlet property="woolCount" destination="CPJ-ak-6fc" id="4qs-Id-An9"/>
                         <segue destination="xSw-ts-IPK" kind="custom" identifier="pageViewController" customClass="MECOAssignSegue" id="obZ-fL-oPH"/>
                     </connections>
                 </viewController>
