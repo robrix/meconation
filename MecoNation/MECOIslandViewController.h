@@ -21,12 +21,4 @@
 
 @property (weak) MECOWorldViewController *worldViewController;
 
--(void)addMecoWithJob:(MECOJob *)job;
--(IBAction)showSpawnMenu:(id)sender;
-
--(IBAction)addMeco:(id)sender;
--(IBAction)showJobsMenu:(id)sender;
-
--(IBAction)showBuildMenu:(id)sender;
-
 @end

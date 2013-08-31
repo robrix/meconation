@@ -20,15 +20,13 @@
 #import "MECOWorldViewController.h"
 #import "MECOViewUtilities.h"
 
-@interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate, MECOIslandDelegate>
+@interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate, MECOIslandDelegate, MECOPersonDelegate>
 
 @property (strong) CADisplayLink *displayLink;
 
 @property (strong) MECOGroundView *groundView;
 
 @property (strong) NSMutableSet *sprites;
-
-@property (nonatomic, readonly) UIView *viewForMenu;
 
 @property (readonly) CGRect validBoundsForMecos;
 
@@ -111,81 +109,6 @@
 	return [self constrainSpriteToGround:sprite withPosition:[self constrainSprite:sprite position:position toRect:self.validBoundsForMecos]];
 }
 
-
-// to-do: move these responsibilities to the world view controller
--(IBAction)addMeco:(id)sender {
-	if (self.world.currentPopulation < self.world.maximumPopulation)
-	{
-		[self addMecoWithJob:nil];
-	}
-	else
-	{
-		[self.worldViewController updateWarningLabelForPopulation];
-	}
-}
-
--(UIView *)viewForMenu {
-	return self.view.window.rootViewController.view;
-}
-
--(void)showMecosMenuForJob:(MECOJob *)job {
-	NSArray *mecos = [self.island.mecos sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-	
-	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
-		MECOSpriteView *mecoView = meco.sprite;
-		meco.job = job;
-		mecoView.image = job.costumeImage;
-	}];
-	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
-}
-
--(NSArray *)spawnables{
-	return @[@"Sheep", @"Meco"];
-}
--(IBAction)showSpawnMenu:(id)sender {
-	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawn:" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
-		if ([selectedOption isEqual:@"Meco"]){
-			[self addMeco:nil];
-			[self.worldViewController updatePopulationLabel];
-		}
-		if ([selectedOption isEqual:@"Sheep"]){
-			//[self addSheep:nil];
-			[self.worldViewController updateWarningLabelForSheep];
-		}
-	}];
-	[spawnableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
-}
-
--(NSArray *)buildables{
-	return @[@"House"];
-}
--(IBAction)showBuildMenu:(id)sender{
-	RXOptionSheet *buildableSheet = [RXOptionSheet sheetWithTitle:@"Build" options:[self buildables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
-		if ([selectedOption isEqual:@"House"]){
-			//Build a house
-		}
-	}];
-	[buildableSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
-
-}
-
-
--(IBAction)showJobsMenu:(id)sender {
-	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
-		[self showMecosMenuForJob:selectedJob];
-	}];
-	
-	[optionSheet showFromRect:self.viewForMenu.bounds inView:self.viewForMenu animated:YES];
-}
-
-
--(void)addMecoWithJob:(MECOJob *)job {
-	job = job ?: self.world.jobsByTitle[MECOUnemployedJobTitle];
-	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
-	[self.island addPerson:meco];
-}
-
-
 -(void)didTapMeco:(UITapGestureRecognizer *)tap {
 	MECOSpriteView *view = (MECOSpriteView *)tap.view;
 	if (view.subviews.count) {
@@ -211,8 +134,6 @@
 		MECOFadeOutView(info, 3);
 	}
 }
-
-
 
 -(void)tick:(CADisplayLink *)displayLink {
 	for (MECOSpriteView *sprite in self.sprites) {
@@ -245,6 +166,8 @@
 	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
 	
 	[self.view addSubview:mecoView];
+	
+	person.delegate = self;
 }
 
 -(void)addSpriteForHouse:(MECOHouse *)house {
@@ -271,6 +194,13 @@
 
 -(void)island:(MECOIsland *)island didAddHouse:(MECOHouse *)house {
 	[self addSpriteForHouse:house];
+}
+
+#pragma mark MECOPersonDelegate
+
+-(void)person:(MECOPerson *)person didStartJob:(MECOJob *)job {
+	MECOSpriteView *spriteView = person.sprite;
+	spriteView.image = job.costumeImage;
 }
 
 @end

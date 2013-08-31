@@ -15,6 +15,8 @@
 #import "MECOResource.h"
 #import "MECOViewUtilities.h"
 
+#import "RXOptionSheet.h"
+
 @interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate, MECOWorldDelegate>
 
 @property (strong) IBOutlet UIButton *boatButton;
@@ -144,16 +146,70 @@
 }
 
 
--(IBAction)showBuildMenu:(id)sender {
-	[self.currentIslandViewController showBuildMenu:sender];
+#pragma mark Build menu
+
+-(NSArray *)buildables{
+	return @[@"House"];
+}
+-(IBAction)showBuildMenu:(id)sender{
+	RXOptionSheet *buildableSheet = [RXOptionSheet sheetWithTitle:@"Build" options:[self buildables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+		if ([selectedOption isEqual:@"House"]){
+			//Build a house
+		}
+	}];
+	[buildableSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
+#pragma mark Spawn menu
+
+-(IBAction)addMeco:(id)sender {
+	if (self.world.currentPopulation < self.world.maximumPopulation) {
+		[self addMecoWithJob:nil];
+	} else {
+		[self updateWarningLabelForPopulation];
+	}
+}
+
+-(void)addMecoWithJob:(MECOJob *)job {
+	job = job ?: self.world.jobsByTitle[MECOUnemployedJobTitle];
+	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
+	[self.currentIsland addPerson:meco];
+}
+
+-(NSArray *)spawnables{
+	return @[@"Sheep", @"Meco"];
+}
 -(IBAction)showSpawnMenu:(id)sender {
-	[self.currentIslandViewController showSpawnMenu:sender];
+	RXOptionSheet *spawnableSheet = [RXOptionSheet sheetWithTitle:@"Spawn:" options:[self spawnables] optionTitleKeyPath:@"self" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+		if ([selectedOption isEqual:@"Meco"]){
+			[self addMeco:nil];
+			[self updatePopulationLabel];
+		}
+		if ([selectedOption isEqual:@"Sheep"]){
+			//[self addSheep:nil];
+			[self updateWarningLabelForSheep];
+		}
+	}];
+	[spawnableSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+}
+
+#pragma mark Job menu
+
+-(void)showMecosMenuForJob:(MECOJob *)job {
+	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
+		meco.job = job;
+	}];
+	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 -(IBAction)showJobsMenu:(id)sender {
-	[self.currentIslandViewController showJobsMenu:sender];
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
+		[self showMecosMenuForJob:selectedJob];
+	}];
+	
+	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 

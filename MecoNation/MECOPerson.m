@@ -56,8 +56,12 @@
 -(void)setJob:(MECOJob *)job {
 	if (![self.job isEqual:job]) {
 		[self.job personWillQuit:self];
+		if ([self.delegate respondsToSelector:@selector(person:willQuitJob:)])
+			[self.delegate person:self willQuitJob:self.job];
 		_job = job;
 		[self.job personDidStart:self];
+		if ([self.delegate respondsToSelector:@selector(person:didStartJob:)])
+			[self.delegate person:self didStartJob:self.job];
 	}
 }
 
