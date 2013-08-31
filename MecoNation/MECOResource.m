@@ -37,3 +37,21 @@
 }
 
 @end
+
+
+@implementation MECOResourceRate
+
++(instancetype)rateWithResource:(MECOResource *)resource quantity:(float)quantity interval:(NSTimeInterval)interval {
+	return [[self alloc] initWithResource:resource quantity:quantity interval:interval];
+}
+
+-(instancetype)initWithResource:(MECOResource *)resource quantity:(float)quantity interval:(NSTimeInterval)interval {
+	if ((self = [super init])) {
+		_resource = resource;
+		_quantity = quantity;
+		_interval = interval;
+	}
+	return self;
+}
+
+@end

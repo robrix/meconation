@@ -29,7 +29,7 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 
 @property (strong, readwrite) NSString *title;
 @property (strong, readwrite) UIImage *costumeImage;
-@property (strong, readwrite) id<MECOJobResponsibility> responsibility;
+@property (strong, readwrite) NSArray *responsibilities;
 
 @end
 
@@ -47,29 +47,40 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 			NSString *title = jobDictionary[@"title"];
 			NSString *costumeImageName = jobDictionary[@"costumeImage"];
 			UIImage *costumeImage = costumeImageName? [UIImage imageNamed:costumeImageName] : nil;
-			NSString *responsibilityClassName = jobDictionary[@"responsibilityClass"];
-			[jobs addObject:[MECOJob jobWithTitle:title costumeImage:costumeImage responsibility:[NSClassFromString(responsibilityClassName) responsibilityWithWorld:world]]];
+			
+			NSMutableArray *responsibilities = [NSMutableArray new];
+			for (NSDictionary *responsibilityDictionary in jobDictionary[@"responsibilities"]) {
+				NSString *className = responsibilityDictionary[@"class"];
+				id<MECOJobResponsibility> responsibility = [NSClassFromString(className) responsibilityWithDictionary:responsibilityDictionary world:world];
+				[responsibilities addObject:responsibility];
+			}
+			
+			[jobs addObject:[MECOJob jobWithTitle:title costumeImage:costumeImage responsibilities:responsibilities]];
 		}
 		allJobs = jobs;
 	});
 	return allJobs;
 }
 
-+(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibility:(id<MECOJobResponsibility>)responsibility {
++(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities {
 	MECOJob *job = [self new];
 	job.title = title;
 	job.costumeImage = costumeImage;
-	job.responsibility = responsibility;
+	job.responsibilities = responsibilities;
 	return job;
 }
 
 
 -(void)personWillQuit:(MECOPerson *)person {
-	[self.responsibility personWillQuit:person];
+	for (id<MECOJobResponsibility> responsibility in self.responsibilities) {
+		[responsibility personWillQuit:person];
+	}
 }
 
 -(void)personDidStart:(MECOPerson *)person {
-	[self.responsibility personDidStart:person];
+	for (id<MECOJobResponsibility> responsibility in self.responsibilities) {
+		[responsibility personDidStart:person];
+	}
 }
 
 @end

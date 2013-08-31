@@ -3,26 +3,39 @@
 //  Copyright (c) 2013 Micah Merswolke. All rights reserved.
 
 #import "MECOJobResponsibility.h"
+#import "MECOResource.h"
 
-//----------------------------------------------
-@interface MECOScientistJobResponsibility ()
-@property NSTimer *timer;
-@property (strong, readwrite) id<MECOWorld> world;
+@interface MECOEarningJobResponsibility ()
+
+@property (nonatomic) MECOResourceRate *rate;
+@property (nonatomic) NSTimer *timer;
+
 @end
 
-@implementation MECOScientistJobResponsibility
+@implementation MECOEarningJobResponsibility
 
-@synthesize world = _world;
-
-+(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
-	MECOScientistJobResponsibility *responsibility = [self new];
-	responsibility.world = world;
-	return responsibility;
++(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(id<MECOWorld>)world {
+	float quantity = [dictionary[@"quantity"] floatValue];
+	NSTimeInterval interval = [dictionary[@"interval"] doubleValue];
+	NSString *resourceKeyPath = [NSString stringWithFormat:@"%@Resource", dictionary[@"resource"]];
+	MECOResource *resource = [(id)world valueForKeyPath:resourceKeyPath];
+	MECOResourceRate *rate = [MECOResourceRate rateWithResource:resource quantity:quantity interval:interval];
+	return [self responsibilityWithRate:rate];
 }
 
++(instancetype)responsibilityWithRate:(MECOResourceRate *)rate {
+	return [[self alloc] initWithRate:rate];
+}
 
--(float)IQRate {
-	return 10.0;
+-(instancetype)initWithRate:(MECOResourceRate *)rate {
+	if ((self = [super init])) {
+		_rate = rate;
+	}
+	return self;
+}
+
+-(void)personDidStart:(MECOPerson *)person {
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:self.rate.interval target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
 }
 
 -(void)personWillQuit:(MECOPerson *)person {
@@ -30,171 +43,8 @@
 	self.timer = nil;
 }
 
--(void)personDidStart:(MECOPerson *)person {
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-}
-
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.IQResource.quantity += self.IQRate;
-}
-
-@end
-
-@implementation MECOMadScientistJobResponsibility
-
--(float)IQRate {
-	return super.rate * 2.0;
-}
-
-@end
-
-//-----------------------------------------------------
-@interface MECOLumberjackJobResponsibility ()
-@property NSTimer *timer;
-@property (strong, readwrite) id<MECOWorld> world;
-@end
-
-@implementation MECOLumberjackJobResponsibility
-
-@synthesize world = _world;
-
-+(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
-	MECOLumberjackJobResponsibility *responsibility = [self new];
-	responsibility.world = world;
-	return responsibility;
-}
-
-
--(float)woodRate {
-	return 10.0;
-}
-
--(void)personWillQuit:(MECOPerson *)person {
-	[self.timer invalidate];
-	self.timer = nil;
-}
-
--(void)personDidStart:(MECOPerson *)person {
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-}
-
-
--(void)timerDidFire:(NSTimer *)timer {
-	self.world.woodResource.quantity += self.woodRate;
-}
-
-@end
-
-//-----------------------------------------------------
-@interface MECOMinerJobResponsibility ()
-@property NSTimer *timer;
-@property (strong, readwrite) id<MECOWorld> world;
-@end
-
-@implementation MECOMinerJobResponsibility
-
-@synthesize world = _world;
-
-+(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
-	MECOMinerJobResponsibility *responsibility = [self new];
-	responsibility.world = world;
-	return responsibility;
-}
-
-
--(float)stoneRate {
-	return 10.0;
-}
-
--(void)personWillQuit:(MECOPerson *)person {
-	[self.timer invalidate];
-	self.timer = nil;
-}
-
--(void)personDidStart:(MECOPerson *)person {
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-}
-
-
--(void)timerDidFire:(NSTimer *)timer {
-	self.world.stoneResource.quantity += self.stoneRate;
-}
-
-@end
-
-//-----------------------------------------------------
-@interface MECOFishermanJobResponsibility ()
-@property NSTimer *timer;
-@property (strong, readwrite) id<MECOWorld> world;
-@end
-
-@implementation MECOFishermanJobResponsibility
-
-@synthesize world = _world;
-
-+(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
-	MECOFishermanJobResponsibility *responsibility = [self new];
-	responsibility.world = world;
-	return responsibility;
-}
-
-
--(float)foodRate {
-	return 10.0;
-}
-
--(void)personWillQuit:(MECOPerson *)person {
-	[self.timer invalidate];
-	self.timer = nil;
-}
-
--(void)personDidStart:(MECOPerson *)person {
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-}
-
-
--(void)timerDidFire:(NSTimer *)timer {
-	self.world.foodResource.quantity += self.foodRate;
-}
-
-@end
-//-----------------------------------------------------
-@interface MECOFarmerJobResponsibility ()
-@property NSTimer *timer;
-@property (strong, readwrite) id<MECOWorld> world;
-@end
-
-@implementation MECOFarmerJobResponsibility
-
-@synthesize world = _world;
-
-+(instancetype)responsibilityWithWorld:(id<MECOWorld>)world {
-	MECOFarmerJobResponsibility *responsibility = [self new];
-	responsibility.world = world;
-	return responsibility;
-}
-
-
--(float)foodRate {
-	return 10.0;
-}
-
--(float)woolRate {
-	return 10.0;
-}
-
--(void)personWillQuit:(MECOPerson *)person {
-	[self.timer invalidate];
-	self.timer = nil;
-}
-
--(void)personDidStart:(MECOPerson *)person {
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-}
-
--(void)timerDidFire:(NSTimer *)timer {
-	self.world.foodResource.quantity += self.foodRate;
-	self.world.woolResource.quantity += self.woolRate;
+	self.rate.resource.quantity += self.rate.quantity;
 }
 
 @end

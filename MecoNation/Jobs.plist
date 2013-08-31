@@ -17,8 +17,19 @@
 		<string>Scientist</string>
 		<key>costumeImage</key>
 		<string>Scientist.png</string>
-		<key>responsibilityClass</key>
-		<string>MECOScientistJobResponsibility</string>
+		<key>responsibilities</key>
+		<array>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>IQ</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -27,8 +38,29 @@
 		<string>Farmer</string>
 		<key>costumeImage</key>
 		<string>Farmer.png</string>
-		<key>responsibilityClass</key>
-		<string>MECOFarmerJobResponsibility</string>
+		<key>responsibilities</key>
+		<array>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>wool</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>food</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -61,8 +93,19 @@
 		<string>Lumberjack</string>
 		<key>costumeImage</key>
 		<string>Lumberjack.png</string>
-		<key>responsibilityClass</key>
-		<string>MECOLumberjackJobResponsibility</string>
+		<key>responsibilities</key>
+		<array>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>wood</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -71,8 +114,20 @@
 		<string>Miner</string>
 		<key>costumeImage</key>
 		<string>Miner.png</string>
-		<key>responsibilityClass</key>
-		<string>MECOMinerJobResponsibility</string>
+		<key>responsibilities</key>
+		<array>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>stone</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+		</array>
+		
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -81,8 +136,20 @@
 		<string>Fisherman</string>
 		<key>costumeImage</key>
 		<string>Fisherman.png</string>
-		<key>responsibilityClass</key>
-		<string>MECOFishermanJobResponsibility</string>
+		<key>responsibilities</key>
+		<array>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>food</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+		</array>
+		
 	</dict>
 	<dict>
 		<key>cost</key>

@@ -4,40 +4,19 @@
 
 #import "MECOWorld.h"
 
-@class MECOPerson;
+@class MECOPerson, MECOResourceRate;
 
 @protocol MECOJobResponsibility <NSObject>
 
-+(instancetype)responsibilityWithWorld:(id<MECOWorld>)world;
-
-@property (strong, readonly) id<MECOWorld> world;
++(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(id<MECOWorld>)world;
 
 -(void)personWillQuit:(MECOPerson *)person;
 -(void)personDidStart:(MECOPerson *)person;
 
 @end
 
+@interface MECOEarningJobResponsibility : NSObject <MECOJobResponsibility>
 
-@interface MECOScientistJobResponsibility : NSObject <MECOJobResponsibility>
-@property (readonly) float rate;
-@end
++(instancetype)responsibilityWithRate:(MECOResourceRate *)rate;
 
-@interface MECOMadScientistJobResponsibility : MECOScientistJobResponsibility
-@end
-
-
-@interface MECOLumberjackJobResponsibility : NSObject <MECOJobResponsibility>
-@property (readonly) float rate;
-@end
-
-@interface MECOMinerJobResponsibility : NSObject <MECOJobResponsibility>
-@property (readonly) float rate;
-@end
-
-@interface MECOFishermanJobResponsibility : NSObject <MECOJobResponsibility>
-@property (readonly) float rate;
-@end
-
-@interface MECOFarmerJobResponsibility : NSObject <MECOJobResponsibility>
-@property (readonly) float rate;
 @end
