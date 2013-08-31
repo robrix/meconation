@@ -134,6 +134,7 @@ const CGSize gridSize = {20, 20};
 
 -(void)addPerson:(MECOPerson *)person {
 	[self.mutableMecos addObject:person];
+	[self.delegate island:self didAddPerson:person];
 }
 
 -(void)removePerson:(MECOPerson *)person {
@@ -147,6 +148,7 @@ const CGSize gridSize = {20, 20};
 
 -(void)addHouse:(MECOHouse *)house {
 	[self.mutableHouses addObject:house];
+	[self.delegate island:self didAddHouse:house];
 }
 
 -(void)removeHouse:(MECOHouse *)house {

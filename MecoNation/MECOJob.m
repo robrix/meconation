@@ -38,7 +38,7 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 @synthesize title = _title;
 @synthesize costumeImage = _costumeImage;
 
-+(NSArray *)jobsWithWorld:(id<MECOWorld>)world {
++(NSArray *)jobsWithWorld:(MECOWorld *)world {
 	static NSArray *allJobs = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{

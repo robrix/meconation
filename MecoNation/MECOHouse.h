@@ -6,6 +6,10 @@
 
 @interface MECOHouse : NSObject
 
-@property (weak) id sprite;
++(instancetype)houseWithLocation:(CGPoint)location;
+
+@property (nonatomic, readonly) CGPoint location;
+
+@property (nonatomic, weak) id sprite;
 
 @end

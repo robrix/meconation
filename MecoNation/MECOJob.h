@@ -30,7 +30,7 @@ extern NSString * const MECOUnemployedJobTitle;
 
 @interface MECOJob : NSObject
 
-+(NSArray *)jobsWithWorld:(id<MECOWorld>)world;
++(NSArray *)jobsWithWorld:(MECOWorld *)world;
 +(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities;
 
 @property (nonatomic, readonly) NSString *title;

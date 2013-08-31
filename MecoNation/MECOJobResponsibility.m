@@ -14,7 +14,7 @@
 
 @implementation MECOEarningJobResponsibility
 
-+(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(id<MECOWorld>)world {
++(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(MECOWorld *)world {
 	float quantity = [dictionary[@"quantity"] floatValue];
 	NSTimeInterval interval = [dictionary[@"interval"] doubleValue];
 	NSString *resourceKeyPath = [NSString stringWithFormat:@"%@Resource", dictionary[@"resource"]];

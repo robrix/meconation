@@ -6,6 +6,15 @@
 
 @implementation MECOHouse
 
++(instancetype)houseWithLocation:(CGPoint)location {
+	return [[self alloc] initWithLocation:location];
+}
 
+-(instancetype)initWithLocation:(CGPoint)location {
+	if ((self = [super init])) {
+		_location = location;
+	}
+	return self;
+}
 
 @end

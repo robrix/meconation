@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MECOWorld.h"
 
-@interface MECOWorldViewController : UIViewController <MECOWorld>
+@interface MECOWorldViewController : UIViewController
+
+@property (nonatomic) MECOWorld *world;
 
 -(void) updatePopulationLabel;
 -(void) updateWarningLabelForSheep;
 -(void) updateWarningLabelForPopulation;
--(NSUInteger) maximumPopulation;
--(NSUInteger) mecoPopulation;
 
 @end

@@ -8,7 +8,7 @@
 
 @protocol MECOJobResponsibility <NSObject>
 
-+(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(id<MECOWorld>)world;
++(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(MECOWorld *)world;
 
 -(void)personWillQuit:(MECOPerson *)person;
 -(void)personDidStart:(MECOPerson *)person;

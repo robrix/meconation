@@ -10,9 +10,13 @@
 
 @class MECOHouse, MECOPerson;
 
+@protocol MECOIslandDelegate;
+
 @interface MECOIsland : NSObject
 
 +(NSArray *)allIslands;
+
+@property (nonatomic, weak) id<MECOIslandDelegate> delegate;
 
 @property (strong) UIBezierPath *bezierPath;
 @property CGRect bounds;
@@ -28,5 +32,12 @@
 @property (strong, readonly) NSSet *houses;
 -(void)addHouse:(MECOHouse *)house;
 -(void)removeHouse:(MECOHouse *)house;
+
+@end
+
+@protocol MECOIslandDelegate <NSObject>
+
+-(void)island:(MECOIsland *)island didAddPerson:(MECOPerson *)person;
+-(void)island:(MECOIsland *)island didAddHouse:(MECOHouse *)house;
 
 @end

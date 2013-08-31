@@ -15,9 +15,7 @@
 #import "MECOResource.h"
 #import "MECOViewUtilities.h"
 
-@interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
-
-@property (copy) NSArray *islands;
+@interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate, MECOWorldDelegate>
 
 @property (strong) IBOutlet UIButton *boatButton;
 @property (strong) IBOutlet UILabel *warningLabel;
@@ -35,20 +33,12 @@
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
 @property (readonly) NSUInteger mecoPopulation;
 
-@property MECOResource *foodResource;
-@property MECOResource *IQResource;
-@property MECOResource *stoneResource;
-@property MECOResource *woodResource;
-@property MECOResource *woolResource;
+@property (nonatomic, copy) NSDictionary *labelsByResourceName;
 
 @end
 
 @implementation MECOWorldViewController
 
-@synthesize jobs = _jobs;
-@synthesize jobsByTitle = _jobsByTitle;
-
-@synthesize islands = _islands;
 @synthesize pageViewController = _pageViewController;
 
 // Labels the current Island
@@ -86,32 +76,9 @@
 }
 
 
--(NSSet *)allMecos {
-	NSMutableSet *mecos = [NSMutableSet new];
-	for (MECOIsland *island in self.islands) {
-		[mecos unionSet:island.mecos];
-	}
-	return mecos;
-}
--(NSSet *)allHouses {
-	NSMutableSet *houses = [NSMutableSet new];
-	for (MECOIsland *island in self.islands) {
-		[houses unionSet:island.houses];
-	}
-	return houses;
-}
-
--(NSUInteger)mecoPopulation {
-	return self.allMecos.count;
-}
-
-
 //Population Label stuff
--(NSUInteger)maximumPopulation{
-	return self.allHouses.count * 4 - 1;
-}
 -(NSString *)populationLabel {
-	return [NSString stringWithFormat: @"%u / %u / %u", self.currentIslandPopulation, self.mecoPopulation, self.maximumPopulation];
+	return [NSString stringWithFormat: @"%u / %u / %u", self.currentIslandPopulation, self.world.currentPopulation, self.world.maximumPopulation];
 }
 -(void)updatePopulationLabel {
 	self.mecoPopulationLabel.text = self.populationLabel;
@@ -122,55 +89,49 @@
 }
 
 
--(void)updateLabel:(UILabel *)label withResource:(MECOResource *)resource {
-	label.text = [NSString stringWithFormat:@"%g", resource.quantity];
-	[label sizeToFit];
-}
-
-
--(MECOResourceObservationBlock)observerForLabel:(UILabel *)label {
-	return ^(MECOResource *resource) {
-		[self updateLabel:label withResource:resource];
-	};
-}
-
-
 -(void)viewDidLoad {
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
 	
-	self.foodResource = [MECOResource resourceWithName:@"food" onChange:[self observerForLabel:self.foodCount]];
-	self.IQResource = [MECOResource resourceWithName:@"IQ" onChange:[self observerForLabel:self.IQCount]];
-	self.stoneResource = [MECOResource resourceWithName:@"stone" onChange:[self observerForLabel:self.stoneCount]];
-	self.woodResource = [MECOResource resourceWithName:@"wood" onChange:[self observerForLabel:self.woodCount]];
-	self.woolResource = [MECOResource resourceWithName:@"wool" onChange:[self observerForLabel:self.woolCount]];
+	self.labelsByResourceName = @{
+								  @"food": self.foodCount,
+								  @"IQ": self.IQCount,
+								  @"stone": self.stoneCount,
+								  @"wood": self.woodCount,
+//								  @"wool": self.woolCount,
+								  };
 	
-	self.jobs = [MECOJob jobsWithWorld:self];
-	self.jobsByTitle = [NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]];
+	self.world = [MECOWorld new];
+	self.world.delegate = self;
 	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
 	NSMutableArray *islandViewControllers = [NSMutableArray new];
 	NSUInteger islandIndex = 0;
-	self.islands = [MECOIsland allIslands];
-	for (MECOIsland *island in self.islands) {
+	for (MECOIsland *island in self.world.islands) {
 		MECOIslandViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"islandViewController"];
 		controller.view.frame = self.pageViewController.view.bounds;
-		controller.island = island;
-		if (islandIndex == 0) {
-			[controller addMecoWithJob:self.jobsByTitle[MECOScientistJobTitle]];
-			[controller addMecoWithJob:self.jobsByTitle[MECOFarmerJobTitle]];
-			[controller addMecoWithJob:self.jobsByTitle[MECOTailorJobTitle]];
-            [self updatePopulationLabel];
-		}
+		
+		[controller configureWithIslandAtIndex:islandIndex++ inWorld:self.world];
+		
 		controller.worldViewController = self;
-		controller.islandIndex = islandIndex++;
 		[islandViewControllers addObject:controller];
 	}
 	self.islandViewControllers = islandViewControllers;
 	
-	self.pageViewController.currentViewController = [self.islandViewControllers objectAtIndex:0];
+	self.pageViewController.currentViewController = self.islandViewControllers[0];
+}
+
+#pragma mark MECOWorldDelegate
+
+-(void)updateLabel:(UILabel *)label withResource:(MECOResource *)resource {
+	label.text = [NSString stringWithFormat:@"%g", resource.quantity];
+	[label sizeToFit];
+}
+
+-(void)world:(MECOWorld *)world didChangeResource:(MECOResource *)resource {
+	[self updateLabel:self.labelsByResourceName[resource.name] withResource:resource];
 }
 
 

@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class MECOIsland, MECOJob;
+@class MECOIsland, MECOJob, MECOWorld;
 @class MECOWorldViewController;
 
 @interface MECOIslandViewController : UIViewController
 
-@property (nonatomic, strong) MECOIsland *island;
-@property (nonatomic) NSUInteger islandIndex;
-@property (weak) MECOWorldViewController *worldViewController;
+-(void)configureWithIslandAtIndex:(NSUInteger)index inWorld:(MECOWorld *)world;
 
+@property (nonatomic, readonly) MECOWorld *world;
+@property (nonatomic, readonly) MECOIsland *island;
+@property (nonatomic, readonly) NSUInteger islandIndex;
+
+@property (weak) MECOWorldViewController *worldViewController;
 
 -(void)addMecoWithJob:(MECOJob *)job;
 -(IBAction)showSpawnMenu:(id)sender;

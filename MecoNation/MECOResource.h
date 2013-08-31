@@ -8,15 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-@class MECOResource;
-typedef void(^MECOResourceObservationBlock)(MECOResource *resource);
+@protocol MECOResourceDelegate;
 
 @interface MECOResource : NSObject
 
-+(instancetype)resourceWithName:(NSString *)name onChange:(MECOResourceObservationBlock)block;
++(instancetype)resourceWithName:(NSString *)name;
+
+@property (nonatomic, weak) id<MECOResourceDelegate> delegate;
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic) float quantity;
+
+@end
+
+@protocol MECOResourceDelegate <NSObject>
+
+-(void)resourceDidChange:(MECOResource *)resource;
 
 @end
 
