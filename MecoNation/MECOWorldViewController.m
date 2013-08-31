@@ -28,6 +28,7 @@
 @property (strong) IBOutlet UILabel *stoneCount;
 @property (strong) IBOutlet UILabel *foodCount;
 @property (strong) IBOutlet UILabel *woolCount;
+@property (strong) IBOutlet UILabel *furCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
@@ -101,6 +102,7 @@
 	
 	self.labelsByResourceName = @{
 								  @"food": self.foodCount,
+								  @"fur": self.furCount,
 								  @"IQ": self.IQCount,
 								  @"stone": self.stoneCount,
 								  @"wood": self.woodCount,
@@ -243,7 +245,6 @@
 			if (tailorsFound == 1) {
 				UIAlertView *tailorFiringWarning =[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Firing your last Tailor will stop you from giving other mecos jobs, Sending your economy plummeting!!" delegate:self cancelButtonTitle:@"No way!" otherButtonTitles:@"Sayonara Tailor!", nil];
 				[tailorFiringWarning show];
-				
 			}
 			else {
 				meco.job = nil;

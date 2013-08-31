@@ -22,12 +22,13 @@
 -(instancetype)init {
 	if ((self = [super init])) {
 		_foodResource = [MECOResource resourceWithName:@"food"];
+		_furResource = [MECOResource resourceWithName:@"fur"];
 		_IQResource = [MECOResource resourceWithName:@"IQ"];
 		_stoneResource = [MECOResource resourceWithName:@"stone"];
 		_woodResource = [MECOResource resourceWithName:@"wood"];
 		_woolResource = [MECOResource resourceWithName:@"wool"];
 		
-		_resources = @[_foodResource, _IQResource, _stoneResource, _woodResource, _woolResource];
+		_resources = @[_foodResource, _furResource, _IQResource, _stoneResource, _woodResource, _woolResource];
 		
 		for (MECOResource *resource in self.resources) {
 			resource.delegate = self;
