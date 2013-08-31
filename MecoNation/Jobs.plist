@@ -4,14 +4,6 @@
 <array>
 	<dict>
 		<key>cost</key>
-		<integer>0</integer>
-		<key>title</key>
-		<string>Unemployed</string>
-		<key>costumeImage</key>
-		<string>Meco.png</string>
-	</dict>
-	<dict>
-		<key>cost</key>
 		<integer>100</integer>
 		<key>title</key>
 		<string>Scientist</string>
@@ -127,7 +119,6 @@
 				<integer>60</integer>
 			</dict>
 		</array>
-		
 	</dict>
 	<dict>
 		<key>cost</key>
@@ -149,7 +140,6 @@
 				<integer>60</integer>
 			</dict>
 		</array>
-		
 	</dict>
 	<dict>
 		<key>cost</key>

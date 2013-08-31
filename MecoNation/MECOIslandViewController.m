@@ -130,7 +130,7 @@
 }
 
 -(void)addSpriteForPerson:(MECOPerson *)person {
-	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:person.job.costumeImage];
+	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:person.job.costumeImage?:[UIImage imageNamed:@"Meco.png"]];
 	mecoView.delegate = self;
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
@@ -188,7 +188,7 @@
 
 -(void)person:(MECOPerson *)person didStartJob:(MECOJob *)job {
 	MECOSpriteView *spriteView = person.sprite;
-	spriteView.image = job.costumeImage;
+	spriteView.image = job.costumeImage ?: [UIImage imageNamed:@"Meco.png"];
 }
 
 #pragma mark MECOActor
