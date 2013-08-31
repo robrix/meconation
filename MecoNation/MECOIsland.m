@@ -35,11 +35,16 @@ const CGSize gridSize = {20, 20};
 		allIslands = [NSMutableArray new];
 		NSUInteger islandIndex = 1;
 		while ((path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"Island %u", islandIndex] ofType:@"plist"]) != nil) {
-			[allIslands addObject:[self islandWithYValues:[NSArray arrayWithContentsOfFile:path]]];
+			[allIslands addObject:[self islandWithYValues:[self yValuesWithContentsOfFile:path]]];
 			islandIndex++;
 		}
 	});
 	return allIslands;
+}
+
++(NSArray *)yValuesWithContentsOfFile:(NSString *)path {
+	NSArray *entries = [NSArray arrayWithContentsOfFile:path];
+	return [entries subarrayWithRange:NSMakeRange(1, entries.count - 1)];
 }
 
 +(UIBezierPath *)bezierPathWithYValues:(NSArray *)yValues {

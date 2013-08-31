@@ -99,7 +99,7 @@
 								  @"IQ": self.IQCount,
 								  @"stone": self.stoneCount,
 								  @"wood": self.woodCount,
-//								  @"wool": self.woolCount,
+								  @"wool": self.woolCount,
 								  };
 	
 	self.world = [MECOWorld new];
