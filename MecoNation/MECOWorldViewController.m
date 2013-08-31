@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
+#import "MECOGameController.h"
 #import "MECOIslandViewController.h"
 #import "MECOWorldViewController.h"
 #import "MECOPageViewController.h"
@@ -33,9 +34,9 @@
 @property (copy) NSArray *islandViewControllers;
 
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
-@property (readonly) NSUInteger mecoPopulation;
-
 @property (nonatomic, copy) NSDictionary *labelsByResourceName;
+
+@property (nonatomic) MECOGameController *gameController;
 
 @end
 
@@ -107,6 +108,8 @@
 	self.world = [MECOWorld new];
 	self.world.delegate = self;
 	
+	self.gameController = [[MECOGameController alloc] initWithWorld:self.world];
+	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
 	NSMutableArray *islandViewControllers = [NSMutableArray new];
@@ -117,12 +120,16 @@
 		
 		[controller configureWithIslandAtIndex:islandIndex++ inWorld:self.world];
 		
+		[self.gameController addActorsObject:controller];
+		
 		controller.worldViewController = self;
 		[islandViewControllers addObject:controller];
 	}
 	self.islandViewControllers = islandViewControllers;
 	
 	self.pageViewController.currentViewController = self.islandViewControllers[0];
+	
+	self.gameController.paused = NO;
 }
 
 #pragma mark MECOWorldDelegate
@@ -234,13 +241,13 @@
 
 -(MECOIslandViewController *)pageViewController:(MECOPageViewController *)pageViewController viewControllerAfterViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex < (self.islandViewControllers.count - 1)?
-		[self.islandViewControllers objectAtIndex:viewController.islandIndex + 1]
+		self.islandViewControllers[viewController.islandIndex + 1]
 	:	nil;
 }
 
 -(MECOIslandViewController *)pageViewController:(MECOPageViewController *)pageViewController viewControllerBeforeViewController:(MECOIslandViewController *)viewController {
 	return viewController.islandIndex > 0?
-		[self.islandViewControllers objectAtIndex:viewController.islandIndex - 1]
+		self.islandViewControllers[viewController.islandIndex - 1]
 	:	nil;
 }
 

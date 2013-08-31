@@ -22,8 +22,6 @@
 
 @interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate, MECOIslandDelegate, MECOPersonDelegate>
 
-@property (strong) CADisplayLink *displayLink;
-
 @property (strong) MECOGroundView *groundView;
 
 @property (strong) NSMutableSet *sprites;
@@ -39,7 +37,6 @@
 
 @synthesize island = _island;
 @synthesize islandIndex = _islandIndex;
-@synthesize displayLink = _displayLink;
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 
@@ -69,9 +66,6 @@
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
-	
-	self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
-	[self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 	
 	self.sprites = [NSMutableSet new];
 }
@@ -135,12 +129,6 @@
 	}
 }
 
--(void)tick:(CADisplayLink *)displayLink {
-	for (MECOSpriteView *sprite in self.sprites) {
-		[sprite updateWithInterval:displayLink.duration];
-	}
-}
-
 -(void)addSpriteForPerson:(MECOPerson *)person {
 	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:person.job.costumeImage];
 	mecoView.delegate = self;
@@ -201,6 +189,14 @@
 -(void)person:(MECOPerson *)person didStartJob:(MECOJob *)job {
 	MECOSpriteView *spriteView = person.sprite;
 	spriteView.image = job.costumeImage;
+}
+
+#pragma mark MECOActor
+
+-(void)gameController:(MECOGameController *)gameController updateWithInterval:(NSTimeInterval)interval {
+	for (MECOSpriteView *sprite in self.sprites) {
+		[sprite updateWithInterval:interval];
+	}
 }
 
 @end

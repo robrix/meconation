@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MECOGameController.h"
 
 @class MECOIsland, MECOJob, MECOWorld;
 @class MECOWorldViewController;
 
-@interface MECOIslandViewController : UIViewController
+@interface MECOIslandViewController : UIViewController <MECOActor>
 
 -(void)configureWithIslandAtIndex:(NSUInteger)index inWorld:(MECOWorld *)world;
 

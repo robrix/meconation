@@ -96,6 +96,7 @@
 		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
 		D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */; };
 		D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8769516A3019900208BE9 /* MECOPageViewController.m */; };
+		D4CA315117D26BDE0057D359 /* MECOGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA315017D26BDE0057D359 /* MECOGameController.m */; };
 		D4E7918A17491C4300499234 /* MECOHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E7918917491C4300499234 /* MECOHouse.m */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +212,8 @@
 		D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
 		D4C8769416A3019900208BE9 /* MECOPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPageViewController.h; sourceTree = "<group>"; };
 		D4C8769516A3019900208BE9 /* MECOPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPageViewController.m; sourceTree = "<group>"; };
+		D4CA314F17D26BDE0057D359 /* MECOGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOGameController.h; sourceTree = "<group>"; };
+		D4CA315017D26BDE0057D359 /* MECOGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGameController.m; sourceTree = "<group>"; };
 		D4E7918817491C4300499234 /* MECOHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOHouse.h; sourceTree = "<group>"; };
 		D4E7918917491C4300499234 /* MECOHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOHouse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -443,6 +446,8 @@
 				D449C31F17D24D3100E8C6FD /* MECOWorld.m */,
 				D43D8BE717D12FD800680434 /* MECOResource.h */,
 				D43D8BE817D12FD800680434 /* MECOResource.m */,
+				D4CA314F17D26BDE0057D359 /* MECOGameController.h */,
+				D4CA315017D26BDE0057D359 /* MECOGameController.m */,
 			);
 			name = World;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CA315117D26BDE0057D359 /* MECOGameController.m in Sources */,
 				D497CB4B168E408A0025EC0B /* main.m in Sources */,
 				D497CB4F168E408A0025EC0B /* MECOAppDelegate.m in Sources */,
 				D497CB5B168E408A0025EC0B /* MECOIslandViewController.m in Sources */,
