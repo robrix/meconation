@@ -66,6 +66,9 @@
 -(void) updateWarningLabelForPopulation{
 	[self updateWarningLabelWithText:@"You will need another house for that..."];
 }
+-(void) updateWarningLabelForJobs{
+	[self updateWarningLabelWithText:@"You don't have a Tailor to make any uniforms, on this island..."];
+}
 
 -(void)updateWarningLabelWithText:(NSString *)text {
 	self.warningLabel.text = text;
@@ -171,7 +174,6 @@
 }
 
 -(void)addMecoWithJob:(MECOJob *)job {
-	job = job ?: self.world.jobsByTitle[MECOUnemployedJobTitle];
 	MECOPerson *meco = [MECOPerson personWithName:[MECOPerson randomName] job:job];
 	[self.currentIsland addPerson:meco];
 }
@@ -205,10 +207,49 @@
 }
 
 -(IBAction)showJobsMenu:(id)sender {
-	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
-		[self showMecosMenuForJob:selectedJob];
-	}];
+	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	bool foundATailor = NO;
+	for (MECOPerson *meco in mecos) {
+		if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
+			RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
+				[self showMecosMenuForJob:selectedJob];
+			}];
+			
+			[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+			foundATailor = YES;
+			break;
+		}
+	}
+	if (foundATailor == NO) {
+		[self updateWarningLabelForJobs];
+	}
+}
+
+
+-(IBAction)showFireMenu:(id)sender {
+	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	NSArray *worldMecos = [self.world.allMecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to fire"] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
+		
+		if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]){
+			int tailorsFound = 0;
+			for (MECOPerson *meco in worldMecos) {
+				if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
+					tailorsFound += 1;
+					break;
+				}
+			}
+			if (tailorsFound == 1) {
+				UIAlertView *tailorFiringWarning =[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Firing your last Tailor will stop you from giving other mecos jobs, Sending your economy plummeting!!" delegate:self cancelButtonTitle:@"No way!" otherButtonTitles:@"Sayonara Tailor!", nil];
+				[tailorFiringWarning show];
+				
+			}
+			else {
+				meco.job = nil;
+			}
+		}
+	}];
 	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
