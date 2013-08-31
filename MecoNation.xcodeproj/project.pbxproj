@@ -18,6 +18,7 @@
 		75B03C48168F888300515C47 /* Weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3F168F888300515C47 /* Weather.png */; };
 		75F28E981690EEC200481F4B /* Island 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E961690EEC200481F4B /* Island 2.plist */; };
 		75F28E991690EEC200481F4B /* Island 3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E971690EEC200481F4B /* Island 3.plist */; };
+		CB124F2B17D244F40058FA22 /* MECOTornado.png in Resources */ = {isa = PBXBuildFile; fileRef = CB124F2A17D244F40058FA22 /* MECOTornado.png */; };
 		CB360B9817B404F500182886 /* StoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9617B404F500182886 /* StoneIcon.png */; };
 		CB360B9917B404F500182886 /* WoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9717B404F500182886 /* WoodIcon.png */; };
 		CB360B9B17B4285200182886 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9A17B4285200182886 /* IslandIcon.png */; };
@@ -109,6 +110,7 @@
 		75B03C3F168F888300515C47 /* Weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Weather.png; path = MecoArt/Weather.png; sourceTree = "<group>"; };
 		75F28E961690EEC200481F4B /* Island 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 2.plist"; sourceTree = "<group>"; };
 		75F28E971690EEC200481F4B /* Island 3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 3.plist"; sourceTree = "<group>"; };
+		CB124F2A17D244F40058FA22 /* MECOTornado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MECOTornado.png; path = MecoImages/MECOTornado.png; sourceTree = SOURCE_ROOT; };
 		CB360B9617B404F500182886 /* StoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StoneIcon.png; path = MecoImages/StoneIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9717B404F500182886 /* WoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoodIcon.png; path = MecoImages/WoodIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9A17B4285200182886 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
@@ -409,6 +411,7 @@
 		D497CB64168E4A480025EC0B /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CB124F2A17D244F40058FA22 /* MECOTornado.png */,
 				CBB3AE2517B28A21004D91E6 /* Buildables */,
 				CBB3AE2417B28A16004D91E6 /* Entities */,
 				75F28E8C1690EDED00481F4B /* Costumes */,
@@ -572,6 +575,7 @@
 				CB360B9F17B42C0000182886 /* FoodIcon.png in Resources */,
 				CB360BA017B42C0000182886 /* FurIcon.png in Resources */,
 				CB360BA117B42C0000182886 /* WoolIcon.png in Resources */,
+				CB124F2B17D244F40058FA22 /* MECOTornado.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
