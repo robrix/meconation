@@ -243,8 +243,9 @@
 				}
 			}
 			if (tailorsFound == 1) {
-				UIAlertView *tailorFiringWarning =[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Firing your last Tailor will stop you from giving other mecos jobs, Sending your economy plummeting!!" delegate:self cancelButtonTitle:@"No way!" otherButtonTitles:@"Sayonara Tailor!", nil];
+				UIAlertView *tailorFiringWarning =[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Firing your last Tailor will stop you from giving other mecos jobs, Sending your economy plummeting!!" delegate:self cancelButtonTitle:@"No way!" otherButtonTitles:@"Fire Away!", nil];
 				[tailorFiringWarning show];
+				
 			}
 			else {
 				meco.job = nil;
