@@ -209,6 +209,7 @@
 
 -(IBAction)showJobsMenu:(id)sender {
 	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	bool foundATailor = NO;
 	for (MECOPerson *meco in mecos) {
 		if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
 			RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
@@ -216,12 +217,14 @@
 			}];
 	
 			[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+			foundATailor = YES;
 			break;
 		}
-		else {
-			[self updateWarningLabelForJobs];
-		}
 	}
+	if (foundATailor == NO) {
+		[self updateWarningLabelForJobs];
+	}
+	
 }
 
 

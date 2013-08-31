@@ -38,7 +38,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bFV-ah-bZQ">
                                 <rect key="frame" x="0.0" y="275" width="480" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -246,12 +246,6 @@
     <classes>
         <class className="MECOIslandViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOIslandViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addMeco:"/>
-                <relationship kind="action" name="showBuildMenu:"/>
-                <relationship kind="action" name="showJobsMenu:"/>
-                <relationship kind="action" name="showSpawnMenu:"/>
-            </relationships>
         </class>
         <class className="MECOPageViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOPageViewController.h"/>
@@ -259,6 +253,7 @@
         <class className="MECOWorldViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MECOWorldViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addMeco:"/>
                 <relationship kind="action" name="showBoatWarning:"/>
                 <relationship kind="action" name="showBuildMenu:"/>
                 <relationship kind="action" name="showJobsMenu:"/>
