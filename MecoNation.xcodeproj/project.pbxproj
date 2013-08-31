@@ -96,6 +96,7 @@
 		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
 		D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */; };
 		D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8769516A3019900208BE9 /* MECOPageViewController.m */; };
+		D4CA315417D2802C0057D359 /* RXAlertSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA315317D2802C0057D359 /* RXAlertSheet.m */; };
 		D4E7918A17491C4300499234 /* MECOHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E7918917491C4300499234 /* MECOHouse.m */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +212,8 @@
 		D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
 		D4C8769416A3019900208BE9 /* MECOPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPageViewController.h; sourceTree = "<group>"; };
 		D4C8769516A3019900208BE9 /* MECOPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPageViewController.m; sourceTree = "<group>"; };
+		D4CA315217D2802C0057D359 /* RXAlertSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXAlertSheet.h; sourceTree = "<group>"; };
+		D4CA315317D2802C0057D359 /* RXAlertSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXAlertSheet.m; sourceTree = "<group>"; };
 		D4E7918817491C4300499234 /* MECOHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOHouse.h; sourceTree = "<group>"; };
 		D4E7918917491C4300499234 /* MECOHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOHouse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -405,6 +408,8 @@
 				D497CBD5168F9CD40025EC0B /* NSValue+MECOPoints.m */,
 				D48E0C8E1690F672008DB678 /* RXOptionSheet.h */,
 				D48E0C8F1690F672008DB678 /* RXOptionSheet.m */,
+				D4CA315217D2802C0057D359 /* RXAlertSheet.h */,
+				D4CA315317D2802C0057D359 /* RXAlertSheet.m */,
 				D412FDA8174A6138002EEB52 /* MECOGeometry.h */,
 			);
 			name = "Supporting Files";
@@ -600,6 +605,7 @@
 				D48E0C7E1690D7F0008DB678 /* MECOJob.m in Sources */,
 				D48E0C901690F672008DB678 /* RXOptionSheet.m in Sources */,
 				D449C32017D24D3100E8C6FD /* MECOWorld.m in Sources */,
+				D4CA315417D2802C0057D359 /* RXAlertSheet.m in Sources */,
 				D4B6E6BD1691FE3F006E64C9 /* MECOWorldViewController.m in Sources */,
 				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
