@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Micah Merswolke. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MECOResource.h"
 
 @protocol MECOWorld <NSObject>
 
-@property NSUInteger IQ;
-@property NSUInteger wood;
-@property NSUInteger stone;
-@property NSUInteger food;
-@property NSUInteger wool;
+@property (nonatomic, readonly) MECOResource *foodResource;
+@property (nonatomic, readonly) MECOResource *IQResource;
+@property (nonatomic, readonly) MECOResource *stoneResource;
+@property (nonatomic, readonly) MECOResource *woodResource;
+@property (nonatomic, readonly) MECOResource *woolResource;
 
 @property NSArray *jobs;
 @property NSDictionary *jobsByTitle;

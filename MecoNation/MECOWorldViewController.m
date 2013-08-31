@@ -12,6 +12,7 @@
 #import "MECOIsland.h"
 #import "MECOJob.h"
 #import "MECOPerson.h"
+#import "MECOResource.h"
 #import "MECOViewUtilities.h"
 
 @interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
@@ -34,16 +35,16 @@
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
 @property (readonly) NSUInteger mecoPopulation;
 
+@property MECOResource *foodResource;
+@property MECOResource *IQResource;
+@property MECOResource *stoneResource;
+@property MECOResource *woodResource;
+@property MECOResource *woolResource;
 
 @end
 
 @implementation MECOWorldViewController
 
-@synthesize wood = _wood;
-@synthesize food = _food;
-@synthesize IQ = _IQ;
-@synthesize wool = _wool;
-@synthesize stone = _stone;
 @synthesize jobs = _jobs;
 @synthesize jobsByTitle = _jobsByTitle;
 
@@ -121,120 +122,16 @@
 }
 
 
-//IQ
--(void)setIQ:(NSUInteger)IQ {
-	_IQ = IQ;
-	[self updateIQLabel];
+-(void)updateLabel:(UILabel *)label withResource:(MECOResource *)resource {
+	label.text = [NSString stringWithFormat:@"%g", resource.quantity];
+	[label sizeToFit];
 }
--(NSUInteger) IQRate {
-	int mecoScientistCount = 0;
-	for (MECOPerson *person in self.allMecos)
-	{
-		if ([person.job isEqual:self.jobsByTitle[MECOScientistJobTitle]])
-			mecoScientistCount += 1;
-	}
-	return mecoScientistCount * 10;
-}
--(NSString *)IQLabel{
-	return [NSString stringWithFormat:@"%u", self.IQ];
-}
--(void) updateIQLabel{
-	self.IQCount.text = self.IQLabel;
-	[self.IQCount sizeToFit];
-}
--(NSUInteger) IQSubtract{
-	//IQ = IQ - costOfItem
-	return self.IQ;
-}
-//Wood
--(void) setWood:(NSUInteger)wood{
-	_wood = wood;
-	[self updateWoodLabel];
-}
--(NSUInteger) woodRate {
-	int mecoLumberjackCount = 0;
-	for (MECOPerson *person in self.allMecos)
-	{
-		if ([person.job isEqual:self.jobsByTitle [MECOLumberjackJobTitle]])
-			mecoLumberjackCount +=1;
-	}
-	return mecoLumberjackCount *10;
-}
--(NSString *) woodLabel{
-	return [NSString stringWithFormat:@"%u", self.wood];
-}
--(void) updateWoodLabel{
-	self.woodCount.text = self.woodLabel;
-	[self.woodCount sizeToFit];
-}
-//Stone
--(void) setStone:(NSUInteger)stone{
-	_stone = stone;
-	[self updateStoneLabel];
-}
--(NSUInteger) stoneRate {
-	int mecoMinerCount = 0;
-	for (MECOPerson *person in self.allMecos)
-	{
-		if ([person.job isEqual:self.jobsByTitle [MECOMinerJobTitle]])
-			mecoMinerCount +=1;
-	}
-	return mecoMinerCount *10;
-}
--(NSString *) stoneLabel{
-	return [NSString stringWithFormat:@"%u", self.stone];
-}
--(void) updateStoneLabel{
-	self.stoneCount.text = self.stoneLabel;
-	[self.stoneCount sizeToFit];
-}
-//Food
--(void) setFood:(NSUInteger)food{
-	_food = food;
-	[self updateFoodLabel];
-}
--(NSUInteger) foodRate {
-	int mecoFishermanCount = 0;
-	int mecoFarmerCount = 0;
-	for (MECOPerson *person in self.allMecos)
-	{
-		if ([person.job isEqual:self.jobsByTitle [MECOFishermanJobTitle]])
-			mecoFishermanCount +=1;
-	}
-	for (MECOPerson *person in self.allMecos)
-	{
-		if ([person.job isEqual:self.jobsByTitle [MECOFarmerJobTitle]])
-			mecoFarmerCount +=1;
-	}
-	return (mecoFishermanCount + mecoFarmerCount) * 10;
-}
--(NSString *) foodLabel{
-	return [NSString stringWithFormat:@"%u", self.food];
-}
--(void) updateFoodLabel{
-	self.foodCount.text = self.foodLabel;
-	[self.foodCount sizeToFit];
-}
-//Wool
--(void) setWool:(NSUInteger)wool{
-	_wool = wool;
-	[self updateWoolLabel];
-}
--(NSUInteger) woolRate {
-	int mecoFarmerCount = 0;
-	for (MECOPerson *person in self.allMecos)
-	{
-		if ([person.job isEqual:self.jobsByTitle [MECOFarmerJobTitle]])
-			mecoFarmerCount +=1;
-	}
-	return mecoFarmerCount *10;
-}
--(NSString *) woolLabel{
-	return [NSString stringWithFormat:@"%u", self.wool];
-}
--(void) updateWoolLabel{
-	self.woolCount.text = self.woolLabel;
-	[self.woolCount sizeToFit];
+
+
+-(MECOResourceObservationBlock)observerForLabel:(UILabel *)label {
+	return ^(MECOResource *resource) {
+		[self updateLabel:label withResource:resource];
+	};
 }
 
 
@@ -242,6 +139,12 @@
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
+	
+	self.foodResource = [MECOResource resourceWithName:@"food" onChange:[self observerForLabel:self.foodCount]];
+	self.IQResource = [MECOResource resourceWithName:@"IQ" onChange:[self observerForLabel:self.IQCount]];
+	self.stoneResource = [MECOResource resourceWithName:@"stone" onChange:[self observerForLabel:self.stoneCount]];
+	self.woodResource = [MECOResource resourceWithName:@"wood" onChange:[self observerForLabel:self.woodCount]];
+	self.woolResource = [MECOResource resourceWithName:@"wool" onChange:[self observerForLabel:self.woolCount]];
 	
 	self.jobs = [MECOJob jobsWithWorld:self];
 	self.jobsByTitle = [NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]];
@@ -260,7 +163,6 @@
 			[controller addMecoWithJob:self.jobsByTitle[MECOFarmerJobTitle]];
 			[controller addMecoWithJob:self.jobsByTitle[MECOTailorJobTitle]];
             [self updatePopulationLabel];
-			[self updateIQLabel];
 		}
 		controller.worldViewController = self;
 		controller.islandIndex = islandIndex++;

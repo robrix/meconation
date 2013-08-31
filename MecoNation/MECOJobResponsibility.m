@@ -34,9 +34,8 @@
 	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
 }
 
-//The following method crashes the game when removed!!
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.IQ += self.IQRate;
+	self.world.IQResource.quantity += self.IQRate;
 }
 
 @end
@@ -81,7 +80,7 @@
 
 
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.wood += self.woodRate;
+	self.world.woodResource.quantity += self.woodRate;
 }
 
 @end
@@ -118,7 +117,7 @@
 
 
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.stone += self.stoneRate;
+	self.world.stoneResource.quantity += self.stoneRate;
 }
 
 @end
@@ -155,7 +154,7 @@
 
 
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.food += self.foodRate;
+	self.world.foodResource.quantity += self.foodRate;
 }
 
 @end
@@ -180,6 +179,10 @@
 	return 10.0;
 }
 
+-(float)woolRate {
+	return 10.0;
+}
+
 -(void)personWillQuit:(MECOPerson *)person {
 	[self.timer invalidate];
 	self.timer = nil;
@@ -187,20 +190,11 @@
 
 -(void)personDidStart:(MECOPerson *)person {
 	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timerDidFireWool:) userInfo:person repeats:YES];
 }
-
 
 -(void)timerDidFire:(NSTimer *)timer {
-	self.world.food += self.foodRate;
-}
-//---
--(float)woolRate {
-	return 10.0;
-}
-
--(void)timerDidFireWool:(NSTimer *)timer {
-	self.world.wool += self.woolRate;
+	self.world.foodResource.quantity += self.foodRate;
+	self.world.woolResource.quantity += self.woolRate;
 }
 
 @end
