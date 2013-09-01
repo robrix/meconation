@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MECOResource;
 
 @interface MECOAnimal : NSObject
+
+@property NSString *name;
+@property UIImage *image;
+@property MECOResource *resourceGiven;
+@property MECOResource *rareResourceGiven;
+@property float resourceAmount;
+@property float IQCost;
 
 @end
