@@ -8,6 +8,7 @@
 
 #import "MECOWorld.h"
 #import "MECOAnimal.h"
+#import "MECOResource.h"
 
 @implementation MECOAnimal
 
@@ -23,23 +24,22 @@
 			MECOResource *resourceGiven = world.resourcesByName[animalDictionary[@"resourceGiven"]];
 			MECOResource *rareResourceGiven = world.resourcesByName[animalDictionary[@"rareResourceGiven"]];
 			float resourceAmount = [animalDictionary[@"resourceAmount"] floatValue];
-			float IQCost = [animalDictionary[@"IQCost"] floatValue];
+			MECOResourceCost *cost = [MECOResourceCost costWithResource:world.resourcesByName[@"iq"] quantity:[animalDictionary[@"IQCost"] floatValue]];
 			
-			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount IQCost:IQCost]];
+			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount cost:cost]];
 		}
 		allAnimals = animals;
 	});
 	return allAnimals;
 }
 
-+(MECOAnimal *)animalWithName:(NSString *)name image:(UIImage *)image resourceGiven:(MECOResource *)resourceGiven rareResourceGiven:(MECOResource *)rareResourceGiven  resourceAmount:(float)resourceAmount IQCost:(float)IQCost {
++(MECOAnimal *)animalWithName:(NSString *)name image:(UIImage *)image resourceGiven:(MECOResource *)resourceGiven rareResourceGiven:(MECOResource *)rareResourceGiven  resourceAmount:(float)resourceAmount cost:(MECOResourceCost *)cost {
 	MECOAnimal *animals = [self new];
 	animals.name = name;
 	animals.image = image;
 	animals.resourceGiven = resourceGiven;
 	animals.rareResourceGiven = rareResourceGiven;
 	animals.resourceAmount = resourceAmount;
-	animals.IQCost = IQCost;
 	return animals;
 }
 
@@ -53,7 +53,7 @@
 	animal.resourceGiven = self.resourceGiven;
 	animal.rareResourceGiven = self.rareResourceGiven;
 	animal.resourceAmount = self.resourceAmount;
-	animal.IQCost = self.IQCost;
+	animal.cost = self.cost;
 	return animal;
 }
 

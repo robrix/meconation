@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MECOResource;
+@class MECOResource, MECOResourceCost;
 
 @interface MECOAnimal : NSObject <NSCopying>
 
@@ -18,6 +18,6 @@
 @property MECOResource *resourceGiven;
 @property MECOResource *rareResourceGiven;
 @property float resourceAmount;
-@property float IQCost;
+@property MECOResourceCost *cost;
 
 @end
