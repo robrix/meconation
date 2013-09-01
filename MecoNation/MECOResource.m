@@ -65,4 +65,9 @@ NSString * const MECOResourceDidChangeNotification = @"MECOResourceDidChangeNoti
 	return self;
 }
 
+
+-(bool)isAffordable {
+	return self.resource.quantity > self.quantity;
+}
+
 @end

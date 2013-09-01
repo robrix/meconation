@@ -36,4 +36,6 @@ extern NSString * const MECOResourceDidChangeNotification;
 @property (nonatomic, readonly) MECOResource *resource;
 @property (nonatomic, readonly) float quantity;
 
+@property (nonatomic, getter = isAffordable, readonly) bool affordable;
+
 @end
