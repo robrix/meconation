@@ -26,7 +26,7 @@
 		<key>resourceGiven</key>
 		<string>food</string>
 		<key>rareResourceGiven</key>
-		<string>scales</string>
+		<string>IQ</string>
 		<key>resourceAmount</key>
 		<integer>2</integer>
 	</dict>

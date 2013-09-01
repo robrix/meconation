@@ -22,6 +22,13 @@
 		CB124F2F17D249010058FA22 /* IQIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB124F2E17D249010058FA22 /* IQIcon.png */; };
 		CB33049017D3C63900E0FCBA /* RockMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33048F17D3C63900E0FCBA /* RockMonster.png */; };
 		CB33049317D3C6BE00E0FCBA /* MECOAnimal.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33049217D3C6BE00E0FCBA /* MECOAnimal.m */; };
+		CB33049717D3D1DD00E0FCBA /* GoldIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049417D3D1DD00E0FCBA /* GoldIcon.png */; };
+		CB33049817D3D1DD00E0FCBA /* LeafIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049517D3D1DD00E0FCBA /* LeafIcon.png */; };
+		CB33049917D3D1DD00E0FCBA /* LeatherIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049617D3D1DD00E0FCBA /* LeatherIcon.png */; };
+		CB33049E17D3D21100E0FCBA /* Cow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049A17D3D21100E0FCBA /* Cow.png */; };
+		CB33049F17D3D21100E0FCBA /* Monster.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049B17D3D21100E0FCBA /* Monster.png */; };
+		CB3304A017D3D21100E0FCBA /* Pig.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049C17D3D21100E0FCBA /* Pig.png */; };
+		CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049D17D3D21100E0FCBA /* TreeBeing.png */; };
 		CB360B9817B404F500182886 /* StoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9617B404F500182886 /* StoneIcon.png */; };
 		CB360B9917B404F500182886 /* WoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9717B404F500182886 /* WoodIcon.png */; };
 		CB360B9B17B4285200182886 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9A17B4285200182886 /* IslandIcon.png */; };
@@ -120,6 +127,13 @@
 		CB33048F17D3C63900E0FCBA /* RockMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RockMonster.png; path = MecoImages/RockMonster.png; sourceTree = SOURCE_ROOT; };
 		CB33049117D3C6BE00E0FCBA /* MECOAnimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOAnimal.h; sourceTree = "<group>"; };
 		CB33049217D3C6BE00E0FCBA /* MECOAnimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOAnimal.m; sourceTree = "<group>"; };
+		CB33049417D3D1DD00E0FCBA /* GoldIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GoldIcon.png; path = MecoImages/GoldIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33049517D3D1DD00E0FCBA /* LeafIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeafIcon.png; path = MecoImages/LeafIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33049617D3D1DD00E0FCBA /* LeatherIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeatherIcon.png; path = MecoImages/LeatherIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33049A17D3D21100E0FCBA /* Cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cow.png; path = MecoImages/Cow.png; sourceTree = SOURCE_ROOT; };
+		CB33049B17D3D21100E0FCBA /* Monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Monster.png; path = MecoImages/Monster.png; sourceTree = SOURCE_ROOT; };
+		CB33049C17D3D21100E0FCBA /* Pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pig.png; path = MecoImages/Pig.png; sourceTree = SOURCE_ROOT; };
+		CB33049D17D3D21100E0FCBA /* TreeBeing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TreeBeing.png; path = MecoImages/TreeBeing.png; sourceTree = SOURCE_ROOT; };
 		CB360B9617B404F500182886 /* StoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StoneIcon.png; path = MecoImages/StoneIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9717B404F500182886 /* WoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoodIcon.png; path = MecoImages/WoodIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9A17B4285200182886 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
@@ -288,6 +302,9 @@
 				CB360B9D17B42C0000182886 /* FurIcon.png */,
 				CB124F2E17D249010058FA22 /* IQIcon.png */,
 				CB360B9E17B42C0000182886 /* WoolIcon.png */,
+				CB33049417D3D1DD00E0FCBA /* GoldIcon.png */,
+				CB33049517D3D1DD00E0FCBA /* LeafIcon.png */,
+				CB33049617D3D1DD00E0FCBA /* LeatherIcon.png */,
 				CB360B9A17B4285200182886 /* IslandIcon.png */,
 				CB360B9617B404F500182886 /* StoneIcon.png */,
 				CB360B9717B404F500182886 /* WoodIcon.png */,
@@ -307,6 +324,10 @@
 				D412FDA31749934C002EEB52 /* MecoCloud.png */,
 				CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */,
 				CB84C87A1749807B00FF9E0A /* MecoSheep.png */,
+				CB33049A17D3D21100E0FCBA /* Cow.png */,
+				CB33049B17D3D21100E0FCBA /* Monster.png */,
+				CB33049C17D3D21100E0FCBA /* Pig.png */,
+				CB33049D17D3D21100E0FCBA /* TreeBeing.png */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -599,6 +620,13 @@
 				CB124F2F17D249010058FA22 /* IQIcon.png in Resources */,
 				CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */,
 				CB33049017D3C63900E0FCBA /* RockMonster.png in Resources */,
+				CB33049717D3D1DD00E0FCBA /* GoldIcon.png in Resources */,
+				CB33049817D3D1DD00E0FCBA /* LeafIcon.png in Resources */,
+				CB33049917D3D1DD00E0FCBA /* LeatherIcon.png in Resources */,
+				CB33049E17D3D21100E0FCBA /* Cow.png in Resources */,
+				CB33049F17D3D21100E0FCBA /* Monster.png in Resources */,
+				CB3304A017D3D21100E0FCBA /* Pig.png in Resources */,
+				CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
