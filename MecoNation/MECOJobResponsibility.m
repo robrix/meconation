@@ -17,8 +17,7 @@
 +(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(MECOWorld *)world {
 	float quantity = [dictionary[@"quantity"] floatValue];
 	NSTimeInterval interval = [dictionary[@"interval"] doubleValue];
-	NSString *resourceKeyPath = [NSString stringWithFormat:@"%@Resource", dictionary[@"resource"]];
-	MECOResource *resource = [(id)world valueForKeyPath:resourceKeyPath];
+	MECOResource *resource = world.resourcesByName[dictionary[@"resource"]];
 	MECOResourceRate *rate = [MECOResourceRate rateWithResource:resource quantity:quantity interval:interval];
 	return [self responsibilityWithRate:rate];
 }
