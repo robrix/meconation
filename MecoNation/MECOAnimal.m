@@ -24,17 +24,29 @@
 			NSString *name = animalDictionary[@"name"];
 			NSString *imageName = animalDictionary[@"graphic"];
 			UIImage *image = imageName? [UIImage imageNamed:imageName] : nil;
-			MECOResource *resourceGiven = animalDictionary[@"resourceGiven"];
-			MECOResource *rareResourceGiven = animalDictionary[@"rareResourceGiven"];
+			MECOResource *resourceGiven = world.resourcesByName[animalDictionary[@"resourceGiven"]];
+			MECOResource *rareResourceGiven = world.resourcesByName[animalDictionary[@"rareResourceGiven"]];
 			float resourceAmount = [animalDictionary[@"resourceAmount"] floatValue];
 			float IQCost = [animalDictionary[@"IQCost"] floatValue];
 			
-			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount]];
+			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount IQCost:IQCost]];
 		}
 		allAnimals = animals;
 	});
 	return allAnimals;
 }
+
++(MECOAnimal *)animalWithName:(NSString *)name image:(UIImage *)image resourceGiven:(MECOResource *)resourceGiven rareResourceGiven:(MECOResource *)rareResourceGiven  resourceAmount:(float)resourceAmount IQCost:(float)IQCost {
+	MECOAnimal *animals = [self new];
+	animals.name = name;
+	animals.image = image;
+	animals.resourceGiven = resourceGiven;
+	animals.rareResourceGiven = rareResourceGiven;
+	animals.resourceAmount = resourceAmount;
+	animals.IQCost = IQCost;
+	return animals;
+}
+
 
 @end
 
