@@ -12,6 +12,7 @@
 #import "MECOPerson.h"
 #import "MECOResource.h"
 #import "MECOWorld.h"
+#import "MECOAnimal.h"
 
 @implementation MECOWorld
 
@@ -32,6 +33,9 @@
 		
 		_jobs = [[MECOJob jobsWithWorld:self] copy];
 		_jobsByTitle = [NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]];
+		
+		_spawnables = [[MECOAnimal animalsWithWorld:self] copy];
+		_spawnablesByName = [NSDictionary dictionaryWithObjects:self.spawnables forKeys:[self.spawnables valueForKey:@"name"]];
 		
 		_islands = [MECOIsland allIslands];
 		

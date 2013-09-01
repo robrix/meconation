@@ -11,10 +11,6 @@
 
 @implementation MECOAnimal
 
--(NSUInteger) resourcesGiven {
-	return 0;
-}
-
 +(NSArray *)animalsWithWorld:(MECOWorld *)world {
 	static NSArray *allAnimals = nil;
 	static dispatch_once_t onceToken;

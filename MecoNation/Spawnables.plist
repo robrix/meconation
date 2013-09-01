@@ -4,11 +4,39 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>Shark</string>
+		<string>Sheep</string>
 		<key>graphic</key>
-		<string>Shark.png</string>
+		<string>Sheep.png</string>
 		<key>IQCost</key>
 		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>wool</string>
+		<key>rareResourceGiven</key>
+		<string>food</string>
+		<key>resourceAmount</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Pig</string>
+		<key>graphic</key>
+		<string>Pig.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>food</string>
+		<key>rareResourceGiven</key>
+		<string>leather</string>
+		<key>resourceAmount</key>
+		<integer>5</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cow</string>
+		<key>graphic</key>
+		<string>Cow.png</string>
+		<key>IQCost</key>
+		<integer>30</integer>
 		<key>resourceGiven</key>
 		<string>food</string>
 		<key>rareResourceGiven</key>
@@ -32,31 +60,17 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Cow</string>
+		<string>Shark</string>
 		<key>graphic</key>
-		<string>Cow.png</string>
+		<string>Shark.png</string>
 		<key>IQCost</key>
-		<integer>30</integer>
+		<integer>50</integer>
 		<key>resourceGiven</key>
 		<string>food</string>
 		<key>rareResourceGiven</key>
 		<string>leather</string>
 		<key>resourceAmount</key>
 		<integer>3</integer>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>TreeBeing</string>
-		<key>graphic</key>
-		<string>TreeBeing.png</string>
-		<key>IQCost</key>
-		<integer>50</integer>
-		<key>resourceGiven</key>
-		<string>wood</string>
-		<key>rareResourceGiven</key>
-		<string>leaf</string>
-		<key>resourceAmount</key>
-		<integer>1</integer>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -74,6 +88,20 @@
 	</dict>
 	<dict>
 		<key>name</key>
+		<string>Wandering Tree</string>
+		<key>graphic</key>
+		<string>TreeBeing.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>wood</string>
+		<key>rareResourceGiven</key>
+		<string>leaf</string>
+		<key>resourceAmount</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Rock Monster</string>
 		<key>graphic</key>
 		<string>RockMonster.png</string>
@@ -83,34 +111,6 @@
 		<string>stone</string>
 		<key>rareResourceGiven</key>
 		<string>gold</string>
-		<key>resourceAmount</key>
-		<integer>1</integer>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>Pig</string>
-		<key>graphic</key>
-		<string>Pig.png</string>
-		<key>IQCost</key>
-		<integer>50</integer>
-		<key>resourceGiven</key>
-		<string>food</string>
-		<key>rareResourceGiven</key>
-		<string>leather</string>
-		<key>resourceAmount</key>
-		<integer>5</integer>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>Sheep</string>
-		<key>graphic</key>
-		<string>Sheep.png</string>
-		<key>IQCost</key>
-		<integer>50</integer>
-		<key>resourceGiven</key>
-		<string>wool</string>
-		<key>rareResourceGiven</key>
-		<string>food</string>
 		<key>resourceAmount</key>
 		<integer>1</integer>
 	</dict>

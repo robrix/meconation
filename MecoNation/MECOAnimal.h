@@ -17,5 +17,6 @@
 @property MECOResource *rareResourceGiven;
 @property float resourceAmount;
 @property float IQCost;
++(NSArray *)animalsWithWorld:(MECOWorld *)world;
 
 @end

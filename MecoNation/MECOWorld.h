@@ -32,6 +32,11 @@
 @property (nonatomic, readonly) NSArray *jobs;
 @property (nonatomic, readonly) NSDictionary *jobsByTitle;
 
+#pragma mark Spawnables
+
+@property (nonatomic, readonly) NSArray *spawnables;
+@property (nonatomic, readonly) NSDictionary *spawnablesByName;
+
 #pragma mark Islands
 
 @property (nonatomic, readonly) NSArray *islands;
