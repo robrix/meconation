@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 @class MECOResource;
 
-@interface MECOAnimal : NSObject
+@interface MECOAnimal : NSObject <NSCopying>
+
++(NSArray *)animalsWithWorld:(MECOWorld *)world;
 
 @property NSString *name;
 @property UIImage *image;
@@ -17,6 +19,5 @@
 @property MECOResource *rareResourceGiven;
 @property float resourceAmount;
 @property float IQCost;
-+(NSArray *)animalsWithWorld:(MECOWorld *)world;
 
 @end

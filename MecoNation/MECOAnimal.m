@@ -44,5 +44,18 @@
 }
 
 
+#pragma mark NSCopying
+
+-(instancetype)copyWithZone:(NSZone *)zone {
+	MECOAnimal *animal = [self.class new];
+	animal.name = self.name;
+	animal.image = self.image;
+	animal.resourceGiven = self.resourceGiven;
+	animal.rareResourceGiven = self.rareResourceGiven;
+	animal.resourceAmount = self.resourceAmount;
+	animal.IQCost = self.IQCost;
+	return animal;
+}
+
 @end
 
