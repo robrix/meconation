@@ -3,8 +3,14 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>40</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>10</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Scientist</string>
 		<key>costumeImage</key>
@@ -24,8 +30,14 @@
 		</array>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>20</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>10</integer>
+		<key>furCost</key>
+		<integer>20</integer>
 		<key>title</key>
 		<string>Farmer</string>
 		<key>costumeImage</key>
@@ -55,32 +67,56 @@
 		</array>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>40</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>0</integer>
+		<key>furCost</key>
+		<integer>10</integer>
 		<key>title</key>
 		<string>Tailor</string>
 		<key>costumeImage</key>
 		<string>Tailor.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>0</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>40</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
-		<string>Worker</string>
+		<string>Builder</string>
 		<key>costumeImage</key>
 		<string>Worker.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>30</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>10</integer>
+		<key>furCost</key>
+		<integer>10</integer>
 		<key>title</key>
 		<string>Explorer</string>
 		<key>costumeImage</key>
 		<string>Explorer.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>10</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>10</integer>
+		<key>furCost</key>
+		<integer>30</integer>
 		<key>title</key>
 		<string>Lumberjack</string>
 		<key>costumeImage</key>
@@ -100,8 +136,14 @@
 		</array>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>10</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>40</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Miner</string>
 		<key>costumeImage</key>
@@ -121,8 +163,14 @@
 		</array>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>10</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>0</integer>
+		<key>furCost</key>
+		<integer>40</integer>
 		<key>title</key>
 		<string>Fisherman</string>
 		<key>costumeImage</key>
@@ -142,24 +190,42 @@
 		</array>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>0</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>40</integer>
+		<key>furCost</key>
+		<integer>10</integer>
 		<key>title</key>
 		<string>Blacksmith</string>
 		<key>costumeImage</key>
 		<string>Blacksmith.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>30</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>10</integer>
+		<key>furCost</key>
+		<integer>10</integer>
 		<key>title</key>
 		<string>Weatherman</string>
 		<key>costumeImage</key>
 		<string>Weatherman.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>0</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>50</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Bodyguard</string>
 		<key>costumeImage</key>
@@ -179,32 +245,56 @@
 		</array>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>0</integer>
+		<key>leafCost</key>
+		<integer>10</integer>
+		<key>leatherCost</key>
+		<integer>40</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Soldier</string>
 		<key>costumeImage</key>
 		<string>Soldier.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>30</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>0</integer>
+		<key>furCost</key>
+		<integer>10</integer>
 		<key>title</key>
 		<string>Teacher</string>
 		<key>costumeImage</key>
 		<string>Teacher.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>40</integer>
+		<key>leafCost</key>
+		<integer>0</integer>
+		<key>leatherCost</key>
+		<integer>10</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Doctor</string>
 		<key>costumeImage</key>
 		<string>Doctor.png</string>
 	</dict>
 	<dict>
-		<key>cost</key>
-		<integer>100</integer>
+		<key>woolCost</key>
+		<integer>0</integer>
+		<key>leafCost</key>
+		<integer>50</integer>
+		<key>leatherCost</key>
+		<integer>0</integer>
+		<key>furCost</key>
+		<integer>0</integer>
 		<key>title</key>
 		<string>Trader</string>
 		<key>costumeImage</key>

@@ -15,6 +15,9 @@
 #pragma mark Resources
 
 @property (nonatomic, readonly) MECOResource *foodResource;
+@property (nonatomic, readonly) MECOResource *leafResource;
+@property (nonatomic, readonly) MECOResource *leatherResource;
+@property (nonatomic, readonly) MECOResource *goldResource;
 @property (nonatomic, readonly) MECOResource *furResource;
 @property (nonatomic, readonly) MECOResource *IQResource;
 @property (nonatomic, readonly) MECOResource *stoneResource;

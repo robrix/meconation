@@ -29,6 +29,9 @@
 @property (strong) IBOutlet UILabel *woodCount;
 @property (strong) IBOutlet UILabel *stoneCount;
 @property (strong) IBOutlet UILabel *foodCount;
+@property (strong) IBOutlet UILabel *leafCount;
+@property (strong) IBOutlet UILabel *leatherCount;
+@property (strong) IBOutlet UILabel *goldCount;
 @property (strong) IBOutlet UILabel *woolCount;
 @property (strong) IBOutlet UILabel *furCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
@@ -121,6 +124,9 @@
 	
 	self.labelsByResourceName = @{
 								  @"food": self.foodCount,
+								  @"leaf": self.leafCount,
+								  @"leather": self.leatherCount,
+								  @"gold": self.goldCount,
 								  @"fur": self.furCount,
 								  @"IQ": self.IQCount,
 								  @"stone": self.stoneCount,

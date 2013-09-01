@@ -20,6 +20,15 @@
 		75F28E991690EEC200481F4B /* Island 3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E971690EEC200481F4B /* Island 3.plist */; };
 		CB124F2B17D244F40058FA22 /* MECOTornado.png in Resources */ = {isa = PBXBuildFile; fileRef = CB124F2A17D244F40058FA22 /* MECOTornado.png */; };
 		CB124F2F17D249010058FA22 /* IQIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB124F2E17D249010058FA22 /* IQIcon.png */; };
+		CB33049017D3C63900E0FCBA /* RockMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33048F17D3C63900E0FCBA /* RockMonster.png */; };
+		CB33049317D3C6BE00E0FCBA /* MECOAnimal.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33049217D3C6BE00E0FCBA /* MECOAnimal.m */; };
+		CB33049717D3D1DD00E0FCBA /* GoldIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049417D3D1DD00E0FCBA /* GoldIcon.png */; };
+		CB33049817D3D1DD00E0FCBA /* LeafIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049517D3D1DD00E0FCBA /* LeafIcon.png */; };
+		CB33049917D3D1DD00E0FCBA /* LeatherIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049617D3D1DD00E0FCBA /* LeatherIcon.png */; };
+		CB33049E17D3D21100E0FCBA /* Cow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049A17D3D21100E0FCBA /* Cow.png */; };
+		CB33049F17D3D21100E0FCBA /* Monster.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049B17D3D21100E0FCBA /* Monster.png */; };
+		CB3304A017D3D21100E0FCBA /* Pig.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049C17D3D21100E0FCBA /* Pig.png */; };
+		CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049D17D3D21100E0FCBA /* TreeBeing.png */; };
 		CB360B9817B404F500182886 /* StoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9617B404F500182886 /* StoneIcon.png */; };
 		CB360B9917B404F500182886 /* WoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9717B404F500182886 /* WoodIcon.png */; };
 		CB360B9B17B4285200182886 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9A17B4285200182886 /* IslandIcon.png */; };
@@ -29,7 +38,6 @@
 		CB644CB9174909680052C4EB /* MecoHut.png in Resources */ = {isa = PBXBuildFile; fileRef = CB644CB8174909680052C4EB /* MecoHut.png */; };
 		CB69EF74179307CA0016956F /* BoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB69EF73179307CA0016956F /* BoatIcon.png */; };
 		CB84C87B1749807B00FF9E0A /* MecoSheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB84C87A1749807B00FF9E0A /* MecoSheep.png */; };
-		CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = CB84C87D174980B000FF9E0A /* MECOSheep.m */; };
 		CB907FB9174A71640073CA7F /* Spawnables.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB907FB8174A71640073CA7F /* Spawnables.plist */; };
 		CB907FBB174A72590073CA7F /* Buildables.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB907FBA174A72590073CA7F /* Buildables.plist */; };
 		CB907FBD174A844B0073CA7F /* IQ.png in Resources */ = {isa = PBXBuildFile; fileRef = CB907FBC174A844B0073CA7F /* IQ.png */; };
@@ -116,6 +124,16 @@
 		75F28E971690EEC200481F4B /* Island 3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 3.plist"; sourceTree = "<group>"; };
 		CB124F2A17D244F40058FA22 /* MECOTornado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MECOTornado.png; path = MecoImages/MECOTornado.png; sourceTree = SOURCE_ROOT; };
 		CB124F2E17D249010058FA22 /* IQIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IQIcon.png; path = MecoImages/IQIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33048F17D3C63900E0FCBA /* RockMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RockMonster.png; path = MecoImages/RockMonster.png; sourceTree = SOURCE_ROOT; };
+		CB33049117D3C6BE00E0FCBA /* MECOAnimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOAnimal.h; sourceTree = "<group>"; };
+		CB33049217D3C6BE00E0FCBA /* MECOAnimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOAnimal.m; sourceTree = "<group>"; };
+		CB33049417D3D1DD00E0FCBA /* GoldIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GoldIcon.png; path = MecoImages/GoldIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33049517D3D1DD00E0FCBA /* LeafIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeafIcon.png; path = MecoImages/LeafIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33049617D3D1DD00E0FCBA /* LeatherIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeatherIcon.png; path = MecoImages/LeatherIcon.png; sourceTree = SOURCE_ROOT; };
+		CB33049A17D3D21100E0FCBA /* Cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cow.png; path = MecoImages/Cow.png; sourceTree = SOURCE_ROOT; };
+		CB33049B17D3D21100E0FCBA /* Monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Monster.png; path = MecoImages/Monster.png; sourceTree = SOURCE_ROOT; };
+		CB33049C17D3D21100E0FCBA /* Pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pig.png; path = MecoImages/Pig.png; sourceTree = SOURCE_ROOT; };
+		CB33049D17D3D21100E0FCBA /* TreeBeing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TreeBeing.png; path = MecoImages/TreeBeing.png; sourceTree = SOURCE_ROOT; };
 		CB360B9617B404F500182886 /* StoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StoneIcon.png; path = MecoImages/StoneIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9717B404F500182886 /* WoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoodIcon.png; path = MecoImages/WoodIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9A17B4285200182886 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
@@ -125,8 +143,6 @@
 		CB644CB8174909680052C4EB /* MecoHut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoHut.png; sourceTree = "<group>"; };
 		CB69EF73179307CA0016956F /* BoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BoatIcon.png; path = MecoImages/BoatIcon.png; sourceTree = SOURCE_ROOT; };
 		CB84C87A1749807B00FF9E0A /* MecoSheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoSheep.png; sourceTree = "<group>"; };
-		CB84C87C174980B000FF9E0A /* MECOSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOSheep.h; sourceTree = "<group>"; };
-		CB84C87D174980B000FF9E0A /* MECOSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSheep.m; sourceTree = "<group>"; };
 		CB907FB8174A71640073CA7F /* Spawnables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Spawnables.plist; sourceTree = "<group>"; };
 		CB907FBA174A72590073CA7F /* Buildables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildables.plist; sourceTree = "<group>"; };
 		CB907FBC174A844B0073CA7F /* IQ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IQ.png; sourceTree = "<group>"; };
@@ -286,6 +302,9 @@
 				CB360B9D17B42C0000182886 /* FurIcon.png */,
 				CB124F2E17D249010058FA22 /* IQIcon.png */,
 				CB360B9E17B42C0000182886 /* WoolIcon.png */,
+				CB33049417D3D1DD00E0FCBA /* GoldIcon.png */,
+				CB33049517D3D1DD00E0FCBA /* LeafIcon.png */,
+				CB33049617D3D1DD00E0FCBA /* LeatherIcon.png */,
 				CB360B9A17B4285200182886 /* IslandIcon.png */,
 				CB360B9617B404F500182886 /* StoneIcon.png */,
 				CB360B9717B404F500182886 /* WoodIcon.png */,
@@ -301,9 +320,14 @@
 		CBB3AE2417B28A16004D91E6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				CB33048F17D3C63900E0FCBA /* RockMonster.png */,
 				D412FDA31749934C002EEB52 /* MecoCloud.png */,
 				CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */,
 				CB84C87A1749807B00FF9E0A /* MecoSheep.png */,
+				CB33049A17D3D21100E0FCBA /* Cow.png */,
+				CB33049B17D3D21100E0FCBA /* Monster.png */,
+				CB33049C17D3D21100E0FCBA /* Pig.png */,
+				CB33049D17D3D21100E0FCBA /* TreeBeing.png */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -351,8 +375,8 @@
 				D412FDAC174A6E7B002EEB52 /* MECOJobResponsibility.h */,
 				D412FDAD174A6E7B002EEB52 /* MECOJobResponsibility.m */,
 				D48E0C7F1690DBD5008DB678 /* Jobs.plist */,
-				CB84C87C174980B000FF9E0A /* MECOSheep.h */,
-				CB84C87D174980B000FF9E0A /* MECOSheep.m */,
+				CB33049117D3C6BE00E0FCBA /* MECOAnimal.h */,
+				CB33049217D3C6BE00E0FCBA /* MECOAnimal.m */,
 				CB907FB8174A71640073CA7F /* Spawnables.plist */,
 				CB907FBA174A72590073CA7F /* Buildables.plist */,
 			);
@@ -595,6 +619,14 @@
 				CB124F2B17D244F40058FA22 /* MECOTornado.png in Resources */,
 				CB124F2F17D249010058FA22 /* IQIcon.png in Resources */,
 				CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */,
+				CB33049017D3C63900E0FCBA /* RockMonster.png in Resources */,
+				CB33049717D3D1DD00E0FCBA /* GoldIcon.png in Resources */,
+				CB33049817D3D1DD00E0FCBA /* LeafIcon.png in Resources */,
+				CB33049917D3D1DD00E0FCBA /* LeatherIcon.png in Resources */,
+				CB33049E17D3D21100E0FCBA /* Cow.png in Resources */,
+				CB33049F17D3D21100E0FCBA /* Monster.png in Resources */,
+				CB3304A017D3D21100E0FCBA /* Pig.png in Resources */,
+				CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,11 +654,11 @@
 				D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */,
 				D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */,
 				D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */,
-				CB84C87E174980B000FF9E0A /* MECOSheep.m in Sources */,
 				D4E7918A17491C4300499234 /* MECOHouse.m in Sources */,
 				D412FDA7174A58F7002EEB52 /* MECOSpriteBehaviour.m in Sources */,
 				D412FDAE174A6E7B002EEB52 /* MECOJobResponsibility.m in Sources */,
 				D412FDB2174A832B002EEB52 /* MECOViewUtilities.m in Sources */,
+				CB33049317D3C6BE00E0FCBA /* MECOAnimal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

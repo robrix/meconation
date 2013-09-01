@@ -4,21 +4,115 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>Pig</string>
-		<key>cost</key>
-		<integer>30</integer>
+		<string>Shark</string>
+		<key>graphic</key>
+		<string>Shark.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>food</string>
+		<key>rareResourceGiven</key>
+		<string>leather</string>
+		<key>resourceAmount</key>
+		<integer>3</integer>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Meco</string>
-		<key>cost</key>
-		<integer>200</integer>
+		<string>Fish</string>
+		<key>graphic</key>
+		<string>Fish.png</string>
+		<key>IQCost</key>
+		<integer>10</integer>
+		<key>resourceGiven</key>
+		<string>food</string>
+		<key>rareResourceGiven</key>
+		<string>IQ</string>
+		<key>resourceAmount</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cow</string>
+		<key>graphic</key>
+		<string>Cow.png</string>
+		<key>IQCost</key>
+		<integer>30</integer>
+		<key>resourceGiven</key>
+		<string>food</string>
+		<key>rareResourceGiven</key>
+		<string>leather</string>
+		<key>resourceAmount</key>
+		<integer>3</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>TreeBeing</string>
+		<key>graphic</key>
+		<string>TreeBeing.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>wood</string>
+		<key>rareResourceGiven</key>
+		<string>leaf</string>
+		<key>resourceAmount</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Monster</string>
+		<key>graphic</key>
+		<string>Monster.png</string>
+		<key>IQCost</key>
+		<integer>100</integer>
+		<key>resourceGiven</key>
+		<string>fur</string>
+		<key>rareResourceGiven</key>
+		<string>leather</string>
+		<key>resourceAmount</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rock Monster</string>
+		<key>graphic</key>
+		<string>RockMonster.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>stone</string>
+		<key>rareResourceGiven</key>
+		<string>gold</string>
+		<key>resourceAmount</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Pig</string>
+		<key>graphic</key>
+		<string>Pig.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>food</string>
+		<key>rareResourceGiven</key>
+		<string>leather</string>
+		<key>resourceAmount</key>
+		<integer>5</integer>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Sheep</string>
-		<key>cost</key>
-		<integer>20</integer>
+		<key>graphic</key>
+		<string>Sheep.png</string>
+		<key>IQCost</key>
+		<integer>50</integer>
+		<key>resourceGiven</key>
+		<string>wool</string>
+		<key>rareResourceGiven</key>
+		<string>food</string>
+		<key>resourceAmount</key>
+		<integer>1</integer>
 	</dict>
 </array>
 </plist>

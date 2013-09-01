@@ -12,6 +12,8 @@
 #import "MECOPerson.h"
 #import "MECOWorld.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface MECOGameController ()
 
 @property (nonatomic, readonly) CADisplayLink *displayLink;
