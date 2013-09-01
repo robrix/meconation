@@ -49,3 +49,20 @@ NSString * const MECOResourceDidChangeNotification = @"MECOResourceDidChangeNoti
 }
 
 @end
+
+
+@implementation MECOResourceCost
+
++(instancetype)costWithResource:(MECOResource *)resource quantity:(float)quantity {
+	return [[self alloc] initWithResource:resource quantity:quantity];
+}
+
+-(instancetype)initWithResource:(MECOResource *)resource quantity:(float)quantity {
+	if ((self = [super init])) {
+		_resource = resource;
+		_quantity = quantity;
+	}
+	return self;
+}
+
+@end

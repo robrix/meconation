@@ -28,3 +28,12 @@ extern NSString * const MECOResourceDidChangeNotification;
 @property (nonatomic, readonly) NSTimeInterval interval;
 
 @end
+
+@interface MECOResourceCost : NSObject
+
++(instancetype)costWithResource:(MECOResource *)resource quantity:(float)quantity;
+
+@property (nonatomic, readonly) MECOResource *resource;
+@property (nonatomic, readonly) float quantity;
+
+@end
