@@ -17,6 +17,7 @@
 #import "MECOViewUtilities.h"
 
 #import "RXOptionSheet.h"
+#import "RXAlertSheet.h"
 
 @interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
 
@@ -29,6 +30,7 @@
 @property (strong) IBOutlet UILabel *stoneCount;
 @property (strong) IBOutlet UILabel *foodCount;
 @property (strong) IBOutlet UILabel *woolCount;
+@property (strong) IBOutlet UILabel *furCount;
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
@@ -119,6 +121,7 @@
 	
 	self.labelsByResourceName = @{
 								  @"food": self.foodCount,
+								  @"fur": self.furCount,
 								  @"IQ": self.IQCount,
 								  @"stone": self.stoneCount,
 								  @"wood": self.woodCount,
@@ -212,7 +215,7 @@
 	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
 	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
-		meco.job = job;
+		[self showFireTailorWarningForMeco:meco assigningJob:job];
 	}];
 	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
@@ -236,30 +239,35 @@
 	}
 }
 
+-(void) showFireTailorWarningForMeco: (MECOPerson*) meco assigningJob:(MECOJob*)job {
+	
+	NSArray *worldMecos = [self.world.allMecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]){
+		int tailorsFound = 0;
+		for (MECOPerson *meco in worldMecos) {
+			if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
+				tailorsFound += 1;
+			}
+		}
+		if (tailorsFound == 1) {
+			RXAlertSheet *alertSheet = [RXAlertSheet sheetWithTitle:@"Are you sure?" message:@"Changing the occupation of your last Tailor will stop you from giving other mecos jobs, Sending your civilisation's economy plummeting!" cancelButtonTitle:@"No Way!" otherButtonTitles:@[@"Go Ahead!"] completionHandler:^(RXAlertSheet *alertSheet, NSInteger selectedButtonIndex) {
+				meco.job = job;
+			}];
+			[alertSheet show];
+		}
+		else {
+			meco.job = job;
+		}
+	}
+	else {
+		meco.job = job;
+	}
+}
 
 -(IBAction)showFireMenu:(id)sender {
 	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-	NSArray *worldMecos = [self.world.allMecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-	
 	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to fire"] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
-		
-		if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]){
-			int tailorsFound = 0;
-			for (MECOPerson *meco in worldMecos) {
-				if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
-					tailorsFound += 1;
-					break;
-				}
-			}
-			if (tailorsFound == 1) {
-				UIAlertView *tailorFiringWarning =[[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Firing your last Tailor will stop you from giving other mecos jobs, Sending your economy plummeting!!" delegate:self cancelButtonTitle:@"No way!" otherButtonTitles:@"Sayonara Tailor!", nil];
-				[tailorFiringWarning show];
-				
-			}
-			else {
-				meco.job = nil;
-			}
-		}
+		[self showFireTailorWarningForMeco:meco assigningJob:nil];
 	}];
 	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }

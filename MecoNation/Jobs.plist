@@ -164,6 +164,19 @@
 		<string>Bodyguard</string>
 		<key>costumeImage</key>
 		<string>Bodyguard.png</string>
+		<key>responsibilities</key>
+		<array>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>fur</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+		</array>
 	</dict>
 	<dict>
 		<key>cost</key>
