@@ -1,13 +1,13 @@
 //
-//  MECOSheep.h
+//  MECOAnimal.h
 //  MecoNation
 //
-//  Created by Micah Merswolke on 2013-05-19.
+//  Created by Micah Merswolke on 2013-09-01.
 //  Copyright (c) 2013 Micah Merswolke. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface MECOSheep : NSObject
+@interface MECOAnimal : NSObject
 
 @end
