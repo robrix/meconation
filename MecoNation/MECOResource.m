@@ -25,10 +25,12 @@
 -(void)setQuantity:(float)quantity {
 	_quantity = quantity;
 	
-	[self.delegate resourceDidChange:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:MECOResourceDidChangeNotification object:self];
 }
 
 @end
+
+NSString * const MECOResourceDidChangeNotification = @"MECOResourceDidChangeNotification";
 
 
 @implementation MECOResourceRate

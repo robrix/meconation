@@ -97,8 +97,8 @@
 		D4B6E6C9169236F4006E64C9 /* MECOAssignSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6C8169236F4006E64C9 /* MECOAssignSegue.m */; };
 		D4B6E6D516923FC4006E64C9 /* MECOGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */; };
 		D4C8769616A3019900208BE9 /* MECOPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8769516A3019900208BE9 /* MECOPageViewController.m */; };
-		D4CA315417D2802C0057D359 /* RXAlertSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA315317D2802C0057D359 /* RXAlertSheet.m */; };
 		D4CA315117D26BDE0057D359 /* MECOGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA315017D26BDE0057D359 /* MECOGameController.m */; };
+		D4CA315417D2802C0057D359 /* RXAlertSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA315317D2802C0057D359 /* RXAlertSheet.m */; };
 		D4E7918A17491C4300499234 /* MECOHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E7918917491C4300499234 /* MECOHouse.m */; };
 /* End PBXBuildFile section */
 
@@ -215,10 +215,11 @@
 		D4B6E6D416923FC4006E64C9 /* MECOGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGroundView.m; sourceTree = "<group>"; };
 		D4C8769416A3019900208BE9 /* MECOPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPageViewController.h; sourceTree = "<group>"; };
 		D4C8769516A3019900208BE9 /* MECOPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPageViewController.m; sourceTree = "<group>"; };
-		D4CA315217D2802C0057D359 /* RXAlertSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXAlertSheet.h; sourceTree = "<group>"; };
-		D4CA315317D2802C0057D359 /* RXAlertSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXAlertSheet.m; sourceTree = "<group>"; };
 		D4CA314F17D26BDE0057D359 /* MECOGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOGameController.h; sourceTree = "<group>"; };
 		D4CA315017D26BDE0057D359 /* MECOGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOGameController.m; sourceTree = "<group>"; };
+		D4CA315217D2802C0057D359 /* RXAlertSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXAlertSheet.h; sourceTree = "<group>"; };
+		D4CA315317D2802C0057D359 /* RXAlertSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXAlertSheet.m; sourceTree = "<group>"; };
+		D4CA315517D3B5490057D359 /* MECOActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MECOActor.h; sourceTree = "<group>"; };
 		D4E7918817491C4300499234 /* MECOHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOHouse.h; sourceTree = "<group>"; };
 		D4E7918917491C4300499234 /* MECOHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOHouse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -338,6 +339,7 @@
 		D48E0C6F1690D700008DB678 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
+				D4CA315517D3B5490057D359 /* MECOActor.h */,
 				D4E7918817491C4300499234 /* MECOHouse.h */,
 				D4E7918917491C4300499234 /* MECOHouse.m */,
 				D48E0C781690D732008DB678 /* MECOPerson.h */,

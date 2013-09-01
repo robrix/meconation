@@ -8,18 +8,40 @@
 
 #import "MECOGameController.h"
 
+#import "MECOJob.h"
+#import "MECOPerson.h"
+#import "MECOWorld.h"
+
 @interface MECOGameController ()
 
 @property (nonatomic, readonly) CADisplayLink *displayLink;
 @property (nonatomic, readonly) NSMutableSet *mutableActors;
 
+@property (nonatomic) id willQuitObserver;
+@property (nonatomic) id didStartObserver;
+
 @end
 
 @implementation MECOGameController
 
--(instancetype)initWithWorld:(MECOWorld *)world {
+-(instancetype)init {
 	if ((self = [super init])) {
-		_world = world;
+		__weak MECOGameController *weakSelf = self;
+		_didStartObserver = [[NSNotificationCenter defaultCenter] addObserverForName:MECOPersonDidStartJobNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+			MECOPerson *person = note.object;
+			MECOGameController *self = weakSelf;
+			for (id<MECOJobResponsibility> responsibility in person.job.responsibilities) {
+				[self addActorsObject:responsibility];
+			}
+		}];
+		
+		_willQuitObserver = [[NSNotificationCenter defaultCenter] addObserverForName:MECOPersonWillQuitJobNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+			MECOPerson *person = note.object;
+			MECOGameController *self = weakSelf;
+			for (id<MECOJobResponsibility> responsibility in person.job.responsibilities) {
+				[self removeActorsObject:responsibility];
+			}
+		}];
 		
 		_displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
 		_displayLink.paused = YES;
@@ -28,6 +50,11 @@
 		_mutableActors = [NSMutableSet new];
 	}
 	return self;
+}
+
+-(void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:_willQuitObserver];
+	[[NSNotificationCenter defaultCenter] removeObserver:_didStartObserver];
 }
 
 

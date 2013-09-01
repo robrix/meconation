@@ -20,13 +20,15 @@
 #import "MECOWorldViewController.h"
 #import "MECOViewUtilities.h"
 
-@interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate, MECOIslandDelegate, MECOPersonDelegate>
+@interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate, MECOIslandDelegate>
 
 @property (strong) MECOGroundView *groundView;
 
 @property (strong) NSMutableSet *sprites;
 
 @property (readonly) CGRect validBoundsForMecos;
+
+@property (nonatomic) id didStartJobObserver;
 
 @end
 
@@ -35,12 +37,22 @@
 
 @implementation MECOIslandViewController
 
+-(void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self.didStartJobObserver];
+}
+
 @synthesize island = _island;
 @synthesize islandIndex = _islandIndex;
 @synthesize groundView = _groundView;
 @synthesize sprites = _sprites;
 
 -(void)configureWithIslandAtIndex:(NSUInteger)index inWorld:(MECOWorld *)world {
+	self.didStartJobObserver = [[NSNotificationCenter defaultCenter] addObserverForName:MECOPersonDidStartJobNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+		MECOPerson *person = note.object;
+		MECOSpriteView *spriteView = person.sprite;
+		spriteView.image = [self imageForPerson:person];
+	}];
+	
 	_world = world;
 	_islandIndex = index;
 	_island = world.islands[index];
@@ -129,8 +141,12 @@
 	}
 }
 
+-(UIImage *)imageForPerson:(MECOPerson *)person {
+	return person.job.costumeImage ?: [UIImage imageNamed:@"Meco.png"];
+}
+
 -(void)addSpriteForPerson:(MECOPerson *)person {
-	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:person.job.costumeImage?:[UIImage imageNamed:@"Meco.png"]];
+	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:[self imageForPerson:person]];
 	mecoView.delegate = self;
 	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
@@ -154,8 +170,6 @@
 	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
 	
 	[self.view addSubview:mecoView];
-	
-	person.delegate = self;
 }
 
 -(void)addSpriteForHouse:(MECOHouse *)house {
@@ -184,12 +198,6 @@
 	[self addSpriteForHouse:house];
 }
 
-#pragma mark MECOPersonDelegate
-
--(void)person:(MECOPerson *)person didStartJob:(MECOJob *)job {
-	MECOSpriteView *spriteView = person.sprite;
-	spriteView.image = job.costumeImage ?: [UIImage imageNamed:@"Meco.png"];
-}
 
 #pragma mark MECOActor
 

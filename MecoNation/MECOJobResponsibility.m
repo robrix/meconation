@@ -8,7 +8,7 @@
 @interface MECOEarningJobResponsibility ()
 
 @property (nonatomic) MECOResourceRate *rate;
-@property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSTimeInterval elapsedInterval;
 
 @end
 
@@ -34,17 +34,19 @@
 	return self;
 }
 
--(void)personDidStart:(MECOPerson *)person {
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:self.rate.interval target:self selector:@selector(timerDidFire:) userInfo:person repeats:YES];
-}
+-(void)personDidStart:(MECOPerson *)person {}
 
--(void)personWillQuit:(MECOPerson *)person {
-	[self.timer invalidate];
-	self.timer = nil;
-}
+-(void)personWillQuit:(MECOPerson *)person {}
 
--(void)timerDidFire:(NSTimer *)timer {
-	self.rate.resource.quantity += self.rate.quantity;
+
+#pragma mark MECOActor
+
+-(void)gameController:(MECOGameController *)gameController updateWithInterval:(NSTimeInterval)interval {
+	self.elapsedInterval += interval;
+	if (self.elapsedInterval >= self.rate.interval) {
+		self.elapsedInterval -= self.rate.interval;
+		self.rate.resource.quantity += self.rate.quantity;
+	}
 }
 
 @end

@@ -13,10 +13,6 @@
 #import "MECOResource.h"
 #import "MECOWorld.h"
 
-@interface MECOWorld () <MECOResourceDelegate>
-
-@end
-
 @implementation MECOWorld
 
 -(instancetype)init {
@@ -28,10 +24,6 @@
 		_woolResource = [MECOResource resourceWithName:@"wool"];
 		
 		_resources = @[_foodResource, _IQResource, _stoneResource, _woodResource, _woolResource];
-		
-		for (MECOResource *resource in self.resources) {
-			resource.delegate = self;
-		}
 		
 		_jobs = [[MECOJob jobsWithWorld:self] copy];
 		_jobsByTitle = [[NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]] copy];
@@ -81,12 +73,4 @@
 -(NSUInteger)maximumPopulation {
 	return self.allHouses.count * 4 - 1;
 }
-
-
-#pragma mark MECOResourceDelegate
-
--(void)resourceDidChange:(MECOResource *)resource {
-	[self.delegate world:self didChangeResource:resource];
-}
-
 @end

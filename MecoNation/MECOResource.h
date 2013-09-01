@@ -8,25 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MECOResourceDelegate;
-
 @interface MECOResource : NSObject
 
 +(instancetype)resourceWithName:(NSString *)name;
-
-@property (nonatomic, weak) id<MECOResourceDelegate> delegate;
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic) float quantity;
 
 @end
 
-@protocol MECOResourceDelegate <NSObject>
-
--(void)resourceDidChange:(MECOResource *)resource;
-
-@end
-
+extern NSString * const MECOResourceDidChangeNotification;
 
 @interface MECOResourceRate : NSObject
 

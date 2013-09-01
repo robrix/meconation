@@ -56,13 +56,21 @@
 -(void)setJob:(MECOJob *)job {
 	if (![self.job isEqual:job]) {
 		[self.job personWillQuit:self];
-		if ([self.delegate respondsToSelector:@selector(person:willQuitJob:)])
-			[self.delegate person:self willQuitJob:self.job];
+		
+		if (self.job)
+			[[NSNotificationCenter defaultCenter] postNotificationName:MECOPersonWillQuitJobNotification object:self];
+		
+		
 		_job = job;
+		
 		[self.job personDidStart:self];
-		if ([self.delegate respondsToSelector:@selector(person:didStartJob:)])
-			[self.delegate person:self didStartJob:self.job];
+		
+		if (self.job)
+			[[NSNotificationCenter defaultCenter] postNotificationName:MECOPersonDidStartJobNotification object:self];
 	}
 }
 
 @end
+
+NSString * const MECOPersonWillQuitJobNotification = @"MECOPersonWillQuitJobNotification";
+NSString * const MECOPersonDidStartJobNotification = @"MECOPersonDidStartJobNotification";

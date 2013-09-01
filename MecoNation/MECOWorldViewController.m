@@ -18,7 +18,7 @@
 
 #import "RXOptionSheet.h"
 
-@interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate, MECOWorldDelegate>
+@interface MECOWorldViewController () <MECOPageViewControllerDataSource, MECOPageViewControllerDelegate>
 
 @property (strong) IBOutlet UIButton *boatButton;
 @property (strong) IBOutlet UILabel *warningLabel;
@@ -38,9 +38,15 @@
 
 @property (nonatomic) MECOGameController *gameController;
 
+@property (nonatomic) id resourceDidChangeObserver;
+
 @end
 
 @implementation MECOWorldViewController
+
+-(void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self.resourceDidChangeObserver];
+}
 
 @synthesize pageViewController = _pageViewController;
 
@@ -95,10 +101,21 @@
 }
 
 
+-(void)updateLabel:(UILabel *)label withResource:(MECOResource *)resource {
+	label.text = [NSString stringWithFormat:@"%g", resource.quantity];
+	[label sizeToFit];
+}
+
+
 -(void)viewDidLoad {
 	self.toolbar.frame = (CGRect){
 		.size = { self.view.bounds.size.width, 30 }
 	};
+	
+	self.resourceDidChangeObserver = [[NSNotificationCenter defaultCenter] addObserverForName:MECOResourceDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+		MECOResource *resource = note.object;
+		[self updateLabel:self.labelsByResourceName[resource.name] withResource:resource];
+	}];
 	
 	self.labelsByResourceName = @{
 								  @"food": self.foodCount,
@@ -108,10 +125,8 @@
 								  @"wool": self.woolCount,
 								  };
 	
-	self.world = [MECOWorld new];
-	self.world.delegate = self;
-	
-	self.gameController = [[MECOGameController alloc] initWithWorld:self.world];
+	self.gameController = [[MECOGameController alloc] init];
+	self.gameController.world = self.world = [MECOWorld new];
 	
 	[self performSegueWithIdentifier:@"pageViewController" sender:self];
 	
@@ -133,17 +148,6 @@
 	self.pageViewController.currentViewController = self.islandViewControllers[0];
 	
 	self.gameController.paused = NO;
-}
-
-#pragma mark MECOWorldDelegate
-
--(void)updateLabel:(UILabel *)label withResource:(MECOResource *)resource {
-	label.text = [NSString stringWithFormat:@"%g", resource.quantity];
-	[label sizeToFit];
-}
-
--(void)world:(MECOWorld *)world didChangeResource:(MECOResource *)resource {
-	[self updateLabel:self.labelsByResourceName[resource.name] withResource:resource];
 }
 
 

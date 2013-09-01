@@ -6,12 +6,11 @@
 //  Copyright (c) 2013 Micah Merswolke. All rights reserved.
 //
 
+#import "MECOActor.h"
+
 @class MECOResource;
-@protocol MECOWorldDelegate;
 
 @interface MECOWorld : NSObject
-
-@property (nonatomic, weak) id<MECOWorldDelegate> delegate;
 
 #pragma mark Resources
 
@@ -37,11 +36,5 @@
 
 @property (nonatomic, readonly) NSUInteger currentPopulation;
 @property (nonatomic, readonly) NSUInteger maximumPopulation;
-
-@end
-
-@protocol MECOWorldDelegate <NSObject>
-
--(void)world:(MECOWorld *)world didChangeResource:(MECOResource *)resource;
 
 @end
