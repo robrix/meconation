@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) MECOResource *woolResource;
 
 @property (nonatomic, readonly) NSArray *resources;
+@property (nonatomic, readonly) NSDictionary *resourcesByName;
 
 #pragma mark Jobs
 

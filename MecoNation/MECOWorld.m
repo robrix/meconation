@@ -25,9 +25,10 @@
 		_woolResource = [MECOResource resourceWithName:@"wool"];
 		
 		_resources = @[_foodResource, _furResource, _IQResource, _stoneResource, _woodResource, _woolResource];
+		_resourcesByName = [NSDictionary dictionaryWithObjects:self.resources forKeys:[self.resources valueForKey:@"name"]];
 		
 		_jobs = [[MECOJob jobsWithWorld:self] copy];
-		_jobsByTitle = [[NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]] copy];
+		_jobsByTitle = [NSDictionary dictionaryWithObjects:self.jobs forKeys:[self.jobs valueForKey:@"title"]];
 		
 		_islands = [MECOIsland allIslands];
 		
