@@ -57,7 +57,6 @@
 	if (![self.job isEqual:job]) {
 		[self.job personWillQuit:self];
 		
-		if (self.job)
 			[[NSNotificationCenter defaultCenter] postNotificationName:MECOPersonWillQuitJobNotification object:self];
 		
 		
@@ -65,7 +64,6 @@
 		
 		[self.job personDidStart:self];
 		
-		if (self.job)
 			[[NSNotificationCenter defaultCenter] postNotificationName:MECOPersonDidStartJobNotification object:self];
 	}
 }

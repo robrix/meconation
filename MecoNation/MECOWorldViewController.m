@@ -15,6 +15,7 @@
 #import "MECOPerson.h"
 #import "MECOResource.h"
 #import "MECOViewUtilities.h"
+#import "MECOAnimal.h"
 
 #import "RXOptionSheet.h"
 #import "RXAlertSheet.h"
@@ -69,9 +70,6 @@
 
 
 //Warning Label updates
--(void) updateWarningLabelForBoat {
-	[self updateWarningLabelWithText:@"Sorry the boat is unavailable right now..."];
-}
 -(void) updateWarningLabelForSheep {
 	[self updateWarningLabelWithText:@"Sorry Sheep are unavailable right now..."];
 }
@@ -89,10 +87,6 @@
 	self.warningLabel.text = text;
 	MECOFadeInView(self.warningLabel, self.view);
 	MECOFadeOutView(self.warningLabel, 3);
-}
-
--(IBAction)showBoatWarning:(id)sender{
-	[self updateWarningLabelForBoat];
 }
 
 
@@ -205,22 +199,34 @@
 	return @[@"Sheep", @"Meco"];
 }
 -(IBAction)showSpawnMenu:(id)sender {
-	RXOptionSheet *spawnsheet = [RXOptionSheet sheetWithTitle:@"Spawn?" options:self.world.spawnables optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+	RXOptionSheet *spawnsheet = [RXOptionSheet sheetWithTitle:@"Spawn?" options:self.world.spawnables optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOAnimal *animal) {
 		
 	}];
 	[spawnsheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 -(IBAction)spawnMeco:(id)sender{
-	if (self.world.IQResource.quantity == 100)
+	if (self.world.IQResource.quantity >= 100)
 	{
 		[self addMeco:nil];
 		[self updatePopulationLabel];
+		self.world.IQResource.quantity -= 100;
 	}
 	else
 	{
 		[self updateWarningLabelForIQ];
 	}
+}
+
+-(IBAction)showBoatMenu:(id)sender{
+	RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:self.world.spawnables optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
+		[self showIslandMenuForMeco:selectedMeco];
+	}];
+}
+-(void) showIslandMenuForMeco:(MECOPerson *)meco {
+	RXOptionSheet *mecoBoatSheet = [RXOptionSheet sheetWithTitle:@"Move to:" options:self.world.islands optionTitleKeyPath:self.world.islands.name cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+		<#code#>
+	}];
 }
 
 #pragma mark Job menu
