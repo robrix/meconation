@@ -268,7 +268,15 @@
 	for (MECOPerson *meco in mecos) {
 		if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
 			RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
-				[self showMecosMenuForJob:selectedJob];
+				if (MECOSaleItemIsAffordable(selectedJob))
+				{
+					[self showMecosMenuForJob:selectedJob];
+				}
+				else
+				{
+					[]
+				}
+				
 			}];
 			
 			[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];

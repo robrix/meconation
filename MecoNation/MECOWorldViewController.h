@@ -18,8 +18,6 @@
 -(void) updateWarningLabelForPopulation;
 -(void) updateWarningLabelForBoats;
 
-
-
 -(IBAction)showBuildMenu:(id)sender;
 -(IBAction)showSpawnMenu:(id)sender;
 -(IBAction)spawnMeco:(id)sender;
