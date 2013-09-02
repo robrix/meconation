@@ -84,6 +84,16 @@
 				<key>interval</key>
 				<integer>60</integer>
 			</dict>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>leather</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -187,6 +197,16 @@
 				<key>interval</key>
 				<integer>60</integer>
 			</dict>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>leaf</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -221,6 +241,16 @@
 				<key>interval</key>
 				<integer>60</integer>
 			</dict>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>gold</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -252,6 +282,16 @@
 				<string>MECOEarningJobResponsibility</string>
 				<key>resource</key>
 				<string>food</string>
+				<key>interval</key>
+				<integer>60</integer>
+			</dict>
+			<dict>
+				<key>quantity</key>
+				<integer>10</integer>
+				<key>class</key>
+				<string>MECOEarningJobResponsibility</string>
+				<key>resource</key>
+				<string>leather</string>
 				<key>interval</key>
 				<integer>60</integer>
 			</dict>

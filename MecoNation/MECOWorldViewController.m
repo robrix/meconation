@@ -70,6 +70,7 @@
 }
 
 
+
 //Warning Label updates
 -(void) updateWarningLabelForSheep {
 	[self updateWarningLabelWithText:@"Sorry Sheep are unavailable right now..."];
@@ -86,6 +87,13 @@
 -(void) updateWarningLabelForBoats {
 	[self updateWarningLabelWithText:@"You will need an explorer to use a boat..."];
 }
+-(void) updateWarningLabelForHunger {
+	
+}
+-(void) updateWarningLabelForEating {
+	[self updateWarningLabelWithText:[NSString stringWithFormat:@"Your civilisation ate %u", self.world.currentPopulation * 2]];
+}
+
 -(void) updateWarningLabelForSalePriceWithCosts: (NSArray *) costs {
 	[self updateWarningLabelWithText:[costs componentsJoinedByString:@", "]];
 }

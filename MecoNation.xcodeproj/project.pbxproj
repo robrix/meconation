@@ -29,6 +29,7 @@
 		CB33049F17D3D21100E0FCBA /* Monster.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049B17D3D21100E0FCBA /* Monster.png */; };
 		CB3304A017D3D21100E0FCBA /* Pig.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049C17D3D21100E0FCBA /* Pig.png */; };
 		CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049D17D3D21100E0FCBA /* TreeBeing.png */; };
+		CB3304A317D4325600E0FCBA /* TraderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3304A217D4325600E0FCBA /* TraderIcon.png */; };
 		CB360B9817B404F500182886 /* StoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9617B404F500182886 /* StoneIcon.png */; };
 		CB360B9917B404F500182886 /* WoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9717B404F500182886 /* WoodIcon.png */; };
 		CB360B9B17B4285200182886 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9A17B4285200182886 /* IslandIcon.png */; };
@@ -135,6 +136,7 @@
 		CB33049B17D3D21100E0FCBA /* Monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Monster.png; path = MecoImages/Monster.png; sourceTree = SOURCE_ROOT; };
 		CB33049C17D3D21100E0FCBA /* Pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pig.png; path = MecoImages/Pig.png; sourceTree = SOURCE_ROOT; };
 		CB33049D17D3D21100E0FCBA /* TreeBeing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TreeBeing.png; path = MecoImages/TreeBeing.png; sourceTree = SOURCE_ROOT; };
+		CB3304A217D4325600E0FCBA /* TraderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TraderIcon.png; path = MecoImages/TraderIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9617B404F500182886 /* StoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StoneIcon.png; path = MecoImages/StoneIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9717B404F500182886 /* WoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoodIcon.png; path = MecoImages/WoodIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9A17B4285200182886 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				CB360B9C17B42C0000182886 /* FoodIcon.png */,
+				CB3304A217D4325600E0FCBA /* TraderIcon.png */,
 				CB360B9D17B42C0000182886 /* FurIcon.png */,
 				CB124F2E17D249010058FA22 /* IQIcon.png */,
 				CB360B9E17B42C0000182886 /* WoolIcon.png */,
@@ -634,6 +637,7 @@
 				CB33049F17D3D21100E0FCBA /* Monster.png in Resources */,
 				CB3304A017D3D21100E0FCBA /* Pig.png in Resources */,
 				CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */,
+				CB3304A317D4325600E0FCBA /* TraderIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
