@@ -22,6 +22,8 @@
 @property (nonatomic) id willQuitObserver;
 @property (nonatomic) id didStartObserver;
 
+@property (nonatomic, readonly) NSTimeInterval timeScale;
+
 @end
 
 @implementation MECOGameController
@@ -104,9 +106,13 @@
 
 #pragma mark Game loop
 
+-(NSTimeInterval)timeScale {
+	return 1.0;
+}
+
 -(void)tick:(CADisplayLink *)displayLink {
 	for (id<MECOActor> actor in self.actors) {
-		[actor gameController:self updateWithInterval:displayLink.duration];
+		[actor gameController:self updateWithInterval:displayLink.duration * self.timeScale];
 	}
 }
 
