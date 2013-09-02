@@ -8,7 +8,7 @@
 		<key>graphic</key>
 		<string>Sheep.png</string>
 		<key>IQCost</key>
-		<integer>50</integer>
+		<integer>20</integer>
 		<key>resourceGiven</key>
 		<string>wool</string>
 		<key>rareResourceGiven</key>
@@ -38,9 +38,9 @@
 		<key>IQCost</key>
 		<integer>30</integer>
 		<key>resourceGiven</key>
-		<string>food</string>
-		<key>rareResourceGiven</key>
 		<string>leather</string>
+		<key>rareResourceGiven</key>
+		<string>food</string>
 		<key>resourceAmount</key>
 		<integer>3</integer>
 	</dict>

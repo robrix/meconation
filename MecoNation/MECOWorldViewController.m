@@ -41,6 +41,7 @@
 @property (readonly) MECOIsland *currentIsland;
 
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
+@property (nonatomic, strong) IBOutlet UILabel *mecoIslandPopulationLabel;
 @property (nonatomic, copy) NSDictionary *labelsByResourceName;
 
 @property (nonatomic) MECOGameController *gameController;
@@ -116,6 +117,7 @@
 -(NSUInteger) currentIslandPopulation {
 	return self.currentIsland.mecos.count;
 }
+
 
 
 -(void)updateLabel:(UILabel *)label withResource:(MECOResource *)resource {
@@ -239,7 +241,7 @@
 	bool foundAnExplorer = NO;
 	for (MECOPerson *meco in mecos) {
 		if ([meco.job isEqual:(self.world.jobsByTitle[MECOExplorerJobTitle])]) {
-			RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:mecos optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
+			RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
 				[self showIslandMenuForMeco:selectedMeco];
 			}];
 			[boatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
@@ -257,6 +259,7 @@
 	RXOptionSheet *mecoBoatSheet = [RXOptionSheet sheetWithTitle:@"Move to:" options:self.world.islands optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOIsland *selectedIsland) {
 		[self.currentIsland removePerson:meco];
 		[selectedIsland addPerson:meco];
+		[self updatePopulationLabel];
 	}];
 	[mecoBoatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }

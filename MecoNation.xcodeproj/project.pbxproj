@@ -30,6 +30,7 @@
 		CB3304A017D3D21100E0FCBA /* Pig.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049C17D3D21100E0FCBA /* Pig.png */; };
 		CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33049D17D3D21100E0FCBA /* TreeBeing.png */; };
 		CB3304A317D4325600E0FCBA /* TraderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3304A217D4325600E0FCBA /* TraderIcon.png */; };
+		CB3304A517D4B6C400E0FCBA /* HouseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3304A417D4B6C400E0FCBA /* HouseIcon.png */; };
 		CB360B9817B404F500182886 /* StoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9617B404F500182886 /* StoneIcon.png */; };
 		CB360B9917B404F500182886 /* WoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9717B404F500182886 /* WoodIcon.png */; };
 		CB360B9B17B4285200182886 /* IslandIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9A17B4285200182886 /* IslandIcon.png */; };
@@ -70,6 +71,8 @@
 		CBB3AE3417B2A3C9004D91E6 /* Island 7.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3317B2A3C9004D91E6 /* Island 7.plist */; };
 		CBB3AE3617B2D61F004D91E6 /* MecoRuins.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */; };
 		CBB3AE3917B2D863004D91E6 /* Island 8.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3817B2D862004D91E6 /* Island 8.plist */; };
+		CBB4DC4A17D4BE1200DD5760 /* Fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4817D4BE1200DD5760 /* Fish.png */; };
+		CBB4DC4B17D4BE1200DD5760 /* Shark.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4917D4BE1200DD5760 /* Shark.png */; };
 		CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCBE30B17D26DD200AFFB4B /* FireIcon.png */; };
 		CBF8FE4217B2DBC900A01568 /* Island 9.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4117B2DBC900A01568 /* Island 9.plist */; };
 		CBF8FE4417B2DCF600A01568 /* Island 10.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4317B2DCF600A01568 /* Island 10.plist */; };
@@ -137,6 +140,7 @@
 		CB33049C17D3D21100E0FCBA /* Pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pig.png; path = MecoImages/Pig.png; sourceTree = SOURCE_ROOT; };
 		CB33049D17D3D21100E0FCBA /* TreeBeing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TreeBeing.png; path = MecoImages/TreeBeing.png; sourceTree = SOURCE_ROOT; };
 		CB3304A217D4325600E0FCBA /* TraderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TraderIcon.png; path = MecoImages/TraderIcon.png; sourceTree = SOURCE_ROOT; };
+		CB3304A417D4B6C400E0FCBA /* HouseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HouseIcon.png; path = MecoImages/HouseIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9617B404F500182886 /* StoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StoneIcon.png; path = MecoImages/StoneIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9717B404F500182886 /* WoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoodIcon.png; path = MecoImages/WoodIcon.png; sourceTree = SOURCE_ROOT; };
 		CB360B9A17B4285200182886 /* IslandIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IslandIcon.png; path = MecoImages/IslandIcon.png; sourceTree = SOURCE_ROOT; };
@@ -177,6 +181,8 @@
 		CBB3AE3317B2A3C9004D91E6 /* Island 7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 7.plist"; sourceTree = "<group>"; };
 		CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoRuins.png; path = MecoImages/MecoRuins.png; sourceTree = SOURCE_ROOT; };
 		CBB3AE3817B2D862004D91E6 /* Island 8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 8.plist"; sourceTree = "<group>"; };
+		CBB4DC4817D4BE1200DD5760 /* Fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fish.png; path = MecoImages/Fish.png; sourceTree = SOURCE_ROOT; };
+		CBB4DC4917D4BE1200DD5760 /* Shark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shark.png; path = MecoImages/Shark.png; sourceTree = SOURCE_ROOT; };
 		CBCBE30B17D26DD200AFFB4B /* FireIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FireIcon.png; path = MecoImages/FireIcon.png; sourceTree = SOURCE_ROOT; };
 		CBF8FE4117B2DBC900A01568 /* Island 9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 9.plist"; sourceTree = "<group>"; };
 		CBF8FE4317B2DCF600A01568 /* Island 10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 10.plist"; sourceTree = "<group>"; };
@@ -308,6 +314,7 @@
 				CB3304A217D4325600E0FCBA /* TraderIcon.png */,
 				CB360B9D17B42C0000182886 /* FurIcon.png */,
 				CB124F2E17D249010058FA22 /* IQIcon.png */,
+				CB3304A417D4B6C400E0FCBA /* HouseIcon.png */,
 				CB360B9E17B42C0000182886 /* WoolIcon.png */,
 				CB33049417D3D1DD00E0FCBA /* GoldIcon.png */,
 				CB33049517D3D1DD00E0FCBA /* LeafIcon.png */,
@@ -331,6 +338,8 @@
 				D412FDA31749934C002EEB52 /* MecoCloud.png */,
 				CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */,
 				CB84C87A1749807B00FF9E0A /* Sheep.png */,
+				CBB4DC4817D4BE1200DD5760 /* Fish.png */,
+				CBB4DC4917D4BE1200DD5760 /* Shark.png */,
 				CB33049A17D3D21100E0FCBA /* Cow.png */,
 				CB33049B17D3D21100E0FCBA /* Monster.png */,
 				CB33049C17D3D21100E0FCBA /* Pig.png */,
@@ -638,6 +647,9 @@
 				CB3304A017D3D21100E0FCBA /* Pig.png in Resources */,
 				CB3304A117D3D21100E0FCBA /* TreeBeing.png in Resources */,
 				CB3304A317D4325600E0FCBA /* TraderIcon.png in Resources */,
+				CB3304A517D4B6C400E0FCBA /* HouseIcon.png in Resources */,
+				CBB4DC4A17D4BE1200DD5760 /* Fish.png in Resources */,
+				CBB4DC4B17D4BE1200DD5760 /* Shark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
