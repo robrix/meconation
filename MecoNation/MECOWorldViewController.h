@@ -16,6 +16,8 @@
 -(void) updatePopulationLabel;
 -(void) updateWarningLabelForSheep;
 -(void) updateWarningLabelForPopulation;
+-(void) updateWarningLabelForBoats;
+
 
 
 -(IBAction)showBuildMenu:(id)sender;
@@ -24,5 +26,6 @@
 -(IBAction)addMeco:(id)sender;
 -(IBAction)showJobsMenu:(id)sender;
 -(IBAction)showFireMenu:(id)sender;
+-(IBAction)showBoatMenu:(id)sender;
 
 @end

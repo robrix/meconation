@@ -194,6 +194,10 @@
 	[self addSpriteForPerson:person];
 }
 
+-(void)island:(MECOIsland *)island willRemovePerson:(MECOPerson *)person {
+	[person.sprite removeFromSuperview];
+}
+
 -(void)island:(MECOIsland *)island didAddHouse:(MECOHouse *)house {
 	[self addSpriteForHouse:house];
 }

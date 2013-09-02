@@ -145,6 +145,7 @@ const CGSize gridSize = {20, 20};
 }
 
 -(void)removePerson:(MECOPerson *)person {
+	[self.delegate island:self willRemovePerson:person];
 	[self.mutableMecos removeObject:person];
 }
 

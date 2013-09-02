@@ -40,6 +40,8 @@
 @protocol MECOIslandDelegate <NSObject>
 
 -(void)island:(MECOIsland *)island didAddPerson:(MECOPerson *)person;
+-(void)island:(MECOIsland *)island willRemovePerson:(MECOPerson *)person;
+
 -(void)island:(MECOIsland *)island didAddHouse:(MECOHouse *)house;
 
 @end

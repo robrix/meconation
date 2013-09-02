@@ -38,6 +38,7 @@
 @property (nonatomic, strong) MECOPageViewController *pageViewController;
 
 @property (copy) NSArray *islandViewControllers;
+@property (readonly) MECOIsland *currentIsland;
 
 @property (strong) IBOutlet UILabel *mecoPopulationLabel;
 @property (nonatomic, copy) NSDictionary *labelsByResourceName;
@@ -80,7 +81,10 @@
 	[self updateWarningLabelWithText:@"You don't have a Tailor to make any uniforms, on this island..."];
 }
 -(void) updateWarningLabelForIQ {
-	[self updateWarningLabelWithText:@"You will need more IQ to do that"];
+	[self updateWarningLabelWithText:@"You will need more IQ to do that..."];
+}
+-(void) updateWarningLabelForBoats {
+	[self updateWarningLabelWithText:@"You will need an explorer to use a boat..."];
 }
 
 -(void)updateWarningLabelWithText:(NSString *)text {
@@ -221,15 +225,28 @@
 #pragma mark Boat menu
 
 -(IBAction)showBoatMenu:(id)sender{
-	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];	
-	RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:mecos optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
-		[self showIslandMenuForMeco:selectedMeco];
-	}];
-	[boatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	bool foundAnExplorer = NO;
+	for (MECOPerson *meco in mecos) {
+		if ([meco.job isEqual:(self.world.jobsByTitle[MECOExplorerJobTitle])]) {
+			RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:mecos optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
+				[self showIslandMenuForMeco:selectedMeco];
+			}];
+			[boatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
+
+			foundAnExplorer = YES;
+			break;
+		}
+	}
+	if (foundAnExplorer == NO) {
+		[self updateWarningLabelForBoats];
+	}
 }
+
 -(void) showIslandMenuForMeco:(MECOPerson *)meco {
-	RXOptionSheet *mecoBoatSheet = [RXOptionSheet sheetWithTitle:@"Move to:" options:self.world.islands optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
-		
+	RXOptionSheet *mecoBoatSheet = [RXOptionSheet sheetWithTitle:@"Move to:" options:self.world.islands optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOIsland *selectedIsland) {
+		[self.currentIsland removePerson:meco];
+		[selectedIsland addPerson:meco];
 	}];
 	[mecoBoatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
