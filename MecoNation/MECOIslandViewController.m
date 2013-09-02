@@ -7,18 +7,22 @@
 //
 
 #import "MECOIslandViewController.h"
-#import "MECOGroundView.h"
-#import "MECOIsland.h"
 #import "MECOSpriteView.h"
 #import "MECOSpriteBehaviour.h"
-#import "MECOPerson.h"
-#import "MECOHouse.h"
-#import "MECOJob.h"
-#import "RXOptionSheet.h"
-#import <stdlib.h>
-#import <QuartzCore/QuartzCore.h>
 #import "MECOWorldViewController.h"
 #import "MECOViewUtilities.h"
+
+#import "MECOAnimal.h"
+#import "MECOGroundView.h"
+#import "MECOHouse.h"
+#import "MECOIsland.h"
+#import "MECOJob.h"
+#import "MECOPerson.h"
+
+#import "RXOptionSheet.h"
+
+#import <stdlib.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface MECOIslandViewController () <MECOSpriteViewDelegate, UIActionSheetDelegate, MECOIslandDelegate>
 
@@ -122,7 +126,7 @@
 	} else {
 		MECOFadeOutViews([self.sprites valueForKeyPath:@"@distinctUnionOfArrays.subviews"]);
 		
-		MECOPerson *meco = view.actor;
+		MECOPerson *meco = view.model;
 		
 		[self.view bringSubviewToFront:view];
 		
@@ -145,58 +149,86 @@
 	return person.job.costumeImage ?: [UIImage imageNamed:@"Meco.png"];
 }
 
--(void)addSpriteForPerson:(MECOPerson *)person {
-	MECOSpriteView *mecoView = [MECOSpriteView spriteWithImage:[self imageForPerson:person]];
-	mecoView.delegate = self;
-	mecoView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+-(MECOSpriteView *)addSpriteWithImage:(UIImage *)image model:(id<MECOSpriteModel>)model {
+	MECOSpriteView *spriteView = [MECOSpriteView spriteWithImage:image];
+	spriteView.delegate = self;
 	
+	spriteView.model = model;
+	model.sprite = spriteView;
+	
+	[self.sprites addObject:spriteView];
+	
+	return spriteView;
+}
+
+-(void)removeSpriteForModel:(id<MECOSpriteModel>)model {
+	[model.sprite removeFromSuperview];
+}
+
+
+-(CGPoint)randomTileLocationForSprite:(MECOSpriteView *)sprite {
 	CGPoint tile = (CGPoint){
 		random() % (NSUInteger)(CGRectGetWidth(self.view.bounds) / 20.0),
 		random() % ((NSUInteger)((CGRectGetHeight(self.view.bounds) / 20.0) - 3) + 2)
 	};
-	
-	mecoView.center = (CGPoint){
-		(tile.x * 20) + 10,
-		(tile.y * 20) + 20
+	return (CGPoint){
+		(tile.x * [MECOIsland gridSize].width) + (sprite.bounds.size.width / 2.0),
+		(tile.y * [MECOIsland gridSize].height) + (sprite.bounds.size.height / 2.0)
 	};
+}
+
+-(void)addSpriteForPerson:(MECOPerson *)person {
+	MECOSpriteView *sprite = [self addSpriteWithImage:[self imageForPerson:person] model:person];
+	sprite.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
 	
-	mecoView.behaviours = @[[MECOGravity new], [MECOWanderingBehaviour new]];
+	sprite.center = [self randomTileLocationForSprite:sprite];
 	
-	[self.sprites addObject:mecoView];
+	sprite.behaviours = @[[MECOGravity new], [MECOWanderingBehaviour new]];
 	
-	person.sprite = mecoView;
-	mecoView.actor = person;
+	[sprite addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
 	
-	[mecoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMeco:)]];
-	
-	[self.view addSubview:mecoView];
+	[self.view addSubview:sprite];
 }
 
 -(void)addSpriteForHouse:(MECOHouse *)house {
-	MECOSpriteView *houseView = [MECOSpriteView spriteWithImage:[UIImage imageNamed:@"MecoHut.png"]];
-	houseView.delegate = self;
-	houseView.behaviours = @[[MECOGravity new]];
-	CGSize size = houseView.bounds.size;
-	houseView.center = (CGPoint){ house.location.x + size.width / 2, size.height / 2 };
+	MECOSpriteView *sprite = [self addSpriteWithImage:[UIImage imageNamed:@"MecoHut.png"] model:house];
+	sprite.behaviours = @[[MECOGravity new]];
+	CGSize size = sprite.bounds.size;
+	sprite.center = (CGPoint){ house.location.x + size.width / 2, size.height / 2 };
 	
-	house.sprite = houseView;
-	houseView.actor = house;
+	[self.view insertSubview:sprite aboveSubview:self.groundView];
+}
+
+-(void)addSpriteForAnimal:(MECOAnimal *)animal {
+	MECOSpriteView *sprite = [self addSpriteWithImage:animal.image model:animal];
 	
-	[self.sprites addObject:houseView];
+	sprite.behaviours = @[[MECOGravity new], [MECOWanderingBehaviour new]];
 	
-	[self.view insertSubview:houseView aboveSubview:self.groundView];
+	sprite.center = [self randomTileLocationForSprite:sprite];
+	
+	[self.view addSubview:sprite];
 }
 
 
 #pragma mark MECOIslandDelegate
+
+-(void)island:(MECOIsland *)island didAddAnimal:(MECOAnimal *)animal {
+	[self addSpriteForAnimal:animal];
+}
+
+-(void)island:(MECOIsland *)island willRemoveAnimal:(MECOAnimal *)animal {
+	[self removeSpriteForModel:animal];
+}
+
 
 -(void)island:(MECOIsland *)island didAddPerson:(MECOPerson *)person {
 	[self addSpriteForPerson:person];
 }
 
 -(void)island:(MECOIsland *)island willRemovePerson:(MECOPerson *)person {
-	[person.sprite removeFromSuperview];
+	[self removeSpriteForModel:person];
 }
+
 
 -(void)island:(MECOIsland *)island didAddHouse:(MECOHouse *)house {
 	[self addSpriteForHouse:house];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MECOSpriteModel.h"
 
 @protocol MECOSpriteViewDelegate;
 
@@ -18,7 +19,7 @@
 
 @property (nonatomic, strong) NSArray *behaviours;
 
-@property (nonatomic, weak) id actor;
+@property (nonatomic, weak) id<MECOSpriteModel> model;
 
 @property (nonatomic) CGPoint velocity;
 @property (nonatomic) CGPoint inertia;
