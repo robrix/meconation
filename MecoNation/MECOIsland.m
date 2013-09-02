@@ -15,8 +15,9 @@
 
 +(id)islandWithYValues:(NSArray *)yValues;
 
-@property (strong) NSMutableSet *mutableMecos;
+@property NSMutableSet *mutableAnimals;
 @property (strong) NSMutableSet *mutableHouses;
+@property (strong) NSMutableSet *mutableMecos;
 
 @end
 
@@ -25,7 +26,9 @@
 @synthesize bezierPath = _bezierPath;
 @synthesize yValues = _yValues;
 
-const CGSize gridSize = {20, 20};
++(CGSize)gridSize {
+	return (CGSize){ 20.0, 20.0 };
+}
 
 +(NSArray *)allIslands {
 	static NSMutableArray *allIslands = nil;
@@ -61,7 +64,7 @@ const CGSize gridSize = {20, 20};
 	[bezierPath addLineToPoint:(CGPoint){ bezierPath.currentPoint.x, 0 }];
 	[bezierPath closePath];
 	
-	[bezierPath applyTransform:CGAffineTransformMakeScale(gridSize.width, -gridSize.height)];
+	[bezierPath applyTransform:CGAffineTransformMakeScale([self gridSize].width, -[self gridSize].height)];
 	
 	return bezierPath;
 }
@@ -85,7 +88,7 @@ const CGSize gridSize = {20, 20};
 			break;
 	}
 	
-	return CGRectApplyAffineTransform(bounds, CGAffineTransformMakeScale(gridSize.width, -gridSize.height));
+	return CGRectApplyAffineTransform(bounds, CGAffineTransformMakeScale([self gridSize].width, -[self gridSize].height));
 }
 
 +(NSArray *)houseLocationsForYValues:(NSArray *)yValues {
@@ -104,7 +107,7 @@ const CGSize gridSize = {20, 20};
 		
 		if ((run >= houseWidth) && (currentY >= 2) && (previousHouseBoundary < (index - houseWidth))) {
 			previousHouseBoundary = index;
-			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ (index - houseWidth) * gridSize.width, currentY * gridSize.height }]];
+			[houseLocations addObject:[NSValue valueWithCGPoint:(CGPoint){ (index - houseWidth) * [self gridSize].width, currentY * [self gridSize].height }]];
 			run = 0;
 		}
 		
@@ -150,6 +153,21 @@ const CGSize gridSize = {20, 20};
 }
 
 
+-(NSSet *)animals {
+	return self.mutableAnimals;
+}
+
+-(void)addAnimalsObject:(MECOAnimal *)animal {
+	[self.mutableAnimals addObject:animal];
+	[self.delegate island:self didAddAnimal:animal];
+}
+
+-(void)removeAnimalsObject:(MECOAnimal *)animal {
+	[self.delegate island:self willRemoveAnimal:animal];
+	[self.mutableAnimals removeObject:animal];
+}
+
+
 -(NSSet *)houses {
 	return self.mutableHouses;
 }
@@ -163,10 +181,9 @@ const CGSize gridSize = {20, 20};
 	[self.mutableHouses removeObject:house];
 }
 
-
 // linear intepolation between the y values immediately on either side of x
 -(CGFloat)groundHeightAtX:(CGFloat)x {
-	x /= gridSize.width;
+	x /= [self.class gridSize].width;
 	
 	// if x isn’t valid for this island, return 0
 	if (x < 0)
@@ -179,7 +196,7 @@ const CGSize gridSize = {20, 20};
 	CGFloat a = [[self.yValues objectAtIndex:(NSUInteger)integral] floatValue];
 	CGFloat b = [[self.yValues objectAtIndex:(NSUInteger)integral + 1] floatValue];
 	
-	return (t * (b - a) + a) * gridSize.height;
+	return (t * (b - a) + a) * [self.class gridSize].height;
 }
 
 @end
