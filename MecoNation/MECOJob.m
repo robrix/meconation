@@ -108,7 +108,7 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 #pragma mark NSCopying
 
 -(instancetype)copyWithZone:(NSZone *)zone {
-	return [self.class jobWithTitle:self.title costumeImage:self.costumeImage responsibilities:[self.responsibilities copy] costs:self.costs];
+	return [self.class jobWithTitle:self.title costumeImage:self.costumeImage responsibilities:[[NSArray alloc] initWithArray:self.responsibilities copyItems:YES] costs:self.costs];
 }
 
 @end
