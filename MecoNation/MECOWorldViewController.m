@@ -218,15 +218,20 @@
 	}
 }
 
+#pragma mark Boat menu
+
 -(IBAction)showBoatMenu:(id)sender{
-	RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:self.world.spawnables optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
+	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	RXOptionSheet *boatSheet = [RXOptionSheet sheetWithTitle:@"Choose a meco to move:" options:mecos optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *selectedMeco) {
 		[self showIslandMenuForMeco:selectedMeco];
 	}];
+	[boatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 -(void) showIslandMenuForMeco:(MECOPerson *)meco {
-	RXOptionSheet *mecoBoatSheet = [RXOptionSheet sheetWithTitle:@"Move to:" options:self.world.islands optionTitleKeyPath:self.world.islands.name cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
-		<#code#>
+	RXOptionSheet *mecoBoatSheet = [RXOptionSheet sheetWithTitle:@"Move to:" options:self.world.islands optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, id selectedOption) {
+		
 	}];
+	[mecoBoatSheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
 
 #pragma mark Job menu
