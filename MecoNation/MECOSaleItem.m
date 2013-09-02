@@ -37,9 +37,17 @@ bool MECOSaleItemIsAffordable(id<MECOSaleItem> saleItem) {
 }
 
 
+void MECOSaleItemSubtractCosts(id<MECOSaleItem> saleItem) {
+	for (MECOResourceCost *cost in saleItem.costs) {
+		[cost subtract];
+	}
+}
+
 NSArray *MECOSaleItemPurchase(id<MECOSaleItem> saleItem, void(^block)()) {
 	NSArray *warnings = MECOSaleItemWarningsForUnaffordableCosts(saleItem);
-	if (warnings.count == 0)
+	if (warnings.count == 0) {
+		MECOSaleItemSubtractCosts(saleItem);
 		block();
+	}
 	return warnings;
 }
