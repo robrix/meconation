@@ -10,7 +10,7 @@
 		75B03C40168F888300515C47 /* Boats.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C37168F888300515C47 /* Boats.png */; };
 		75B03C41168F888300515C47 /* GetAttention.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C38168F888300515C47 /* GetAttention.png */; };
 		75B03C42168F888300515C47 /* Moofin.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C39168F888300515C47 /* Moofin.png */; };
-		75B03C43168F888300515C47 /* Sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3A168F888300515C47 /* Sheep.png */; };
+		75B03C43168F888300515C47 /* SheepBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3A168F888300515C47 /* SheepBubble.png */; };
 		75B03C44168F888300515C47 /* Snakes(Rare).png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3B168F888300515C47 /* Snakes(Rare).png */; };
 		75B03C45168F888300515C47 /* Surprise.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3C168F888300515C47 /* Surprise.png */; };
 		75B03C46168F888300515C47 /* Talking.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3D168F888300515C47 /* Talking.png */; };
@@ -38,7 +38,7 @@
 		CB360BA117B42C0000182886 /* WoolIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB360B9E17B42C0000182886 /* WoolIcon.png */; };
 		CB644CB9174909680052C4EB /* MecoHut.png in Resources */ = {isa = PBXBuildFile; fileRef = CB644CB8174909680052C4EB /* MecoHut.png */; };
 		CB69EF74179307CA0016956F /* BoatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB69EF73179307CA0016956F /* BoatIcon.png */; };
-		CB84C87B1749807B00FF9E0A /* MecoSheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB84C87A1749807B00FF9E0A /* MecoSheep.png */; };
+		CB84C87B1749807B00FF9E0A /* Sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CB84C87A1749807B00FF9E0A /* Sheep.png */; };
 		CB907FB9174A71640073CA7F /* Spawnables.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB907FB8174A71640073CA7F /* Spawnables.plist */; };
 		CB907FBB174A72590073CA7F /* Buildables.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB907FBA174A72590073CA7F /* Buildables.plist */; };
 		CB907FBD174A844B0073CA7F /* IQ.png in Resources */ = {isa = PBXBuildFile; fileRef = CB907FBC174A844B0073CA7F /* IQ.png */; };
@@ -116,7 +116,7 @@
 		75B03C37168F888300515C47 /* Boats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Boats.png; path = MecoArt/Boats.png; sourceTree = "<group>"; };
 		75B03C38168F888300515C47 /* GetAttention.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GetAttention.png; path = MecoArt/GetAttention.png; sourceTree = "<group>"; };
 		75B03C39168F888300515C47 /* Moofin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Moofin.png; path = MecoArt/Moofin.png; sourceTree = "<group>"; };
-		75B03C3A168F888300515C47 /* Sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sheep.png; path = MecoArt/Sheep.png; sourceTree = "<group>"; };
+		75B03C3A168F888300515C47 /* SheepBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SheepBubble.png; path = MecoArt/SheepBubble.png; sourceTree = "<group>"; };
 		75B03C3B168F888300515C47 /* Snakes(Rare).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Snakes(Rare).png"; path = "MecoArt/Snakes(Rare).png"; sourceTree = "<group>"; };
 		75B03C3C168F888300515C47 /* Surprise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Surprise.png; path = MecoArt/Surprise.png; sourceTree = "<group>"; };
 		75B03C3D168F888300515C47 /* Talking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Talking.png; path = MecoArt/Talking.png; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		CB360B9E17B42C0000182886 /* WoolIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WoolIcon.png; path = MecoImages/WoolIcon.png; sourceTree = SOURCE_ROOT; };
 		CB644CB8174909680052C4EB /* MecoHut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoHut.png; sourceTree = "<group>"; };
 		CB69EF73179307CA0016956F /* BoatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BoatIcon.png; path = MecoImages/BoatIcon.png; sourceTree = SOURCE_ROOT; };
-		CB84C87A1749807B00FF9E0A /* MecoSheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MecoSheep.png; sourceTree = "<group>"; };
+		CB84C87A1749807B00FF9E0A /* Sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sheep.png; sourceTree = "<group>"; };
 		CB907FB8174A71640073CA7F /* Spawnables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Spawnables.plist; sourceTree = "<group>"; };
 		CB907FBA174A72590073CA7F /* Buildables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildables.plist; sourceTree = "<group>"; };
 		CB907FBC174A844B0073CA7F /* IQ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IQ.png; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 				75B03C37168F888300515C47 /* Boats.png */,
 				75B03C38168F888300515C47 /* GetAttention.png */,
 				75B03C39168F888300515C47 /* Moofin.png */,
-				75B03C3A168F888300515C47 /* Sheep.png */,
+				75B03C3A168F888300515C47 /* SheepBubble.png */,
 				75B03C3B168F888300515C47 /* Snakes(Rare).png */,
 				75B03C3C168F888300515C47 /* Surprise.png */,
 				75B03C3D168F888300515C47 /* Talking.png */,
@@ -330,7 +330,7 @@
 				CB33048F17D3C63900E0FCBA /* RockMonster.png */,
 				D412FDA31749934C002EEB52 /* MecoCloud.png */,
 				CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */,
-				CB84C87A1749807B00FF9E0A /* MecoSheep.png */,
+				CB84C87A1749807B00FF9E0A /* Sheep.png */,
 				CB33049A17D3D21100E0FCBA /* Cow.png */,
 				CB33049B17D3D21100E0FCBA /* Monster.png */,
 				CB33049C17D3D21100E0FCBA /* Pig.png */,
@@ -571,7 +571,7 @@
 				75B03C40168F888300515C47 /* Boats.png in Resources */,
 				75B03C41168F888300515C47 /* GetAttention.png in Resources */,
 				75B03C42168F888300515C47 /* Moofin.png in Resources */,
-				75B03C43168F888300515C47 /* Sheep.png in Resources */,
+				75B03C43168F888300515C47 /* SheepBubble.png in Resources */,
 				75B03C44168F888300515C47 /* Snakes(Rare).png in Resources */,
 				75B03C45168F888300515C47 /* Surprise.png in Resources */,
 				75B03C46168F888300515C47 /* Talking.png in Resources */,
@@ -584,7 +584,7 @@
 				75F28E981690EEC200481F4B /* Island 2.plist in Resources */,
 				75F28E991690EEC200481F4B /* Island 3.plist in Resources */,
 				CB644CB9174909680052C4EB /* MecoHut.png in Resources */,
-				CB84C87B1749807B00FF9E0A /* MecoSheep.png in Resources */,
+				CB84C87B1749807B00FF9E0A /* Sheep.png in Resources */,
 				D412FDA41749934C002EEB52 /* MecoCloud.png in Resources */,
 				CB907FB9174A71640073CA7F /* Spawnables.plist in Resources */,
 				CB907FBB174A72590073CA7F /* Buildables.plist in Resources */,
