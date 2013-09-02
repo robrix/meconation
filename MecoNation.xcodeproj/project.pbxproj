@@ -74,6 +74,8 @@
 		CBB4DC4A17D4BE1200DD5760 /* Fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4817D4BE1200DD5760 /* Fish.png */; };
 		CBB4DC4D17D4BFF800DD5760 /* Sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4C17D4BFF800DD5760 /* Sheep.png */; };
 		CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCBE30B17D26DD200AFFB4B /* FireIcon.png */; };
+		CBDDDBCE17D4DDFE009BCDDE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDDDBC817D4DDFE009BCDDE /* libTestFlight.a */; };
+		CBDDDBD317D4DE3B009BCDDE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDDDBD117D4DE2B009BCDDE /* libz.dylib */; };
 		CBF8FE4217B2DBC900A01568 /* Island 9.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4117B2DBC900A01568 /* Island 9.plist */; };
 		CBF8FE4417B2DCF600A01568 /* Island 10.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4317B2DCF600A01568 /* Island 10.plist */; };
 		D412FDA41749934C002EEB52 /* MecoCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = D412FDA31749934C002EEB52 /* MecoCloud.png */; };
@@ -184,6 +186,11 @@
 		CBB4DC4817D4BE1200DD5760 /* Fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fish.png; path = MecoImages/Fish.png; sourceTree = SOURCE_ROOT; };
 		CBB4DC4C17D4BFF800DD5760 /* Sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sheep.png; path = MecoImages/Sheep.png; sourceTree = SOURCE_ROOT; };
 		CBCBE30B17D26DD200AFFB4B /* FireIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FireIcon.png; path = MecoImages/FireIcon.png; sourceTree = SOURCE_ROOT; };
+		CBDDDBC817D4DDFE009BCDDE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		CBDDDBCB17D4DDFE009BCDDE /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		CBDDDBCC17D4DDFE009BCDDE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		CBDDDBCD17D4DDFE009BCDDE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		CBDDDBD117D4DE2B009BCDDE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CBF8FE4117B2DBC900A01568 /* Island 9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 9.plist"; sourceTree = "<group>"; };
 		CBF8FE4317B2DCF600A01568 /* Island 10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 10.plist"; sourceTree = "<group>"; };
 		D412FDA31749934C002EEB52 /* MecoCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoCloud.png; path = MecoArt/MecoCloud.png; sourceTree = "<group>"; };
@@ -257,10 +264,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBDDDBD317D4DE3B009BCDDE /* libz.dylib in Frameworks */,
 				D497CB66168E4A830025EC0B /* QuartzCore.framework in Frameworks */,
 				D497CB3F168E408A0025EC0B /* UIKit.framework in Frameworks */,
 				D497CB41168E408A0025EC0B /* Foundation.framework in Frameworks */,
 				D497CB43168E408A0025EC0B /* CoreGraphics.framework in Frameworks */,
+				CBDDDBCE17D4DDFE009BCDDE /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +385,25 @@
 			name = Islands;
 			sourceTree = "<group>";
 		};
+		CBDDDBC617D4DDDE009BCDDE /* External */ = {
+			isa = PBXGroup;
+			children = (
+				CBDDDBC717D4DDFE009BCDDE /* TestFlightSDK2 */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		CBDDDBC717D4DDFE009BCDDE /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				CBDDDBC817D4DDFE009BCDDE /* libTestFlight.a */,
+				CBDDDBCB17D4DDFE009BCDDE /* TestFlight+AsyncLogging.h */,
+				CBDDDBCC17D4DDFE009BCDDE /* TestFlight+ManualSessions.h */,
+				CBDDDBCD17D4DDFE009BCDDE /* TestFlight.h */,
+			);
+			path = TestFlightSDK2;
+			sourceTree = "<group>";
+		};
 		D48E0C6F1690D700008DB678 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +450,7 @@
 		D497CB3D168E408A0025EC0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBDDDBD117D4DE2B009BCDDE /* libz.dylib */,
 				D497CB3E168E408A0025EC0B /* UIKit.framework */,
 				D497CB40168E408A0025EC0B /* Foundation.framework */,
 				D497CB42168E408A0025EC0B /* CoreGraphics.framework */,
@@ -440,6 +469,7 @@
 				D48E0C6F1690D700008DB678 /* Actors */,
 				D497CB64168E4A480025EC0B /* Sprites */,
 				D497CB45168E408A0025EC0B /* Supporting Files */,
+				CBDDDBC617D4DDDE009BCDDE /* External */,
 			);
 			path = MecoNation;
 			sourceTree = "<group>";
@@ -764,7 +794,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MecoNation/MecoNation-Prefix.pch";
 				INFOPLIST_FILE = "MecoNation/MecoNation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MecoNation/External/TestFlightSDK2\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -776,7 +810,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MecoNation/MecoNation-Prefix.pch";
 				INFOPLIST_FILE = "MecoNation/MecoNation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MecoNation/External/TestFlightSDK2\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

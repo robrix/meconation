@@ -134,7 +134,7 @@
 		info.text = [NSString stringWithFormat:@"%@ (%@)", meco.name, meco.job.title ?: @"Unemployed"];
 		info.backgroundColor = [UIColor clearColor];
 		info.textColor = [UIColor blackColor];
-		info.textAlignment = UITextAlignmentCenter;
+		info.textAlignment = NSTextAlignmentCenter;
 		[info sizeToFit];
 		info.center = (CGPoint){
 			CGRectGetMidX(view.bounds),
