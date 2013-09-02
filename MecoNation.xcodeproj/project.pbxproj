@@ -192,6 +192,7 @@
 		D449C31F17D24D3100E8C6FD /* MECOWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOWorld.m; sourceTree = "<group>"; };
 		D483FE1317D40FB500586001 /* MECOSaleItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MECOSaleItem.h; sourceTree = "<group>"; };
 		D483FE1417D410D800586001 /* MECOSaleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOSaleItem.m; sourceTree = "<group>"; };
+		D483FE1617D4304300586001 /* MECOSpriteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MECOSpriteModel.h; sourceTree = "<group>"; };
 		D48E0C781690D732008DB678 /* MECOPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOPerson.h; sourceTree = "<group>"; };
 		D48E0C791690D732008DB678 /* MECOPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECOPerson.m; sourceTree = "<group>"; };
 		D48E0C7C1690D7F0008DB678 /* MECOJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECOJob.h; sourceTree = "<group>"; };
@@ -367,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				D4CA315517D3B5490057D359 /* MECOActor.h */,
+				D483FE1617D4304300586001 /* MECOSpriteModel.h */,
 				D483FE1317D40FB500586001 /* MECOSaleItem.h */,
 				D483FE1417D410D800586001 /* MECOSaleItem.m */,
 				D4E7918817491C4300499234 /* MECOHouse.h */,

@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MECOSpriteModel.h"
 
 @class MECOJob;
 
-@interface MECOPerson : NSObject
+@interface MECOPerson : NSObject <MECOSpriteModel>
 
 +(NSString *)randomName;
 +(MECOPerson *)personWithName:(NSString *)name job:(MECOJob *)job;
@@ -19,8 +19,6 @@
 @property (nonatomic, strong) MECOJob *job;
 
 @property (readonly) NSString *label;
-
-@property (weak) id sprite;
 
 @end
 

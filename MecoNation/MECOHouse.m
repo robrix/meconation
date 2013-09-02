@@ -17,4 +17,6 @@
 	return self;
 }
 
+@synthesize sprite = _sprite;
+
 @end
