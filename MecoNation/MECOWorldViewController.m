@@ -202,12 +202,11 @@
 	[self.currentIsland addPerson:meco];
 }
 
--(NSArray *)spawnables{
-	return @[@"Sheep", @"Meco"];
-}
 -(IBAction)showSpawnMenu:(id)sender {
 	RXOptionSheet *spawnsheet = [RXOptionSheet sheetWithTitle:@"Spawn?" options:self.world.spawnables optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOAnimal *animal) {
-		
+		[self updateWarningLabelForSalePriceWithCosts:MECOSaleItemPurchase(animal, ^{
+			// add the animal to the current island
+		})];
 	}];
 	[spawnsheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
@@ -259,7 +258,7 @@
 -(void)showMecosMenuForJob:(MECOJob *)job {
 	NSArray *mecos = [self.currentIsland.mecos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 	
-	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
+	RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:[NSString stringWithFormat:@"Select a Meco to make a %@", job.title] options:mecos optionTitleKeyPath:@"label" cancellable:NO completionHandler:^(RXOptionSheet *optionSheet, MECOPerson *meco) {
 		[self showFireWarningForMeco:meco assigningJob:job];
 	}];
 	[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
@@ -271,15 +270,9 @@
 	for (MECOPerson *meco in mecos) {
 		if ([meco.job isEqual:(self.world.jobsByTitle[MECOTailorJobTitle])]) {
 			RXOptionSheet *optionSheet = [RXOptionSheet sheetWithTitle:@"Jobs" options:self.world.jobs optionTitleKeyPath:@"title" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOJob *selectedJob) {
-				if (MECOSaleItemIsAffordable(selectedJob))
-				{
+				[self updateWarningLabelForSalePriceWithCosts:MECOSaleItemPurchase(selectedJob, ^{
 					[self showMecosMenuForJob:selectedJob];
-				}
-				else
-				{
-					[self updateWarningLabelForSalePriceWithCosts:MECOSaleItemWarningsForUnaffordableCosts(selectedJob)];
-				}
-				
+				})];
 			}];
 			
 			[optionSheet showFromRect:self.view.bounds inView:self.view animated:YES];
