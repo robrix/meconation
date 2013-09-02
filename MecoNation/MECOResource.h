@@ -38,4 +38,6 @@ extern NSString * const MECOResourceDidChangeNotification;
 
 @property (nonatomic, getter = isAffordable, readonly) bool affordable;
 
+-(void)subtract;
+
 @end
