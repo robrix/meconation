@@ -18,6 +18,8 @@
 
 @property (nonatomic, weak) id<MECOIslandDelegate> delegate;
 
+@property (nonatomic, copy) NSString *name;
+
 @property (strong) UIBezierPath *bezierPath;
 @property CGRect bounds;
 

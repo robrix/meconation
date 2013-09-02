@@ -35,7 +35,9 @@ const CGSize gridSize = {20, 20};
 		allIslands = [NSMutableArray new];
 		NSUInteger islandIndex = 1;
 		while ((path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"Island %u", islandIndex] ofType:@"plist"]) != nil) {
-			[allIslands addObject:[self islandWithYValues:[self yValuesWithContentsOfFile:path]]];
+			MECOIsland *island = [self islandWithYValues:[self yValuesWithContentsOfFile:path]];
+			island.name = [[path lastPathComponent] stringByDeletingPathExtension];
+			[allIslands addObject:island];
 			islandIndex++;
 		}
 	});
