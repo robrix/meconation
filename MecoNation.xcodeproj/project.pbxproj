@@ -18,6 +18,7 @@
 		75B03C48168F888300515C47 /* Weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B03C3F168F888300515C47 /* Weather.png */; };
 		75F28E981690EEC200481F4B /* Island 2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E961690EEC200481F4B /* Island 2.plist */; };
 		75F28E991690EEC200481F4B /* Island 3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75F28E971690EEC200481F4B /* Island 3.plist */; };
+		CB0CE12F17D4D66B00A7E8F6 /* Shark.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0CE12E17D4D66B00A7E8F6 /* Shark.png */; };
 		CB124F2B17D244F40058FA22 /* MECOTornado.png in Resources */ = {isa = PBXBuildFile; fileRef = CB124F2A17D244F40058FA22 /* MECOTornado.png */; };
 		CB124F2F17D249010058FA22 /* IQIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB124F2E17D249010058FA22 /* IQIcon.png */; };
 		CB33049017D3C63900E0FCBA /* RockMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = CB33048F17D3C63900E0FCBA /* RockMonster.png */; };
@@ -71,7 +72,6 @@
 		CBB3AE3617B2D61F004D91E6 /* MecoRuins.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */; };
 		CBB3AE3917B2D863004D91E6 /* Island 8.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB3AE3817B2D862004D91E6 /* Island 8.plist */; };
 		CBB4DC4A17D4BE1200DD5760 /* Fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4817D4BE1200DD5760 /* Fish.png */; };
-		CBB4DC4B17D4BE1200DD5760 /* Shark.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4917D4BE1200DD5760 /* Shark.png */; };
 		CBB4DC4D17D4BFF800DD5760 /* Sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB4DC4C17D4BFF800DD5760 /* Sheep.png */; };
 		CBCBE30C17D26DD200AFFB4B /* FireIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBCBE30B17D26DD200AFFB4B /* FireIcon.png */; };
 		CBF8FE4217B2DBC900A01568 /* Island 9.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBF8FE4117B2DBC900A01568 /* Island 9.plist */; };
@@ -127,6 +127,7 @@
 		75B03C3F168F888300515C47 /* Weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Weather.png; path = MecoArt/Weather.png; sourceTree = "<group>"; };
 		75F28E961690EEC200481F4B /* Island 2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 2.plist"; sourceTree = "<group>"; };
 		75F28E971690EEC200481F4B /* Island 3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 3.plist"; sourceTree = "<group>"; };
+		CB0CE12E17D4D66B00A7E8F6 /* Shark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shark.png; path = MecoImages/Shark.png; sourceTree = SOURCE_ROOT; };
 		CB124F2A17D244F40058FA22 /* MECOTornado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MECOTornado.png; path = MecoImages/MECOTornado.png; sourceTree = SOURCE_ROOT; };
 		CB124F2E17D249010058FA22 /* IQIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IQIcon.png; path = MecoImages/IQIcon.png; sourceTree = SOURCE_ROOT; };
 		CB33048F17D3C63900E0FCBA /* RockMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RockMonster.png; path = MecoImages/RockMonster.png; sourceTree = SOURCE_ROOT; };
@@ -181,7 +182,6 @@
 		CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MecoRuins.png; path = MecoImages/MecoRuins.png; sourceTree = SOURCE_ROOT; };
 		CBB3AE3817B2D862004D91E6 /* Island 8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 8.plist"; sourceTree = "<group>"; };
 		CBB4DC4817D4BE1200DD5760 /* Fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fish.png; path = MecoImages/Fish.png; sourceTree = SOURCE_ROOT; };
-		CBB4DC4917D4BE1200DD5760 /* Shark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shark.png; path = MecoImages/Shark.png; sourceTree = SOURCE_ROOT; };
 		CBB4DC4C17D4BFF800DD5760 /* Sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sheep.png; path = MecoImages/Sheep.png; sourceTree = SOURCE_ROOT; };
 		CBCBE30B17D26DD200AFFB4B /* FireIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FireIcon.png; path = MecoImages/FireIcon.png; sourceTree = SOURCE_ROOT; };
 		CBF8FE4117B2DBC900A01568 /* Island 9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Island 9.plist"; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 				CBB3AE3517B2D61F004D91E6 /* MecoRuins.png */,
 				CBB4DC4C17D4BFF800DD5760 /* Sheep.png */,
 				CBB4DC4817D4BE1200DD5760 /* Fish.png */,
-				CBB4DC4917D4BE1200DD5760 /* Shark.png */,
+				CB0CE12E17D4D66B00A7E8F6 /* Shark.png */,
 				CB33049A17D3D21100E0FCBA /* Cow.png */,
 				CB33049B17D3D21100E0FCBA /* Monster.png */,
 				CB33049C17D3D21100E0FCBA /* Pig.png */,
@@ -648,8 +648,8 @@
 				CB3304A317D4325600E0FCBA /* TraderIcon.png in Resources */,
 				CB3304A517D4B6C400E0FCBA /* HouseIcon.png in Resources */,
 				CBB4DC4A17D4BE1200DD5760 /* Fish.png in Resources */,
-				CBB4DC4B17D4BE1200DD5760 /* Shark.png in Resources */,
 				CBB4DC4D17D4BFF800DD5760 /* Sheep.png in Resources */,
+				CB0CE12F17D4D66B00A7E8F6 /* Shark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
