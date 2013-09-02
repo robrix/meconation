@@ -7,9 +7,10 @@
 //
 
 #import "MECOSaleItem.h"
+#import "MECOSpriteModel.h"
 @class MECOResource, MECOResourceCost;
 
-@interface MECOAnimal : NSObject <MECOSaleItem, NSCopying>
+@interface MECOAnimal : NSObject <MECOSaleItem, MECOSpriteModel, NSCopying>
 
 +(NSArray *)animalsWithWorld:(MECOWorld *)world;
 

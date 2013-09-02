@@ -18,6 +18,8 @@
 
 @implementation MECOAnimal
 
+@synthesize sprite = _sprite;
+
 +(NSArray *)animalsWithWorld:(MECOWorld *)world {
 	static NSArray *allAnimals = nil;
 	static dispatch_once_t onceToken;
@@ -30,7 +32,7 @@
 			MECOResource *resourceGiven = world.resourcesByName[animalDictionary[@"resourceGiven"]];
 			MECOResource *rareResourceGiven = world.resourcesByName[animalDictionary[@"rareResourceGiven"]];
 			float resourceAmount = [animalDictionary[@"resourceAmount"] floatValue];
-			MECOResourceCost *cost = [MECOResourceCost costWithResource:world.resourcesByName[@"iq"] quantity:[animalDictionary[@"IQCost"] floatValue]];
+			MECOResourceCost *cost = [MECOResourceCost costWithResource:world.resourcesByName[@"IQ"] quantity:[animalDictionary[@"IQCost"] floatValue]];
 			
 			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount costs:@[cost]]];
 		}
