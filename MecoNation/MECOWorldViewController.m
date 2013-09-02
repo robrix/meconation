@@ -205,7 +205,7 @@
 -(IBAction)showSpawnMenu:(id)sender {
 	RXOptionSheet *spawnsheet = [RXOptionSheet sheetWithTitle:@"Spawn?" options:self.world.spawnables optionTitleKeyPath:@"name" cancellable:YES completionHandler:^(RXOptionSheet *optionSheet, MECOAnimal *animal) {
 		[self updateWarningLabelForSalePriceWithCosts:MECOSaleItemPurchase(animal, ^{
-			// add the animal to the current island
+			[self.currentIsland addAnimalsObject:animal];
 		})];
 	}];
 	[spawnsheet showFromRect:self.view.bounds inView:self.view animated:YES];
