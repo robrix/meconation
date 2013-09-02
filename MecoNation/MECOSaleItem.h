@@ -16,3 +16,10 @@
 
 extern NSArray *MECOSaleItemWarningsForUnaffordableCosts(id<MECOSaleItem> saleItem);
 extern bool MECOSaleItemIsAffordable(id<MECOSaleItem> saleItem);
+
+/**
+ Subtracts the costs from their respective resources and runs the block if the item can be afforded.
+ 
+ @return An empty array if the sale item could be afforded, or an array of warnings about the unaffordable costs otherwise.
+ */
+extern NSArray *MECOSaleItemPurchase(id<MECOSaleItem> saleItem, void(^block)());

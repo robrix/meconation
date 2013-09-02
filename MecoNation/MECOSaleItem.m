@@ -35,3 +35,11 @@ bool MECOSaleItemIsAffordable(id<MECOSaleItem> saleItem) {
 	}
 	return isAffordable;
 }
+
+
+NSArray *MECOSaleItemPurchase(id<MECOSaleItem> saleItem, void(^block)()) {
+	NSArray *warnings = MECOSaleItemWarningsForUnaffordableCosts(saleItem);
+	if (warnings.count == 0)
+		block();
+	return warnings;
+}
