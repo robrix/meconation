@@ -12,7 +12,7 @@
 NSString *MECOSaleItemWarningForCost(MECOResourceCost *cost) {
 	return cost.isAffordable?
 		nil
-	:	[NSString stringWithFormat:@"You need %g %@, but only have %g", cost.quantity, cost.resource.name, cost.resource.quantity];
+	:	[NSString stringWithFormat:@"You need %g %@", cost.quantity, cost.resource.name];
 }
 
 NSArray *MECOSaleItemWarningsForUnaffordableCosts(id<MECOSaleItem> saleItem) {

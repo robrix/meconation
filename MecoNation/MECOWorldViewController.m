@@ -86,6 +86,9 @@
 -(void) updateWarningLabelForBoats {
 	[self updateWarningLabelWithText:@"You will need an explorer to use a boat..."];
 }
+-(void) updateWarningLabelForSalePriceWithCosts: (NSArray *) costs {
+	[self updateWarningLabelWithText:[costs componentsJoinedByString:@", "]];
+}
 
 -(void)updateWarningLabelWithText:(NSString *)text {
 	self.warningLabel.text = text;
@@ -274,7 +277,7 @@
 				}
 				else
 				{
-					[]
+					[self updateWarningLabelForSalePriceWithCosts:MECOSaleItemWarningsForUnaffordableCosts(selectedJob)];
 				}
 				
 			}];
