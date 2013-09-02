@@ -10,6 +10,12 @@
 #import "MECOAnimal.h"
 #import "MECOResource.h"
 
+@interface MECOAnimal ()
+
+@property (nonatomic, copy) NSArray *costs;
+
+@end
+
 @implementation MECOAnimal
 
 +(NSArray *)animalsWithWorld:(MECOWorld *)world {
@@ -26,20 +32,21 @@
 			float resourceAmount = [animalDictionary[@"resourceAmount"] floatValue];
 			MECOResourceCost *cost = [MECOResourceCost costWithResource:world.resourcesByName[@"iq"] quantity:[animalDictionary[@"IQCost"] floatValue]];
 			
-			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount cost:cost]];
+			[animals addObject:[MECOAnimal animalWithName:name image:image resourceGiven:resourceGiven rareResourceGiven:rareResourceGiven resourceAmount:resourceAmount costs:@[cost]]];
 		}
 		allAnimals = animals;
 	});
 	return allAnimals;
 }
 
-+(MECOAnimal *)animalWithName:(NSString *)name image:(UIImage *)image resourceGiven:(MECOResource *)resourceGiven rareResourceGiven:(MECOResource *)rareResourceGiven  resourceAmount:(float)resourceAmount cost:(MECOResourceCost *)cost {
++(MECOAnimal *)animalWithName:(NSString *)name image:(UIImage *)image resourceGiven:(MECOResource *)resourceGiven rareResourceGiven:(MECOResource *)rareResourceGiven  resourceAmount:(float)resourceAmount costs:(NSArray *)costs {
 	MECOAnimal *animals = [self new];
 	animals.name = name;
 	animals.image = image;
 	animals.resourceGiven = resourceGiven;
 	animals.rareResourceGiven = rareResourceGiven;
 	animals.resourceAmount = resourceAmount;
+	animals.costs = costs;
 	return animals;
 }
 
@@ -53,7 +60,7 @@
 	animal.resourceGiven = self.resourceGiven;
 	animal.rareResourceGiven = self.rareResourceGiven;
 	animal.resourceAmount = self.resourceAmount;
-	animal.cost = self.cost;
+	animal.costs = self.costs;
 	return animal;
 }
 

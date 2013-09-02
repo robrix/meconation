@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Micah Merswolke. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MECOSaleItem.h"
 @class MECOResource, MECOResourceCost;
 
-@interface MECOAnimal : NSObject <NSCopying>
+@interface MECOAnimal : NSObject <MECOSaleItem, NSCopying>
 
 +(NSArray *)animalsWithWorld:(MECOWorld *)world;
 
@@ -18,6 +18,5 @@
 @property MECOResource *resourceGiven;
 @property MECOResource *rareResourceGiven;
 @property float resourceAmount;
-@property MECOResourceCost *cost;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Micah Merswolke. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MECOSaleItem.h"
 #import "MECOJobResponsibility.h"
 
 extern NSString * const MECOScientistJobTitle;
@@ -28,7 +28,7 @@ extern NSString * const MECOUnemployedJobTitle;
 
 @class MECOPerson;
 
-@interface MECOJob : NSObject
+@interface MECOJob : NSObject <MECOSaleItem>
 
 +(NSArray *)jobsWithWorld:(MECOWorld *)world;
 +(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities costs:(NSArray *)costs;
