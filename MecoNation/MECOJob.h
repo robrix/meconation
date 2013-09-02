@@ -31,11 +31,12 @@ extern NSString * const MECOUnemployedJobTitle;
 @interface MECOJob : NSObject
 
 +(NSArray *)jobsWithWorld:(MECOWorld *)world;
-+(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities;
++(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities costs:(NSArray *)costs;
 
-@property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) UIImage *costumeImage;
-@property (nonatomic, readonly) NSArray *responsibilities;
+@property (nonatomic, copy, readonly) NSString *title;
+@property (nonatomic, strong, readonly) UIImage *costumeImage;
+@property (nonatomic, copy, readonly) NSArray *responsibilities;
+@property (nonatomic, copy, readonly) NSArray *costs;
 
 -(void)personWillQuit:(MECOPerson *)person;
 -(void)personDidStart:(MECOPerson *)person;

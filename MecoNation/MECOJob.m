@@ -7,6 +7,7 @@
 //
 
 #import "MECOJob.h"
+#import "MECOResource.h"
 
 NSString * const MECOScientistJobTitle = @"Scientist";
 NSString * const MECOTailorJobTitle = @"Tailor";
@@ -27,16 +28,14 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 
 @interface MECOJob ()
 
-@property (strong, readwrite) NSString *title;
-@property (strong, readwrite) UIImage *costumeImage;
-@property (strong, readwrite) NSArray *responsibilities;
+@property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, strong, readwrite) UIImage *costumeImage;
+@property (nonatomic, copy, readwrite) NSArray *responsibilities;
+@property (nonatomic, copy, readwrite) NSArray *costs;
 
 @end
 
 @implementation MECOJob
-
-@synthesize title = _title;
-@synthesize costumeImage = _costumeImage;
 
 +(NSArray *)jobsWithWorld:(MECOWorld *)world {
 	static NSArray *allJobs = nil;
@@ -55,18 +54,27 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 				[responsibilities addObject:responsibility];
 			}
 			
-			[jobs addObject:[MECOJob jobWithTitle:title costumeImage:costumeImage responsibilities:responsibilities]];
+			NSMutableArray *costs = [NSMutableArray new];
+			for (NSDictionary *costDictionary in jobDictionary[@"costs"]) {
+				MECOResource *resource = world.resourcesByName[costDictionary[@"resource"]];
+				float quantity = [costDictionary[@"quantity"] floatValue];
+				MECOResourceCost *cost = [MECOResourceCost costWithResource:resource quantity:quantity];
+				[costs addObject:cost];
+			}
+			
+			[jobs addObject:[MECOJob jobWithTitle:title costumeImage:costumeImage responsibilities:responsibilities costs:costs]];
 		}
 		allJobs = jobs;
 	});
 	return allJobs;
 }
 
-+(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities {
++(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities costs:(NSArray *)costs {
 	MECOJob *job = [self new];
 	job.title = title;
 	job.costumeImage = costumeImage;
 	job.responsibilities = responsibilities;
+	job.costs = costs;
 	return job;
 }
 
