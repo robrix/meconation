@@ -16,7 +16,7 @@
 +(MECOPerson *)personWithName:(NSString *)name job:(MECOJob *)job;
 
 @property (copy, readonly) NSString *name;
-@property (nonatomic, strong) MECOJob *job;
+@property (nonatomic, copy) MECOJob *job;
 
 @property (readonly) NSString *label;
 

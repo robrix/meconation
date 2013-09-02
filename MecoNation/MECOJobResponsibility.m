@@ -48,4 +48,10 @@
 	}
 }
 
+#pragma mark NSCopying
+
+-(instancetype)copyWithZone:(NSZone *)zone {
+	return [self.class responsibilityWithRate:self.rate];
+}
+
 @end

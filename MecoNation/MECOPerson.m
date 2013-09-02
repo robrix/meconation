@@ -60,7 +60,7 @@
 		[[NSNotificationCenter defaultCenter] postNotificationName:MECOPersonWillQuitJobNotification object:self];
 		
 		
-		_job = job;
+		_job = [job copy];
 		
 		[self.job personDidStart:self];
 		

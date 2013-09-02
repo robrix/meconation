@@ -28,7 +28,7 @@ extern NSString * const MECOUnemployedJobTitle;
 
 @class MECOPerson;
 
-@interface MECOJob : NSObject <MECOSaleItem>
+@interface MECOJob : NSObject <NSCopying, MECOSaleItem>
 
 +(NSArray *)jobsWithWorld:(MECOWorld *)world;
 +(MECOJob *)jobWithTitle:(NSString *)title costumeImage:(UIImage *)costumeImage responsibilities:(NSArray *)responsibilities costs:(NSArray *)costs;

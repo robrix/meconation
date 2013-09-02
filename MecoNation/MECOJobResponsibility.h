@@ -7,7 +7,7 @@
 
 @class MECOPerson, MECOResourceRate;
 
-@protocol MECOJobResponsibility <NSObject, MECOActor>
+@protocol MECOJobResponsibility <NSObject, NSCopying, MECOActor>
 
 +(instancetype)responsibilityWithDictionary:(NSDictionary *)dictionary world:(MECOWorld *)world;
 

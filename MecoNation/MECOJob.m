@@ -104,4 +104,11 @@ NSString * const MECOUnemployedJobTitle = @"Unemployed";
 	&&	[self isEqualToJob:object];
 }
 
+
+#pragma mark NSCopying
+
+-(instancetype)copyWithZone:(NSZone *)zone {
+	return [self.class jobWithTitle:self.title costumeImage:self.costumeImage responsibilities:[self.responsibilities copy] costs:self.costs];
+}
+
 @end
