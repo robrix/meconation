@@ -14,4 +14,5 @@
 
 @end
 
+extern NSArray *MECOSaleItemWarningsForUnaffordableCosts(id<MECOSaleItem> saleItem);
 extern bool MECOSaleItemIsAffordable(id<MECOSaleItem> saleItem);
