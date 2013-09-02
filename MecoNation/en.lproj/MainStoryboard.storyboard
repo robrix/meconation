@@ -341,6 +341,7 @@
                 <relationship kind="outlet" name="islandIdentifier" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="leafCount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="leatherCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mecoIslandPopulationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mecoPopulationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="stoneCount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
